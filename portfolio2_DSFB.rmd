@@ -1,0 +1,14 @@
+# Portfolio assignment 2
+
+plying the Guerrilla analytics framework to your own project.
+
+1. Look at your RStudio project that you created for the DAUR-II final assignment
+2. Rearrange your project according the Guerilla principles explained above
+3. Add README files to the datasets
+4. Use the {fs} package to share a screenshot of your folder tree in your portfolio, look at: for more info on how to use the {fs} package.  
+B. Now clean up your work environment for this course (workflows) and the parallel course in DSFB2 (projecticum). Set up a folder structure that will accomodate future plans and collaboration on the projecticum. Provide readme-files or comments within the code where needed.
+
+```{r}
+dir_tree("/Users/larsd/Documents/R/DSFB/DAUR2_eindopdracht", recurse = TRUE)
+```
+

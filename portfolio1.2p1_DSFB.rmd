@@ -1,0 +1,51 @@
+# Portfolio assignment 1.2 part 1
+***
+This exercise is about identifying reproducibility issues in a scientific publication. We use the criteria for reproduciblity that are publically available [via here](https://www.researchgate.net/deref/https%3A%2F%2Fwww.ripeta.com%2Fuploads%2F7%2F4%2F8%2F7%2F7487334%2Fripeta_approach_and_criteria_definitions.pdf).
+
+Article used: [A retrospective cluster analysis of COVID-19 cases by county](https://www.biorxiv.org/content/10.1101/2020.11.12.379537v1)
+***
+
+### Score:
+
+| Transparency Criteria| Definition       | Score |
+|---------|-------------------------------|----------|
+|Study Purpose |A concise statement in the introduction of the article, often in the last paragraph, that establishes the reason the research was conducted. Also called the study objective.| TRUE | 
+|Data Availability Statement | A statement, in an individual section offset from the main body of text, that explains how or if one can access a study’s data. The title of the section may vary, but it must explicitly mention data; it is therefore distinct from a supplementary materials section.| TRUE |
+|Data Location | Where the article’s data can be accessed, either raw or processed.| TRUE |
+|Study Location| Author has stated in the methods section where the study took place or the data’s country/region of origin.| TRUE |
+|Author Review| The professionalism of the contact information that the author has provided in the manuscript.| TRUE |
+|Ethics Statement | A statement within the manuscript indicating any ethical concerns, including the presence of sensitive data.| FALSE |
+|Funding Statement| A statement within the manuscript indicating whether or not the authors received funding for their research.| FALSE |
+Code Availability | Authors have shared access to the most updated code that they used in their study, including code used for analysis. | TRUE |
+
+### Explanation:
+
+At the top of the article the authors names are displayed, with the names of the universities the study at or are part of. Of one of the authors the email is given. This information falls under the `author review` criteria. this information is sufficient for the goal of open science in this case because email, department and phone number information can be found online for these scientist. however this might not always be the case so the availability of the email address of the paper is appreciated.   
+
+The article aims to better understand the pattern of outbreaks of COVID-19 within the US. it states this as a  `study purpose` at the end of the introduction paragraph. it then continuous to formulate 3 research questions which further clarifies the `study purpose`:  
+
+1. How many distinct clusters of counties exhibit similar COVID-19 patterns in the time-series of daily confirmed cases?
+2. What is the geographic distribution of the counties within each cluster? 
+3. Are county-level demographic, socioeconomic and political variables associated with the COVID-19 case patterns?
+
+the article then starts to give a detailed description of the methods used in the study, it does this in stages. In the paragraph _Stage 0: Data Acquisition and Preprocessing_, it starts with explaining what the sources are for the data used in the study. this is a example of the criteria `data location`. However no link was supplied. At further inspection the data used here came from the R package `'COVID-19'`, And in the references it does specify the date of accessing the data hub. Also the locations of supplementary data that wasn't taken from other sources is listed in the same paragraph. However not all of the links provided work anymore.
+
+```{r}
+working_links <- tibble("Data used" = c("Rural and Underserved Counties List", "Population Density", "Voting Results", "Governor’s Party Affiliation", "Health Variables", "Region"),
+                        "Link Provided" = c("https://www.consumerfinance.gov/documents/8911/cfpbrural-underserved-list2020.csv", "https://www2.census.gov/library/publications/2011/compendia/usacounties/excel/LND01.xls","https://doi.org/10.7910/DVN/VOQCHQ","https://en.wikipedia.org/w/index.php?title=ListofUnitedStatesgovernors&oldid=977828843","https://khn.org/news/as-coronavirus-spreadswidely-millionsof-older-americans-live-in-counties-with-no-icu-beds/#lookup","https://www.cdc.gov/coordinatedchronic/docs/nccdphp-regions-map.pdf"),
+                        "Link working?" = c(F, F, T, T, F, F)
+                        )
+
+knitr::kable(working_links)
+```
+
+This shows how simply providing links to data used isn't enough because the validity of the repository which host the data isn't always guaranteed. but later in the article under _Supporting information_ it also links to a github page. This is a great example of open science because the `data location` where the data originates from is stated, and a neat collection of data used within the study is given.   
+
+within this same paragraph it is stated: "To capture the progression of disease in the U.S., the number of confirmed COVID-19 cases at the county level from March 1, 2020 through October 24, 2020 was extracted from the COVID-19 data hub [4]. Only data from the contiguous 48 states were included." In this sentence the region of origin of the data is described, thus the criteria `Study location` has been met.
+
+Under acknowledgements is where you would expect there to a funding statement. But it simple states none. hereby it is neither denied or confirmed that this study is funded so this article does not meet the criteria `Funding statement`.
+
+After the references there is _supporting information_ paragraph, which states what program was used (R), the version (4.0.2), and gives a link to a github page, which sadly no longer works. But the user page can be derivated from the link and so the data used (raw and processed) can be accesed. which is why the article meets the criteria `Data Availability Statement` and `Code Availability`.
+
+Futher more no ethical concerns were raised in the article so it doesn't meet the criteria `Ethics Statement`. However this considering the way the study was conducted, there was no need for a ethics statement.
+

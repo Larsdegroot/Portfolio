@@ -1,0 +1,19 @@
+---
+title: "Portfolio of DSFB"
+author: "Lars de Groot"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+new_session: yes
+---
+
+```{r}
+require(tidyverse)
+require(readxl)
+require(here)
+require(fs)
+require(dslabs)
+require(DBI)
+```
+
