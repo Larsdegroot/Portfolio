@@ -4,9 +4,18 @@ export <- function(x, path){
   saveRDS(x, file = paste0(path, ".rds"))
 }
 
+#Show basic info about a dataframe
+general_inspection <- function(df, x, y){
 
-filecsv <- here("7_data", x)), "_tidy.csv")
-filerds <- paste0(paste0(here("7_data", x)), "_tidy.rds")
-for (x in c("flu", "dengue", "gapminder")) {
+  dim <- dim(df)
+  paste("This data frame has", as.character(dim[2]), "columns:", str_c(names(df), collapse = ", ")) %>% print()
+  paste("And", as.character(dim[1]), "rows") %>% print()
+
+  df %>% summary() %>% print()
+
+  ggplot(df, aes(x = x ,y = y)) +
+    geom_point()
 
 }
+
+

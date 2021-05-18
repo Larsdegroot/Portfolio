@@ -1,7 +1,7 @@
 # Portfolio assignment 7
 
 ```{r}
-source(here("7_data/port_src7.R"))
+source(here("src/port_src7.R"))
 ```
 
 ## 1. Load the flu (“./data/flu_data.csv), the dengue (.”/data/dengue_data.csv) and the gapminder ({dslabs} package) into three separate dataframes in R
@@ -39,7 +39,7 @@ dengue$country <- as.factor(dengue$country)
 
 dengue <- dengue %>% 
             group_by(year, country) %>% 
-            summarise("country" = country, "dengue activity" = sum(value, na.rm = T)) %>%
+            summarise("country" = country, "dengue_activity" = sum(value, na.rm = T)) %>%
             unique()
 
 head(dengue)
@@ -53,7 +53,7 @@ flu$country <- as.factor(flu$country)
 
 flu <- flu %>% 
         group_by(year, country) %>% 
-        summarise("country" = country, "influenza activity" = sum(value, na.rm = T)) %>%
+        summarise("country" = country, "influenza_activity" = sum(value, na.rm = T)) %>%
         unique()
 
 head(flu)
@@ -70,7 +70,14 @@ for (x in c("flu", "dengue", "gapminder")) {
 
 
 ## 5. In Dbeaver create a new PostgreSQL database “workflowsdb”
-### 6. Using RPostgreSQL, insert the tables into the database.
+
+```{r, fig.cap = "The workflows database in Dbeaver."}
+knitr::include_graphics(here("7_data/workflowsdb_in_Dbeaver.JPG"))
+```
+
+![Workflows database in DBeaver](/)
+
+## 6. Using RPostgreSQL, insert the tables into the database.
 
 ```{r, eval=FALSE}
 psswd <- .rs.askForPassword("Database Password:")
@@ -82,31 +89,60 @@ con <- dbConnect(RPostgres::Postgres(),
                  user="postgres", 
                  password=psswd)
 
-dbWriteTable(con, "dengue data", dengue)
-dbWriteTable(con, "flu data", flu)
-dbWriteTable(con, "gapminder data", gapminder)
+dbWriteTable(con, "dengue data", dengue, overwrite = T)
+dbWriteTable(con, "flu data", flu, overwrite = T)
+dbWriteTable(con, "gapminder data", gapminder, overwrite = T)
 
 ```
 
 
-Inspect the contents of the tables with SQL (in DBeaver) and save the SQL script.
+## 7. Inspect the contents of the tables with SQL (in DBeaver) and save the SQL script.
 
 ```{sql connection= con}
-SELECT count(*)  FROM "dengue data";
-
+SELECT *  FROM "dengue data";
+```
+```{sql connection= con}
+SELECT *  FROM "flu data";
 ```
 
-```{r}
+```{sql connection= con}
+SELECT *  FROM "gapminder data";
+```
+
+
+```{r, eval=FALSE}
 dbDisconnect(con)
 ```
 
+## 8. Inspect the contents of the tables with dplyr (in R) and save a RMarkdown showing what you are doing.
+
+```{r i want to improve this chunk}
+flu <- dbReadTable(conn = con, "flu data")
+dengue <- dbReadTable(conn = con, "dengue data")
+gapminder <- dbReadTable(conn = con, "gapminder data")
+```
 
 
+```{r ask about this chunk, eval=FALSE}
+db_names<- paste(c("flu", "dengue", "gapminder"), "data", sep = " ")
+
+for (i in db_names){
+   <- dbReadTable(con, i) 
+}
+
+replicate(db_names, dbReadTable(), conn = con)
+
+# im trying to pass conn = con to dbreadtable (...)
+#the goal is to 
+lst(db_names)
+```
+```{r}
+
+```
 
 
-Inspect the contents of the tables with dplyr (in R) and save a RMarkdown showing what you are doing.
+## 9. Load the gapminder data in R and change the dataframe in such as way that you could join it to dengue and flue.
 
-Load the gapminder data in R and change the dataframe in such as way that you could join it to dengue and flue.
 
 Save this clean gapminder data in the “workflowsdb” database
 

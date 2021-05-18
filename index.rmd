@@ -15,5 +15,8 @@ require(here)
 require(fs)
 require(dslabs)
 require(DBI)
+require(RPostgreSQL)
+require(remotes)
+require(RPostgres)
 ```
 
