@@ -93,6 +93,8 @@ normalized_ce_data %>% ggplot(aes(x = log10(compConcentration), y = norm_data)) 
 
 K. Why would you want to take the step under J?
 
-all value's are now a measure depended on the control negative. this is useful because now all measures are on the same scale.
-(i dont fully understand this, ask teacher)
+this eliminates natural and extraneous variation between groups. After normalization all groups fall on the same scale of 0 - 1. 
+
+
+
 
