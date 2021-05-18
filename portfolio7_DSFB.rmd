@@ -1,5 +1,9 @@
 # Portfolio assignment 7
 
+```{r}
+source(here("7_data/port_src7.R"))
+```
+
 ## 1. Load the flu (“./data/flu_data.csv), the dengue (.”/data/dengue_data.csv) and the gapminder ({dslabs} package) into three separate dataframes in R
 
 ```{r}
@@ -14,7 +18,7 @@ head(gapminder)
 
 ## 2. Check if they are in the right shape. Is the data in the ‘tidy’ format? If not change the format to ‘tidy’
 
-```{r}
+```{r 7.2}
 dengue <- dengue %>% pivot_longer(Argentina:Venezuela, names_to = "country", values_to = "value")
 head(dengue)
 
@@ -26,7 +30,7 @@ head(flu)
 
 ## 3. Change the country and date variables of the three tables so that they coincide in terms of data type, class and values
 
-```{r}
+```{r 7.3}
 dengue <- dengue %>% separate("Date", into = c("year", "month", "day"), sep = "-") 
 
 dengue <- dengue[-c(2,3)] 
@@ -34,8 +38,10 @@ dengue$year <- as.integer(dengue$year)
 dengue$country <- as.factor(dengue$country)
 
 dengue <- dengue %>% 
-            group_by(year) %>% 
-            summarise("country" = country, "dengue activity" = sum(value, na.rm = T))
+            group_by(year, country) %>% 
+            summarise("country" = country, "dengue activity" = sum(value, na.rm = T)) %>%
+            unique()
+
 head(dengue)
 
 
@@ -46,20 +52,18 @@ flu$year <- as.integer(flu$year)
 flu$country <- as.factor(flu$country)
 
 flu <- flu %>% 
-        group_by(year) %>% 
-        summarise("country" = country, "influenza activity" = sum(value, na.rm = T))
+        group_by(year, country) %>% 
+        summarise("country" = country, "influenza activity" = sum(value, na.rm = T)) %>%
+        unique()
 
-flu
+head(flu)
 ```
 
 ## 4. Store the three tables as separate (so six in total) .csv and .rds files.
 
 ```{r}
 for (x in c("flu", "dengue", "gapminder")) {
-  filecsv <- paste0(paste0(here("7_data", x)), "_tidy.csv") 
-  filerds <- paste0(paste0(here("7_data", x)), "_tidy.rds")
-  write.csv(get(x), file = filecsv)
-  saveRDS(get(x), file = filerds)
+  export(get(x), path = paste0(here("7_data//"), x))
 }
 
 ```
@@ -68,20 +72,20 @@ for (x in c("flu", "dengue", "gapminder")) {
 ## 5. In Dbeaver create a new PostgreSQL database “workflowsdb”
 ### 6. Using RPostgreSQL, insert the tables into the database.
 
-```{r}
+```{r, eval=FALSE}
+psswd <- .rs.askForPassword("Database Password:")
+
 con <- dbConnect(RPostgres::Postgres(), 
                  dbname = "workflowsdb", 
                  host="localhost", 
                  port="5432", 
                  user="postgres", 
-                 password="NEWkidsweek123") 
-```
+                 password=psswd)
 
-
-```{r, eval=FALSE}
 dbWriteTable(con, "dengue data", dengue)
 dbWriteTable(con, "flu data", flu)
 dbWriteTable(con, "gapminder data", gapminder)
+
 ```
 
 
