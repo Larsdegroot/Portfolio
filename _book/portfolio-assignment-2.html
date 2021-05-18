@@ -32,7 +32,7 @@
   
 <link rel="prev" href="portfolio-assignment-1-2-part-2.html"/>
 <link rel="next" href="portfolio-assignment-7.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -178,48 +178,104 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the {fs} package to share a screenshot of your folder tree in your portfolio, look at: for more info on how to use the {fs} package.<br />
 B. Now clean up your work environment for this course (workflows) and the parallel course in DSFB2 (projecticum). Set up a folder structure that will accomodate future plans and collaboration on the projecticum. Provide readme-files or comments within the code where needed.</li>
 </ol>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="portfolio-assignment-2.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_tree</span>(<span class="st">&quot;/Users/larsd/Documents/R/DSFB/DAUR2_eindopdracht&quot;</span>, <span class="at">recurse =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="portfolio-assignment-2.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_tree</span>(<span class="st">&quot;/Users/larsd/Documents/R/DSFB/DAUR2_eindopdracht&quot;</span>, <span class="at">recurse =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## /Users/larsd/Documents/R/DSFB/DAUR2_eindopdracht
 ## +-- DAUR2_eindopdracht.Rproj
 ## +-- DAUR2_eindopdracht_v1.Rmd
 ## +-- DAUR2_eindopdracht_v2.Rmd
 ## +-- DAUR2_eindopdracht_v3.Rmd
+## +-- DAUR2_eindopdracht_v4.Rmd
+## +-- DAUR2_eindopdracht_v5.Rmd
+## +-- DAUR2_eindopdracht_v6.Rmd
+## +-- DAUR2_eindopdracht_v7.Rmd
+## +-- images
+## |   \-- seqalignmentv6.jpeg
 ## +-- index.Rmd
+## +-- rsconnect
+## |   \-- documents
+## |       \-- index.Rmd
+## |           \-- bookdown.org
+## |               \-- larsdgsp
+## |                   \-- DAUR2_eindopdracht.dcf
 ## +-- supplementory
 ## |   \-- vragen_eindopdracht_Daniel_Lars[2430].docx
-## \-- _book
-##     +-- libs
-##     |   +-- anchor-sections-1.0.1
-##     |   |   +-- anchor-sections.css
-##     |   |   \-- anchor-sections.js
-##     |   +-- gitbook-2.6.7
-##     |   |   +-- css
-##     |   |   |   +-- fontawesome
-##     |   |   |   |   \-- fontawesome-webfont.ttf
-##     |   |   |   +-- plugin-bookdown.css
-##     |   |   |   +-- plugin-clipboard.css
-##     |   |   |   +-- plugin-fontsettings.css
-##     |   |   |   +-- plugin-highlight.css
-##     |   |   |   +-- plugin-search.css
-##     |   |   |   +-- plugin-table.css
-##     |   |   |   \-- style.css
-##     |   |   \-- js
-##     |   |       +-- app.min.js
-##     |   |       +-- clipboard.min.js
-##     |   |       +-- jquery.highlight.js
-##     |   |       +-- lunr.js
-##     |   |       +-- plugin-bookdown.js
-##     |   |       +-- plugin-clipboard.js
-##     |   |       +-- plugin-fontsettings.js
-##     |   |       +-- plugin-search.js
-##     |   |       \-- plugin-sharing.js
-##     |   +-- header-attrs-2.7
-##     |   |   \-- header-attrs.js
-##     |   \-- jquery-2.2.3
-##     |       \-- jquery.min.js
-##     +-- reference-keys.txt
-##     +-- search_index.json
-##     \-- _main.html</code></pre>
+## +-- _book
+## |   +-- images
+## |   |   \-- seqalignmentv6.jpeg
+## |   +-- libs
+## |   |   +-- anchor-sections-1.0.1
+## |   |   |   +-- anchor-sections.css
+## |   |   |   \-- anchor-sections.js
+## |   |   +-- gitbook-2.6.7
+## |   |   |   +-- css
+## |   |   |   |   +-- fontawesome
+## |   |   |   |   |   \-- fontawesome-webfont.ttf
+## |   |   |   |   +-- plugin-bookdown.css
+## |   |   |   |   +-- plugin-clipboard.css
+## |   |   |   |   +-- plugin-fontsettings.css
+## |   |   |   |   +-- plugin-highlight.css
+## |   |   |   |   +-- plugin-search.css
+## |   |   |   |   +-- plugin-table.css
+## |   |   |   |   \-- style.css
+## |   |   |   \-- js
+## |   |   |       +-- app.min.js
+## |   |   |       +-- clipboard.min.js
+## |   |   |       +-- jquery.highlight.js
+## |   |   |       +-- lunr.js
+## |   |   |       +-- plugin-bookdown.js
+## |   |   |       +-- plugin-clipboard.js
+## |   |   |       +-- plugin-fontsettings.js
+## |   |   |       +-- plugin-search.js
+## |   |   |       \-- plugin-sharing.js
+## |   |   +-- header-attrs-2.8
+## |   |   |   \-- header-attrs.js
+## |   |   +-- jquery-2.2.3
+## |   |   |   \-- jquery.min.js
+## |   |   +-- kePrint-0.0.1
+## |   |   |   \-- kePrint.js
+## |   |   \-- lightable-0.0.1
+## |   |       \-- lightable.css
+## |   +-- reference-keys.txt
+## |   +-- search_index.json
+## |   +-- section.html
+## |   +-- vraag-1-finding-nemo.html
+## |   +-- vraag-2-lion-king.html
+## |   +-- vraag3-diabetes.html
+## |   +-- vraag4-sars-cov-19-virus.html
+## |   +-- vraag5-cpg-islands.html
+## |   +-- vraag6-hox-genes.html
+## |   +-- vraag7-airway.html
+## |   \-- _main_files
+## |       \-- figure-html
+## |           +-- berekening-1.png
+## |           +-- onderzoeksvraag 2-1.png
+## |           +-- onderzoeksvraag 2-2.png
+## |           +-- unnamed-chunk-10-1.png
+## |           +-- unnamed-chunk-12-1.png
+## |           +-- unnamed-chunk-13-1.png
+## |           +-- vraag 5_d-1.png
+## |           \-- vraag 5_e2-1.png
+## \-- _bookdown_files
+##     +-- _main_cache
+##     |   \-- html
+##     |       +-- data install_4c48a4715893e487cd83eea600fd62a5.RData
+##     |       +-- data install_4c48a4715893e487cd83eea600fd62a5.rdb
+##     |       +-- data install_4c48a4715893e487cd83eea600fd62a5.rdx
+##     |       +-- vraag 1_c471dc67424cb02aa57f382a46ab702d.RData
+##     |       +-- vraag 1_c471dc67424cb02aa57f382a46ab702d.rdb
+##     |       +-- vraag 1_c471dc67424cb02aa57f382a46ab702d.rdx
+##     |       \-- __packages
+##     \-- _main_files
+##         \-- figure-html
+##             +-- berekening-1.png
+##             +-- onderzoeksvraag 2-1.png
+##             +-- onderzoeksvraag 2-2.png
+##             +-- unnamed-chunk-10-1.png
+##             +-- unnamed-chunk-12-1.png
+##             +-- unnamed-chunk-13-1.png
+##             +-- unnamed-chunk-9-1.png
+##             +-- vraag 5_d-1.png
+##             \-- vraag 5_e2-1.png</code></pre>
 
 </div>
             </section>

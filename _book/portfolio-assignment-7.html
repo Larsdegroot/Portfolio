@@ -32,7 +32,7 @@
   
 <link rel="prev" href="portfolio-assignment-2.html"/>
 
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -172,8 +172,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">5</span> Portfolio assignment 7</h1>
 <div id="load-the-flu-.dataflu_data.csv-the-dengue-.datadengue_data.csv-and-the-gapminder-dslabs-package-into-three-separate-dataframes-in-r" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> 1. Load the flu (“./data/flu_data.csv), the dengue (.”/data/dengue_data.csv) and the gapminder ({dslabs} package) into three separate dataframes in R</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="portfolio-assignment-7.html#cb27-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;7_data/dengue_data.txt&quot;</span>), <span class="at">skip =</span> <span class="dv">11</span>) </span>
-<span id="cb27-2"><a href="portfolio-assignment-7.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="portfolio-assignment-7.html#cb26-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;7_data/dengue_data.txt&quot;</span>), <span class="at">skip =</span> <span class="dv">11</span>) </span>
+<span id="cb26-2"><a href="portfolio-assignment-7.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
 <pre><code>##         Date Argentina Bolivia Brazil India Indonesia Mexico Philippines Singapore Thailand Venezuela
 ## 1 2002-12-29        NA   0.101  0.073 0.062     0.101     NA          NA     0.059       NA        NA
 ## 2 2003-01-05        NA   0.143  0.098 0.047     0.039     NA          NA     0.059       NA        NA
@@ -181,35 +181,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 2003-01-19        NA   0.173  0.170 0.032     0.039  0.052          NA     0.175       NA        NA
 ## 5 2003-01-26        NA   0.146  0.138 0.040     0.112  0.048          NA     0.164       NA        NA
 ## 6 2003-02-02        NA   0.160  0.202 0.038     0.049  0.041          NA     0.163       NA        NA</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="portfolio-assignment-7.html#cb29-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;7_data/flu_data.txt&quot;</span>), <span class="at">skip =</span> <span class="dv">11</span>)</span>
-<span id="cb29-2"><a href="portfolio-assignment-7.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flu)</span></code></pre></div>
-<pre><code>##         Date Argentina Australia Austria Belgium Bolivia Brazil Bulgaria Canada Chile France Germany Hungary Japan Mexico Netherlands
-## 1 2002-12-29        NA        NA      NA      NA      NA    174       NA     NA    NA     NA      NA      NA    NA     NA          NA
-## 2 2003-01-05        NA        NA      NA      NA      NA    162       NA     NA    NA     NA      NA      NA    NA     NA          NA
-## 3 2003-01-12        NA        NA      NA      NA      NA    174       NA     NA     1     NA      NA      NA    NA     NA          NA
-## 4 2003-01-19        NA        NA      NA      NA      NA    162       NA     NA     0     NA      NA      NA    NA     NA          NA
-## 5 2003-01-26        NA        NA      NA      NA      NA    131       NA     NA     0     NA      NA      NA    NA     NA          NA
-## 6 2003-02-02       136        NA      NA      NA      NA    151       NA     NA     0     NA      NA      NA    NA     NA          NA
-##   New.Zealand Norway Paraguay Peru Poland Romania Russia South.Africa Spain Sweden Switzerland Ukraine United.States Uruguay
-## 1          NA     NA       NA  329     NA      NA     NA           NA    NA     NA          NA      NA            NA      NA
-## 2          NA     NA       NA  315     NA      NA     NA           NA    NA     NA          NA      NA            NA      NA
-## 3          NA     NA       NA  314     NA      NA     NA           NA    NA     NA          NA      NA            NA      NA
-## 4          NA     NA       NA  267     NA      NA     NA           NA    NA     NA          NA      NA            NA      NA
-## 5          NA     NA       NA  241     NA      NA     NA           NA    NA     NA          NA      NA            NA      NA
-## 6          NA     NA       NA  227     NA      NA     NA           NA    NA     NA          NA      NA            NA      NA</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="portfolio-assignment-7.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gapminder)</span></code></pre></div>
-<pre><code>##               country year infant_mortality life_expectancy fertility population          gdp continent          region
-## 1             Albania 1960           115.40           62.87      6.19    1636054           NA    Europe Southern Europe
-## 2             Algeria 1960           148.20           47.50      7.65   11124892  13828152297    Africa Northern Africa
-## 3              Angola 1960           208.00           35.98      7.32    5270844           NA    Africa   Middle Africa
-## 4 Antigua and Barbuda 1960               NA           62.97      4.43      54681           NA  Americas       Caribbean
-## 5           Argentina 1960            59.87           65.39      3.11   20619075 108322326649  Americas   South America
-## 6             Armenia 1960               NA           66.86      4.55    1867396           NA      Asia    Western Asia</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="portfolio-assignment-7.html#cb28-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;7_data/flu_data.txt&quot;</span>), <span class="at">skip =</span> <span class="dv">11</span>)</span>
+<span id="cb28-2"><a href="portfolio-assignment-7.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flu)</span></code></pre></div>
+<pre><code>##         Date Argentina Australia Austria Belgium Bolivia Brazil Bulgaria Canada Chile France Germany Hungary Japan
+## 1 2002-12-29        NA        NA      NA      NA      NA    174       NA     NA    NA     NA      NA      NA    NA
+## 2 2003-01-05        NA        NA      NA      NA      NA    162       NA     NA    NA     NA      NA      NA    NA
+## 3 2003-01-12        NA        NA      NA      NA      NA    174       NA     NA     1     NA      NA      NA    NA
+## 4 2003-01-19        NA        NA      NA      NA      NA    162       NA     NA     0     NA      NA      NA    NA
+## 5 2003-01-26        NA        NA      NA      NA      NA    131       NA     NA     0     NA      NA      NA    NA
+## 6 2003-02-02       136        NA      NA      NA      NA    151       NA     NA     0     NA      NA      NA    NA
+##   Mexico Netherlands New.Zealand Norway Paraguay Peru Poland Romania Russia South.Africa Spain Sweden Switzerland
+## 1     NA          NA          NA     NA       NA  329     NA      NA     NA           NA    NA     NA          NA
+## 2     NA          NA          NA     NA       NA  315     NA      NA     NA           NA    NA     NA          NA
+## 3     NA          NA          NA     NA       NA  314     NA      NA     NA           NA    NA     NA          NA
+## 4     NA          NA          NA     NA       NA  267     NA      NA     NA           NA    NA     NA          NA
+## 5     NA          NA          NA     NA       NA  241     NA      NA     NA           NA    NA     NA          NA
+## 6     NA          NA          NA     NA       NA  227     NA      NA     NA           NA    NA     NA          NA
+##   Ukraine United.States Uruguay
+## 1      NA            NA      NA
+## 2      NA            NA      NA
+## 3      NA            NA      NA
+## 4      NA            NA      NA
+## 5      NA            NA      NA
+## 6      NA            NA      NA</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="portfolio-assignment-7.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gapminder)</span></code></pre></div>
+<pre><code>##               country year infant_mortality life_expectancy fertility population          gdp continent
+## 1             Albania 1960           115.40           62.87      6.19    1636054           NA    Europe
+## 2             Algeria 1960           148.20           47.50      7.65   11124892  13828152297    Africa
+## 3              Angola 1960           208.00           35.98      7.32    5270844           NA    Africa
+## 4 Antigua and Barbuda 1960               NA           62.97      4.43      54681           NA  Americas
+## 5           Argentina 1960            59.87           65.39      3.11   20619075 108322326649  Americas
+## 6             Armenia 1960               NA           66.86      4.55    1867396           NA      Asia
+##            region
+## 1 Southern Europe
+## 2 Northern Africa
+## 3   Middle Africa
+## 4       Caribbean
+## 5   South America
+## 6    Western Asia</code></pre>
 </div>
 <div id="check-if-they-are-in-the-right-shape.-is-the-data-in-the-tidy-format-if-not-change-the-format-to-tidy" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> 2. Check if they are in the right shape. Is the data in the ‘tidy’ format? If not change the format to ‘tidy’</h2>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="portfolio-assignment-7.html#cb33-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(Argentina<span class="sc">:</span>Venezuela, <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span>
-<span id="cb33-2"><a href="portfolio-assignment-7.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="portfolio-assignment-7.html#cb32-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(Argentina<span class="sc">:</span>Venezuela, <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb32-2"><a href="portfolio-assignment-7.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   Date       country    value
 ##   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
@@ -219,8 +233,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 2002-12-29 India      0.062
 ## 5 2002-12-29 Indonesia  0.101
 ## 6 2002-12-29 Mexico    NA</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="portfolio-assignment-7.html#cb35-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(Argentina<span class="sc">:</span>Uruguay, <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span>
-<span id="cb35-2"><a href="portfolio-assignment-7.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flu)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="portfolio-assignment-7.html#cb34-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(Argentina<span class="sc">:</span>Uruguay, <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb34-2"><a href="portfolio-assignment-7.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flu)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   Date       country   value
 ##   &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt;
@@ -233,17 +247,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="change-the-country-and-date-variables-of-the-three-tables-so-that-they-coincide-in-terms-of-data-type-class-and-values" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> 3. Change the country and date variables of the three tables so that they coincide in terms of data type, class and values</h2>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="portfolio-assignment-7.html#cb37-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="st">&quot;Date&quot;</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) </span>
-<span id="cb37-2"><a href="portfolio-assignment-7.html#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="portfolio-assignment-7.html#cb37-3" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] </span>
-<span id="cb37-4"><a href="portfolio-assignment-7.html#cb37-4" aria-hidden="true" tabindex="-1"></a>dengue<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(dengue<span class="sc">$</span>year)</span>
-<span id="cb37-5"><a href="portfolio-assignment-7.html#cb37-5" aria-hidden="true" tabindex="-1"></a>dengue<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dengue<span class="sc">$</span>country)</span>
-<span id="cb37-6"><a href="portfolio-assignment-7.html#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-7"><a href="portfolio-assignment-7.html#cb37-7" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> </span>
-<span id="cb37-8"><a href="portfolio-assignment-7.html#cb37-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-9"><a href="portfolio-assignment-7.html#cb37-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">summarise</span>(<span class="st">&quot;country&quot;</span> <span class="ot">=</span> country, <span class="st">&quot;dengue activity&quot;</span> <span class="ot">=</span> <span class="fu">sum</span>(value, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="portfolio-assignment-7.html#cb36-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="st">&quot;Date&quot;</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) </span>
+<span id="cb36-2"><a href="portfolio-assignment-7.html#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="portfolio-assignment-7.html#cb36-3" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] </span>
+<span id="cb36-4"><a href="portfolio-assignment-7.html#cb36-4" aria-hidden="true" tabindex="-1"></a>dengue<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(dengue<span class="sc">$</span>year)</span>
+<span id="cb36-5"><a href="portfolio-assignment-7.html#cb36-5" aria-hidden="true" tabindex="-1"></a>dengue<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dengue<span class="sc">$</span>country)</span>
+<span id="cb36-6"><a href="portfolio-assignment-7.html#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="portfolio-assignment-7.html#cb36-7" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> </span>
+<span id="cb36-8"><a href="portfolio-assignment-7.html#cb36-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-9"><a href="portfolio-assignment-7.html#cb36-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">summarise</span>(<span class="st">&quot;country&quot;</span> <span class="ot">=</span> country, <span class="st">&quot;dengue activity&quot;</span> <span class="ot">=</span> <span class="fu">sum</span>(value, <span class="at">na.rm =</span> T))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;year&#39;. You can override using the `.groups` argument.</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="portfolio-assignment-7.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="portfolio-assignment-7.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ## # Groups:   year [1]
 ##    year country   `dengue activity`
@@ -254,17 +268,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4  2002 India                 0.396
 ## 5  2002 Indonesia             0.396
 ## 6  2002 Mexico                0.396</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="portfolio-assignment-7.html#cb41-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="st">&quot;Date&quot;</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) </span>
-<span id="cb41-2"><a href="portfolio-assignment-7.html#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="portfolio-assignment-7.html#cb41-3" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] </span>
-<span id="cb41-4"><a href="portfolio-assignment-7.html#cb41-4" aria-hidden="true" tabindex="-1"></a>flu<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(flu<span class="sc">$</span>year)</span>
-<span id="cb41-5"><a href="portfolio-assignment-7.html#cb41-5" aria-hidden="true" tabindex="-1"></a>flu<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(flu<span class="sc">$</span>country)</span>
-<span id="cb41-6"><a href="portfolio-assignment-7.html#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-7"><a href="portfolio-assignment-7.html#cb41-7" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> </span>
-<span id="cb41-8"><a href="portfolio-assignment-7.html#cb41-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span> </span>
-<span id="cb41-9"><a href="portfolio-assignment-7.html#cb41-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">summarise</span>(<span class="st">&quot;country&quot;</span> <span class="ot">=</span> country, <span class="st">&quot;influenza activity&quot;</span> <span class="ot">=</span> <span class="fu">sum</span>(value, <span class="at">na.rm =</span> T))</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="portfolio-assignment-7.html#cb40-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="st">&quot;Date&quot;</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) </span>
+<span id="cb40-2"><a href="portfolio-assignment-7.html#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="portfolio-assignment-7.html#cb40-3" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] </span>
+<span id="cb40-4"><a href="portfolio-assignment-7.html#cb40-4" aria-hidden="true" tabindex="-1"></a>flu<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(flu<span class="sc">$</span>year)</span>
+<span id="cb40-5"><a href="portfolio-assignment-7.html#cb40-5" aria-hidden="true" tabindex="-1"></a>flu<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(flu<span class="sc">$</span>country)</span>
+<span id="cb40-6"><a href="portfolio-assignment-7.html#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="portfolio-assignment-7.html#cb40-7" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> </span>
+<span id="cb40-8"><a href="portfolio-assignment-7.html#cb40-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-9"><a href="portfolio-assignment-7.html#cb40-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">summarise</span>(<span class="st">&quot;country&quot;</span> <span class="ot">=</span> country, <span class="st">&quot;influenza activity&quot;</span> <span class="ot">=</span> <span class="fu">sum</span>(value, <span class="at">na.rm =</span> T))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;year&#39;. You can override using the `.groups` argument.</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="portfolio-assignment-7.html#cb43-1" aria-hidden="true" tabindex="-1"></a>flu</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="portfolio-assignment-7.html#cb42-1" aria-hidden="true" tabindex="-1"></a>flu</span></code></pre></div>
 <pre><code>## # A tibble: 19,111 x 3
 ## # Groups:   year [14]
 ##     year country   `influenza activity`
@@ -283,30 +297,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="store-the-three-tables-as-separate-so-six-in-total-.csv-and-.rds-files." class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> 4. Store the three tables as separate (so six in total) .csv and .rds files.</h2>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="portfolio-assignment-7.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x <span class="cf">in</span> <span class="fu">c</span>(<span class="st">&quot;flu&quot;</span>, <span class="st">&quot;dengue&quot;</span>, <span class="st">&quot;gapminder&quot;</span>)) {</span>
-<span id="cb45-2"><a href="portfolio-assignment-7.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  filecsv <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">paste0</span>(<span class="fu">here</span>(<span class="st">&quot;7_data&quot;</span>, x)), <span class="st">&quot;_tidy.csv&quot;</span>) </span>
-<span id="cb45-3"><a href="portfolio-assignment-7.html#cb45-3" aria-hidden="true" tabindex="-1"></a>  filerds <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">paste0</span>(<span class="fu">here</span>(<span class="st">&quot;7_data&quot;</span>, x)), <span class="st">&quot;_tidy.rds&quot;</span>)</span>
-<span id="cb45-4"><a href="portfolio-assignment-7.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write.csv</span>(<span class="fu">get</span>(x), <span class="at">file =</span> filecsv)</span>
-<span id="cb45-5"><a href="portfolio-assignment-7.html#cb45-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(<span class="fu">get</span>(x), <span class="at">file =</span> filerds)</span>
-<span id="cb45-6"><a href="portfolio-assignment-7.html#cb45-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="portfolio-assignment-7.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x <span class="cf">in</span> <span class="fu">c</span>(<span class="st">&quot;flu&quot;</span>, <span class="st">&quot;dengue&quot;</span>, <span class="st">&quot;gapminder&quot;</span>)) {</span>
+<span id="cb44-2"><a href="portfolio-assignment-7.html#cb44-2" aria-hidden="true" tabindex="-1"></a>  filecsv <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">paste0</span>(<span class="fu">here</span>(<span class="st">&quot;7_data&quot;</span>, x)), <span class="st">&quot;_tidy.csv&quot;</span>) </span>
+<span id="cb44-3"><a href="portfolio-assignment-7.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  filerds <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">paste0</span>(<span class="fu">here</span>(<span class="st">&quot;7_data&quot;</span>, x)), <span class="st">&quot;_tidy.rds&quot;</span>)</span>
+<span id="cb44-4"><a href="portfolio-assignment-7.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write.csv</span>(<span class="fu">get</span>(x), <span class="at">file =</span> filecsv)</span>
+<span id="cb44-5"><a href="portfolio-assignment-7.html#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(<span class="fu">get</span>(x), <span class="at">file =</span> filerds)</span>
+<span id="cb44-6"><a href="portfolio-assignment-7.html#cb44-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="in-dbeaver-create-a-new-postgresql-database-workflowsdb" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> 5. In Dbeaver create a new PostgreSQL database “workflowsdb”</h2>
 <div id="using-rpostgresql-insert-the-tables-into-the-database." class="section level3" number="5.5.1">
 <h3><span class="header-section-number">5.5.1</span> 6. Using RPostgreSQL, insert the tables into the database.</h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="portfolio-assignment-7.html#cb46-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RPostgres<span class="sc">::</span><span class="fu">Postgres</span>(), </span>
-<span id="cb46-2"><a href="portfolio-assignment-7.html#cb46-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">&quot;workflowsdb&quot;</span>, </span>
-<span id="cb46-3"><a href="portfolio-assignment-7.html#cb46-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">host=</span><span class="st">&quot;localhost&quot;</span>, </span>
-<span id="cb46-4"><a href="portfolio-assignment-7.html#cb46-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">port=</span><span class="st">&quot;5432&quot;</span>, </span>
-<span id="cb46-5"><a href="portfolio-assignment-7.html#cb46-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">user=</span><span class="st">&quot;postgres&quot;</span>, </span>
-<span id="cb46-6"><a href="portfolio-assignment-7.html#cb46-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">password=</span><span class="st">&quot;NEWkidsweek123&quot;</span>) </span>
-<span id="cb46-7"><a href="portfolio-assignment-7.html#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-8"><a href="portfolio-assignment-7.html#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;dengue data&quot;</span>, dengue)</span>
-<span id="cb46-9"><a href="portfolio-assignment-7.html#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;flu data&quot;</span>, flu)</span>
-<span id="cb46-10"><a href="portfolio-assignment-7.html#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;gapminder data&quot;</span>, gapminder)</span>
-<span id="cb46-11"><a href="portfolio-assignment-7.html#cb46-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-12"><a href="portfolio-assignment-7.html#cb46-12" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(con)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="portfolio-assignment-7.html#cb45-1" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RPostgres<span class="sc">::</span><span class="fu">Postgres</span>(), </span>
+<span id="cb45-2"><a href="portfolio-assignment-7.html#cb45-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">&quot;workflowsdb&quot;</span>, </span>
+<span id="cb45-3"><a href="portfolio-assignment-7.html#cb45-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">host=</span><span class="st">&quot;localhost&quot;</span>, </span>
+<span id="cb45-4"><a href="portfolio-assignment-7.html#cb45-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">port=</span><span class="st">&quot;5432&quot;</span>, </span>
+<span id="cb45-5"><a href="portfolio-assignment-7.html#cb45-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">user=</span><span class="st">&quot;postgres&quot;</span>, </span>
+<span id="cb45-6"><a href="portfolio-assignment-7.html#cb45-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">password=</span><span class="st">&quot;NEWkidsweek123&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="portfolio-assignment-7.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;dengue data&quot;</span>, dengue)</span>
+<span id="cb46-2"><a href="portfolio-assignment-7.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;flu data&quot;</span>, flu)</span>
+<span id="cb46-3"><a href="portfolio-assignment-7.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;gapminder data&quot;</span>, gapminder)</span></code></pre></div>
 <p>Inspect the contents of the tables with SQL (in DBeaver) and save the SQL script.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb47-1"><a href="portfolio-assignment-7.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(<span class="op">*</span>)  <span class="kw">FROM</span> <span class="ot">&quot;dengue data&quot;</span>;</span></code></pre></div>
+<div class="knitsql-table">
+<table>
+<caption><span id="tab:unnamed-chunk-16">Table 5.1: </span>1 records</caption>
+<thead>
+<tr class="header">
+<th align="right">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">6590</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="portfolio-assignment-7.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(con)</span></code></pre></div>
 <p>Inspect the contents of the tables with dplyr (in R) and save a RMarkdown showing what you are doing.</p>
 <p>Load the gapminder data in R and change the dataframe in such as way that you could join it to dengue and flue.</p>
 <p>Save this clean gapminder data in the “workflowsdb” database</p>

@@ -68,36 +68,34 @@ for (x in c("flu", "dengue", "gapminder")) {
 ## 5. In Dbeaver create a new PostgreSQL database “workflowsdb”
 ### 6. Using RPostgreSQL, insert the tables into the database.
 
-```{r, eval=FALSE}
+```{r}
 con <- dbConnect(RPostgres::Postgres(), 
                  dbname = "workflowsdb", 
                  host="localhost", 
                  port="5432", 
                  user="postgres", 
                  password="NEWkidsweek123") 
+```
 
+
+```{r, eval=FALSE}
 dbWriteTable(con, "dengue data", dengue)
 dbWriteTable(con, "flu data", flu)
 dbWriteTable(con, "gapminder data", gapminder)
-
-dbDisconnect(con)
 ```
 
 
 Inspect the contents of the tables with SQL (in DBeaver) and save the SQL script.
 
 ```{sql connection= con}
-SELECT count(* | *),  FROM "dengue data";
+SELECT count(*)  FROM "dengue data";
 
 ```
 
-```{sql connection= con}
-SELECT SUM("dengue activity") FROM "dengue data";
+```{r}
+dbDisconnect(con)
+```
 
-```
-```{sql connection=con}
-SELECT LENGTH("dengue activity") FROM "dengue data";
-```
 
 
 
