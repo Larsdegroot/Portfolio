@@ -172,22 +172,25 @@ dbWriteTable(con, "gapminder_02_15", gapminder_02_15, overwrite = T)
 ## 11. Perform some joins (your choice) with SQL (can be done in DBeaver or with dplyr).
 
 ```{sql connection = con}
-SELECT * 
+SELECT gapminder_02_15.*, flu.influenza_activity, dengue.dengue_activity 
 FROM "gapminder_02_15"
 LEFT JOIN "flu" ON flu.year = gapminder_02_15.year
 LEFT JOIN "dengue" ON dengue.year = gapminder_02_15.year
-```
-```{r}
-#how to not include year..10 and year..13?
 ```
 
 ## 12. Generate a joined table, and export this from the database to R.
 
 ```{sql connection = con}
-SELECT gapminder_02_15.*, flu.influenza_activity, dengue.dengue_activity 
+CREATE TABLE joined_gapfluden 
+AS SELECT gapminder_02_15.*, flu.influenza_activity, dengue.dengue_activity 
 FROM "gapminder_02_15"
 LEFT JOIN "flu" ON flu.year = gapminder_02_15.year
 LEFT JOIN "dengue" ON dengue.year = gapminder_02_15.year
+```
+
+
+```{r}
+joined_gapfluden <- dbReadTable(conn = con, "joined_gapfluden")
 ```
 
 ## 13. Show some descriptive statistics with this table, and at least 3 visualisations using ggplot2.
