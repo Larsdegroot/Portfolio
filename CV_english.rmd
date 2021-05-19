@@ -1,0 +1,144 @@
+---
+title: "CV"
+author: "Lars de Groot"
+date: "`r Sys.Date()`"
+output:
+  pagedown::html_resume:
+    self_contained: false
+
+knit: pagedown::chrome_print
+---
+
+Aside
+================================================================================
+
+
+![Lars](larsmethaar.jpg){width=75%}
+
+
+Contact Info {#contact}
+--------------------------------------------------------------------------------
+
+- <i class="fa fa-envelope"></i> larsdgrt@gmail.com
+- <i class="fa fa-github"></i> [github.com/Larsdegroot](https://github.com/Larsdegroot)
+- <i class="fa fa-phone"></i> 06 36395468
+- <i class="fas fa-map-marker-alt"></i> Uithof, Utrecht
+
+
+Skills {#skills}
+--------------------------------------------------------------------------------
+
+- <i class="fas fa-language"></i> **Spoken language:**
+- Dutch <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i>
+- English <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> 
+
+- <i class="fas fa-pen-alt"></i> **Writen language:**
+- Dutch <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i>
+- English <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i>
+
+- <i class="far fa-file-code"></i> **Programming language:**
+- Bash <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="far fa-square"></i> <i class="far fa-square"></i> <i class="far fa-square"></i>
+- R    <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="far fa-square"></i> <i class="far fa-square"></i> 
+
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------------
+
+
+You can also find this CV on [the web!](https://larsdegroot.github.io/CV/)
+Last updated on `r Sys.Date()`.
+
+
+
+Main
+================================================================================
+
+Lars de Groot {#title}
+--------------------------------------------------------------------------------
+
+A driven student with a passion for biology and technology. I'm interested in genetics, molecular biology, programming, data science and plants. I collect and grow rare plants as a hobby in a self made greenhouse.
+ 
+
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------------
+
+### Havo - Openbaar Lyceum Zeist
+
+Profile: Science and Health, with Physics
+
+Zeist
+
+2013 - 2018
+
+
+### HBO Life science – Hogenschool Utrecht
+
+Major: Bio-molecular research
+
+Utrecht
+
+2018 - present day
+
+- Minor: Data science for biology / bioinformatics
+
+<i class="fas fa-vial"></i> Project Experience
+--------------------------------------------------------------------------------
+
+### Molecular biology
+
+HU Institute for Life Sciences & Chemistry 
+
+Utrecht
+
+2020 
+
+- Researched the function of a glucorticoid receptor.
+- Gained experience in Recombinant DNA techniques and experimental design.
+
+### Xylitol production using Aspergillus niger
+
+In collaboration with the Westerdijk Instituut
+
+Utrecht
+
+2020 - 2021
+
+- Researched the xylitol production of a Aspergillus Niger mutant. 
+- Gained experience in culturing fungi and homogenization methods.
+
+### Data science for biology
+
+In collaboration with the Prinses Máxima Centrum
+
+Utrecht
+
+2021 - present day
+
+- Development of a R shiny app for easy creating of metadata files for high throughput screening experiments.
+- Gained experience in Rshiny  
+  
+
+Work experience {data-icon=suitcase}
+--------------------------------------------------------------------------------
+
+### General cleaner
+
+UMC Utrecht
+
+Utrecht
+
+2018
+
+- Cleaned the head entrance and radiology departments of the UMC.
+
+### Barista
+
+Barista cafe Zeist
+
+Zeist
+
+2020 - present day
+
+- Barista employee with managerial duties.
+
