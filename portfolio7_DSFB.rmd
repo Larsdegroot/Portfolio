@@ -89,9 +89,9 @@ con <- dbConnect(RPostgres::Postgres(),
                  user="postgres", 
                  password=psswd)
 
-dbWriteTable(con, "dengue data", dengue, overwrite = T)
-dbWriteTable(con, "flu data", flu, overwrite = T)
-dbWriteTable(con, "gapminder data", gapminder, overwrite = T)
+dbWriteTable(con, "dengue", dengue, overwrite = T)
+dbWriteTable(con, "flu", flu, overwrite = T)
+dbWriteTable(con, "gapminder", gapminder, overwrite = T)
 
 ```
 
@@ -99,14 +99,14 @@ dbWriteTable(con, "gapminder data", gapminder, overwrite = T)
 ## 7. Inspect the contents of the tables with SQL (in DBeaver) and save the SQL script.
 
 ```{sql connection= con}
-SELECT *  FROM "dengue data";
+SELECT *  FROM dengue;
 ```
 ```{sql connection= con}
-SELECT *  FROM "flu data";
+SELECT *  FROM flu;
 ```
 
 ```{sql connection= con}
-SELECT *  FROM "gapminder data";
+SELECT *  FROM gapminder;
 ```
 
 
@@ -117,9 +117,9 @@ dbDisconnect(con)
 ## 8. Inspect the contents of the tables with dplyr (in R) and save a RMarkdown showing what you are doing.
 
 ```{r i want to improve this chunk}
-flu <- dbReadTable(conn = con, "flu data")
-dengue <- dbReadTable(conn = con, "dengue data")
-gapminder <- dbReadTable(conn = con, "gapminder data")
+flu <- dbReadTable(conn = con, flu)
+dengue <- dbReadTable(conn = con, dengue)
+gapminder <- dbReadTable(conn = con, gapminder)
 ```
 
 
@@ -133,24 +133,67 @@ for (i in db_names){
 replicate(db_names, dbReadTable(), conn = con)
 
 # im trying to pass conn = con to dbreadtable (...)
-#the goal is to 
+#the goal is to read the datatables from sql into a diffrent element each itteration
+#maybe one way is to add the datatable into a new part of the list each itteration
 lst(db_names)
 ```
-```{r}
-
+```{r 7.8 inspection}
+#user defined function doesn't work see issue #8
+general_inspection(flu, year, influenza_activity)
+general_inspection(dengue, year, dengue_activity)
+general_inspection(gapminder)
 ```
 
 
 ## 9. Load the gapminder data in R and change the dataframe in such as way that you could join it to dengue and flue.
 
+```{r}
+flu$year %>% unique()
+dengue$year %>% unique()
+```
+The data of `flu` and `dengue` are from the year 2002 untill 2015. while the data of gapminder is:
 
-Save this clean gapminder data in the “workflowsdb” database
+```{r}
+gapminder$year %>% unique()
+```
+More than that.
 
-Perform some joins (your choice) with SQL (can be done in DBeaver or with dplyr.
+```{r}
+gapminder_02_15 <- gapminder %>% filter(year == 2002:2015)
+```
 
-Generate a joined table, and export this from the database to R.
+## 10. Save this clean gapminder data in the “workflowsdb” database
 
-Show some descriptive statistics with this table, and at least 3 visualisations using ggplot2.
+```{r}
+dbWriteTable(con, "gapminder_02_15", gapminder_02_15, overwrite = T)
+```
 
-show all of your actions in this assignment in a Rmd file, perhaps with pictures and provide text explaining and showcasing your skills.
+
+## 11. Perform some joins (your choice) with SQL (can be done in DBeaver or with dplyr).
+
+```{sql connection = con}
+SELECT * 
+FROM "gapminder_02_15"
+LEFT JOIN "flu" ON flu.year = gapminder_02_15.year
+LEFT JOIN "dengue" ON dengue.year = gapminder_02_15.year
+```
+```{r}
+#how to not include year..10 and year..13?
+```
+
+## 12. Generate a joined table, and export this from the database to R.
+
+```{sql connection = con}
+SELECT gapminder_02_15.*, flu.influenza_activity, dengue.dengue_activity 
+FROM "gapminder_02_15"
+LEFT JOIN "flu" ON flu.year = gapminder_02_15.year
+LEFT JOIN "dengue" ON dengue.year = gapminder_02_15.year
+```
+
+## 13. Show some descriptive statistics with this table, and at least 3 visualisations using ggplot2.
+
+```{r}
+
+```
+
 
