@@ -6,6 +6,8 @@ export <- function(x, path){
 
 #Show basic info about a dataframe
 general_inspection <- function(df, x, y){
+  defined <- ls()
+  passed <- names(as.list(match.call())[-1])
 
   dim <- dim(df)
   paste("This data frame has", as.character(dim[2]), "columns:", str_c(names(df), collapse = ", ")) %>% print()
@@ -13,8 +15,13 @@ general_inspection <- function(df, x, y){
 
   df %>% summary() %>% print()
 
-  ggplot(df, aes(x = x ,y = y)) +
-    geom_point()
+  if (any(!defined %in% passed)) {
+    warning(paste("missing values for", paste(setdiff(defined, passed), collapse = ", ")))
+  }
+  else {
+    ggplot(df, aes(x = x ,y = y)) +
+      geom_point()
+  }
 
 }
 
