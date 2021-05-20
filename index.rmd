@@ -3,6 +3,7 @@ title: "Portfolio of DSFB"
 author: "Lars de Groot"
 site: bookdown::bookdown_site
 documentclass: book
+output_dir: "docs"
 output:
   bookdown::gitbook: default
 new_session: yes
