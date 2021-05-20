@@ -6,11 +6,14 @@ export <- function(x, path){
 
 #Show basic info about a dataframe
 general_inspection <- function(df, x, y){
+
   defined <- ls()
   passed <- names(as.list(match.call())[-1])
 
   dim <- dim(df)
-  paste("This data frame has", as.character(dim[2]), "columns:", str_c(names(df), collapse = ", ")) %>% print()
+  name <-deparse(substitute(df))
+
+  paste("The data frame", name, "has", as.character(dim[2]), "columns:", str_c(names(df), collapse = ", ")) %>% print()
   paste("And", as.character(dim[1]), "rows") %>% print()
 
   df %>% summary() %>% print()
@@ -19,10 +22,11 @@ general_inspection <- function(df, x, y){
     warning(paste("missing values for", paste(setdiff(defined, passed), collapse = ", ")))
   }
   else {
-    ggplot(df, aes(x = x ,y = y)) +
+    ggplot(df, aes(x = x, y = y)) +
       geom_point()
   }
 
 }
+
 
 

@@ -61,7 +61,7 @@ head(flu)
 
 ## 4. Store the three tables as separate (so six in total) .csv and .rds files.
 
-```{r}
+```{r, eval=F}
 for (x in c("flu", "dengue", "gapminder")) {
   export(get(x), path = paste0(here("7_data//"), x))
 }
@@ -79,7 +79,7 @@ knitr::include_graphics(here("7_data/workflowsdb_in_Dbeaver.JPG"))
 
 ## 6. Using RPostgreSQL, insert the tables into the database.
 
-```{r, eval=FALSE}
+```{r}
 psswd <- .rs.askForPassword("Database Password:")
 
 con <- dbConnect(RPostgres::Postgres(), 
@@ -88,109 +88,97 @@ con <- dbConnect(RPostgres::Postgres(),
                  port="5432", 
                  user="postgres", 
                  password=psswd)
-
-dbWriteTable(con, "dengue", dengue, overwrite = T)
-dbWriteTable(con, "flu", flu, overwrite = T)
-dbWriteTable(con, "gapminder", gapminder, overwrite = T)
-
 ```
+
+```{r, eval=FALSE}
+dbWriteTable(con, "dengueDB", dengue, overwrite = T)
+dbWriteTable(con, "fluDB", flu, overwrite = T)
+dbWriteTable(con, "gapminderDB", gapminder, overwrite = T)
+````
 
 
 ## 7. Inspect the contents of the tables with SQL (in DBeaver) and save the SQL script.
 
 ```{sql connection= con}
-SELECT *  FROM dengue;
-```
-```{sql connection= con}
-SELECT *  FROM flu;
+SELECT *  FROM "dengueDB";
 ```
 
 ```{sql connection= con}
-SELECT *  FROM gapminder;
+SELECT *  FROM "fluDB";
 ```
 
-
-```{r, eval=FALSE}
-dbDisconnect(con)
+```{sql connection= con}
+SELECT *  FROM "gapminderDB";
 ```
 
 ## 8. Inspect the contents of the tables with dplyr (in R) and save a RMarkdown showing what you are doing.
 
-```{r i want to improve this chunk}
-flu <- dbReadTable(conn = con, flu)
-dengue <- dbReadTable(conn = con, dengue)
-gapminder <- dbReadTable(conn = con, gapminder)
-```
+```{r}
+db_names <- c("fluDB", "dengueDB", "gapminderDB")
 
-
-```{r ask about this chunk, eval=FALSE}
-db_names<- paste(c("flu", "dengue", "gapminder"), "data", sep = " ")
-
+tables <- list()
 for (i in db_names){
-   <- dbReadTable(con, i) 
+   tables[[paste(i)]] <- dbReadTable(con, i)
 }
-
-replicate(db_names, dbReadTable(), conn = con)
-
-# im trying to pass conn = con to dbreadtable (...)
-#the goal is to read the datatables from sql into a diffrent element each itteration
-#maybe one way is to add the datatable into a new part of the list each itteration
-lst(db_names)
 ```
+
 ```{r 7.8 inspection}
-#user defined function doesn't work see issue #8
-general_inspection(flu, year, influenza_activity)
-general_inspection(dengue, year, dengue_activity)
-general_inspection(gapminder)
+general_inspection(tables$fluDB, tables$fluDB$year, tables$fluDB$influenza_activity)
+general_inspection(tables$dengueDB, tables$dengueDB$year, tables$dengueDB$dengue_activity)
+general_inspection(tables$gapminderDB)
 ```
 
 
 ## 9. Load the gapminder data in R and change the dataframe in such as way that you could join it to dengue and flue.
 
 ```{r}
-flu$year %>% unique()
-dengue$year %>% unique()
+tables$fluDB$year %>% unique()
+tables$dengueDB$year %>% unique()
 ```
 The data of `flu` and `dengue` are from the year 2002 untill 2015. while the data of gapminder is:
 
 ```{r}
-gapminder$year %>% unique()
+tables$gapminderDB$year %>% unique()
 ```
 More than that.
 
 ```{r}
-gapminder_02_15 <- gapminder %>% filter(year == 2002:2015)
+gapminder_02_15 <- tables$gapminderDB %>% filter(year == 2002:2015)
 ```
 
 ## 10. Save this clean gapminder data in the “workflowsdb” database
 
-```{r}
-dbWriteTable(con, "gapminder_02_15", gapminder_02_15, overwrite = T)
+```{r, eval=FALSE}
+dbWriteTable(con, "gapminder_02_15DB", gapminder_02_15, overwrite = T)
 ```
 
 
 ## 11. Perform some joins (your choice) with SQL (can be done in DBeaver or with dplyr).
 
 ```{sql connection = con}
-SELECT gapminder_02_15.*, flu.influenza_activity, dengue.dengue_activity 
-FROM "gapminder_02_15"
-LEFT JOIN "flu" ON flu.year = gapminder_02_15.year
-LEFT JOIN "dengue" ON dengue.year = gapminder_02_15.year
+SELECT "gapminder_02_15DB".*, "fluDB".influenza_activity, "dengueDB".dengue_activity 
+FROM "gapminder_02_15DB"
+LEFT JOIN "fluDB" ON public."fluDB".year = public."gapminder_02_15DB".year
+LEFT JOIN "dengueDB" ON public."dengueDB".year = public."gapminder_02_15DB".year
 ```
 
 ## 12. Generate a joined table, and export this from the database to R.
 
-```{sql connection = con}
+```{sql connection = con, eval = F}
 CREATE TABLE joined_gapfluden 
-AS SELECT gapminder_02_15.*, flu.influenza_activity, dengue.dengue_activity 
-FROM "gapminder_02_15"
-LEFT JOIN "flu" ON flu.year = gapminder_02_15.year
-LEFT JOIN "dengue" ON dengue.year = gapminder_02_15.year
+AS SELECT "gapminder_02_15DB".*, "fluDB".influenza_activity, "dengueDB".dengue_activity 
+FROM "gapminder_02_15DB"
+LEFT JOIN "fluDB" ON public."fluDB".year = public."gapminder_02_15DB".year
+LEFT JOIN "dengueDB" ON public."dengueDB".year = public."gapminder_02_15DB".year
 ```
 
 
 ```{r}
 joined_gapfluden <- dbReadTable(conn = con, "joined_gapfluden")
+```
+
+```{r, eval=FALSE}
+dbDisconnect(con)
 ```
 
 ## 13. Show some descriptive statistics with this table, and at least 3 visualisations using ggplot2.
