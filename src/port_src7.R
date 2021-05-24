@@ -28,5 +28,13 @@ general_inspection <- function(df, x, y){
 
 }
 
+amount_factor <- function(x){
+  name <-deparse(substitute(x))
+  length <- x %>% as.factor() %>% levels() %>% length()
+
+  paste(name, "has", length, "levels:", sep = " ") %>% print()
+  x %>% as.factor() %>% levels() %>% print()
+
+}
 
 
