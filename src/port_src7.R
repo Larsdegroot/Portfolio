@@ -37,4 +37,24 @@ amount_factor <- function(x){
 
 }
 
+#looks which element of a vector 2 vectors have in common
+common <- function(x, pattern1, pattern2){
+  #takes first element of x
+  itterations <- seq(from = 1, to =  length(x))
+  commons <- c()
 
+  for (i in itterations){
+    y <- str_detect(x[i], pattern1)
+    if (TRUE == (TRUE %in% y)){
+      commons <- append(commons, x[i])
+    }
+  }
+
+  commons %>% print()
+}
+
+#testing common function
+test1 <- c("A1", "A2", "A3", "A4", "A5")
+test2 <- c("A1", "A2", "A3", "B4", "B5")
+
+common(test1, test2)
