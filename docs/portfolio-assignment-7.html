@@ -185,11 +185,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="portfolio-assignment-7" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Portfolio assignment 7</h1>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="portfolio-assignment-7.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;src/port_src7.R&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="portfolio-assignment-7.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;src/port_src7.R&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;A1&quot; &quot;A2&quot; &quot;A3&quot;</code></pre>
 <div id="load-the-flu-.dataflu_data.csv-the-dengue-.datadengue_data.csv-and-the-gapminder-dslabs-package-into-three-separate-dataframes-in-r" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> 1. Load the flu (“./data/flu_data.csv), the dengue (.”/data/dengue_data.csv) and the gapminder ({dslabs} package) into three separate dataframes in R</h2>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="portfolio-assignment-7.html#cb28-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;7_data/dengue_data.txt&quot;</span>), <span class="at">skip =</span> <span class="dv">11</span>) </span>
-<span id="cb28-2"><a href="portfolio-assignment-7.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="portfolio-assignment-7.html#cb32-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;7_data/dengue_data.txt&quot;</span>), <span class="at">skip =</span> <span class="dv">11</span>) </span>
+<span id="cb32-2"><a href="portfolio-assignment-7.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
 <pre><code>##         Date Argentina Bolivia Brazil India Indonesia Mexico Philippines Singapore Thailand Venezuela
 ## 1 2002-12-29        NA   0.101  0.073 0.062     0.101     NA          NA     0.059       NA        NA
 ## 2 2003-01-05        NA   0.143  0.098 0.047     0.039     NA          NA     0.059       NA        NA
@@ -197,8 +198,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 2003-01-19        NA   0.173  0.170 0.032     0.039  0.052          NA     0.175       NA        NA
 ## 5 2003-01-26        NA   0.146  0.138 0.040     0.112  0.048          NA     0.164       NA        NA
 ## 6 2003-02-02        NA   0.160  0.202 0.038     0.049  0.041          NA     0.163       NA        NA</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="portfolio-assignment-7.html#cb30-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;7_data/flu_data.txt&quot;</span>), <span class="at">skip =</span> <span class="dv">11</span>)</span>
-<span id="cb30-2"><a href="portfolio-assignment-7.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flu)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="portfolio-assignment-7.html#cb34-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;7_data/flu_data.txt&quot;</span>), <span class="at">skip =</span> <span class="dv">11</span>)</span>
+<span id="cb34-2"><a href="portfolio-assignment-7.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flu)</span></code></pre></div>
 <pre><code>##         Date Argentina Australia Austria Belgium Bolivia Brazil Bulgaria Canada Chile France Germany Hungary Japan Mexico
 ## 1 2002-12-29        NA        NA      NA      NA      NA    174       NA     NA    NA     NA      NA      NA    NA     NA
 ## 2 2003-01-05        NA        NA      NA      NA      NA    162       NA     NA    NA     NA      NA      NA    NA     NA
@@ -220,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4            NA      NA
 ## 5            NA      NA
 ## 6            NA      NA</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="portfolio-assignment-7.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="portfolio-assignment-7.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(gapminder)</span></code></pre></div>
 <pre><code>##               country year infant_mortality life_expectancy fertility population          gdp continent          region
 ## 1             Albania 1960           115.40           62.87      6.19    1636054           NA    Europe Southern Europe
 ## 2             Algeria 1960           148.20           47.50      7.65   11124892  13828152297    Africa Northern Africa
@@ -231,8 +232,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="check-if-they-are-in-the-right-shape.-is-the-data-in-the-tidy-format-if-not-change-the-format-to-tidy" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> 2. Check if they are in the right shape. Is the data in the ‘tidy’ format? If not change the format to ‘tidy’</h2>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="portfolio-assignment-7.html#cb34-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(Argentina<span class="sc">:</span>Venezuela, <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span>
-<span id="cb34-2"><a href="portfolio-assignment-7.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="portfolio-assignment-7.html#cb38-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(Argentina<span class="sc">:</span>Venezuela, <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb38-2"><a href="portfolio-assignment-7.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   Date       country    value
 ##   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
@@ -242,8 +243,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 2002-12-29 India      0.062
 ## 5 2002-12-29 Indonesia  0.101
 ## 6 2002-12-29 Mexico    NA</code></pre>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="portfolio-assignment-7.html#cb36-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(Argentina<span class="sc">:</span>Uruguay, <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span>
-<span id="cb36-2"><a href="portfolio-assignment-7.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flu)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="portfolio-assignment-7.html#cb40-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(Argentina<span class="sc">:</span>Uruguay, <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb40-2"><a href="portfolio-assignment-7.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flu)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ##   Date       country   value
 ##   &lt;chr&gt;      &lt;chr&gt;     &lt;int&gt;
@@ -256,18 +257,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="change-the-country-and-date-variables-of-the-three-tables-so-that-they-coincide-in-terms-of-data-type-class-and-values" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> 3. Change the country and date variables of the three tables so that they coincide in terms of data type, class and values</h2>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="portfolio-assignment-7.html#cb38-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="st">&quot;Date&quot;</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) </span>
-<span id="cb38-2"><a href="portfolio-assignment-7.html#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="portfolio-assignment-7.html#cb38-3" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] </span>
-<span id="cb38-4"><a href="portfolio-assignment-7.html#cb38-4" aria-hidden="true" tabindex="-1"></a>dengue<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(dengue<span class="sc">$</span>year)</span>
-<span id="cb38-5"><a href="portfolio-assignment-7.html#cb38-5" aria-hidden="true" tabindex="-1"></a>dengue<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dengue<span class="sc">$</span>country)</span>
-<span id="cb38-6"><a href="portfolio-assignment-7.html#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-7"><a href="portfolio-assignment-7.html#cb38-7" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> </span>
-<span id="cb38-8"><a href="portfolio-assignment-7.html#cb38-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">group_by</span>(year, country) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-9"><a href="portfolio-assignment-7.html#cb38-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">summarise</span>(<span class="st">&quot;country&quot;</span> <span class="ot">=</span> country, <span class="st">&quot;dengue_activity&quot;</span> <span class="ot">=</span> <span class="fu">sum</span>(value, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span></span>
-<span id="cb38-10"><a href="portfolio-assignment-7.html#cb38-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">unique</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="portfolio-assignment-7.html#cb42-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="st">&quot;Date&quot;</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) </span>
+<span id="cb42-2"><a href="portfolio-assignment-7.html#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="portfolio-assignment-7.html#cb42-3" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] </span>
+<span id="cb42-4"><a href="portfolio-assignment-7.html#cb42-4" aria-hidden="true" tabindex="-1"></a>dengue<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(dengue<span class="sc">$</span>year)</span>
+<span id="cb42-5"><a href="portfolio-assignment-7.html#cb42-5" aria-hidden="true" tabindex="-1"></a>dengue<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dengue<span class="sc">$</span>country)</span>
+<span id="cb42-6"><a href="portfolio-assignment-7.html#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="portfolio-assignment-7.html#cb42-7" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> </span>
+<span id="cb42-8"><a href="portfolio-assignment-7.html#cb42-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">group_by</span>(year, country) <span class="sc">%&gt;%</span> </span>
+<span id="cb42-9"><a href="portfolio-assignment-7.html#cb42-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">summarise</span>(<span class="st">&quot;country&quot;</span> <span class="ot">=</span> country, <span class="st">&quot;dengue_activity&quot;</span> <span class="ot">=</span> <span class="fu">sum</span>(value, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span></span>
+<span id="cb42-10"><a href="portfolio-assignment-7.html#cb42-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">unique</span>()</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;country&#39;. You can override using the `.groups` argument.</code></pre>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="portfolio-assignment-7.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="portfolio-assignment-7.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dengue)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ## # Groups:   year, country [6]
 ##    year country   dengue_activity
@@ -278,18 +279,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4  2002 India               0.062
 ## 5  2002 Indonesia           0.101
 ## 6  2002 Mexico              0</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="portfolio-assignment-7.html#cb42-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="st">&quot;Date&quot;</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) </span>
-<span id="cb42-2"><a href="portfolio-assignment-7.html#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="portfolio-assignment-7.html#cb42-3" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] </span>
-<span id="cb42-4"><a href="portfolio-assignment-7.html#cb42-4" aria-hidden="true" tabindex="-1"></a>flu<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(flu<span class="sc">$</span>year)</span>
-<span id="cb42-5"><a href="portfolio-assignment-7.html#cb42-5" aria-hidden="true" tabindex="-1"></a>flu<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(flu<span class="sc">$</span>country)</span>
-<span id="cb42-6"><a href="portfolio-assignment-7.html#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-7"><a href="portfolio-assignment-7.html#cb42-7" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> </span>
-<span id="cb42-8"><a href="portfolio-assignment-7.html#cb42-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">group_by</span>(year, country) <span class="sc">%&gt;%</span> </span>
-<span id="cb42-9"><a href="portfolio-assignment-7.html#cb42-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">summarise</span>(<span class="st">&quot;country&quot;</span> <span class="ot">=</span> country, <span class="st">&quot;influenza_activity&quot;</span> <span class="ot">=</span> <span class="fu">sum</span>(value, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span></span>
-<span id="cb42-10"><a href="portfolio-assignment-7.html#cb42-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">unique</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="portfolio-assignment-7.html#cb46-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="st">&quot;Date&quot;</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) </span>
+<span id="cb46-2"><a href="portfolio-assignment-7.html#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="portfolio-assignment-7.html#cb46-3" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] </span>
+<span id="cb46-4"><a href="portfolio-assignment-7.html#cb46-4" aria-hidden="true" tabindex="-1"></a>flu<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(flu<span class="sc">$</span>year)</span>
+<span id="cb46-5"><a href="portfolio-assignment-7.html#cb46-5" aria-hidden="true" tabindex="-1"></a>flu<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(flu<span class="sc">$</span>country)</span>
+<span id="cb46-6"><a href="portfolio-assignment-7.html#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="portfolio-assignment-7.html#cb46-7" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> </span>
+<span id="cb46-8"><a href="portfolio-assignment-7.html#cb46-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">group_by</span>(year, country) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-9"><a href="portfolio-assignment-7.html#cb46-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">summarise</span>(<span class="st">&quot;country&quot;</span> <span class="ot">=</span> country, <span class="st">&quot;influenza_activity&quot;</span> <span class="ot">=</span> <span class="fu">sum</span>(value, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span></span>
+<span id="cb46-10"><a href="portfolio-assignment-7.html#cb46-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">unique</span>()</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;year&#39;, &#39;country&#39;. You can override using the `.groups` argument.</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="portfolio-assignment-7.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flu)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="portfolio-assignment-7.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flu)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 3
 ## # Groups:   year, country [6]
 ##    year country   influenza_activity
@@ -303,14 +304,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="store-the-three-tables-as-separate-so-six-in-total-.csv-and-.rds-files." class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> 4. Store the three tables as separate (so six in total) .csv and .rds files.</h2>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="portfolio-assignment-7.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x <span class="cf">in</span> <span class="fu">c</span>(<span class="st">&quot;flu&quot;</span>, <span class="st">&quot;dengue&quot;</span>, <span class="st">&quot;gapminder&quot;</span>)) {</span>
-<span id="cb46-2"><a href="portfolio-assignment-7.html#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">export</span>(<span class="fu">get</span>(x), <span class="at">path =</span> <span class="fu">paste0</span>(<span class="fu">here</span>(<span class="st">&quot;7_data//&quot;</span>), x))</span>
-<span id="cb46-3"><a href="portfolio-assignment-7.html#cb46-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="portfolio-assignment-7.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x <span class="cf">in</span> <span class="fu">c</span>(<span class="st">&quot;flu&quot;</span>, <span class="st">&quot;dengue&quot;</span>, <span class="st">&quot;gapminder&quot;</span>)) {</span>
+<span id="cb50-2"><a href="portfolio-assignment-7.html#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">export</span>(<span class="fu">get</span>(x), <span class="at">path =</span> <span class="fu">paste0</span>(<span class="fu">here</span>(<span class="st">&quot;7_data//&quot;</span>), x))</span>
+<span id="cb50-3"><a href="portfolio-assignment-7.html#cb50-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="in-dbeaver-create-a-new-postgresql-database-workflowsdb" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> 5. In Dbeaver create a new PostgreSQL database “workflowsdb”</h2>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="portfolio-assignment-7.html#cb47-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">&quot;7_data/workflowsdb_in_Dbeaver.JPG&quot;</span>))</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-13"></span>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="portfolio-assignment-7.html#cb51-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">&quot;7_data/workflowsdb_in_Dbeaver.JPG&quot;</span>))</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-123"></span>
 <img src="7_data/workflowsdb_in_Dbeaver.JPG" alt="The workflows database in Dbeaver."  />
 <p class="caption">
 Figure 6.1: The workflows database in Dbeaver.
@@ -323,24 +324,24 @@ Figure 6.1: The workflows database in Dbeaver.
 </div>
 <div id="using-rpostgresql-insert-the-tables-into-the-database." class="section level2" number="6.6">
 <h2><span class="header-section-number">6.6</span> 6. Using RPostgreSQL, insert the tables into the database.</h2>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="portfolio-assignment-7.html#cb48-1" aria-hidden="true" tabindex="-1"></a>psswd <span class="ot">&lt;-</span> <span class="fu">.rs.askForPassword</span>(<span class="st">&quot;Database Password:&quot;</span>)</span>
-<span id="cb48-2"><a href="portfolio-assignment-7.html#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="portfolio-assignment-7.html#cb48-3" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RPostgres<span class="sc">::</span><span class="fu">Postgres</span>(), </span>
-<span id="cb48-4"><a href="portfolio-assignment-7.html#cb48-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">&quot;workflowsdb&quot;</span>, </span>
-<span id="cb48-5"><a href="portfolio-assignment-7.html#cb48-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">host=</span><span class="st">&quot;localhost&quot;</span>, </span>
-<span id="cb48-6"><a href="portfolio-assignment-7.html#cb48-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">port=</span><span class="st">&quot;5432&quot;</span>, </span>
-<span id="cb48-7"><a href="portfolio-assignment-7.html#cb48-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">user=</span><span class="st">&quot;postgres&quot;</span>, </span>
-<span id="cb48-8"><a href="portfolio-assignment-7.html#cb48-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">password=</span>psswd)</span></code></pre></div>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="portfolio-assignment-7.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;dengueDB&quot;</span>, dengue, <span class="at">overwrite =</span> T)</span>
-<span id="cb49-2"><a href="portfolio-assignment-7.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;fluDB&quot;</span>, flu, <span class="at">overwrite =</span> T)</span>
-<span id="cb49-3"><a href="portfolio-assignment-7.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;gapminderDB&quot;</span>, gapminder, <span class="at">overwrite =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="portfolio-assignment-7.html#cb52-1" aria-hidden="true" tabindex="-1"></a>psswd <span class="ot">&lt;-</span> <span class="fu">.rs.askForPassword</span>(<span class="st">&quot;Database Password:&quot;</span>)</span>
+<span id="cb52-2"><a href="portfolio-assignment-7.html#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="portfolio-assignment-7.html#cb52-3" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(RPostgres<span class="sc">::</span><span class="fu">Postgres</span>(), </span>
+<span id="cb52-4"><a href="portfolio-assignment-7.html#cb52-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">&quot;workflowsdb&quot;</span>, </span>
+<span id="cb52-5"><a href="portfolio-assignment-7.html#cb52-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">host=</span><span class="st">&quot;localhost&quot;</span>, </span>
+<span id="cb52-6"><a href="portfolio-assignment-7.html#cb52-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">port=</span><span class="st">&quot;5432&quot;</span>, </span>
+<span id="cb52-7"><a href="portfolio-assignment-7.html#cb52-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">user=</span><span class="st">&quot;postgres&quot;</span>, </span>
+<span id="cb52-8"><a href="portfolio-assignment-7.html#cb52-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">password=</span>psswd)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="portfolio-assignment-7.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;dengueDB&quot;</span>, dengue, <span class="at">overwrite =</span> T)</span>
+<span id="cb53-2"><a href="portfolio-assignment-7.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;fluDB&quot;</span>, flu, <span class="at">overwrite =</span> T)</span>
+<span id="cb53-3"><a href="portfolio-assignment-7.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;gapminderDB&quot;</span>, gapminder, <span class="at">overwrite =</span> T)</span></code></pre></div>
 </div>
 <div id="inspect-the-contents-of-the-tables-with-sql-in-dbeaver-and-save-the-sql-script." class="section level2" number="6.7">
 <h2><span class="header-section-number">6.7</span> 7. Inspect the contents of the tables with SQL (in DBeaver) and save the SQL script.</h2>
-<div class="sourceCode" id="cb50"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb50-1"><a href="portfolio-assignment-7.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span>  <span class="kw">FROM</span> <span class="ot">&quot;dengueDB&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb54-1"><a href="portfolio-assignment-7.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span>  <span class="kw">FROM</span> <span class="ot">&quot;dengueDB&quot;</span>;</span></code></pre></div>
 <div class="knitsql-table">
 <table>
-<caption><span id="tab:unnamed-chunk-16">Table 6.1: </span>Displaying records 1 - 10</caption>
+<caption><span id="tab:unnamed-chunk-126">Table 6.1: </span>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
 <th align="right">year</th>
@@ -402,10 +403,10 @@ Figure 6.1: The workflows database in Dbeaver.
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb51"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb51-1"><a href="portfolio-assignment-7.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span>  <span class="kw">FROM</span> <span class="ot">&quot;fluDB&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb55-1"><a href="portfolio-assignment-7.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span>  <span class="kw">FROM</span> <span class="ot">&quot;fluDB&quot;</span>;</span></code></pre></div>
 <div class="knitsql-table">
 <table>
-<caption><span id="tab:unnamed-chunk-17">Table 6.2: </span>Displaying records 1 - 10</caption>
+<caption><span id="tab:unnamed-chunk-127">Table 6.2: </span>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
 <th align="right">year</th>
@@ -467,10 +468,10 @@ Figure 6.1: The workflows database in Dbeaver.
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb52"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb52-1"><a href="portfolio-assignment-7.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span>  <span class="kw">FROM</span> <span class="ot">&quot;gapminderDB&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb56-1"><a href="portfolio-assignment-7.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span>  <span class="kw">FROM</span> <span class="ot">&quot;gapminderDB&quot;</span>;</span></code></pre></div>
 <div class="knitsql-table">
 <table>
-<caption><span id="tab:unnamed-chunk-18">Table 6.3: </span>Displaying records 1 - 10</caption>
+<caption><span id="tab:unnamed-chunk-128">Table 6.3: </span>Displaying records 1 - 10</caption>
 <colgroup>
 <col width="15%" />
 <col width="3%" />
@@ -612,13 +613,13 @@ Figure 6.1: The workflows database in Dbeaver.
 </div>
 <div id="inspect-the-contents-of-the-tables-with-dplyr-in-r-and-save-a-rmarkdown-showing-what-you-are-doing." class="section level2" number="6.8">
 <h2><span class="header-section-number">6.8</span> 8. Inspect the contents of the tables with dplyr (in R) and save a RMarkdown showing what you are doing.</h2>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="portfolio-assignment-7.html#cb53-1" aria-hidden="true" tabindex="-1"></a>db_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;fluDB&quot;</span>, <span class="st">&quot;dengueDB&quot;</span>, <span class="st">&quot;gapminderDB&quot;</span>)</span>
-<span id="cb53-2"><a href="portfolio-assignment-7.html#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-3"><a href="portfolio-assignment-7.html#cb53-3" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb53-4"><a href="portfolio-assignment-7.html#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> db_names){</span>
-<span id="cb53-5"><a href="portfolio-assignment-7.html#cb53-5" aria-hidden="true" tabindex="-1"></a>   tables[[<span class="fu">paste</span>(i)]] <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(con, i)</span>
-<span id="cb53-6"><a href="portfolio-assignment-7.html#cb53-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="portfolio-assignment-7.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">general_inspection</span>(tables<span class="sc">$</span>fluDB, tables<span class="sc">$</span>fluDB<span class="sc">$</span>year, tables<span class="sc">$</span>fluDB<span class="sc">$</span>influenza_activity)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="portfolio-assignment-7.html#cb57-1" aria-hidden="true" tabindex="-1"></a>db_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;fluDB&quot;</span>, <span class="st">&quot;dengueDB&quot;</span>, <span class="st">&quot;gapminderDB&quot;</span>)</span>
+<span id="cb57-2"><a href="portfolio-assignment-7.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="portfolio-assignment-7.html#cb57-3" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb57-4"><a href="portfolio-assignment-7.html#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> db_names){</span>
+<span id="cb57-5"><a href="portfolio-assignment-7.html#cb57-5" aria-hidden="true" tabindex="-1"></a>   tables[[<span class="fu">paste</span>(i)]] <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(con, i)</span>
+<span id="cb57-6"><a href="portfolio-assignment-7.html#cb57-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="portfolio-assignment-7.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">general_inspection</span>(tables<span class="sc">$</span>fluDB, tables<span class="sc">$</span>fluDB<span class="sc">$</span>year, tables<span class="sc">$</span>fluDB<span class="sc">$</span>influenza_activity)</span></code></pre></div>
 <pre><code>## [1] &quot;The data frame tables$fluDB has 3 columns: year, country, influenza_activity&quot;
 ## [1] &quot;And 406 rows&quot;
 ##       year        country          influenza_activity
@@ -629,7 +630,7 @@ Figure 6.1: The workflows database in Dbeaver.
 ##  3rd Qu.:2012                      3rd Qu.: 24975    
 ##  Max.   :2015                      Max.   :155577</code></pre>
 <p><img src="_main_files/figure-html/7.8%20inspection-1.png" width="672" /></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="portfolio-assignment-7.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">general_inspection</span>(tables<span class="sc">$</span>dengueDB, tables<span class="sc">$</span>dengueDB<span class="sc">$</span>year, tables<span class="sc">$</span>dengueDB<span class="sc">$</span>dengue_activity)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="portfolio-assignment-7.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">general_inspection</span>(tables<span class="sc">$</span>dengueDB, tables<span class="sc">$</span>dengueDB<span class="sc">$</span>year, tables<span class="sc">$</span>dengueDB<span class="sc">$</span>dengue_activity)</span></code></pre></div>
 <pre><code>## [1] &quot;The data frame tables$dengueDB has 3 columns: year, country, dengue_activity&quot;
 ## [1] &quot;And 140 rows&quot;
 ##       year        country          dengue_activity 
@@ -640,7 +641,7 @@ Figure 6.1: The workflows database in Dbeaver.
 ##  3rd Qu.:2012                      3rd Qu.: 8.824  
 ##  Max.   :2015                      Max.   :27.847</code></pre>
 <p><img src="_main_files/figure-html/7.8%20inspection-2.png" width="672" /></p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="portfolio-assignment-7.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">general_inspection</span>(tables<span class="sc">$</span>gapminderDB)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="portfolio-assignment-7.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">general_inspection</span>(tables<span class="sc">$</span>gapminderDB)</span></code></pre></div>
 <pre><code>## [1] &quot;The data frame tables$gapminderDB has 9 columns: country, year, infant_mortality, life_expectancy, fertility, population, gdp, continent, region&quot;
 ## [1] &quot;And 10545 rows&quot;
 ##    country               year      infant_mortality life_expectancy   fertility       population       
@@ -663,44 +664,143 @@ Figure 6.1: The workflows database in Dbeaver.
 </div>
 <div id="load-the-gapminder-data-in-r-and-change-the-dataframe-in-such-as-way-that-you-could-join-it-to-dengue-and-flue." class="section level2" number="6.9">
 <h2><span class="header-section-number">6.9</span> 9. Load the gapminder data in R and change the dataframe in such as way that you could join it to dengue and flue.</h2>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="portfolio-assignment-7.html#cb61-1" aria-hidden="true" tabindex="-1"></a>tables<span class="sc">$</span>fluDB<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="portfolio-assignment-7.html#cb65-1" aria-hidden="true" tabindex="-1"></a>tables<span class="sc">$</span>fluDB<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code></pre></div>
 <pre><code>##  [1] 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="portfolio-assignment-7.html#cb63-1" aria-hidden="true" tabindex="-1"></a>tables<span class="sc">$</span>dengueDB<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="portfolio-assignment-7.html#cb67-1" aria-hidden="true" tabindex="-1"></a>tables<span class="sc">$</span>dengueDB<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code></pre></div>
 <pre><code>##  [1] 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015</code></pre>
-<p>The data of <code>flu</code> and <code>dengue</code> are from the year 2002 untill 2015. while the data of gapminder is:</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="portfolio-assignment-7.html#cb65-1" aria-hidden="true" tabindex="-1"></a>tables<span class="sc">$</span>gapminderDB<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code></pre></div>
+<p>The data of <code>flu</code> and <code>dengue</code> are from the year 2002 untill 2015. while the data of gapminder is from:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="portfolio-assignment-7.html#cb69-1" aria-hidden="true" tabindex="-1"></a>tables<span class="sc">$</span>gapminderDB<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code></pre></div>
 <pre><code>##  [1] 1960 1961 1962 1963 1964 1965 1966 1967 1968 1969 1970 1971 1972 1973 1974 1975 2012 1976 1977 2014 1978 2016 1979
 ## [24] 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002
 ## [47] 2003 2004 2005 2006 2007 2008 2009 2010 2011 2013 2015</code></pre>
-<p>More than that.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="portfolio-assignment-7.html#cb67-1" aria-hidden="true" tabindex="-1"></a>gapminder_02_15 <span class="ot">&lt;-</span> tables<span class="sc">$</span>gapminderDB <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span><span class="sc">:</span><span class="dv">2015</span>)</span></code></pre></div>
-<pre><code>## Warning in year == 2002:2015: longer object length is not a multiple of shorter object length</code></pre>
+<p>1960 till 2015. we’ve also seen in 7.8 that the flu data has 406 rows while the dengue data has 140 rows.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="portfolio-assignment-7.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># db_names &lt;- c(&quot;tables$fluDB$country&quot;, &quot;tables$dengueDB$country&quot;, &quot;tables$gapminderDB$country&quot;)</span></span>
+<span id="cb71-2"><a href="portfolio-assignment-7.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="co"># for (i in db_names){</span></span>
+<span id="cb71-3"><a href="portfolio-assignment-7.html#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   amount_factor(get(i)) </span></span>
+<span id="cb71-4"><a href="portfolio-assignment-7.html#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="co"># } </span></span>
+<span id="cb71-5"><a href="portfolio-assignment-7.html#cb71-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-6"><a href="portfolio-assignment-7.html#cb71-6" aria-hidden="true" tabindex="-1"></a><span class="fu">amount_factor</span>(tables<span class="sc">$</span>fluDB<span class="sc">$</span>country)</span></code></pre></div>
+<pre><code>## [1] &quot;tables$fluDB$country has 29 levels:&quot;
+##  [1] &quot;Argentina&quot;     &quot;Australia&quot;     &quot;Austria&quot;       &quot;Belgium&quot;       &quot;Bolivia&quot;       &quot;Brazil&quot;        &quot;Bulgaria&quot;     
+##  [8] &quot;Canada&quot;        &quot;Chile&quot;         &quot;France&quot;        &quot;Germany&quot;       &quot;Hungary&quot;       &quot;Japan&quot;         &quot;Mexico&quot;       
+## [15] &quot;Netherlands&quot;   &quot;New.Zealand&quot;   &quot;Norway&quot;        &quot;Paraguay&quot;      &quot;Peru&quot;          &quot;Poland&quot;        &quot;Romania&quot;      
+## [22] &quot;Russia&quot;        &quot;South.Africa&quot;  &quot;Spain&quot;         &quot;Sweden&quot;        &quot;Switzerland&quot;   &quot;Ukraine&quot;       &quot;United.States&quot;
+## [29] &quot;Uruguay&quot;</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="portfolio-assignment-7.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">amount_factor</span>(tables<span class="sc">$</span>dengueDB<span class="sc">$</span>country)</span></code></pre></div>
+<pre><code>## [1] &quot;tables$dengueDB$country has 10 levels:&quot;
+##  [1] &quot;Argentina&quot;   &quot;Bolivia&quot;     &quot;Brazil&quot;      &quot;India&quot;       &quot;Indonesia&quot;   &quot;Mexico&quot;      &quot;Philippines&quot; &quot;Singapore&quot;  
+##  [9] &quot;Thailand&quot;    &quot;Venezuela&quot;</code></pre>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="portfolio-assignment-7.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">amount_factor</span>(tables<span class="sc">$</span>gapminderDB<span class="sc">$</span>country)</span></code></pre></div>
+<pre><code>## [1] &quot;tables$gapminderDB$country has 185 levels:&quot;
+##   [1] &quot;Albania&quot;                        &quot;Algeria&quot;                        &quot;Angola&quot;                        
+##   [4] &quot;Antigua and Barbuda&quot;            &quot;Argentina&quot;                      &quot;Armenia&quot;                       
+##   [7] &quot;Aruba&quot;                          &quot;Australia&quot;                      &quot;Austria&quot;                       
+##  [10] &quot;Azerbaijan&quot;                     &quot;Bahamas&quot;                        &quot;Bahrain&quot;                       
+##  [13] &quot;Bangladesh&quot;                     &quot;Barbados&quot;                       &quot;Belarus&quot;                       
+##  [16] &quot;Belgium&quot;                        &quot;Belize&quot;                         &quot;Benin&quot;                         
+##  [19] &quot;Bhutan&quot;                         &quot;Bolivia&quot;                        &quot;Bosnia and Herzegovina&quot;        
+##  [22] &quot;Botswana&quot;                       &quot;Brazil&quot;                         &quot;Brunei&quot;                        
+##  [25] &quot;Bulgaria&quot;                       &quot;Burkina Faso&quot;                   &quot;Burundi&quot;                       
+##  [28] &quot;Cambodia&quot;                       &quot;Cameroon&quot;                       &quot;Canada&quot;                        
+##  [31] &quot;Cape Verde&quot;                     &quot;Central African Republic&quot;       &quot;Chad&quot;                          
+##  [34] &quot;Chile&quot;                          &quot;China&quot;                          &quot;Colombia&quot;                      
+##  [37] &quot;Comoros&quot;                        &quot;Congo, Dem. Rep.&quot;               &quot;Congo, Rep.&quot;                   
+##  [40] &quot;Costa Rica&quot;                     &quot;Cote d&#39;Ivoire&quot;                  &quot;Croatia&quot;                       
+##  [43] &quot;Cuba&quot;                           &quot;Cyprus&quot;                         &quot;Czech Republic&quot;                
+##  [46] &quot;Denmark&quot;                        &quot;Djibouti&quot;                       &quot;Dominican Republic&quot;            
+##  [49] &quot;Ecuador&quot;                        &quot;Egypt&quot;                          &quot;El Salvador&quot;                   
+##  [52] &quot;Equatorial Guinea&quot;              &quot;Eritrea&quot;                        &quot;Estonia&quot;                       
+##  [55] &quot;Ethiopia&quot;                       &quot;Fiji&quot;                           &quot;Finland&quot;                       
+##  [58] &quot;France&quot;                         &quot;French Polynesia&quot;               &quot;Gabon&quot;                         
+##  [61] &quot;Gambia&quot;                         &quot;Georgia&quot;                        &quot;Germany&quot;                       
+##  [64] &quot;Ghana&quot;                          &quot;Greece&quot;                         &quot;Greenland&quot;                     
+##  [67] &quot;Grenada&quot;                        &quot;Guatemala&quot;                      &quot;Guinea&quot;                        
+##  [70] &quot;Guinea-Bissau&quot;                  &quot;Guyana&quot;                         &quot;Haiti&quot;                         
+##  [73] &quot;Honduras&quot;                       &quot;Hong Kong, China&quot;               &quot;Hungary&quot;                       
+##  [76] &quot;Iceland&quot;                        &quot;India&quot;                          &quot;Indonesia&quot;                     
+##  [79] &quot;Iran&quot;                           &quot;Iraq&quot;                           &quot;Ireland&quot;                       
+##  [82] &quot;Israel&quot;                         &quot;Italy&quot;                          &quot;Jamaica&quot;                       
+##  [85] &quot;Japan&quot;                          &quot;Jordan&quot;                         &quot;Kazakhstan&quot;                    
+##  [88] &quot;Kenya&quot;                          &quot;Kiribati&quot;                       &quot;Kuwait&quot;                        
+##  [91] &quot;Kyrgyz Republic&quot;                &quot;Lao&quot;                            &quot;Latvia&quot;                        
+##  [94] &quot;Lebanon&quot;                        &quot;Lesotho&quot;                        &quot;Liberia&quot;                       
+##  [97] &quot;Libya&quot;                          &quot;Lithuania&quot;                      &quot;Luxembourg&quot;                    
+## [100] &quot;Macao, China&quot;                   &quot;Macedonia, FYR&quot;                 &quot;Madagascar&quot;                    
+## [103] &quot;Malawi&quot;                         &quot;Malaysia&quot;                       &quot;Maldives&quot;                      
+## [106] &quot;Mali&quot;                           &quot;Malta&quot;                          &quot;Mauritania&quot;                    
+## [109] &quot;Mauritius&quot;                      &quot;Mexico&quot;                         &quot;Micronesia, Fed. Sts.&quot;         
+## [112] &quot;Moldova&quot;                        &quot;Mongolia&quot;                       &quot;Montenegro&quot;                    
+## [115] &quot;Morocco&quot;                        &quot;Mozambique&quot;                     &quot;Namibia&quot;                       
+## [118] &quot;Nepal&quot;                          &quot;Netherlands&quot;                    &quot;New Caledonia&quot;                 
+## [121] &quot;New Zealand&quot;                    &quot;Nicaragua&quot;                      &quot;Niger&quot;                         
+## [124] &quot;Nigeria&quot;                        &quot;Norway&quot;                         &quot;Oman&quot;                          
+## [127] &quot;Pakistan&quot;                       &quot;Panama&quot;                         &quot;Papua New Guinea&quot;              
+## [130] &quot;Paraguay&quot;                       &quot;Peru&quot;                           &quot;Philippines&quot;                   
+## [133] &quot;Poland&quot;                         &quot;Portugal&quot;                       &quot;Puerto Rico&quot;                   
+## [136] &quot;Qatar&quot;                          &quot;Romania&quot;                        &quot;Russia&quot;                        
+## [139] &quot;Rwanda&quot;                         &quot;Samoa&quot;                          &quot;Saudi Arabia&quot;                  
+## [142] &quot;Senegal&quot;                        &quot;Serbia&quot;                         &quot;Seychelles&quot;                    
+## [145] &quot;Sierra Leone&quot;                   &quot;Singapore&quot;                      &quot;Slovak Republic&quot;               
+## [148] &quot;Slovenia&quot;                       &quot;Solomon Islands&quot;                &quot;South Africa&quot;                  
+## [151] &quot;South Korea&quot;                    &quot;Spain&quot;                          &quot;Sri Lanka&quot;                     
+## [154] &quot;St. Lucia&quot;                      &quot;St. Vincent and the Grenadines&quot; &quot;Sudan&quot;                         
+## [157] &quot;Suriname&quot;                       &quot;Swaziland&quot;                      &quot;Sweden&quot;                        
+## [160] &quot;Switzerland&quot;                    &quot;Syria&quot;                          &quot;Tajikistan&quot;                    
+## [163] &quot;Tanzania&quot;                       &quot;Thailand&quot;                       &quot;Timor-Leste&quot;                   
+## [166] &quot;Togo&quot;                           &quot;Tonga&quot;                          &quot;Trinidad and Tobago&quot;           
+## [169] &quot;Tunisia&quot;                        &quot;Turkey&quot;                         &quot;Turkmenistan&quot;                  
+## [172] &quot;Uganda&quot;                         &quot;Ukraine&quot;                        &quot;United Arab Emirates&quot;          
+## [175] &quot;United Kingdom&quot;                 &quot;United States&quot;                  &quot;Uruguay&quot;                       
+## [178] &quot;Uzbekistan&quot;                     &quot;Vanuatu&quot;                        &quot;Venezuela&quot;                     
+## [181] &quot;Vietnam&quot;                        &quot;West Bank and Gaza&quot;             &quot;Yemen&quot;                         
+## [184] &quot;Zambia&quot;                         &quot;Zimbabwe&quot;</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="portfolio-assignment-7.html#cb77-1" aria-hidden="true" tabindex="-1"></a>levelF <span class="ot">&lt;-</span> tables<span class="sc">$</span>fluDB<span class="sc">$</span>country <span class="sc">%&gt;%</span> as.factor <span class="sc">%&gt;%</span> <span class="fu">levels</span>()</span>
+<span id="cb77-2"><a href="portfolio-assignment-7.html#cb77-2" aria-hidden="true" tabindex="-1"></a>levelD <span class="ot">&lt;-</span> tables<span class="sc">$</span>dengueDB<span class="sc">$</span>country <span class="sc">%&gt;%</span> as.factor <span class="sc">%&gt;%</span> <span class="fu">levels</span>()</span>
+<span id="cb77-3"><a href="portfolio-assignment-7.html#cb77-3" aria-hidden="true" tabindex="-1"></a>levelG <span class="ot">&lt;-</span> tables<span class="sc">$</span>gapminderDB<span class="sc">$</span>country <span class="sc">%&gt;%</span> as.factor <span class="sc">%&gt;%</span> <span class="fu">levels</span>()</span>
+<span id="cb77-4"><a href="portfolio-assignment-7.html#cb77-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-5"><a href="portfolio-assignment-7.html#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="fu">common</span>(levelD, levelG)</span></code></pre></div>
+<pre><code>##  [1] &quot;Argentina&quot;   &quot;Bolivia&quot;     &quot;Brazil&quot;      &quot;India&quot;       &quot;Indonesia&quot;   &quot;Mexico&quot;      &quot;Philippines&quot; &quot;Singapore&quot;  
+##  [9] &quot;Thailand&quot;    &quot;Venezuela&quot;</code></pre>
+<p>All the countries in the dengue data set are all also in the gapminder dataset.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="portfolio-assignment-7.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">common</span>(levelD, levelF)</span></code></pre></div>
+<pre><code>## [1] &quot;Argentina&quot; &quot;Bolivia&quot;   &quot;Brazil&quot;    &quot;Mexico&quot;</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="portfolio-assignment-7.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">common</span>(levelF, levelG) <span class="sc">%&gt;%</span> <span class="fu">length</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;Argentina&quot;   &quot;Australia&quot;   &quot;Austria&quot;     &quot;Belgium&quot;     &quot;Bolivia&quot;     &quot;Brazil&quot;      &quot;Bulgaria&quot;    &quot;Canada&quot;     
+##  [9] &quot;Chile&quot;       &quot;France&quot;      &quot;Germany&quot;     &quot;Hungary&quot;     &quot;Japan&quot;       &quot;Mexico&quot;      &quot;Netherlands&quot; &quot;Norway&quot;     
+## [17] &quot;Paraguay&quot;    &quot;Peru&quot;        &quot;Poland&quot;      &quot;Romania&quot;     &quot;Russia&quot;      &quot;Spain&quot;       &quot;Sweden&quot;      &quot;Switzerland&quot;
+## [25] &quot;Ukraine&quot;     &quot;Uruguay&quot;</code></pre>
+<pre><code>## [1] 26</code></pre>
+<p>but the flu data set only has in common with the dengue data set.</p>
+<p>If the tables are to be joined they need to have data about only the countries and years equal to the counties and years that the tables have in common. Or the tables need to be joined in a way that <code>NA</code> is introduced where necessary.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="portfolio-assignment-7.html#cb84-1" aria-hidden="true" tabindex="-1"></a>gapminder_02_15 <span class="ot">&lt;-</span> tables<span class="sc">$</span>gapminderDB <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">between</span>(year, <span class="dv">2002</span>, <span class="dv">2015</span>))</span></code></pre></div>
 </div>
 <div id="save-this-clean-gapminder-data-in-the-workflowsdb-database" class="section level2" number="6.10">
 <h2><span class="header-section-number">6.10</span> 10. Save this clean gapminder data in the “workflowsdb” database</h2>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="portfolio-assignment-7.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;gapminder_02_15DB&quot;</span>, gapminder_02_15, <span class="at">overwrite =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="portfolio-assignment-7.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;gapminder_02_15DB&quot;</span>, gapminder_02_15, <span class="at">overwrite =</span> T)</span></code></pre></div>
 </div>
 <div id="perform-some-joins-your-choice-with-sql-can-be-done-in-dbeaver-or-with-dplyr." class="section level2" number="6.11">
 <h2><span class="header-section-number">6.11</span> 11. Perform some joins (your choice) with SQL (can be done in DBeaver or with dplyr).</h2>
-<div class="sourceCode" id="cb70"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb70-1"><a href="portfolio-assignment-7.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="op">*</span>, <span class="ot">&quot;fluDB&quot;</span>.influenza_activity, <span class="ot">&quot;dengueDB&quot;</span>.dengue_activity </span>
-<span id="cb70-2"><a href="portfolio-assignment-7.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="ot">&quot;gapminder_02_15DB&quot;</span></span>
-<span id="cb70-3"><a href="portfolio-assignment-7.html#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="ot">&quot;fluDB&quot;</span> <span class="kw">ON</span> <span class="kw">public</span>.<span class="ot">&quot;fluDB&quot;</span>.<span class="dt">year</span> <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="dt">year</span></span>
-<span id="cb70-4"><a href="portfolio-assignment-7.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="ot">&quot;dengueDB&quot;</span> <span class="kw">ON</span> <span class="kw">public</span>.<span class="ot">&quot;dengueDB&quot;</span>.<span class="dt">year</span> <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="dt">year</span></span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb86-1"><a href="portfolio-assignment-7.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="op">*</span>, <span class="ot">&quot;fluDB&quot;</span>.influenza_activity, <span class="ot">&quot;dengueDB&quot;</span>.dengue_activity </span>
+<span id="cb86-2"><a href="portfolio-assignment-7.html#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="ot">&quot;gapminder_02_15DB&quot;</span></span>
+<span id="cb86-3"><a href="portfolio-assignment-7.html#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="ot">&quot;fluDB&quot;</span> <span class="kw">ON</span> <span class="kw">public</span>.<span class="ot">&quot;fluDB&quot;</span>.<span class="dt">year</span> <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="dt">year</span> </span>
+<span id="cb86-4"><a href="portfolio-assignment-7.html#cb86-4" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span> <span class="kw">public</span>.<span class="ot">&quot;fluDB&quot;</span>.country <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.country</span>
+<span id="cb86-5"><a href="portfolio-assignment-7.html#cb86-5" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="ot">&quot;dengueDB&quot;</span> <span class="kw">ON</span> <span class="kw">public</span>.<span class="ot">&quot;dengueDB&quot;</span>.<span class="dt">year</span> <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="dt">year</span></span>
+<span id="cb86-6"><a href="portfolio-assignment-7.html#cb86-6" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span> <span class="kw">public</span>.<span class="ot">&quot;dengueDB&quot;</span>.country <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.country</span></code></pre></div>
 <div class="knitsql-table">
-<table>
-<caption><span id="tab:unnamed-chunk-24">Table 6.4: </span>Displaying records 1 - 10</caption>
+<table style="width:100%;">
+<caption><span id="tab:unnamed-chunk-137">Table 6.4: </span>Displaying records 1 - 10</caption>
 <colgroup>
-<col width="5%" />
+<col width="6%" />
 <col width="3%" />
+<col width="11%" />
+<col width="10%" />
+<col width="6%" />
+<col width="7%" />
+<col width="8%" />
+<col width="6%" />
+<col width="16%" />
 <col width="12%" />
-<col width="11%" />
-<col width="7%" />
-<col width="8%" />
-<col width="8%" />
-<col width="7%" />
-<col width="9%" />
-<col width="13%" />
-<col width="11%" />
+<col width="10%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -719,134 +819,134 @@ Figure 6.1: The workflows database in Dbeaver.
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Armenia</td>
+<td align="left">Argentina</td>
 <td align="right">2002</td>
-<td align="right">24.2</td>
-<td align="right">71.6</td>
-<td align="right">1.2</td>
-<td align="right">3047249</td>
-<td align="right">2370398385</td>
-<td align="left">Asia</td>
-<td align="left">Western Asia</td>
+<td align="right">17.1</td>
+<td align="right">74.3</td>
+<td align="right">2.38</td>
+<td align="right">37889443</td>
+<td align="right">2.420762e+11</td>
+<td align="left">Americas</td>
+<td align="left">South America</td>
 <td align="right">0</td>
-<td align="right">0</td>
+<td align="right">0.000</td>
 </tr>
 <tr class="even">
-<td align="left">Armenia</td>
+<td align="left">Australia</td>
 <td align="right">2002</td>
-<td align="right">24.2</td>
-<td align="right">71.6</td>
-<td align="right">1.2</td>
-<td align="right">3047249</td>
-<td align="right">2370398385</td>
-<td align="left">Asia</td>
-<td align="left">Western Asia</td>
+<td align="right">5.0</td>
+<td align="right">80.3</td>
+<td align="right">1.76</td>
+<td align="right">19514385</td>
+<td align="right">4.421354e+11</td>
+<td align="left">Oceania</td>
+<td align="left">Australia and New Zealand</td>
 <td align="right">0</td>
-<td align="right">0</td>
+<td align="right">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">Armenia</td>
+<td align="left">Austria</td>
 <td align="right">2002</td>
-<td align="right">24.2</td>
-<td align="right">71.6</td>
-<td align="right">1.2</td>
-<td align="right">3047249</td>
-<td align="right">2370398385</td>
-<td align="left">Asia</td>
-<td align="left">Western Asia</td>
+<td align="right">4.4</td>
+<td align="right">78.8</td>
+<td align="right">1.39</td>
+<td align="right">8114698</td>
+<td align="right">1.969986e+11</td>
+<td align="left">Europe</td>
+<td align="left">Western Europe</td>
 <td align="right">0</td>
-<td align="right">0</td>
+<td align="right">NA</td>
 </tr>
 <tr class="even">
-<td align="left">Armenia</td>
+<td align="left">Belgium</td>
 <td align="right">2002</td>
-<td align="right">24.2</td>
-<td align="right">71.6</td>
-<td align="right">1.2</td>
-<td align="right">3047249</td>
-<td align="right">2370398385</td>
-<td align="left">Asia</td>
-<td align="left">Western Asia</td>
+<td align="right">4.4</td>
+<td align="right">78.2</td>
+<td align="right">1.68</td>
+<td align="right">10364613</td>
+<td align="right">2.377417e+11</td>
+<td align="left">Europe</td>
+<td align="left">Western Europe</td>
 <td align="right">0</td>
-<td align="right">0</td>
+<td align="right">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">Armenia</td>
+<td align="left">Bolivia</td>
 <td align="right">2002</td>
-<td align="right">24.2</td>
-<td align="right">71.6</td>
-<td align="right">1.2</td>
-<td align="right">3047249</td>
-<td align="right">2370398385</td>
-<td align="left">Asia</td>
-<td align="left">Western Asia</td>
+<td align="right">53.7</td>
+<td align="right">68.7</td>
+<td align="right">3.98</td>
+<td align="right">8653343</td>
+<td align="right">8.751510e+09</td>
+<td align="left">Americas</td>
+<td align="left">South America</td>
 <td align="right">0</td>
-<td align="right">0</td>
+<td align="right">0.101</td>
 </tr>
 <tr class="even">
-<td align="left">Armenia</td>
+<td align="left">Brazil</td>
 <td align="right">2002</td>
-<td align="right">24.2</td>
-<td align="right">71.6</td>
-<td align="right">1.2</td>
-<td align="right">3047249</td>
-<td align="right">2370398385</td>
-<td align="left">Asia</td>
-<td align="left">Western Asia</td>
-<td align="right">0</td>
-<td align="right">0</td>
+<td align="right">24.3</td>
+<td align="right">71.4</td>
+<td align="right">2.26</td>
+<td align="right">181045592</td>
+<td align="right">6.705127e+11</td>
+<td align="left">Americas</td>
+<td align="left">South America</td>
+<td align="right">174</td>
+<td align="right">0.073</td>
 </tr>
 <tr class="odd">
-<td align="left">Armenia</td>
+<td align="left">Bulgaria</td>
 <td align="right">2002</td>
-<td align="right">24.2</td>
-<td align="right">71.6</td>
-<td align="right">1.2</td>
-<td align="right">3047249</td>
-<td align="right">2370398385</td>
-<td align="left">Asia</td>
-<td align="left">Western Asia</td>
+<td align="right">16.3</td>
+<td align="right">72.1</td>
+<td align="right">1.22</td>
+<td align="right">7869124</td>
+<td align="right">1.406418e+10</td>
+<td align="left">Europe</td>
+<td align="left">Eastern Europe</td>
 <td align="right">0</td>
-<td align="right">0</td>
+<td align="right">NA</td>
 </tr>
 <tr class="even">
-<td align="left">Armenia</td>
+<td align="left">Canada</td>
 <td align="right">2002</td>
-<td align="right">24.2</td>
-<td align="right">71.6</td>
-<td align="right">1.2</td>
-<td align="right">3047249</td>
-<td align="right">2370398385</td>
-<td align="left">Asia</td>
-<td align="left">Western Asia</td>
+<td align="right">5.3</td>
+<td align="right">79.6</td>
+<td align="right">1.51</td>
+<td align="right">31288572</td>
+<td align="right">7.594286e+11</td>
+<td align="left">Americas</td>
+<td align="left">Northern America</td>
 <td align="right">0</td>
-<td align="right">0</td>
+<td align="right">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">Armenia</td>
+<td align="left">Chile</td>
 <td align="right">2002</td>
-<td align="right">24.2</td>
-<td align="right">71.6</td>
-<td align="right">1.2</td>
-<td align="right">3047249</td>
-<td align="right">2370398385</td>
-<td align="left">Asia</td>
-<td align="left">Western Asia</td>
+<td align="right">8.3</td>
+<td align="right">77.7</td>
+<td align="right">2.01</td>
+<td align="right">15544554</td>
+<td align="right">7.944855e+10</td>
+<td align="left">Americas</td>
+<td align="left">South America</td>
 <td align="right">0</td>
-<td align="right">0</td>
+<td align="right">NA</td>
 </tr>
 <tr class="even">
-<td align="left">Armenia</td>
+<td align="left">France</td>
 <td align="right">2002</td>
-<td align="right">24.2</td>
-<td align="right">71.6</td>
-<td align="right">1.2</td>
-<td align="right">3047249</td>
-<td align="right">2370398385</td>
-<td align="left">Asia</td>
-<td align="left">Western Asia</td>
+<td align="right">4.2</td>
+<td align="right">79.4</td>
+<td align="right">1.87</td>
+<td align="right">60075783</td>
+<td align="right">1.363229e+12</td>
+<td align="left">Europe</td>
+<td align="left">Western Europe</td>
 <td align="right">0</td>
-<td align="right">0</td>
+<td align="right">NA</td>
 </tr>
 </tbody>
 </table>
@@ -854,16 +954,24 @@ Figure 6.1: The workflows database in Dbeaver.
 </div>
 <div id="generate-a-joined-table-and-export-this-from-the-database-to-r." class="section level2" number="6.12">
 <h2><span class="header-section-number">6.12</span> 12. Generate a joined table, and export this from the database to R.</h2>
-<div class="sourceCode" id="cb71"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb71-1"><a href="portfolio-assignment-7.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> joined_gapfluden </span>
-<span id="cb71-2"><a href="portfolio-assignment-7.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span> <span class="kw">SELECT</span> <span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="op">*</span>, <span class="ot">&quot;fluDB&quot;</span>.influenza_activity, <span class="ot">&quot;dengueDB&quot;</span>.dengue_activity </span>
-<span id="cb71-3"><a href="portfolio-assignment-7.html#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="ot">&quot;gapminder_02_15DB&quot;</span></span>
-<span id="cb71-4"><a href="portfolio-assignment-7.html#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="ot">&quot;fluDB&quot;</span> <span class="kw">ON</span> <span class="kw">public</span>.<span class="ot">&quot;fluDB&quot;</span>.<span class="dt">year</span> <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="dt">year</span></span>
-<span id="cb71-5"><a href="portfolio-assignment-7.html#cb71-5" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="ot">&quot;dengueDB&quot;</span> <span class="kw">ON</span> <span class="kw">public</span>.<span class="ot">&quot;dengueDB&quot;</span>.<span class="dt">year</span> <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="dt">year</span></span></code></pre></div>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="portfolio-assignment-7.html#cb72-1" aria-hidden="true" tabindex="-1"></a>joined_gapfluden <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(<span class="at">conn =</span> con, <span class="st">&quot;joined_gapfluden&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="portfolio-assignment-7.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(con)</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb87-1"><a href="portfolio-assignment-7.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> joined_gapfluden </span>
+<span id="cb87-2"><a href="portfolio-assignment-7.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span> <span class="kw">SELECT</span> <span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="op">*</span>, <span class="ot">&quot;fluDB&quot;</span>.influenza_activity, <span class="ot">&quot;dengueDB&quot;</span>.dengue_activity </span>
+<span id="cb87-3"><a href="portfolio-assignment-7.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="ot">&quot;gapminder_02_15DB&quot;</span></span>
+<span id="cb87-4"><a href="portfolio-assignment-7.html#cb87-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="ot">&quot;fluDB&quot;</span> <span class="kw">ON</span> <span class="kw">public</span>.<span class="ot">&quot;fluDB&quot;</span>.<span class="dt">year</span> <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="dt">year</span> </span>
+<span id="cb87-5"><a href="portfolio-assignment-7.html#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span> <span class="kw">public</span>.<span class="ot">&quot;fluDB&quot;</span>.country <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.country</span>
+<span id="cb87-6"><a href="portfolio-assignment-7.html#cb87-6" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="ot">&quot;dengueDB&quot;</span> <span class="kw">ON</span> <span class="kw">public</span>.<span class="ot">&quot;dengueDB&quot;</span>.<span class="dt">year</span> <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="dt">year</span></span>
+<span id="cb87-7"><a href="portfolio-assignment-7.html#cb87-7" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span> <span class="kw">public</span>.<span class="ot">&quot;dengueDB&quot;</span>.country <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.country</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="portfolio-assignment-7.html#cb88-1" aria-hidden="true" tabindex="-1"></a>joined_gapfluden <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(<span class="at">conn =</span> con, <span class="st">&quot;joined_gapfluden&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="portfolio-assignment-7.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(con)</span></code></pre></div>
 </div>
 <div id="show-some-descriptive-statistics-with-this-table-and-at-least-3-visualisations-using-ggplot2." class="section level2" number="6.13">
 <h2><span class="header-section-number">6.13</span> 13. Show some descriptive statistics with this table, and at least 3 visualisations using ggplot2.</h2>
+<p>First of all i there is no description what <code>influenza activity</code> actually is. I assume because its only positive integers that it means individuals infected. So i want to see if population has a correlation with <code>influenza activity</code>.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="portfolio-assignment-7.html#cb90-1" aria-hidden="true" tabindex="-1"></a>joined_gapfluden <span class="sc">%&gt;%</span> <span class="fu">filter</span>(influenza_activity <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb90-2"><a href="portfolio-assignment-7.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> influenza_activity, <span class="at">y=</span>population))<span class="sc">+</span></span>
+<span id="cb90-3"><a href="portfolio-assignment-7.html#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb90-4"><a href="portfolio-assignment-7.html#cb90-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>year)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-141-1.png" width="672" /></p>
 
 </div>
 </div>
