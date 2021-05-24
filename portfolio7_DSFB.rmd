@@ -135,15 +135,45 @@ general_inspection(tables$gapminderDB)
 tables$fluDB$year %>% unique()
 tables$dengueDB$year %>% unique()
 ```
-The data of `flu` and `dengue` are from the year 2002 untill 2015. while the data of gapminder is:
+The data of `flu` and `dengue` are from the year 2002 untill 2015. while the data of gapminder is from:
 
 ```{r}
 tables$gapminderDB$year %>% unique()
 ```
-More than that.
+1960 till 2015. we've also seen in 7.8 that the flu data has 406 rows while the dengue data has 140 rows. 
 
 ```{r}
-gapminder_02_15 <- tables$gapminderDB %>% filter(year == 2002:2015)
+# db_names <- c("tables$fluDB$country", "tables$dengueDB$country", "tables$gapminderDB$country")
+# for (i in db_names){
+#   amount_factor(get(i)) 
+# } 
+
+amount_factor(tables$fluDB$country)
+amount_factor(tables$dengueDB$country)
+amount_factor(tables$gapminderDB$country)
+
+```
+```{r}
+levelF <- tables$fluDB$country %>% as.factor %>% levels()
+levelD <- tables$dengueDB$country %>% as.factor %>% levels()
+levelG <- tables$gapminderDB$country %>% as.factor %>% levels()
+
+common(levelD, levelG)
+```
+All the countries in the dengue data set are all also in the gapminder dataset.
+
+```{r}
+common(levelD, levelF)
+common(levelF, levelG) %>% length()
+```
+but the flu data set only has `r common(levelD, levelF)` in common with the dengue data set.
+
+
+
+If the tables are to be joined they need to have data about only the countries and years equal to the counties and years that the tables have in common. Or the tables need to be joined in a way that `NA` is introduced where necessary.
+
+```{r}
+gapminder_02_15 <- tables$gapminderDB %>% filter(between(year, 2002, 2015))
 ```
 
 ## 10. Save this clean gapminder data in the “workflowsdb” database
@@ -158,8 +188,10 @@ dbWriteTable(con, "gapminder_02_15DB", gapminder_02_15, overwrite = T)
 ```{sql connection = con}
 SELECT "gapminder_02_15DB".*, "fluDB".influenza_activity, "dengueDB".dengue_activity 
 FROM "gapminder_02_15DB"
-LEFT JOIN "fluDB" ON public."fluDB".year = public."gapminder_02_15DB".year
+LEFT JOIN "fluDB" ON public."fluDB".year = public."gapminder_02_15DB".year 
+AND public."fluDB".country = public."gapminder_02_15DB".country
 LEFT JOIN "dengueDB" ON public."dengueDB".year = public."gapminder_02_15DB".year
+AND public."dengueDB".country = public."gapminder_02_15DB".country
 ```
 
 ## 12. Generate a joined table, and export this from the database to R.
@@ -168,8 +200,10 @@ LEFT JOIN "dengueDB" ON public."dengueDB".year = public."gapminder_02_15DB".year
 CREATE TABLE joined_gapfluden 
 AS SELECT "gapminder_02_15DB".*, "fluDB".influenza_activity, "dengueDB".dengue_activity 
 FROM "gapminder_02_15DB"
-LEFT JOIN "fluDB" ON public."fluDB".year = public."gapminder_02_15DB".year
+LEFT JOIN "fluDB" ON public."fluDB".year = public."gapminder_02_15DB".year 
+AND public."fluDB".country = public."gapminder_02_15DB".country
 LEFT JOIN "dengueDB" ON public."dengueDB".year = public."gapminder_02_15DB".year
+AND public."dengueDB".country = public."gapminder_02_15DB".country
 ```
 
 
@@ -184,7 +218,7 @@ dbDisconnect(con)
 ## 13. Show some descriptive statistics with this table, and at least 3 visualisations using ggplot2.
 
 ```{r}
-
+joined_gapfluden
 ```
 
 
