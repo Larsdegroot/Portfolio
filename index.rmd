@@ -28,4 +28,4 @@ require(remotes)
 require(RPostgres)
 ```
 
-mischien favicon: "path" toevoegen? is wel grappig
+
