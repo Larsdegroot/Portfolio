@@ -5,7 +5,7 @@ This exercise is about identifying reproducibility issues in a scientific public
 Article used: [A retrospective cluster analysis of COVID-19 cases by county](https://www.biorxiv.org/content/10.1101/2020.11.12.379537v1)
 ***
 
-### Score:
+## Score:
 
 | Transparency Criteria| Definition       | Score |
 |---------|-------------------------------|----------|
@@ -18,7 +18,7 @@ Article used: [A retrospective cluster analysis of COVID-19 cases by county](htt
 |Funding Statement| A statement within the manuscript indicating whether or not the authors received funding for their research.| FALSE |
 Code Availability | Authors have shared access to the most updated code that they used in their study, including code used for analysis. | TRUE |
 
-### Explanation:
+## Explanation:
 
 At the top of the article the authors names are displayed, with the names of the universities the study at or are part of. Of one of the authors the email is given. This information falls under the `author review` criteria. this information is sufficient for the goal of open science in this case because email, department and phone number information can be found online for these scientist. however this might not always be the case so the availability of the email address of the paper is appreciated.   
 

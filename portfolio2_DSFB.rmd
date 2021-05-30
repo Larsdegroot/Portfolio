@@ -1,6 +1,6 @@
 # Portfolio assignment 2
 
-plying the Guerrilla analytics framework to your own project.
+Applying the Guerrilla analytics framework to your own project.
 
 1. Look at your RStudio project that you created for the DAUR-II final assignment
 2. Rearrange your project according the Guerilla principles explained above
