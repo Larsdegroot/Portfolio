@@ -217,7 +217,7 @@ dbDisconnect(con)
 
 **13. Show some descriptive statistics with this table, and at least 3 visualisations using ggplot2.**
 
-First of all i there is no description what `influenza activity` actually is. I assume because its only positive integers that it means individuals infected. So i want to see if population has a correlation with `influenza activity`.
+First of all, there is no description what `influenza activity` actually is. Because its only positive integers I assume that it means amount of individuals infected. So i want to see if population has a correlation with `influenza activity`.
 
 ```{r}
 joined_gapfluden %>% filter(influenza_activity > 0) %>%
