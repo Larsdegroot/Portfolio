@@ -5,8 +5,15 @@ site: bookdown::bookdown_site
 documentclass: book
 output_dir: "docs"
 output:
-  bookdown::gitbook: default
+  bookdown::gitbook: 
+    config:
+      toc:
+        collapse: section
+      sharing:
+        facebook: no
+        twitter: no
 new_session: yes
+number_sections: FALSE
 ---
 
 ```{r}
@@ -21,3 +28,4 @@ require(remotes)
 require(RPostgres)
 ```
 
+mischien favicon: "path" toevoegen? is wel grappig
