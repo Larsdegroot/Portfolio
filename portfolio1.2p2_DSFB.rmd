@@ -2,20 +2,20 @@
 
 ***
 
-## H. Using the OSF website, select a project that addresses an aspect of the SARS-Cov-2 virus.
-## I. Select a project that has a dataset and R-code shared in the project environment.
+**H. Using the OSF website, select a project that addresses an aspect of the SARS-Cov-2 virus.**
+**I. Select a project that has a dataset and R-code shared in the project environment.**
 
 Project selected: [Bats and COVID-19](https://osf.io/wxh6a/)  
 
-## J. Have a look at the code. Describe in your own words what the code intents to achieve.
+**J. Have a look at the code. Describe in your own words what the code intents to achieve.**
 
 it downloads gtrends data for the quary "bats" and the word bat translated in diffrent langueses in there associated geolocations, for the time period 2016 to 2020. using this it makes figures that outline the correlation between searches about covid-19 and searches about bats.  
 
-## K. In terms of readibility of the code, how would you grade (1(very bad)-5(very good)) the code available.
+**K. In terms of readibility of the code, how would you grade (1(very bad)-5(very good)) the code available.**
 
 i would give it a 4, the code includes comments outlining the function of big code chunks, however the code uses packages and function im not familiar with so it still quite hard to really understand what the code does.   
  
-## L. Download the code and the data to a new RStudio project M. Run the script or code that is available to reproduce at least 1 figure
+**L. Download the code and the data to a new RStudio project M. Run the script or code that is available to reproduce at least 1 figure**
 
 ```{r, eval=F }
 tv.dat <- 
@@ -37,7 +37,7 @@ ggplot() +
   theme(strip.text = element_text(colour = "black", size=14, face="bold"))
 ```
 
-## N. When you encounter errors or flaws in the script, try fixing them and record your changes.
+**N. When you encounter errors or flaws in the script, try fixing them and record your changes.**
 
 Errors:
 
@@ -71,9 +71,9 @@ ggplot() +
   theme(strip.text = element_text(colour = "black", size=14, face="bold"))
 ```
 
-## O. Taken together on a scale from 1 (very hard) to 5 (very easy), how much effort did it take you to reproduce the visualization from the project, report or article.
+**O. Taken together on a scale from 1 (very hard) to 5 (very easy), how much effort did it take you to reproduce the visualization from the project, report or article.**
 
 5 very easy, the code used uses common packages and is very readable. 
 
-## P. Generate an RMarkdown script that contains the details on the project you selected, the code you used to create the visualization and your score for reproducibility.
+**P. Generate an RMarkdown script that contains the details on the project you selected, the code you used to create the visualization and your score for reproducibility.**
 

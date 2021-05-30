@@ -1,10 +1,10 @@
 # Portfolio assignment 1.1
 
-## A. Review the following Excel file in the ./data/CE.LIQ.FLOW.062_Tidydata.xlsx (it’s here), by opening the file in Excel. See if you can spot anything peculiar about this file. Do not edit the file in any way. Just close it when you are done. (Annoyingly, Excel asks you to save your changes, even if you did not touch anything in the file: why is this cumbersome?)
+**A. Review the following Excel file in the ./data/CE.LIQ.FLOW.062_Tidydata.xlsx (it’s here), by opening the file in Excel. See if you can spot anything peculiar about this file. Do not edit the file in any way. Just close it when you are done. (Annoyingly, Excel asks you to save your changes, even if you did not touch anything in the file: why is this cumbersome?)**
 
 it's bright with unreadable colors. The data is in wide/tidy format and many columns have the same value on each cell of the column.
 
-## B. Open the file in R, using the {readxl} package.
+**B. Open the file in R, using the {readxl} package.**
 
 ```{r portfolio 1.1}
 ce_data <- read_xlsx(here("1.1_data/CE.LIQ.FLOW.062_Tidydata.xlsx"))
@@ -12,7 +12,7 @@ ce_data <- read_xlsx(here("1.1_data/CE.LIQ.FLOW.062_Tidydata.xlsx"))
 
 No the data types have not been correctly assigned, column compname could have been the data type factor, and compConcentration should be numeric.
 
-## D. Create a graph displaying a scatterplot for the CE.LIQ.FLOW.062_Tidydata.xlsx data, for the different compounds and the varying concentrations. Put the compConcentration on the x-axis, the DataRaw counts on the y-axis and assign a colour to each level in compName. Assign a different symbol (shape =) to each level in the expType variable. Try fixing the labels of the x-axis so that we can read them.
+**D. Create a graph displaying a scatterplot for the CE.LIQ.FLOW.062_Tidydata.xlsx data, for the different compounds and the varying concentrations. Put the compConcentration on the x-axis, the DataRaw counts on the y-axis and assign a colour to each level in compName. Assign a different symbol (shape =) to each level in the expType variable. Try fixing the labels of the x-axis so that we can read them.**
 
 ```{r}
 ce_data$compConcentration <- as.numeric(ce_data$compConcentration)
@@ -26,7 +26,7 @@ ce_data %>% slice_sample(prop = 0.40) %>%
        title = "Counted offspring after incubation with compound")
 ```
 
-## E. When creating the plot under C), what happened with the ordering of the x-axis labels. Explain why this happens. Look at the data-type of the compConcentration column in the data again to find a clue.
+**E. When creating the plot under C), what happened with the ordering of the x-axis labels. Explain why this happens. Look at the data-type of the compConcentration column in the data again to find a clue.**
 
 ```{r}
 ce_data <- read_xlsx(here("1.1_data/CE.LIQ.FLOW.062_Tidydata.xlsx"))
@@ -42,7 +42,7 @@ class(ce_data$compConcentration)
 
 The data type of compConcentration is character, this means per concentration value it adds a point on the x-axis. this results in the overplotted mess seen here.
 
-## F. Correct the data-type of compConcentration to numeric and than look at the graph again. Use a log10 transformation on the x-axis to get a clear graph. Also, add a bit of jitter to the points in the graph so that points are not overlapping.
+**F. Correct the data-type of compConcentration to numeric and than look at the graph again. Use a log10 transformation on the x-axis to get a clear graph. Also, add a bit of jitter to the points in the graph so that points are not overlapping.**
 
 ```{r}
 ce_data$compConcentration <- as.numeric(ce_data$compConcentration)
@@ -55,14 +55,14 @@ ce_data %>% ggplot(aes(x = log10(compConcentration), y = RawData)) +
   
 ```
 
-## G.H. Fill in: (G) The positive control for this experiments is "ethanol (H) The negative control for this experiment is "S-medium".
+**G.H. Fill in: (G) The positive control for this experiments is "ethanol (H) The negative control for this experiment is "S-medium"**
 
-I. Think about how you would analyze this experiment to learn whether there is indeed an effect of different concentrations on offspring count and whether the different compounds have a different curve (IC50). Write down your analysis as a step-wise plan
+**Think about how you would analyze this experiment to learn whether there is indeed an effect of different concentrations on offspring count and whether the different compounds have a different curve (IC50). Write down your analysis as a step-wise plan**
 
 1. I would create dose-response curves based on the data per compound.
 2. I would calculate P-values to test if the diffrence between concentrations of a compound has a significant effect on the number of offspring. this would first be done by checking for normality (shapiro wilk and/or q-q plots) then doing a Anova or Friedmans.
 
-## J. Normalize the data for the controlNegative in such a way that the mean value for controlNegative is exactly equal to 1 and that all other values are expressed as a fraction thereof. Rerun your graphs with the normalized data.
+**J. Normalize the data for the controlNegative in such a way that the mean value for controlNegative is exactly equal to 1 and that all other values are expressed as a fraction thereof. Rerun your graphs with the normalized data.**
 
 ```{r}
 #calculating mean of control negative outside of mutate because mutate doesn't like filter function 
@@ -90,7 +90,7 @@ normalized_ce_data %>% ggplot(aes(x = log10(compConcentration), y = norm_data)) 
        title = "Counted offspring after incubation with compound")
 ```
 
-## K. Why would you want to take the step under J?
+**K. Why would you want to take the step under J?**
 
 this eliminates natural and extraneous variation between groups. After normalization all groups fall on the same scale of 0 - 1. 
 

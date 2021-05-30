@@ -4,7 +4,7 @@
 source(here("src/port_src7.R"))
 ```
 
-## 1. Load the flu (“./data/flu_data.csv), the dengue (.”/data/dengue_data.csv) and the gapminder ({dslabs} package) into three separate dataframes in R
+**1. Load the flu (“./data/flu_data.csv), the dengue (.”/data/dengue_data.csv) and the gapminder ({dslabs} package) into three separate dataframes in R.**
 
 ```{r}
 dengue <- read.csv(here::here("7_data/dengue_data.txt"), skip = 11) 
@@ -16,7 +16,7 @@ head(flu)
 head(gapminder)
 ```
 
-## 2. Check if they are in the right shape. Is the data in the ‘tidy’ format? If not change the format to ‘tidy’
+**2. Check if they are in the right shape. Is the data in the ‘tidy’ format? If not change the format to ‘tidy’**
 
 ```{r 7.2}
 dengue <- dengue %>% pivot_longer(Argentina:Venezuela, names_to = "country", values_to = "value")
@@ -28,7 +28,7 @@ head(flu)
 ```
 
 
-## 3. Change the country and date variables of the three tables so that they coincide in terms of data type, class and values
+**3. Change the country and date variables of the three tables so that they coincide in terms of data type, class and values**
 
 ```{r 7.3}
 dengue <- dengue %>% separate("Date", into = c("year", "month", "day"), sep = "-") 
@@ -59,7 +59,7 @@ flu <- flu %>%
 head(flu)
 ```
 
-## 4. Store the three tables as separate (so six in total) .csv and .rds files.
+**4. Store the three tables as separate (so six in total) .csv and .rds files.**
 
 ```{r, eval=F}
 for (x in c("flu", "dengue", "gapminder")) {
@@ -69,7 +69,7 @@ for (x in c("flu", "dengue", "gapminder")) {
 ```
 
 
-## 5. In Dbeaver create a new PostgreSQL database “workflowsdb”
+**5. In Dbeaver create a new PostgreSQL database “workflowsdb”**
 
 ```{r, fig.cap = "The workflows database in Dbeaver."}
 knitr::include_graphics(here("7_data/workflowsdb_in_Dbeaver.JPG"))
@@ -77,7 +77,7 @@ knitr::include_graphics(here("7_data/workflowsdb_in_Dbeaver.JPG"))
 
 ![Workflows database in DBeaver](/)
 
-## 6. Using RPostgreSQL, insert the tables into the database.
+**6. Using RPostgreSQL, insert the tables into the database.**
 
 ```{r}
 psswd <- .rs.askForPassword("Database Password:")
@@ -97,7 +97,7 @@ dbWriteTable(con, "gapminderDB", gapminder, overwrite = T)
 ````
 
 
-## 7. Inspect the contents of the tables with SQL (in DBeaver) and save the SQL script.
+**7. Inspect the contents of the tables with SQL (in DBeaver) and save the SQL script.**
 
 ```{sql connection= con}
 SELECT *  FROM "dengueDB";
@@ -111,7 +111,7 @@ SELECT *  FROM "fluDB";
 SELECT *  FROM "gapminderDB";
 ```
 
-## 8. Inspect the contents of the tables with dplyr (in R) and save a RMarkdown showing what you are doing.
+**8. Inspect the contents of the tables with dplyr (in R) and save a RMarkdown showing what you are doing.**
 
 ```{r}
 db_names <- c("fluDB", "dengueDB", "gapminderDB")
@@ -129,7 +129,7 @@ general_inspection(tables$gapminderDB)
 ```
 
 
-## 9. Load the gapminder data in R and change the dataframe in such as way that you could join it to dengue and flue.
+**9. Load the gapminder data in R and change the dataframe in such as way that you could join it to dengue and flue.**
 
 ```{r}
 tables$fluDB$year %>% unique()
@@ -176,14 +176,14 @@ If the tables are to be joined they need to have data about only the countries a
 gapminder_02_15 <- tables$gapminderDB %>% filter(between(year, 2002, 2015))
 ```
 
-## 10. Save this clean gapminder data in the “workflowsdb” database
+**10. Save this clean gapminder data in the “workflowsdb” database**
 
 ```{r, eval=FALSE}
 dbWriteTable(con, "gapminder_02_15DB", gapminder_02_15, overwrite = T)
 ```
 
 
-## 11. Perform some joins (your choice) with SQL (can be done in DBeaver or with dplyr).
+**11. Perform some joins (your choice) with SQL (can be done in DBeaver or with dplyr).**
 
 ```{sql connection = con}
 SELECT "gapminder_02_15DB".*, "fluDB".influenza_activity, "dengueDB".dengue_activity 
@@ -194,7 +194,7 @@ LEFT JOIN "dengueDB" ON public."dengueDB".year = public."gapminder_02_15DB".year
 AND public."dengueDB".country = public."gapminder_02_15DB".country
 ```
 
-## 12. Generate a joined table, and export this from the database to R.
+**12. Generate a joined table, and export this from the database to R.**
 
 ```{sql connection = con, eval = F}
 CREATE TABLE joined_gapfluden 
@@ -215,7 +215,7 @@ joined_gapfluden <- dbReadTable(conn = con, "joined_gapfluden")
 dbDisconnect(con)
 ```
 
-## 13. Show some descriptive statistics with this table, and at least 3 visualisations using ggplot2.
+**13. Show some descriptive statistics with this table, and at least 3 visualisations using ggplot2.**
 
 First of all i there is no description what `influenza activity` actually is. I assume because its only positive integers that it means individuals infected. So i want to see if population has a correlation with `influenza activity`.
 
