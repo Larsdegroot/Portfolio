@@ -2,12 +2,17 @@
 
 **A. Review the following Excel file in the ./data/CE.LIQ.FLOW.062_Tidydata.xlsx (it’s here), by opening the file in Excel. See if you can spot anything peculiar about this file. Do not edit the file in any way. Just close it when you are done. (Annoyingly, Excel asks you to save your changes, even if you did not touch anything in the file: why is this cumbersome?)**
 
+![Colourfull Excel file](./1.1_data/colourfull_excelfile.JPG)
+
 it's bright with unreadable colors. The data is in wide/tidy format and many columns have the same value on each cell of the column.
 
 **B. Open the file in R, using the {readxl} package.**
 
 ```{r portfolio 1.1}
 ce_data <- read_xlsx(here("1.1_data/CE.LIQ.FLOW.062_Tidydata.xlsx"))
+library(tidyverse)
+library(here)
+library(readxl)
 ```
 
 No the data types have not been correctly assigned, column compname could have been the data type factor, and compConcentration should be numeric.
@@ -17,7 +22,9 @@ No the data types have not been correctly assigned, column compname could have b
 ```{r}
 ce_data$compConcentration <- as.numeric(ce_data$compConcentration)
 ce_data$compName <- as_factor(ce_data$compName)
+```
 
+```{r}
 ce_data %>% slice_sample(prop = 0.40) %>%
   ggplot(aes(x = compConcentration, y = RawData)) +
   geom_jitter(aes(color = compName, shape = expType), alpha = 0.7, size = 1, width = 0.3) +
@@ -25,6 +32,16 @@ ce_data %>% slice_sample(prop = 0.40) %>%
        y = "Number of offspring,",
        title = "Counted offspring after incubation with compound")
 ```
+
+```{r}
+ce_data %>%
+  ggplot(aes(x = compConcentration, y = RawData)) +
+  geom_point(aes(color = compName, shape = expType), alpha = 0.7, size = 1, width = 0.3) +
+  labs(x = "Compand concentration",
+       y = "Number of offspring,",
+       title = "Counted offspring after incubation with compound")
+```
+
 
 **E. When creating the plot under C), what happened with the ordering of the x-axis labels. Explain why this happens. Look at the data-type of the compConcentration column in the data again to find a clue.**
 

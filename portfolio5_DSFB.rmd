@@ -7,6 +7,7 @@ _Our projecticum doesn't require a literature study_
 
 https://www.longdom.org/scholarly/python-for-bioinformatics--journals-articles-ppts-list-2878.html
 https://snakemake.readthedocs.io/en/stable/
+https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003496
 
 **2. Start a .Rmd named “introduction.Rmd” with a few lines introduction on your projecticum topic.**
 
