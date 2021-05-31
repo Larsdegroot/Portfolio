@@ -10,9 +10,6 @@ it's bright with unreadable colors. The data is in wide/tidy format and many col
 
 ```{r portfolio 1.1}
 ce_data <- read_xlsx(here("1.1_data/CE.LIQ.FLOW.062_Tidydata.xlsx"))
-library(tidyverse)
-library(here)
-library(readxl)
 ```
 
 No the data types have not been correctly assigned, column compname could have been the data type factor, and compConcentration should be numeric.
