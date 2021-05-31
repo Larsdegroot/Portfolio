@@ -28,15 +28,15 @@ Contact Info {#contact}
 Skills {#skills}
 --------------------------------------------------------------------------------
 
-- <i class="fas fa-language"></i> **Spoken language:**
+- <i class="fas fa-language"></i> **Spoken languages:**
 - Dutch <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i>
 - English <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> 
 
-- <i class="fas fa-pen-alt"></i> **Writen language:**
+- <i class="fas fa-pen-alt"></i> **Written languages:**
 - Dutch <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i>
 - English <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i>
 
-- <i class="far fa-file-code"></i> **Programming language:**
+- <i class="far fa-file-code"></i> **Programming languages:**
 - Bash <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="far fa-square"></i> <i class="far fa-square"></i> <i class="far fa-square"></i>
 - R    <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="fas fa-square"></i> <i class="far fa-square"></i> <i class="far fa-square"></i> 
 
