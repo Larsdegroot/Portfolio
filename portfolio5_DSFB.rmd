@@ -2,8 +2,10 @@
 
 **1. Make a new folder within Mendeley for the projecticum. Place all pdf’s you used till now in your folder (if you did not use any papers as source yet, find 3 papers on Pubmed now that you could use for your introduction.). Copy your .bib file to the folder on your computer you are using for the Projecticum git repo.**
 
-I've searched for 3 paper about how Python is used within the field of bioinformatics. i've also used Refworks because that's the citation manager i use.
+I've searched for 3 paper about de novo assembly.
 _Our projecticum doesn't require a literature study_
+
+
 
 https://www.longdom.org/scholarly/python-for-bioinformatics--journals-articles-ppts-list-2878.html
 https://snakemake.readthedocs.io/en/stable/

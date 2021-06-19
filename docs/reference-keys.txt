@@ -1,8 +1,8 @@
-fig:unnamed-chunk-13
-tab:unnamed-chunk-16
-tab:unnamed-chunk-17
+fig:unnamed-chunk-15
 tab:unnamed-chunk-18
-tab:unnamed-chunk-27
+tab:unnamed-chunk-19
+tab:unnamed-chunk-20
+tab:unnamed-chunk-29
 portfolio-assignment-1.1
 portfolio-assignment-1.2-part-1
 score
@@ -10,4 +10,6 @@ explanation
 portfolio-assignment-1.2-part-2
 portfolio-assignment-2
 portfolio-assignment-5.b
+portfolio-assignment-6.2
 portfolio-assignment-7
+parametered-rmd

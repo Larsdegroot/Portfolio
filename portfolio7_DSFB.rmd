@@ -215,15 +215,77 @@ joined_gapfluden <- dbReadTable(conn = con, "joined_gapfluden")
 dbDisconnect(con)
 ```
 
-**13. Show some descriptive statistics with this table, and at least 3 visualisations using ggplot2.**
+**13. Show some descriptive statistics with this table, and at least 3 visualizations using ggplot2.**
 
-First of all, there is no description what `influenza activity` actually is. Because its only positive integers I assume that it means amount of individuals infected. So i want to see if population has a correlation with `influenza activity`.
+The joined dataset contains data about `R joined_gapfluden["country"] %>% unique() %>% count() %>% pull()` different countries, during the time period from `R joined_gapfluden["year"] %>% min` until `R joined_gapfluden["year"] %>% max`. And also the influenza cases per country during this time.
 
 ```{r}
-joined_gapfluden %>% filter(influenza_activity > 0) %>%
-  ggplot(aes(x= influenza_activity, y=population))+
-  geom_point() +
-  facet_wrap(~year)
+joined_gapfluden$country <- joined_gapfluden$country %>% as.factor()
+joined_gapfluden$year <- joined_gapfluden$year %>% as.factor()
+joined_gapfluden$continent <- joined_gapfluden$continent %>% as.factor()
+joined_gapfluden$region <- joined_gapfluden$region %>% as.factor()
+```
+
+```{r}
+kableExtra::kable(head(joined_gapfluden))
+```
+
+Influenza, commonly called the flu, is an infectious disease caused by The influenza virus. Symptoms can be quite mild; fever, runny nose, sore throat. Or severe pneumonia.
+
+in 2009 a strain of influenza, the H1N1 influenza strain caused a pandemic known as the swine flu.
+
+```{r}
+joined_gapfluden %>% 
+  ggplot(aes(x= year, y = influenza_activity, group = country, fill = country)) +
+  geom_area(alpha = 0.7, size = 0.4, colour = "white") +
+  theme_ipsum() + #or theme_ft_rc()
+  scale_fill_viridis(discrete = T)
+```
+
+Global cases peaked in 2009 at `r joined_gapfluden %>% group_by(year) %>% summarise(global_influenza_cases = sum(influenza_activity, na.rm = T)) %>% pull() %>% max() `.
+
+Some countries had more influenza cases realtive to their population during the peak than others.
+
+```{r}
+relative_influenza_2009 <- joined_gapfluden %>% 
+  filter(continent == "Europe", year == "2009") %>% 
+  select(country, population, influenza_activity) %>% 
+  mutate(relative_influenza_cases = (influenza_activity / population)*100)
+
+regions <- relative_influenza_2009$country
+#remove Russia because it takes up too much space in the map
+regions <- regions[-11]
+
+map_data_eu <- map_data("world", region = regions)
+
+relative_influenza_2009 <- relative_influenza_2009 %>% filter(country != "Russia")
+#renaming for left join
+relative_influenza_2009 <- rename(relative_influenza_2009, region = country)
+map_data_eu <- left_join(relative_influenza_2009, map_data_eu, by = "region")
+
+ggplot(map_data_eu, aes(x = long, y = lat)) +
+  geom_polygon(aes(group = group, fill = relative_influenza_cases), colour = "white", size = 0.1) +
+  theme_void() + #maybe a dark theme?
+  scale_fill_viridis(option = "E") + 
+  labs(title = "Influenza Activity in europe",
+       fill = "relative influenza activity")
+  
+```
+
+It is visible that Austria was had a relatively high influenza activity. Could this have effected life expectancy in Austria?
+
+```{r}
+joined_gapfluden %>%
+  filter(country == "Austria") %>%
+  ggplot() +
+  geom_line(aes(x = year, y = life_expectancy), group = 1, size = 1) +
+  geom_line(aes(x = year, y = influenza_activity/500), group = 1, inherit.aes = F, size = 1, color = "red") +
+  scale_y_continuous(
+    name = "Life Expectancy in years",
+    sec.axis = sec_axis(~.*500, name = "Influenza cases")
+  ) +
+  theme_ipsum()
+  
 ```
 
 

@@ -1,0 +1,39 @@
+# Parametered RMD
+
+```{r}
+data <- read.csv("9_data/data.csv")
+data <- rename(data, country = ï..country)
+```
+
+```{r}
+#convert year-week format to a date fomat
+# using this: https://stackoverflow.com/questions/45549449/transform-year-week-to-date-object
+#each year-week date needs to be associated with a month, this is done most accuratly if thursday is taken as day of the week.
+isoweek_thursday <- paste0(str_sub(data$year_week, start = 0, end = 5), "W", str_sub(data$year_week, start = 6, end = 7), "-4")
+data$date <- ISOweek2date(isoweek_thursday)
+
+#reordering columns so that date is net to year_week
+data <- data[,c(1, 2, 3, 4, 5, 6, 7, 11, 8, 9, 10)]
+```
+
+
+```{r covid cases}
+#selecting rows based on regex: https://stackoverflow.com/questions/9520840/using-regexp-to-select-rows-in-r-dataframe
+data %>% 
+  filter(country == params$country, indicator == "cases") %>%
+  subset(grepl(paste(params$year, params$month, ".*", sep = "-"), date)) %>%
+  ggplot() +
+  geom_line(aes(x = date, y = cumulative_count), group = 1, size = 1, color = "red") +
+  theme_ipsum()
+
+```
+
+```{r covid deaths}
+data %>% 
+  filter(country == params$country, indicator == "deaths") %>%
+  subset(grepl(paste(params$year, params$month, ".*", sep = "-"), date)) %>%
+  ggplot() +
+  geom_line(aes(x = date, y = cumulative_count), group = 1, size = 1, color = "red") +
+  theme_ipsum()
+
+```

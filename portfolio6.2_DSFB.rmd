@@ -1,0 +1,18 @@
+# Portfolio assignment 6.2
+
+In two years time i'd like to be doing a masters in bioinformatics. i've found that i enjoy the act of writing code and coming up with systems, and a higher degree in bioinformatics would allow me to land a job that would include this kind of work. Also my interest in research lies with how i view the potential of technology. I tend to see the potential of innovative research, what it could lead too. and this motivates me to want to work on projects that could lead to exciting advances.  
+
+One branch of technology that has captured my interest in such a way is the possibilities of fast and cheap sequencing. after a masters in bioinformatics i'd like to work on projects that aim to improve sequencing accuracy. This goal requires me to research de novo assembly, consensus algorithms and the current state of sequencing technology.
+
+As an exercise ill summarize the information i have found regarding these subjects.
+
+The current state of NGS lies mostly with three separate systems for sequencing: Illumina with its HiSeq system, Ion torrent with its pyrosequencing and a third generation sequencer the oxford nanopore. These three all rely on different chemistry and methods to decode a DNA strand. 
+The principal of a illumina sequencer is that the DNA library with adapters gets grafted to a flow cell. These single strands of DNA get amplified by bridge amplification. this creates clusters of clonal DNA strands. then the actual sequencing step begins by synthesizing the antiparalel strand, with nucleotides that contain cleavable fluorescent dyes. A nucleotide gets implemented, the flowcell gets scanned for fluorescence, the fluorescense dye gets cleaved. this step repeats until the entire strand of dna is sequenced.
+A ion torrent sequencer relies on the detection of pyrophosphate released during the incorporation of a nucleotide. DNA strands are captured by beads and amplified with emulsion PCR. Now beads with multiple clonal strands of DNA will be washed over a well plate, a single well can only hold a single bead. a solution of one of the nucleotides get washed over this well plate. A nucleotide gets implemented and pyrophosphate gets released equal to the amount of nucleotides implemented. pyrophosphate gets detected via a luciferase reaction, which generates light.
+the Nanopore sequencer get it's name from the tiny biopores it used to detect the sequence of a DNA strand. These pores are embedded on a lipid bilayer which facilitates ion exchange. A nucleotide moving through the pore causes a disruption of the voltage over this pore, which is detected. By moving a a single stranded DNA strand through the pore current modulation is recorded. this current modulation is then used to determine the sequence of the DNA strand. [@comparison]
+
+After data is collected there still is the problem of creating an actual genome/sequence out of it. Creating a whole genome out of just sequencing data without a reference genome is called whole genome de novo sequencing assembly. A de novo assembly is different based on which sequencing technology is used. currently illumina sequencer tend to be used for whole genome de novo assembly, paired with 
+
+
+
+Next generations sequencing is a field that is rapidly evolving, with lots of reachers trying to solve the problem of de novo assembly

@@ -54,7 +54,7 @@ common <- function(x, pattern1, pattern2){
 }
 
 #testing common function
-test1 <- c("A1", "A2", "A3", "A4", "A5")
-test2 <- c("A1", "A2", "A3", "B4", "B5")
-
-common(test1, test2)
+# test1 <- c("A1", "A2", "A3", "A4", "A5")
+# test2 <- c("A1", "A2", "A3", "B4", "B5")
+#
+# common(test1, test2)

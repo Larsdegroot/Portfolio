@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Portfolio assignment 5.B | Portfolio of DSFB</title>
-  <meta name="description" content="5 Portfolio assignment 5.B | Portfolio of DSFB" />
+  <title>6 Portfolio assignment 6.2 | Portfolio of DSFB</title>
+  <meta name="description" content="6 Portfolio assignment 6.2 | Portfolio of DSFB" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Portfolio assignment 5.B | Portfolio of DSFB" />
+  <meta property="og:title" content="6 Portfolio assignment 6.2 | Portfolio of DSFB" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Portfolio assignment 5.B | Portfolio of DSFB" />
+  <meta name="twitter:title" content="6 Portfolio assignment 6.2 | Portfolio of DSFB" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="portfolio-assignment-2.html"/>
-<link rel="next" href="portfolio-assignment-6-2.html"/>
+<link rel="prev" href="portfolio-assignment-5-b.html"/>
+<link rel="next" href="portfolio-assignment-7.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -161,21 +161,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="portfolio-assignment-5.b" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Portfolio assignment 5.B</h1>
-<p><strong>1. Make a new folder within Mendeley for the projecticum. Place all pdf’s you used till now in your folder (if you did not use any papers as source yet, find 3 papers on Pubmed now that you could use for your introduction.). Copy your .bib file to the folder on your computer you are using for the Projecticum git repo.</strong></p>
-<p>I’ve searched for 3 paper about de novo assembly.
-<em>Our projecticum doesn’t require a literature study</em></p>
-<p><a href="https://www.longdom.org/scholarly/python-for-bioinformatics--journals-articles-ppts-list-2878.html" class="uri">https://www.longdom.org/scholarly/python-for-bioinformatics--journals-articles-ppts-list-2878.html</a>
-<a href="https://snakemake.readthedocs.io/en/stable/" class="uri">https://snakemake.readthedocs.io/en/stable/</a>
-<a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003496" class="uri">https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003496</a></p>
-<p><strong>2. Start a .Rmd named “introduction.Rmd” with a few lines introduction on your projecticum topic.</strong></p>
-<p><strong>3. Include automatic inline references to the papers you used.</strong></p>
-<p><strong>4. The bibliography will be placed at the end of the document. Provide an appropriate header.</strong></p>
-<p><strong>5. Merge your work with that of your projecticum partner through github. Solve all the problems you encounter. If github does not want to merge .bib files and you want a merged one, try here.</strong></p>
-<p><strong>6. Find out how you can add websites as reference to Mendeley.</strong></p>
-<p><strong>7. Write (so not “copy!”) at least 500 words of introduction for your projecticum project and use at least 5 references.</strong>
-<em>this won’t be an introduction but more of a summary</em></p>
+<div id="portfolio-assignment-6.2" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Portfolio assignment 6.2</h1>
+<p>In two years time i’d like to be doing a masters in bioinformatics. i’ve found that i enjoy the act of writing code and coming up with systems, and a higher degree in bioinformatics would allow me to land a job that would include this kind of work. Also my interest in research lies with how i view the potential of technology. I tend to see the potential of innovative research, what it could lead too. and this motivates me to want to work on projects that could lead to exciting advances.</p>
+<p>One branch of technology that has captured my interest in such a way is the possibilities of fast and cheap sequencing. after a masters in bioinformatics i’d like to work on projects that aim to improve sequencing accuracy. This goal requires me to research de novo assembly, consensus algorithms and the current state of sequencing technology.</p>
+<p>As an exercise ill summarize the information i have found regarding these subjects.</p>
+<p>The current state of NGS lies mostly with three separate systems for sequencing: Illumina with its HiSeq system, Ion torrent with its pyrosequencing and a third generation sequencer the oxford nanopore. These three all rely on different chemistry and methods to decode a DNA strand.
+The principal of a illumina sequencer is that the DNA library with adapters gets grafted to a flow cell. These single strands of DNA get amplified by bridge amplification. this creates clusters of clonal DNA strands. then the actual sequencing step begins by synthesizing the antiparalel strand, with nucleotides that contain cleavable fluorescent dyes. A nucleotide gets implemented, the flowcell gets scanned for fluorescence, the fluorescense dye gets cleaved. this step repeats until the entire strand of dna is sequenced.
+A ion torrent sequencer relies on the detection of pyrophosphate released during the incorporation of a nucleotide. DNA strands are captured by beads and amplified with emulsion PCR. Now beads with multiple clonal strands of DNA will be washed over a well plate, a single well can only hold a single bead. a solution of one of the nucleotides get washed over this well plate. A nucleotide gets implemented and pyrophosphate gets released equal to the amount of nucleotides implemented. pyrophosphate gets detected via a luciferase reaction, which generates light.
+the Nanopore sequencer get it’s name from the tiny biopores it used to detect the sequence of a DNA strand. These pores are embedded on a lipid bilayer which facilitates ion exchange. A nucleotide moving through the pore causes a disruption of the voltage over this pore, which is detected. By moving a a single stranded DNA strand through the pore current modulation is recorded. this current modulation is then used to determine the sequence of the DNA strand. <span class="citation">(<strong>comparison?</strong>)</span></p>
+<p>After data is collected there still is the problem of creating an actual genome/sequence out of it. Creating a whole genome out of just sequencing data without a reference genome is called whole genome de novo sequencing assembly. A de novo assembly is different based on which sequencing technology is used. currently illumina sequencer tend to be used for whole genome de novo assembly, paired with</p>
+<p>Next generations sequencing is a field that is rapidly evolving, with lots of reachers trying to solve the problem of de novo assembly</p>
 
 </div>
             </section>
@@ -183,8 +179,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="portfolio-assignment-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="portfolio-assignment-6-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="portfolio-assignment-5-b.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="portfolio-assignment-7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

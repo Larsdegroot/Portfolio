@@ -141,7 +141,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="portfolio-assignment-1-2-part-2.html"><a href="portfolio-assignment-1-2-part-2.html"><i class="fa fa-check"></i><b>3</b> Portfolio assignment 1.2 part 2</a></li>
 <li class="chapter" data-level="4" data-path="portfolio-assignment-2.html"><a href="portfolio-assignment-2.html"><i class="fa fa-check"></i><b>4</b> Portfolio assignment 2</a></li>
 <li class="chapter" data-level="5" data-path="portfolio-assignment-5-b.html"><a href="portfolio-assignment-5-b.html"><i class="fa fa-check"></i><b>5</b> Portfolio assignment 5.B</a></li>
-<li class="chapter" data-level="6" data-path="portfolio-assignment-7.html"><a href="portfolio-assignment-7.html"><i class="fa fa-check"></i><b>6</b> Portfolio assignment 7</a></li>
+<li class="chapter" data-level="6" data-path="portfolio-assignment-6-2.html"><a href="portfolio-assignment-6-2.html"><i class="fa fa-check"></i><b>6</b> Portfolio assignment 6.2</a></li>
+<li class="chapter" data-level="7" data-path="portfolio-assignment-7.html"><a href="portfolio-assignment-7.html"><i class="fa fa-check"></i><b>7</b> Portfolio assignment 7</a></li>
+<li class="chapter" data-level="8" data-path="parametered-rmd.html"><a href="parametered-rmd.html"><i class="fa fa-check"></i><b>8</b> Parametered RMD</a></li>
 </ul>
 
       </nav>
@@ -234,55 +236,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Are county-level demographic, socioeconomic and political variables associated with the COVID-19 case patterns?</li>
 </ol>
 <p>the article then starts to give a detailed description of the methods used in the study, it does this in stages. In the paragraph <em>Stage 0: Data Acquisition and Preprocessing</em>, it starts with explaining what the sources are for the data used in the study. this is a example of the criteria <code>data location</code>. However no link was supplied. At further inspection the data used here came from the R package <code>'COVID-19'</code>, And in the references it does specify the date of accessing the data hub. Also the locations of supplementary data that wasn’t taken from other sources is listed in the same paragraph. However not all of the links provided work anymore.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="portfolio-assignment-1-2-part-1.html#cb42-1" aria-hidden="true" tabindex="-1"></a>working_links <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">&quot;Data used&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Rural and Underserved Counties List&quot;</span>, <span class="st">&quot;Population Density&quot;</span>, <span class="st">&quot;Voting Results&quot;</span>, <span class="st">&quot;Governor’s Party Affiliation&quot;</span>, <span class="st">&quot;Health Variables&quot;</span>, <span class="st">&quot;Region&quot;</span>),</span>
-<span id="cb42-2"><a href="portfolio-assignment-1-2-part-1.html#cb42-2" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&quot;Link Provided&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;https://www.consumerfinance.gov/documents/8911/cfpbrural-underserved-list2020.csv&quot;</span>, <span class="st">&quot;https://www2.census.gov/library/publications/2011/compendia/usacounties/excel/LND01.xls&quot;</span>,<span class="st">&quot;https://doi.org/10.7910/DVN/VOQCHQ&quot;</span>,<span class="st">&quot;https://en.wikipedia.org/w/index.php?title=ListofUnitedStatesgovernors&amp;oldid=977828843&quot;</span>,<span class="st">&quot;https://khn.org/news/as-coronavirus-spreadswidely-millionsof-older-americans-live-in-counties-with-no-icu-beds/#lookup&quot;</span>,<span class="st">&quot;https://www.cdc.gov/coordinatedchronic/docs/nccdphp-regions-map.pdf&quot;</span>),</span>
-<span id="cb42-3"><a href="portfolio-assignment-1-2-part-1.html#cb42-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&quot;Link working?&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(F, F, T, T, F, F)</span>
-<span id="cb42-4"><a href="portfolio-assignment-1-2-part-1.html#cb42-4" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb42-5"><a href="portfolio-assignment-1-2-part-1.html#cb42-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-6"><a href="portfolio-assignment-1-2-part-1.html#cb42-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(working_links)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="portfolio-assignment-1-2-part-1.html#cb26-1" aria-hidden="true" tabindex="-1"></a>working_links <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="st">&quot;Data used&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Rural and Underserved Counties List&quot;</span>, <span class="st">&quot;Population Density&quot;</span>, <span class="st">&quot;Voting Results&quot;</span>, <span class="st">&quot;Governor’s Party Affiliation&quot;</span>, <span class="st">&quot;Health Variables&quot;</span>, <span class="st">&quot;Region&quot;</span>),</span>
+<span id="cb26-2"><a href="portfolio-assignment-1-2-part-1.html#cb26-2" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&quot;Link Provided&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;https://www.consumerfinance.gov/documents/8911/cfpbrural-underserved-list2020.csv&quot;</span>, <span class="st">&quot;https://www2.census.gov/library/publications/2011/compendia/usacounties/excel/LND01.xls&quot;</span>,<span class="st">&quot;https://doi.org/10.7910/DVN/VOQCHQ&quot;</span>,<span class="st">&quot;https://en.wikipedia.org/w/index.php?title=ListofUnitedStatesgovernors&amp;oldid=977828843&quot;</span>,<span class="st">&quot;https://khn.org/news/as-coronavirus-spreadswidely-millionsof-older-americans-live-in-counties-with-no-icu-beds/#lookup&quot;</span>,<span class="st">&quot;https://www.cdc.gov/coordinatedchronic/docs/nccdphp-regions-map.pdf&quot;</span>),</span>
+<span id="cb26-3"><a href="portfolio-assignment-1-2-part-1.html#cb26-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">&quot;Link working?&quot;</span> <span class="ot">=</span> <span class="fu">c</span>(F, F, T, T, F, F)</span>
+<span id="cb26-4"><a href="portfolio-assignment-1-2-part-1.html#cb26-4" aria-hidden="true" tabindex="-1"></a>                        )</span>
+<span id="cb26-5"><a href="portfolio-assignment-1-2-part-1.html#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="portfolio-assignment-1-2-part-1.html#cb26-6" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(working_links)</span></code></pre></div>
 <table>
-<colgroup>
-<col width="21%" />
-<col width="70%" />
-<col width="8%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th align="left">Data used</th>
-<th align="left">Link Provided</th>
-<th align="left">Link working?</th>
+<tr>
+<th style="text-align:left;">
+Data used
+</th>
+<th style="text-align:left;">
+Link Provided
+</th>
+<th style="text-align:left;">
+Link working?
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Rural and Underserved Counties List</td>
-<td align="left"><a href="https://www.consumerfinance.gov/documents/8911/cfpbrural-underserved-list2020.csv" class="uri">https://www.consumerfinance.gov/documents/8911/cfpbrural-underserved-list2020.csv</a></td>
-<td align="left">FALSE</td>
+<tr>
+<td style="text-align:left;">
+Rural and Underserved Counties List
+</td>
+<td style="text-align:left;">
+<a href="https://www.consumerfinance.gov/documents/8911/cfpbrural-underserved-list2020.csv" class="uri">https://www.consumerfinance.gov/documents/8911/cfpbrural-underserved-list2020.csv</a>
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
 </tr>
-<tr class="even">
-<td align="left">Population Density</td>
-<td align="left"><a href="https://www2.census.gov/library/publications/2011/compendia/usacounties/excel/LND01.xls" class="uri">https://www2.census.gov/library/publications/2011/compendia/usacounties/excel/LND01.xls</a></td>
-<td align="left">FALSE</td>
+<tr>
+<td style="text-align:left;">
+Population Density
+</td>
+<td style="text-align:left;">
+<a href="https://www2.census.gov/library/publications/2011/compendia/usacounties/excel/LND01.xls" class="uri">https://www2.census.gov/library/publications/2011/compendia/usacounties/excel/LND01.xls</a>
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Voting Results</td>
-<td align="left"><a href="https://doi.org/10.7910/DVN/VOQCHQ" class="uri">https://doi.org/10.7910/DVN/VOQCHQ</a></td>
-<td align="left">TRUE</td>
+<tr>
+<td style="text-align:left;">
+Voting Results
+</td>
+<td style="text-align:left;">
+<a href="https://doi.org/10.7910/DVN/VOQCHQ" class="uri">https://doi.org/10.7910/DVN/VOQCHQ</a>
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
 </tr>
-<tr class="even">
-<td align="left">Governor’s Party Affiliation</td>
-<td align="left"><a href="https://en.wikipedia.org/w/index.php?title=ListofUnitedStatesgovernors&amp;oldid=977828843" class="uri">https://en.wikipedia.org/w/index.php?title=ListofUnitedStatesgovernors&amp;oldid=977828843</a></td>
-<td align="left">TRUE</td>
+<tr>
+<td style="text-align:left;">
+Governor’s Party Affiliation
+</td>
+<td style="text-align:left;">
+<a href="https://en.wikipedia.org/w/index.php?title=ListofUnitedStatesgovernors&amp;oldid=977828843" class="uri">https://en.wikipedia.org/w/index.php?title=ListofUnitedStatesgovernors&amp;oldid=977828843</a>
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Health Variables</td>
-<td align="left"><a href="https://khn.org/news/as-coronavirus-spreadswidely-millionsof-older-americans-live-in-counties-with-no-icu-beds/#lookup" class="uri">https://khn.org/news/as-coronavirus-spreadswidely-millionsof-older-americans-live-in-counties-with-no-icu-beds/#lookup</a></td>
-<td align="left">FALSE</td>
+<tr>
+<td style="text-align:left;">
+Health Variables
+</td>
+<td style="text-align:left;">
+<a href="https://khn.org/news/as-coronavirus-spreadswidely-millionsof-older-americans-live-in-counties-with-no-icu-beds/#lookup" class="uri">https://khn.org/news/as-coronavirus-spreadswidely-millionsof-older-americans-live-in-counties-with-no-icu-beds/#lookup</a>
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
 </tr>
-<tr class="even">
-<td align="left">Region</td>
-<td align="left"><a href="https://www.cdc.gov/coordinatedchronic/docs/nccdphp-regions-map.pdf" class="uri">https://www.cdc.gov/coordinatedchronic/docs/nccdphp-regions-map.pdf</a></td>
-<td align="left">FALSE</td>
+<tr>
+<td style="text-align:left;">
+Region
+</td>
+<td style="text-align:left;">
+<a href="https://www.cdc.gov/coordinatedchronic/docs/nccdphp-regions-map.pdf" class="uri">https://www.cdc.gov/coordinatedchronic/docs/nccdphp-regions-map.pdf</a>
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
 </tr>
 </tbody>
 </table>
