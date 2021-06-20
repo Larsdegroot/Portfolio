@@ -9,7 +9,9 @@ score
 explanation
 portfolio-assignment-1.2-part-2
 portfolio-assignment-2
+rmarkdown-cv
 portfolio-assignment-5.b
 portfolio-assignment-6.2
 portfolio-assignment-7
+influenzadata-package
 parametered-rmd

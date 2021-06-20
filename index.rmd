@@ -14,7 +14,7 @@ output:
         twitter: no
 new_session: yes
 number_sections: FALSE
-bibliography: citation_6.bib
+#bibliography: export.bib #didn't work and gave me an error i wasn't able to find a solution for.
 params:
   country: "Netherlands"
   year: "2021"

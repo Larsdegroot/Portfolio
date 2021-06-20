@@ -1,0 +1,4 @@
+# InfluenzaData package
+
+I've used the RMD for portfolio exercise 7 to create a package. 
+the github can be found [here](https://github.com/Larsdegroot/influenzaData)

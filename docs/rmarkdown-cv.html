@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Portfolio assignment 6.2 | Portfolio of DSFB</title>
-  <meta name="description" content="7 Portfolio assignment 6.2 | Portfolio of DSFB" />
+  <title>5 Rmarkdown CV | Portfolio of DSFB</title>
+  <meta name="description" content="5 Rmarkdown CV | Portfolio of DSFB" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Portfolio assignment 6.2 | Portfolio of DSFB" />
+  <meta property="og:title" content="5 Rmarkdown CV | Portfolio of DSFB" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Portfolio assignment 6.2 | Portfolio of DSFB" />
+  <meta name="twitter:title" content="5 Rmarkdown CV | Portfolio of DSFB" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="portfolio-assignment-5-b.html"/>
-<link rel="next" href="portfolio-assignment-7.html"/>
+<link rel="prev" href="portfolio-assignment-2.html"/>
+<link rel="next" href="portfolio-assignment-5-b.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -163,23 +163,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="portfolio-assignment-6.2" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Portfolio assignment 6.2</h1>
-<p>In two years time i’d like to be doing a masters in bioinformatics. i’ve found that i enjoy the act of writing code and coming up with systems, and a higher degree in bioinformatics would allow me to land a job that would include this kind of work. Also my interest in research lies with how i view the potential of technology. I tend to see the potential of innovative research, what it could lead too. and this motivates me to want to work on projects that could lead to exciting advances.</p>
-<p>One branch of technology that has captured my interest in such a way is the possibilities of fast and cheap sequencing. after a masters in bioinformatics i’d like to work on projects that aim to improve sequencing accuracy. This goal requires me to research de novo assembly, consensus algorithms and the current state of sequencing technology.</p>
-<p>As an exercise ill summarize the information i have found regarding these subjects.</p>
-<p>The current state of NGS lies mostly with three separate systems for sequencing: Illumina with its HiSeq system, Ion torrent with its pyrosequencing and a third generation sequencer the oxford nanopore. These three all rely on different chemistry and methods to decode a DNA strand.
-The principal of a illumina sequencer is that the DNA library with adapters gets grafted to a flow cell. These single strands of DNA get amplified by bridge amplification. this creates clusters of clonal DNA strands. then the actual sequencing step begins by synthesizing the antiparalel strand, with nucleotides that contain cleavable fluorescent dyes. A nucleotide gets implemented, the flowcell gets scanned for fluorescence, the fluorescense dye gets cleaved. this step repeats until the entire strand of dna is sequenced.
-A ion torrent sequencer relies on the detection of pyrophosphate released during the incorporation of a nucleotide. DNA strands are captured by beads and amplified with emulsion PCR. Now beads with multiple clonal strands of DNA will be washed over a well plate, a single well can only hold a single bead. a solution of one of the nucleotides get washed over this well plate. A nucleotide gets implemented and pyrophosphate gets released equal to the amount of nucleotides implemented. pyrophosphate gets detected via a luciferase reaction, which generates light.
-the Nanopore sequencer get it’s name from the tiny biopores it used to detect the sequence of a DNA strand. These pores are embedded on a lipid bilayer which facilitates ion exchange. A nucleotide moving through the pore causes a disruption of the voltage over this pore, which is detected. By moving a a single stranded DNA strand through the pore current modulation is recorded. this current modulation is then used to determine the sequence of the DNA strand. <span class="citation">[@generic]</span></p>
-<p>After data is collected there still is the problem of creating an actual genome/sequence out of it. Creating a whole genome out of just sequencing data without a reference genome is called whole genome de novo sequencing assembly. The basic process is: overlapping reads to form contigs, large stretches of consensus sequences without gaps. Then a scaffolding phase in which the order of the contigs is determined by large-insert reads.<span class="citation">[@web_page]</span> And a final gap filling stage where gaps between contigs can be ‘filled’ using remaining short reads. however a de novo assembly is different based on which sequencing technology is used. For Illumina with it’s short reads a de Bruijn graph is most commonly used.</p>
-<div class="figure">
-<img src="6_data/bruijngraph.JPG" alt="" />
-<p class="caption">de bruijn graph</p>
-</div>
-<p>A de bruijn graph simplifies the contig creation step for a computer. Instead of having to keep the data of each read sequence in memory, and with what reads it overlaps, It divides reads up in K-mers. It hold a single K-mer of each unique K-mer in memory. To remember the sequence a path between K-mers is made, if a k-mer repeats the path loops back. To determine overlap a score can be made based on the amount of overlapping k-mers. This improves one of the big challenges of de novo assembly; the great amount of computational power and time required to make such a assembly.</p>
-<p>However de novo assembly using short reads comes with a problem. Genomes contain long repeating sequences that can’t be bridged by short reads. Tactics to solve this is using large insert reads or using single molecule sequencer reads, such as the reads from the nanopore sequencer. Large insert reads are short reads that are the tips of a larger fragment. By using a technique in the lap these fragments are of a certain determined size. And by ligating special adapters to them they can later be identified. So during assembly when these reads show overlap between two contigs the distance between these contigs can be estimated. This technique creates a more complicated de bruijn graph however. Using a hybrid approach of short illumina read and long nanopore reads tend to create a simpler graph, and thus shortens computational time. <span class="citation">[@article]</span></p>
-<p>A assembly using only long reads is also possible, and seems to be where the future of the technology lies. Assembly using only long reads goes to the same steps of contig creation and scaffolding. However since reads are so long contigs can be the size on an entire chromosome so scaffolding won’t be needed.</p>
+<div id="rmarkdown-cv" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Rmarkdown CV</h1>
+<p>My RMD CV can be found <a href="https://larsdegroot.github.io/CV/">here</a></p>
 
 </div>
             </section>
@@ -187,8 +173,8 @@ the Nanopore sequencer get it’s name from the tiny biopores it used to detect 
           </div>
         </div>
       </div>
-<a href="portfolio-assignment-5-b.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="portfolio-assignment-7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="portfolio-assignment-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="portfolio-assignment-5-b.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
