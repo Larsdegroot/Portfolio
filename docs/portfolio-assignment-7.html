@@ -281,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb50-3"><a href="portfolio-assignment-7.html#cb50-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><strong>5. In Dbeaver create a new PostgreSQL database “workflowsdb”</strong></p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="portfolio-assignment-7.html#cb51-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">&quot;7_data/workflowsdb_in_Dbeaver.JPG&quot;</span>))</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-15"></span>
+<div class="figure"><span id="fig:unnamed-chunk-19"></span>
 <img src="7_data/workflowsdb_in_Dbeaver.JPG" alt="The workflows database in Dbeaver."  />
 <p class="caption">
 Figure 8.1: The workflows database in Dbeaver.
@@ -308,7 +308,7 @@ Figure 8.1: The workflows database in Dbeaver.
 <div class="knitsql-table">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-18">Table 8.1: </span>Displaying records 1 - 10
+<span id="tab:unnamed-chunk-22">Table 8.1: </span>Displaying records 1 - 10
 </caption>
 <thead>
 <tr>
@@ -441,7 +441,7 @@ Venezuela
 <div class="knitsql-table">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-19">Table 8.2: </span>Displaying records 1 - 10
+<span id="tab:unnamed-chunk-23">Table 8.2: </span>Displaying records 1 - 10
 </caption>
 <thead>
 <tr>
@@ -574,7 +574,7 @@ France
 <div class="knitsql-table">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-20">Table 8.3: </span>Displaying records 1 - 10
+<span id="tab:unnamed-chunk-24">Table 8.3: </span>Displaying records 1 - 10
 </caption>
 <thead>
 <tr>
@@ -1072,7 +1072,7 @@ Western Asia
 <div class="knitsql-table">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-29">Table 8.4: </span>Displaying records 1 - 10
+<span id="tab:unnamed-chunk-33">Table 8.4: </span>Displaying records 1 - 10
 </caption>
 <thead>
 <tr>
@@ -1739,7 +1739,8 @@ South America
 <span id="cb92-2"><a href="portfolio-assignment-7.html#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> year, <span class="at">y =</span> influenza_activity, <span class="at">group =</span> country, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
 <span id="cb92-3"><a href="portfolio-assignment-7.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="fl">0.4</span>, <span class="at">colour =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
 <span id="cb92-4"><a href="portfolio-assignment-7.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>() <span class="sc">+</span> <span class="co">#or theme_ft_rc()</span></span>
-<span id="cb92-5"><a href="portfolio-assignment-7.html#cb92-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> T)</span></code></pre></div>
+<span id="cb92-5"><a href="portfolio-assignment-7.html#cb92-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> T) <span class="sc">+</span> </span>
+<span id="cb92-6"><a href="portfolio-assignment-7.html#cb92-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;influenza cases&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 2226 rows containing missing values (position_stack).</code></pre>
 <pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database
 
@@ -1762,7 +1763,7 @@ South America
 <pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database
 
 ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="768" /></p>
 <p>Global cases peaked in 2009 at 586671.</p>
 <p>Some countries had more influenza cases realtive to their population during the peak than others.</p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="portfolio-assignment-7.html#cb97-1" aria-hidden="true" tabindex="-1"></a>relative_influenza_2009 <span class="ot">&lt;-</span> joined_gapfluden <span class="sc">%&gt;%</span> </span>
@@ -1787,7 +1788,7 @@ South America
 <span id="cb97-20"><a href="portfolio-assignment-7.html#cb97-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">option =</span> <span class="st">&quot;E&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb97-21"><a href="portfolio-assignment-7.html#cb97-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Influenza Activity in europe&quot;</span>,</span>
 <span id="cb97-22"><a href="portfolio-assignment-7.html#cb97-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;relative influenza activity&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
 <p>It is visible that Austria was had a relatively high influenza activity. Could this have effected life expectancy in Austria?</p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="portfolio-assignment-7.html#cb98-1" aria-hidden="true" tabindex="-1"></a>joined_gapfluden <span class="sc">%&gt;%</span></span>
 <span id="cb98-2"><a href="portfolio-assignment-7.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Austria&quot;</span>) <span class="sc">%&gt;%</span></span>
@@ -1819,7 +1820,7 @@ South America
 <pre><code>## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database</code></pre>
 <pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database</code></pre>
 <pre><code>## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="768" /></p>
 
 </div>
             </section>
