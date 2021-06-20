@@ -240,7 +240,8 @@ joined_gapfluden %>%
   geom_area(alpha = 0.7, size = 0.4, colour = "white") +
   theme_ipsum() + #or theme_ft_rc()
   scale_fill_viridis(discrete = T) + 
-  labs(x = "influenza cases")
+  scale_x_discrete(guide = guide_axis(n.dodge=2))+
+  labs(title = "influenza cases per country", y = "influenza cases")
 ```
 
 Global cases peaked in 2009 at `r joined_gapfluden %>% group_by(year) %>% summarise(global_influenza_cases = sum(influenza_activity, na.rm = T)) %>% pull() %>% max() `.

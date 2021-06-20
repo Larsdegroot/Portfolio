@@ -188,8 +188,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-4"><a href="portfolio-assignment-1-1.html#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Compand concentration&quot;</span>,</span>
 <span id="cb6-5"><a href="portfolio-assignment-1-1.html#cb6-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of offspring,&quot;</span>,</span>
 <span id="cb6-6"><a href="portfolio-assignment-1-1.html#cb6-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Counted offspring after incubation with compound&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="portfolio-assignment-1-1.html#cb8-1" aria-hidden="true" tabindex="-1"></a>ce_data <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="portfolio-assignment-1-1.html#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData)) <span class="sc">+</span></span>
 <span id="cb8-3"><a href="portfolio-assignment-1-1.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> compName, <span class="at">shape =</span> expType), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
@@ -198,7 +198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-6"><a href="portfolio-assignment-1-1.html#cb8-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Counted offspring after incubation with compound&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Ignoring unknown parameters: width</code></pre>
 <pre><code>## Warning: Removed 6 rows containing missing values (geom_point).</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p><strong>E. When creating the plot under C), what happened with the ordering of the x-axis labels. Explain why this happens. Look at the data-type of the compConcentration column in the data again to find a clue.</strong></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="portfolio-assignment-1-1.html#cb11-1" aria-hidden="true" tabindex="-1"></a>ce_data <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="fu">here</span>(<span class="st">&quot;1.1_data/CE.LIQ.FLOW.062_Tidydata.xlsx&quot;</span>))</span>
 <span id="cb11-2"><a href="portfolio-assignment-1-1.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -208,7 +208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-6"><a href="portfolio-assignment-1-1.html#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of offspring,&quot;</span>,</span>
 <span id="cb11-7"><a href="portfolio-assignment-1-1.html#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Counted offspring after incubation with compound&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 5 rows containing missing values (geom_point).</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="portfolio-assignment-1-1.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ce_data<span class="sc">$</span>compConcentration)</span></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 <p>The data type of compConcentration is character, this means per concentration value it adds a point on the x-axis. this results in the overplotted mess seen here.</p>
@@ -221,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-4"><a href="portfolio-assignment-1-1.html#cb17-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of offspring,&quot;</span>,</span>
 <span id="cb17-5"><a href="portfolio-assignment-1-1.html#cb17-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Counted offspring after incubation with compound&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 6 rows containing missing values (geom_point).</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p><strong>G.H. Fill in: (G) The positive control for this experiments is “ethanol (H) The negative control for this experiment is”S-medium"</strong></p>
 <p><strong>Think about how you would analyze this experiment to learn whether there is indeed an effect of different concentrations on offspring count and whether the different compounds have a different curve (IC50). Write down your analysis as a step-wise plan</strong></p>
 <ol style="list-style-type: decimal">
@@ -251,8 +251,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb21-5"><a href="portfolio-assignment-1-1.html#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Compand concentration&quot;</span>,</span>
 <span id="cb21-6"><a href="portfolio-assignment-1-1.html#cb21-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of offspring,&quot;</span>,</span>
 <span id="cb21-7"><a href="portfolio-assignment-1-1.html#cb21-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Counted offspring after incubation with compound&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<pre><code>## Warning: Removed 4 rows containing missing values (geom_point).</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="portfolio-assignment-1-1.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">#makng the log plot</span></span>
 <span id="cb23-2"><a href="portfolio-assignment-1-1.html#cb23-2" aria-hidden="true" tabindex="-1"></a>normalized_ce_data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(compConcentration), <span class="at">y =</span> norm_data)) <span class="sc">+</span></span>
 <span id="cb23-3"><a href="portfolio-assignment-1-1.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color =</span> compName, <span class="at">shape =</span> expType), <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
@@ -260,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb23-5"><a href="portfolio-assignment-1-1.html#cb23-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of offspring,&quot;</span>,</span>
 <span id="cb23-6"><a href="portfolio-assignment-1-1.html#cb23-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;Counted offspring after incubation with compound&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 6 rows containing missing values (geom_point).</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-11-2.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
 <p><strong>K. Why would you want to take the step under J?</strong></p>
 <p>this eliminates natural and extraneous variation between groups. After normalization all groups fall on the same scale of 0 - 1.</p>
 

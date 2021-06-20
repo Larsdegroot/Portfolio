@@ -281,7 +281,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb50-3"><a href="portfolio-assignment-7.html#cb50-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><strong>5. In Dbeaver create a new PostgreSQL database “workflowsdb”</strong></p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="portfolio-assignment-7.html#cb51-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">here</span>(<span class="st">&quot;7_data/workflowsdb_in_Dbeaver.JPG&quot;</span>))</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-19"></span>
+<div class="figure"><span id="fig:unnamed-chunk-16"></span>
 <img src="7_data/workflowsdb_in_Dbeaver.JPG" alt="The workflows database in Dbeaver."  />
 <p class="caption">
 Figure 8.1: The workflows database in Dbeaver.
@@ -308,7 +308,7 @@ Figure 8.1: The workflows database in Dbeaver.
 <div class="knitsql-table">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-22">Table 8.1: </span>Displaying records 1 - 10
+<span id="tab:unnamed-chunk-19">Table 8.1: </span>Displaying records 1 - 10
 </caption>
 <thead>
 <tr>
@@ -441,7 +441,7 @@ Venezuela
 <div class="knitsql-table">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-23">Table 8.2: </span>Displaying records 1 - 10
+<span id="tab:unnamed-chunk-20">Table 8.2: </span>Displaying records 1 - 10
 </caption>
 <thead>
 <tr>
@@ -574,7 +574,7 @@ France
 <div class="knitsql-table">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-24">Table 8.3: </span>Displaying records 1 - 10
+<span id="tab:unnamed-chunk-21">Table 8.3: </span>Displaying records 1 - 10
 </caption>
 <thead>
 <tr>
@@ -1072,7 +1072,7 @@ Western Asia
 <div class="knitsql-table">
 <table>
 <caption>
-<span id="tab:unnamed-chunk-33">Table 8.4: </span>Displaying records 1 - 10
+<span id="tab:unnamed-chunk-30">Table 8.4: </span>Displaying records 1 - 10
 </caption>
 <thead>
 <tr>
@@ -1740,9 +1740,16 @@ South America
 <span id="cb92-3"><a href="portfolio-assignment-7.html#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">size =</span> <span class="fl">0.4</span>, <span class="at">colour =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
 <span id="cb92-4"><a href="portfolio-assignment-7.html#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>() <span class="sc">+</span> <span class="co">#or theme_ft_rc()</span></span>
 <span id="cb92-5"><a href="portfolio-assignment-7.html#cb92-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">discrete =</span> T) <span class="sc">+</span> </span>
-<span id="cb92-6"><a href="portfolio-assignment-7.html#cb92-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;influenza cases&quot;</span>)</span></code></pre></div>
+<span id="cb92-6"><a href="portfolio-assignment-7.html#cb92-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge=</span><span class="dv">2</span>))<span class="sc">+</span></span>
+<span id="cb92-7"><a href="portfolio-assignment-7.html#cb92-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;influenza cases per country&quot;</span>, <span class="at">y =</span> <span class="st">&quot;influenza cases&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 2226 rows containing missing values (position_stack).</code></pre>
 <pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database</code></pre>
+<pre><code>## Warning in grid.Call(C_stringMetric, as.graphicsAnnot(x$label)): font family not found in Windows font database</code></pre>
+<pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database
+
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database
 
 ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database
 
@@ -1762,44 +1769,46 @@ South America
 <pre><code>## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database</code></pre>
 <pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database
 
+## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database
+
 ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-39-1.png" width="768" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-36-1.png" width="768" /></p>
 <p>Global cases peaked in 2009 at 586671.</p>
 <p>Some countries had more influenza cases realtive to their population during the peak than others.</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="portfolio-assignment-7.html#cb97-1" aria-hidden="true" tabindex="-1"></a>relative_influenza_2009 <span class="ot">&lt;-</span> joined_gapfluden <span class="sc">%&gt;%</span> </span>
-<span id="cb97-2"><a href="portfolio-assignment-7.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Europe&quot;</span>, year <span class="sc">==</span> <span class="st">&quot;2009&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb97-3"><a href="portfolio-assignment-7.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, population, influenza_activity) <span class="sc">%&gt;%</span> </span>
-<span id="cb97-4"><a href="portfolio-assignment-7.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_influenza_cases =</span> (influenza_activity <span class="sc">/</span> population)<span class="sc">*</span><span class="dv">100</span>)</span>
-<span id="cb97-5"><a href="portfolio-assignment-7.html#cb97-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-6"><a href="portfolio-assignment-7.html#cb97-6" aria-hidden="true" tabindex="-1"></a>regions <span class="ot">&lt;-</span> relative_influenza_2009<span class="sc">$</span>country</span>
-<span id="cb97-7"><a href="portfolio-assignment-7.html#cb97-7" aria-hidden="true" tabindex="-1"></a><span class="co">#remove Russia because it takes up too much space in the map</span></span>
-<span id="cb97-8"><a href="portfolio-assignment-7.html#cb97-8" aria-hidden="true" tabindex="-1"></a>regions <span class="ot">&lt;-</span> regions[<span class="sc">-</span><span class="dv">11</span>]</span>
-<span id="cb97-9"><a href="portfolio-assignment-7.html#cb97-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-10"><a href="portfolio-assignment-7.html#cb97-10" aria-hidden="true" tabindex="-1"></a>map_data_eu <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">&quot;world&quot;</span>, <span class="at">region =</span> regions)</span>
-<span id="cb97-11"><a href="portfolio-assignment-7.html#cb97-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-12"><a href="portfolio-assignment-7.html#cb97-12" aria-hidden="true" tabindex="-1"></a>relative_influenza_2009 <span class="ot">&lt;-</span> relative_influenza_2009 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">!=</span> <span class="st">&quot;Russia&quot;</span>)</span>
-<span id="cb97-13"><a href="portfolio-assignment-7.html#cb97-13" aria-hidden="true" tabindex="-1"></a><span class="co">#renaming for left join</span></span>
-<span id="cb97-14"><a href="portfolio-assignment-7.html#cb97-14" aria-hidden="true" tabindex="-1"></a>relative_influenza_2009 <span class="ot">&lt;-</span> <span class="fu">rename</span>(relative_influenza_2009, <span class="at">region =</span> country)</span>
-<span id="cb97-15"><a href="portfolio-assignment-7.html#cb97-15" aria-hidden="true" tabindex="-1"></a>map_data_eu <span class="ot">&lt;-</span> <span class="fu">left_join</span>(relative_influenza_2009, map_data_eu, <span class="at">by =</span> <span class="st">&quot;region&quot;</span>)</span>
-<span id="cb97-16"><a href="portfolio-assignment-7.html#cb97-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-17"><a href="portfolio-assignment-7.html#cb97-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(map_data_eu, <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat)) <span class="sc">+</span></span>
-<span id="cb97-18"><a href="portfolio-assignment-7.html#cb97-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">group =</span> group, <span class="at">fill =</span> relative_influenza_cases), <span class="at">colour =</span> <span class="st">&quot;white&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb97-19"><a href="portfolio-assignment-7.html#cb97-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> <span class="co">#maybe a dark theme?</span></span>
-<span id="cb97-20"><a href="portfolio-assignment-7.html#cb97-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">option =</span> <span class="st">&quot;E&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb97-21"><a href="portfolio-assignment-7.html#cb97-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Influenza Activity in europe&quot;</span>,</span>
-<span id="cb97-22"><a href="portfolio-assignment-7.html#cb97-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;relative influenza activity&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="portfolio-assignment-7.html#cb99-1" aria-hidden="true" tabindex="-1"></a>relative_influenza_2009 <span class="ot">&lt;-</span> joined_gapfluden <span class="sc">%&gt;%</span> </span>
+<span id="cb99-2"><a href="portfolio-assignment-7.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Europe&quot;</span>, year <span class="sc">==</span> <span class="st">&quot;2009&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb99-3"><a href="portfolio-assignment-7.html#cb99-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, population, influenza_activity) <span class="sc">%&gt;%</span> </span>
+<span id="cb99-4"><a href="portfolio-assignment-7.html#cb99-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">relative_influenza_cases =</span> (influenza_activity <span class="sc">/</span> population)<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb99-5"><a href="portfolio-assignment-7.html#cb99-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-6"><a href="portfolio-assignment-7.html#cb99-6" aria-hidden="true" tabindex="-1"></a>regions <span class="ot">&lt;-</span> relative_influenza_2009<span class="sc">$</span>country</span>
+<span id="cb99-7"><a href="portfolio-assignment-7.html#cb99-7" aria-hidden="true" tabindex="-1"></a><span class="co">#remove Russia because it takes up too much space in the map</span></span>
+<span id="cb99-8"><a href="portfolio-assignment-7.html#cb99-8" aria-hidden="true" tabindex="-1"></a>regions <span class="ot">&lt;-</span> regions[<span class="sc">-</span><span class="dv">11</span>]</span>
+<span id="cb99-9"><a href="portfolio-assignment-7.html#cb99-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-10"><a href="portfolio-assignment-7.html#cb99-10" aria-hidden="true" tabindex="-1"></a>map_data_eu <span class="ot">&lt;-</span> <span class="fu">map_data</span>(<span class="st">&quot;world&quot;</span>, <span class="at">region =</span> regions)</span>
+<span id="cb99-11"><a href="portfolio-assignment-7.html#cb99-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-12"><a href="portfolio-assignment-7.html#cb99-12" aria-hidden="true" tabindex="-1"></a>relative_influenza_2009 <span class="ot">&lt;-</span> relative_influenza_2009 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">!=</span> <span class="st">&quot;Russia&quot;</span>)</span>
+<span id="cb99-13"><a href="portfolio-assignment-7.html#cb99-13" aria-hidden="true" tabindex="-1"></a><span class="co">#renaming for left join</span></span>
+<span id="cb99-14"><a href="portfolio-assignment-7.html#cb99-14" aria-hidden="true" tabindex="-1"></a>relative_influenza_2009 <span class="ot">&lt;-</span> <span class="fu">rename</span>(relative_influenza_2009, <span class="at">region =</span> country)</span>
+<span id="cb99-15"><a href="portfolio-assignment-7.html#cb99-15" aria-hidden="true" tabindex="-1"></a>map_data_eu <span class="ot">&lt;-</span> <span class="fu">left_join</span>(relative_influenza_2009, map_data_eu, <span class="at">by =</span> <span class="st">&quot;region&quot;</span>)</span>
+<span id="cb99-16"><a href="portfolio-assignment-7.html#cb99-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-17"><a href="portfolio-assignment-7.html#cb99-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(map_data_eu, <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat)) <span class="sc">+</span></span>
+<span id="cb99-18"><a href="portfolio-assignment-7.html#cb99-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">group =</span> group, <span class="at">fill =</span> relative_influenza_cases), <span class="at">colour =</span> <span class="st">&quot;white&quot;</span>, <span class="at">size =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb99-19"><a href="portfolio-assignment-7.html#cb99-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> <span class="co">#maybe a dark theme?</span></span>
+<span id="cb99-20"><a href="portfolio-assignment-7.html#cb99-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis</span>(<span class="at">option =</span> <span class="st">&quot;E&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb99-21"><a href="portfolio-assignment-7.html#cb99-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Influenza Activity in europe&quot;</span>,</span>
+<span id="cb99-22"><a href="portfolio-assignment-7.html#cb99-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">&quot;relative influenza activity&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <p>It is visible that Austria was had a relatively high influenza activity. Could this have effected life expectancy in Austria?</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="portfolio-assignment-7.html#cb98-1" aria-hidden="true" tabindex="-1"></a>joined_gapfluden <span class="sc">%&gt;%</span></span>
-<span id="cb98-2"><a href="portfolio-assignment-7.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Austria&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb98-3"><a href="portfolio-assignment-7.html#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb98-4"><a href="portfolio-assignment-7.html#cb98-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> life_expectancy), <span class="at">group =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb98-5"><a href="portfolio-assignment-7.html#cb98-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> influenza_activity<span class="sc">/</span><span class="dv">500</span>), <span class="at">group =</span> <span class="dv">1</span>, <span class="at">inherit.aes =</span> F, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
-<span id="cb98-6"><a href="portfolio-assignment-7.html#cb98-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb98-7"><a href="portfolio-assignment-7.html#cb98-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Life Expectancy in years&quot;</span>,</span>
-<span id="cb98-8"><a href="portfolio-assignment-7.html#cb98-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">*</span><span class="dv">500</span>, <span class="at">name =</span> <span class="st">&quot;Influenza cases&quot;</span>)</span>
-<span id="cb98-9"><a href="portfolio-assignment-7.html#cb98-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb98-10"><a href="portfolio-assignment-7.html#cb98-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="portfolio-assignment-7.html#cb100-1" aria-hidden="true" tabindex="-1"></a>joined_gapfluden <span class="sc">%&gt;%</span></span>
+<span id="cb100-2"><a href="portfolio-assignment-7.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Austria&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb100-3"><a href="portfolio-assignment-7.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb100-4"><a href="portfolio-assignment-7.html#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> life_expectancy), <span class="at">group =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb100-5"><a href="portfolio-assignment-7.html#cb100-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> influenza_activity<span class="sc">/</span><span class="dv">500</span>), <span class="at">group =</span> <span class="dv">1</span>, <span class="at">inherit.aes =</span> F, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb100-6"><a href="portfolio-assignment-7.html#cb100-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb100-7"><a href="portfolio-assignment-7.html#cb100-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Life Expectancy in years&quot;</span>,</span>
+<span id="cb100-8"><a href="portfolio-assignment-7.html#cb100-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">sec.axis =</span> <span class="fu">sec_axis</span>(<span class="sc">~</span>.<span class="sc">*</span><span class="dv">500</span>, <span class="at">name =</span> <span class="st">&quot;Influenza cases&quot;</span>)</span>
+<span id="cb100-9"><a href="portfolio-assignment-7.html#cb100-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb100-10"><a href="portfolio-assignment-7.html#cb100-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_ipsum</span>()</span></code></pre></div>
 <pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database
 
 ## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database
@@ -1820,7 +1829,7 @@ South America
 <pre><code>## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database</code></pre>
 <pre><code>## Warning in grid.Call(C_textBounds, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database</code></pre>
 <pre><code>## Warning in grid.Call.graphics(C_text, as.graphicsAnnot(x$label), x$x, x$y, : font family not found in Windows font database</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-41-1.png" width="768" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-38-1.png" width="768" /></p>
 
 </div>
             </section>
