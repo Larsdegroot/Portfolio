@@ -20,6 +20,9 @@ params:
   year: "2021"
   month: "01"
 ---
+```{r}
+knitr::opts_chunk$set(warning = FALSE)
+```
 
 ```{r}
 require(tidyverse)
