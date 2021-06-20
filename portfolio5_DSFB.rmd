@@ -2,14 +2,8 @@
 
 **1. Make a new folder within Mendeley for the projecticum. Place all pdf’s you used till now in your folder (if you did not use any papers as source yet, find 3 papers on Pubmed now that you could use for your introduction.). Copy your .bib file to the folder on your computer you are using for the Projecticum git repo.**
 
-I've searched for 3 paper about de novo assembly.
 _Our projecticum doesn't require a literature study_
-
-
-
-https://www.longdom.org/scholarly/python-for-bioinformatics--journals-articles-ppts-list-2878.html
-https://snakemake.readthedocs.io/en/stable/
-https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003496
+I've searched for papers about de novo assembly, and consensus algorithms for an internship talk.
 
 **2. Start a .Rmd named “introduction.Rmd” with a few lines introduction on your projecticum topic.**
 
@@ -20,6 +14,8 @@ https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003496
 **5. Merge your work with that of your projecticum partner through github. Solve all the problems you encounter. If github does not want to merge .bib files and you want a merged one, try here.**
 
 **6. Find out how you can add websites as reference to Mendeley.**
+using the chrome extension found [here](https://chrome.google.com/webstore/detail/mendeley-web-importer/dagcmkpagjlhakfdhnbomgmjdpkdklff/related)
 
 **7. Write (so not “copy!”) at least 500 words of introduction for your projecticum project and use at least 5 references.**
 _this won't be an introduction but more of a summary_
+I've wrote a summary about some of the information i've found here [Portfolio assignment 6.2]
