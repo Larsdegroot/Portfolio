@@ -1,14 +1,58 @@
-# Portfolio assignment 2
+# Good Workflow practices: Guerrilla analytics
 
-**Applying the Guerrilla analytics framework to your own project.**
+Within all work there are good practices and rules to follow. Which can also be called workflows. Datascience is no different, and a book  written about the matter is [Guerrilla Analytics](https://guerrilla-analytics.net/). in here Enda Ridge talks about 7 principles to uphold while working on a datascience project. These principle help keep the project understandable, explainable and reproducible. 
 
-1. Look at your RStudio project that you created for the DAUR-II final assignment
-2. Rearrange your project according the Guerilla principles explained above
-3. Add README files to the datasets
-4. Use the {fs} package to share a screenshot of your folder tree in your portfolio, look at: for more info on how to use the {fs} package.  
-B. Now clean up your work environment for this course (workflows) and the parallel course in DSFB2 (projecticum). Set up a folder structure that will accomodate future plans and collaboration on the projecticum. Provide readme-files or comments within the code where needed.
+#### the Guerrila analytics:
+ >1. Space is cheap, confusion is expensive
+ >1. Prefer simple, visual project structures and conventions
+ >3. Prefer automation with program code
+ >4. Maintain a link between data on the file system, data in the analytics environment, and data in work products
+ >5. Version control changes to data and analytics code
+ >6. Consolidate team knowledge in version-controlled builds  
+ >7. Prefer analytics code that runs from start to finish
+ 
+ To help me uphold the first 3 principles i automated the creation of a new project folder with a simple R script:
+ 
+```{r, eval=FALSE}
+#create a new project in current directory
+library(usethis) #2.0.1
+currect_dir <- getwd()
+go <- readline(prompt = paste("Do you want to creat a new project folder at", currect_dir, "? y/n: ", sep = " "))
+
+if (go == "y"){
+
+  #make project folder
+  project.name <- readline(prompt = "Enter project name: ")
+  dir.create(project.name)
+  for (i in c("data", "doc", "external", "output", "src")){
+    dir.create(paste0(project.name, "/", i))
+  }
+
+  #make a project
+  usethis::create_project(project.name)
+
+  # #connect to git
+  # usethis::use_git()
+  # usethis::use_github()
+
+
+  } else {
+    stop()}
+```
+ 
+ this script creates a standard file structure:
 
 ```{r}
-dir_tree("/Users/larsd/Documents/R/DSFB/DAUR2_eindopdracht", recurse = TRUE)
+dir_tree("/Users/larsd/Documents/R/Project/", recurse = TRUE)
 ```
+ 
+ This structure will also be applied to the project folder that contains the files for this bookdown portfolio
+
+```{r}
+dir_tree(recurse = TRUE)
+```
+
+
+
+
 

@@ -1,21 +1,20 @@
-# Portfolio assignment 1.2 part 2
+```{r, include=FALSE}
+fig_port1_2 <- captioner::captioner()
 
-***
+fig_port1_2("reproduced_graph", "This graph shows the increase of news about bats on american television.")
+```
 
-**H. Using the OSF website, select a project that addresses an aspect of the SARS-Cov-2 virus.**
-**I. Select a project that has a dataset and R-code shared in the project environment.**
+# An exercise in reproducibility 
 
 Project selected: [Bats and COVID-19](https://osf.io/wxh6a/)  
 
-**J. Have a look at the code. Describe in your own words what the code intents to achieve.**
+***
 
-it downloads gtrends data for the quary "bats" and the word bat translated in diffrent langueses in there associated geolocations, for the time period 2016 to 2020. using this it makes figures that outline the correlation between searches about covid-19 and searches about bats.  
+the code in this project downloads gtrends data for the query "bats" and the word bat translated in different languages in there associated geolocations, for the time period from 2016 to 2020. using this it plots figures that outline the correlation between searches about covid-19 and searches about bats.  
 
-**K. In terms of readibility of the code, how would you grade (1(very bad)-5(very good)) the code available.**
-
-i would give it a 4, the code includes comments outlining the function of big code chunks, however the code uses packages and function im not familiar with so it still quite hard to really understand what the code does.   
+The readability of the code of this project is well done. Chunks of code have comments explaining the general function of the chunk. This makes it easy to understand the general make up of the script. i would only have to try to understand the packages that im not familiar with to fully understand what the purpose is of the code.
  
-**L. Download the code and the data to a new RStudio project M. Run the script or code that is available to reproduce at least 1 figure**
+To test the reproducibility of the script i will try to reproduce one of the figures from the project. 
 
 ```{r, eval=F }
 tv.dat <- 
@@ -37,23 +36,19 @@ ggplot() +
   theme(strip.text = element_text(colour = "black", size=14, face="bold"))
 ```
 
-**N. When you encounter errors or flaws in the script, try fixing them and record your changes.**
-
-Errors:
+Running this produces two errors:
 
 >Error in file(file, "rt") : cannot open the connection  
 
-changed the filepath so it matches mine.
+>Error in ymd(tv.dat$date) : could not find function "ymd".       
 
->Error in ymd(tv.dat$date) : could not find function "ymd".     
-
-ymd is part of the `lubridate` package, loaded the `lubridate` package.   
+these are easy to fix. for the first i changed the filepath so it matches mine. and installed the package [{lubridate}](https://cran.r-project.org/web/packages/lubridate/index.html), `ymd()` is part of the {lubridate} package.   
 
 ```{r}
 library(lubridate)
 
 tv.dat <- 
-  read.csv(file=(here("1.2_data/GDELTBatsUS1620.csv")))
+  read.csv(file=(here("data/bats_and_covid19/GDELTBatsUS1620.csv")))
 tv.dat$date <- ymd(tv.dat$date)
 tv.dat[61, "date"] <- "2021-01-01"
 tv.dat[61, "value"] <- NA
@@ -71,9 +66,9 @@ ggplot() +
   theme(strip.text = element_text(colour = "black", size=14, face="bold"))
 ```
 
-**O. Taken together on a scale from 1 (very hard) to 5 (very easy), how much effort did it take you to reproduce the visualization from the project, report or article.**
+`r fig_port1_2("reproduced_graph")`
 
-5 very easy, the code used uses common packages and is very readable. 
 
-**P. Generate an RMarkdown script that contains the details on the project you selected, the code you used to create the visualization and your score for reproducibility.**
+
+
 

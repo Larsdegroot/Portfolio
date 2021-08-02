@@ -1,112 +1,214 @@
-# Portfolio assignment 1.1
 
-**A. Review the following Excel file in the ./data/CE.LIQ.FLOW.062_Tidydata.xlsx (it’s here), by opening the file in Excel. See if you can spot anything peculiar about this file. Do not edit the file in any way. Just close it when you are done. (Annoyingly, Excel asks you to save your changes, even if you did not touch anything in the file: why is this cumbersome?)**
-
-![Colourfull Excel file](./1.1_data/colourfull_excelfile.JPG)
-
-it's bright with unreadable colors. The data is in wide/tidy format and many columns have the same value on each cell of the column.
-
-**B. Open the file in R, using the {readxl} package.**
-
-```{r portfolio 1.1}
-ce_data <- read_xlsx(here("1.1_data/CE.LIQ.FLOW.062_Tidydata.xlsx"))
+```{r, results='hide', message=FALSE, warning=FALSE}
+require(tidyverse)
+require(readxl)
+require(here)
+require(drc)
+require(knitr)
+require(ggpubr)
+require(captioner)
 ```
 
-No the data types have not been correctly assigned, column compname could have been the data type factor, and compConcentration should be numeric.
+```{r, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
 
-**D. Create a graph displaying a scatterplot for the CE.LIQ.FLOW.062_Tidydata.xlsx data, for the different compounds and the varying concentrations. Put the compConcentration on the x-axis, the DataRaw counts on the y-axis and assign a colour to each level in compName. Assign a different symbol (shape =) to each level in the expType variable. Try fixing the labels of the x-axis so that we can read them.**
+```{r, include=FALSE}
+fig_port1 <- captioner()
+table_port1 <- captioner(prefix = "Table")
+```
+
+```{r include=FALSE}
+table_port1("ce_head", "the first 10 rows of the trimmed _C. elegans_ data")
+```
+
+```{r include=FALSE}
+fig_port1("dotplot", "The effect of the compounds on the number of _C. elegans_ offspring.")
+fig_port1("iso_log", "The effect of 2,6-diisopropylnaphthalene on the number of offspring of _C. elegans_. The X-axis is logmarithmicly scaled")
+fig_port1("decane_log", "The effect of decane on the number of offspring of _C. elegans_. The X-axis is logmarithmicly scaled")
+fig_port1("naph_log", "The effect of naphthalene on the number of offspring of _C. elegans_. The X-axis is logmarithmicly scaled")
+fig_port1("formula1", "Formula for LL.4. f = model function, b = steepness of curve, c = lower limit of the response, d = upper limit of the response and e = ED50.")
+fig_port1("iso_drc", "The dose response curve of 2,6-diisopropylnaphthalene on the number of offspring of C. elegans. A decrease in number of offspring in __C. elegans__ after incubation with 2,6-diisopropylnaphthalene is seen. However the curve is not steep.")
+fig_port1("decane_drc", "The dose response curve of decane on the number of offspring of C. elegans. Decane has a negative effect on the number of offspring of C. elegans which seems to start around a decane concentration of 4.99e-02. The curve is also very steep.")
+fig_port1("naph_drc", "The dose response curve of naphthalene on the number of offspring of C. elegans. Decane has a negative effect on the number of offspring of C. elegans which seems to start around a naphthalene concentration of 4.99e-01. The curve is also very steep.")
+```
+
+# _C. elegans_ plate experiment
+
+The data used in this report comes from a experiment where _C. elegans_ was exposed to varying concentrations of three different compounds: 2,6-diisopropylnaphthalene, decane and naphthalene. After an incubation period the number of offspring where counted.  
 
 ```{r}
+#first excel sheet is read
+ce_data <- readxl::read_xlsx(here("data/CE.LIQ.FLOW.062_Tidydata.xlsx"))
+names(ce_data)
+```
+
+
+The Excel file contains a lot of data not necessary for this report. The variable used in this report are:
+* expType:               Experiment type
+* RawData:               Number of offspring
+* compName:              Compound name
+* compConcentration:     Compound concentration
+* compUnit:              Unit of measurement  
+
+
+```{r)}
+#getting rid of unnecessary columns
+ce_data <- dplyr::select(ce_data, c("expType", "RawData", "compName", "compConcentration", "compUnit"))
+knitr::kable(head(ce_data, n = 10))
+```
+`r table_port1("ce_head")`
+
+
+```{r, warning=FALSE}
+#Certain columns where missclassed by read_xlsx(), correcting:
 ce_data$compConcentration <- as.numeric(ce_data$compConcentration)
 ce_data$compName <- as_factor(ce_data$compName)
 ```
 
+The compound were tested at different concentration gradients per compound. A decrease in offspring count can be seen with the increase of each compounds concentration
+
 ```{r}
-ce_data %>% slice_sample(prop = 0.40) %>%
-  ggplot(aes(x = compConcentration, y = RawData)) +
-  geom_jitter(aes(color = compName, shape = expType), alpha = 0.7, size = 1, width = 0.3) +
-  labs(x = "Compand concentration",
-       y = "Number of offspring,",
-       title = "Counted offspring after incubation with compound")
+iso <- ce_data %>% 
+        dplyr::filter(compName == "2,6-diisopropylnaphthalene") %>%
+        ggplot2::ggplot(aes(x = compConcentration, y = RawData)) +
+        ggplot2::geom_point() +
+        ggplot2::geom_smooth(method = "lm") +
+        ggplot2::labs(x = "Compand concentration in nM",
+                      y = "Number of offspring",
+                      title = "2,6-diisopropylnaphthalene")
+
+decane <- ce_data %>% 
+        dplyr::filter(compName == "decane") %>%
+        ggplot2::ggplot(aes(x = compConcentration, y = RawData)) +
+        ggplot2::geom_point() +
+        ggplot2::geom_smooth(method = "lm") +
+        ggplot2::labs(x = "Compand concentration in nM",
+                      y = "Number of offspring",
+                      title = "Decane")
+
+naph <- ce_data %>% 
+        dplyr::filter(compName == "naphthalene") %>%
+        ggplot2::ggplot(aes(x = compConcentration, y = RawData)) +
+        ggplot2::geom_point() +
+        ggplot2::geom_smooth(method = "lm") +
+        ggplot2::labs(x = "Compand concentration in nM",
+                      y = "Number of offspring",
+                      title = "Naphthalene")
 ```
 
 ```{r}
-ce_data %>%
-  ggplot(aes(x = compConcentration, y = RawData)) +
-  geom_point(aes(color = compName, shape = expType), alpha = 0.7, size = 1, width = 0.3) +
-  labs(x = "Compand concentration",
-       y = "Number of offspring,",
-       title = "Counted offspring after incubation with compound")
+ggarrange(iso, decane, naph)
 ```
 
+`r fig_port1("dotplot")`
 
-**E. When creating the plot under C), what happened with the ordering of the x-axis labels. Explain why this happens. Look at the data-type of the compConcentration column in the data again to find a clue.**
+However the experiment was designed with the creation of a dose-response curve in mind. So the compound concentration is on a logarithmic scale. 
+ 
+```{r}
+#removed geom_smooth linear method
+iso <- ce_data %>% 
+        dplyr::filter(compName == "2,6-diisopropylnaphthalene" | compName == "S-medium") %>%
+        ggplot2::ggplot(aes(x = compConcentration, y = RawData)) +
+        ggplot2::geom_jitter(width = 0.1) +
+        ggplot2::geom_smooth() +
+        ggplot2::labs(x = "Compand concentration in nM",
+                      y = "Number of offspring",
+                      title = "2,6-diisopropylnaphthalene")
+
+decane <- ce_data %>% 
+        dplyr::filter(compName == "decane" | compName == "S-medium") %>%
+        ggplot2::ggplot(aes(x = compConcentration, y = RawData)) +
+        ggplot2::geom_jitter(width = 0.1) +
+        ggplot2::geom_smooth() +
+        ggplot2::labs(x = "Compand concentration in nM",
+                      y = "Number of offspring",
+                      title = "Decane")
+
+naph <- ce_data %>% 
+        dplyr::filter(compName == "naphthalene" | compName == "S-medium") %>%
+        ggplot2::ggplot(aes(x = compConcentration, y = RawData)) +
+        ggplot2::geom_jitter(width = 0.1) +
+        ggplot2::geom_smooth() +
+        ggplot2::labs(x = "Compand concentration in nM",
+                      y = "Number of offspring",
+                      title = "Naphthalene")
+```
+
 
 ```{r}
-ce_data <- read_xlsx(here("1.1_data/CE.LIQ.FLOW.062_Tidydata.xlsx"))
-
-ce_data %>% ggplot(aes(x = compConcentration, y = RawData)) +
-  geom_jitter(aes(color = compName, shape = expType), alpha = 0.7, size = 1, width = 0.2) +
-  labs(x = "Compand concentration",
-       y = "Number of offspring,",
-       title = "Counted offspring after incubation with compound")
-
-class(ce_data$compConcentration)
+iso + ggplot2::scale_x_log10()
 ```
-
-The data type of compConcentration is character, this means per concentration value it adds a point on the x-axis. this results in the overplotted mess seen here.
-
-**F. Correct the data-type of compConcentration to numeric and than look at the graph again. Use a log10 transformation on the x-axis to get a clear graph. Also, add a bit of jitter to the points in the graph so that points are not overlapping.**
+`r fig_port1("iso_log")`
 
 ```{r}
-ce_data$compConcentration <- as.numeric(ce_data$compConcentration)
-
-ce_data %>% ggplot(aes(x = log10(compConcentration), y = RawData)) +
-  geom_jitter(aes(color = compName, shape = expType), alpha = 0.7, size = 1, width = 0.2) +
-  labs(x = "Compand concentration",
-       y = "Number of offspring,",
-       title = "Counted offspring after incubation with compound")
-  
+decane + ggplot2::scale_x_log10()
 ```
-
-**G.H. Fill in: (G) The positive control for this experiments is "ethanol (H) The negative control for this experiment is "S-medium"**
-
-**Think about how you would analyze this experiment to learn whether there is indeed an effect of different concentrations on offspring count and whether the different compounds have a different curve (IC50). Write down your analysis as a step-wise plan**
-
-1. I would create dose-response curves based on the data per compound.
-2. I would calculate P-values to test if the diffrence between concentrations of a compound has a significant effect on the number of offspring. this would first be done by checking for normality (shapiro wilk and/or q-q plots) then doing a Anova or Friedmans.
-
-**J. Normalize the data for the controlNegative in such a way that the mean value for controlNegative is exactly equal to 1 and that all other values are expressed as a fraction thereof. Rerun your graphs with the normalized data.**
+`r fig_port1("decane_log")`
 
 ```{r}
-#calculating mean of control negative outside of mutate because mutate doesn't like filter function 
-CN_mean <- ce_data %>% filter(expType == "controlNegative") %>% select("RawData") %>% colMeans() 
+naph + ggplot2::scale_x_log10()
+```
+`r fig_port1("naph_log")`
 
-normalized_ce_data <- ce_data %>% 
-  mutate(norm_data = RawData/CN_mean)
+`r fig_port1("iso_log", display = "c")`, `r fig_port1("decane_log", display = "c")` and `r fig_port1("naph_log", display = "c")` are supposed to resemble dose response curves, however geom_smooth method of applying a curve to the data points isn't meant for creating a dose response curve. A package which is meant for this is [{drc}](https://cran.r-project.org/web/packages/drc/index.html).
 
-#checking if it's correct
-normalized_ce_data %>% group_by(expType) %>% summarise(m = mean(norm_data, na.rm = T))
+The model to be fitted to the response data will be a four parameter log-logistic function, abbreviated to LL.4 in {drc}. this means that 1 out of the five parameters are pre-set, which are f = 1. 
+Normally LL.3 would be used where c is set to 0, because the response data is discrete (number of offspring). However this doesn't produce a good fit, because there no datapoints where the number of offspring is actually zero.
 
-#making first plot
-normalized_ce_data %>% slice_sample(prop = 0.40) %>%
-  ggplot(aes(x = compConcentration, y = norm_data)) +
-  geom_jitter(aes(color = compName, shape = expType), alpha = 0.7, size = 1, width = 0.3) +
-  labs(x = "Compand concentration",
-       y = "Number of offspring,",
-       title = "Counted offspring after incubation with compound")
-
-#makng the log plot
-normalized_ce_data %>% ggplot(aes(x = log10(compConcentration), y = norm_data)) +
-  geom_jitter(aes(color = compName, shape = expType), alpha = 0.7, size = 1, width = 0.2) +
-  labs(x = "Compand concentration",
-       y = "Number of offspring,",
-       title = "Counted offspring after incubation with compound")
+```{r}
+knitr::include_graphics(here::here("images/LL4.jpg"))
 ```
 
-**K. Why would you want to take the step under J?**
+`r fig_port1("formula1")` [@Ritz2015, p. 4] 
+(refrence: : https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146021, 
+an example of LL.3 being used for C.elegans: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5734697/)
 
-this eliminates natural and extraneous variation between groups. After normalization all groups fall on the same scale of 0 - 1. 
+```{r}
+#fitting a dose response model on the data
+drc_iso <- drc::drm(RawData ~ compConcentration,
+                    data = dplyr::filter(ce_data, compName == "2,6-diisopropylnaphthalene" | compName == "S-medium"),
+                    fct = LL.4())
+
+drc_decane <- drc::drm(RawData ~ compConcentration,
+                    data = dplyr::filter(ce_data, compName == "decane"| compName == "S-medium"),
+                    fct = LL.4()) 
+
+drc_naph <- drc::drm(RawData ~ compConcentration,
+                    data = dplyr::filter(ce_data, compName == "naphthalene"| compName == "S-medium"),
+                    fct = LL.4())
+```
+
+```{r show DR curves}
+plot(drc_iso, type = "all", 
+     xlab = "2,6-diisopropylnaphthalene concentration in nM",
+     ylab = "number of offspring")
+```
+
+`r fig_port1("iso_drc")`
+
+```{r}
+plot(drc_decane, type = "all",
+     xlab = "decane concentration in nM",
+     ylab = "number of offspring")
+```
+
+`r fig_port1("decane_drc")`
+
+```{r}
+plot(drc_naph, type = "all", 
+     xlab = "naphthalene concentration in nM",
+     ylab = "number of offspring")
+```
+
+`r fig_port1("naph_drc")`
+
+# References
+
+
+
+
+
 
 
 

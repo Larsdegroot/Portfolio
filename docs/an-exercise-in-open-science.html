@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Portfolio assignment 5.B | Portfolio of DSFB</title>
-  <meta name="description" content="7 Portfolio assignment 5.B | Portfolio of DSFB" />
+  <title>3 An exercise in Open science | Portfolio of DSFB</title>
+  <meta name="description" content="3 An exercise in Open science | Portfolio of DSFB" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Portfolio assignment 5.B | Portfolio of DSFB" />
+  <meta property="og:title" content="3 An exercise in Open science | Portfolio of DSFB" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Portfolio assignment 5.B | Portfolio of DSFB" />
+  <meta name="twitter:title" content="3 An exercise in Open science | Portfolio of DSFB" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rmarkdown-cv.html"/>
-<link rel="next" href="portfolio-assignment-6-2.html"/>
+<link rel="prev" href="references.html"/>
+<link rel="next" href="an-exercise-in-reproducibility.html"/>
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -186,29 +186,98 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="portfolio-assignment-5.b" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Portfolio assignment 5.B</h1>
-<p><strong>1. Make a new folder within Mendeley for the projecticum. Place all pdf’s you used till now in your folder (if you did not use any papers as source yet, find 3 papers on Pubmed now that you could use for your introduction.). Copy your .bib file to the folder on your computer you are using for the Projecticum git repo.</strong></p>
-<p><em>Our projecticum doesn’t require a literature study</em>
-I’ve searched for papers about de novo assembly, and consensus algorithms for an internship talk.</p>
-<p><strong>2. Start a .Rmd named “introduction.Rmd” with a few lines introduction on your projecticum topic.</strong></p>
-<p><strong>3. Include automatic inline references to the papers you used.</strong></p>
-<p><strong>4. The bibliography will be placed at the end of the document. Provide an appropriate header.</strong></p>
-<p><strong>5. Merge your work with that of your projecticum partner through github. Solve all the problems you encounter. If github does not want to merge .bib files and you want a merged one, try here.</strong></p>
-<p><strong>6. Find out how you can add websites as reference to Mendeley.</strong>
-using the chrome extension found <a href="https://chrome.google.com/webstore/detail/mendeley-web-importer/dagcmkpagjlhakfdhnbomgmjdpkdklff/related">here</a></p>
-<p><strong>7. Write (so not “copy!”) at least 500 words of introduction for your projecticum project and use at least 5 references.</strong>
-<em>this won’t be an introduction but more of a summary</em>
-I’ve wrote a summary about some of the information i’ve found here <a href="portfolio-assignment-6-2.html#portfolio-assignment-6.2">Portfolio assignment 6.2</a></p>
+<div id="an-exercise-in-open-science" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> An exercise in Open science</h1>
+<hr />
+<p>This exercise is about identifying reproducibility issues in a scientific publication. We use the criteria for reproduciblity that is publically available <a href="https://www.researchgate.net/deref/https%3A%2F%2Fwww.ripeta.com%2Fuploads%2F7%2F4%2F8%2F7%2F7487334%2Fripeta_approach_and_criteria_definitions.pdf">here</a>.</p>
+<p>Article used: <a href="https://www.biorxiv.org/content/10.1101/2020.11.12.379537v1">A retrospective cluster analysis of COVID-19 cases by county</a></p>
+<hr />
+<div id="score" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Score:</h2>
+<p>Figure 1: scoring of “A retrospective cluster analysis of COVID-19 cases by county” for the criteria laid out <a href="https://www.researchgate.net/deref/https%3A%2F%2Fwww.ripeta.com%2Fuploads%2F7%2F4%2F8%2F7%2F7487334%2Fripeta_approach_and_criteria_definitions.pdf">here</a>.</p>
+<table>
+<colgroup>
+<col width="18%" />
+<col width="62%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Transparency Criteria</th>
+<th>Definition</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Study Purpose</td>
+<td>A concise statement in the introduction of the article, often in the last paragraph, that establishes the reason the research was conducted. Also called the study objective.</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td>Data Availability Statement</td>
+<td>A statement, in an individual section offset from the main body of text, that explains how or if one can access a study’s data. The title of the section may vary, but it must explicitly mention data; it is therefore distinct from a supplementary materials section.</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td>Data Location</td>
+<td>Where the article’s data can be accessed, either raw or processed.</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td>Study Location</td>
+<td>Author has stated in the methods section where the study took place or the data’s country/region of origin.</td>
+<td>TRUE</td>
+</tr>
+<tr class="odd">
+<td>Author Review</td>
+<td>The professionalism of the contact information that the author has provided in the manuscript.</td>
+<td>TRUE</td>
+</tr>
+<tr class="even">
+<td>Ethics Statement</td>
+<td>A statement within the manuscript indicating any ethical concerns, including the presence of sensitive data.</td>
+<td>FALSE</td>
+</tr>
+<tr class="odd">
+<td>Funding Statement</td>
+<td>A statement within the manuscript indicating whether or not the authors received funding for their research.</td>
+<td>FALSE</td>
+</tr>
+<tr class="even">
+<td>Code Availability</td>
+<td>Authors have shared access to the most updated code that they used in their study, including code used for analysis.</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="explanation" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Explanation:</h2>
+<p>At the top of the article the authors names are displayed, with the names of the universities the study at or are part of. Of one of the authors the email is given. This information falls under the <code>author review</code> criteria. this information is sufficient for the goal of open science in this case because email, department and phone number information can be found online for these scientist. however this might not always be the case so the availability of the email address of the paper is appreciated.</p>
+<p>The article aims to better understand the pattern of outbreaks of COVID-19 within the US. it states this as a <code>study purpose</code> at the end of the introduction paragraph. it then continuous to formulate 3 research questions which further clarifies the <code>study purpose</code>:</p>
+<ol style="list-style-type: decimal">
+<li>How many distinct clusters of counties exhibit similar COVID-19 patterns in the time-series of daily confirmed cases?</li>
+<li>What is the geographic distribution of the counties within each cluster?</li>
+<li>Are county-level demographic, socioeconomic and political variables associated with the COVID-19 case patterns?</li>
+</ol>
+<p>the article then starts to give a detailed description of the methods used in the study, it does this in stages. In the paragraph <em>Stage 0: Data Acquisition and Preprocessing</em>, it starts with explaining what the sources are for the data used in the study. this is a example of the criteria <code>data location</code>. However no link was supplied. At further inspection the data used here came from the R package <code>'COVID-19'</code>, And in the references it does specify the date of accessing the data hub. Also the locations of supplementary data that wasn’t taken from other sources is listed in the same paragraph. However not all of the links provided work anymore.</p>
+<p>Figure 2: the provided links in paper. many don’t work anymore showing that simply providing links isn’t always enough because of the changing nature of the internet.</p>
+<p>This shows how simply providing links to data used isn’t enough because the validity of the repository which host the data isn’t always guaranteed. but later in the article under <em>Supporting information</em> it also links to a github page. This is a great example of open science because the <code>data location</code> where the data originates from is stated, and a neat collection of data used within the study is given.</p>
+<p>within this same paragraph it is stated: “To capture the progression of disease in the U.S., the number of confirmed COVID-19 cases at the county level from March 1, 2020 through October 24, 2020 was extracted from the COVID-19 data hub [4]. Only data from the contiguous 48 states were included.” In this sentence the region of origin of the data is described, thus the criteria <code>Study location</code> has been met.</p>
+<p>Under acknowledgments is where you would expect there to a funding statement. But it simple states none. hereby it is neither denied or confirmed that this study is funded so this article does not meet the criteria <code>Funding statement</code>.</p>
+<p>After the references there is <em>supporting information</em> paragraph, which states what program was used (R), the version (4.0.2), and gives a link to a github page, which sadly no longer works. But the user page can be derivated from the link and so the data used (raw and processed) can be accessed. which is why the article meets the criteria <code>Data Availability Statement</code> and <code>Code Availability</code>.</p>
+<p>Further more no ethical concerns were raised in the article so it doesn’t meet the criteria <code>Ethics Statement</code>. However considering the way the study was conducted, there was no need for a ethics statement.</p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="rmarkdown-cv.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="portfolio-assignment-6-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="an-exercise-in-reproducibility.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

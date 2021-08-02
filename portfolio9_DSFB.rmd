@@ -1,7 +1,7 @@
 # Parametered RMD
 
 ```{r}
-data <- read.csv("9_data/data.csv")
+data <- read.csv("data/data.csv")
 data <- rename(data, country = ï..country)
 ```
 

@@ -14,21 +14,28 @@ output:
         twitter: no
 new_session: yes
 number_sections: FALSE
-#bibliography: export.bib #didn't work and gave me an error i wasn't able to find a solution for.
+bibliography: ext/export.bib 
 params:
   country: "Netherlands"
   year: "2021"
   month: "01"
 ---
 ```{r}
-knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
 ```{r}
+#1
 require(tidyverse)
 require(readxl)
 require(here)
+require(drc)
+require(knitr)
+require(ggpubr)
+require(captioner)
+#2
 require(fs)
+#7
 require(dslabs)
 require(DBI)
 require(RPostgreSQL)
@@ -36,6 +43,8 @@ require(remotes)
 require(RPostgres)
 library(hrbrthemes)
 library(viridis)
+#9
+library(ISOweek)
 ```
 
 

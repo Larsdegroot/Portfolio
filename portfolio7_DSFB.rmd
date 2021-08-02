@@ -7,10 +7,10 @@ source(here("src/port_src7.R"))
 **1. Load the flu (“./data/flu_data.csv), the dengue (.”/data/dengue_data.csv) and the gapminder ({dslabs} package) into three separate dataframes in R.**
 
 ```{r}
-dengue <- read.csv(here::here("7_data/dengue_data.txt"), skip = 11) 
+dengue <- read.csv(here::here("data/dengue_data.txt"), skip = 11) 
 head(dengue)
 
-flu <- read.csv(here::here("7_data/flu_data.txt"), skip = 11)
+flu <- read.csv(here::here("data/flu_data.txt"), skip = 11)
 head(flu)
 
 head(gapminder)
@@ -63,7 +63,7 @@ head(flu)
 
 ```{r, eval=F}
 for (x in c("flu", "dengue", "gapminder")) {
-  export(get(x), path = paste0(here("7_data//"), x))
+  export(get(x), path = paste0(here("data//"), x))
 }
 
 ```
@@ -72,7 +72,7 @@ for (x in c("flu", "dengue", "gapminder")) {
 **5. In Dbeaver create a new PostgreSQL database “workflowsdb”**
 
 ```{r, fig.cap = "The workflows database in Dbeaver."}
-knitr::include_graphics(here("7_data/workflowsdb_in_Dbeaver.JPG"))
+knitr::include_graphics(here("images/workflowsdb_in_Dbeaver.JPG"))
 ```
 
 ![Workflows database in DBeaver](/)
@@ -250,9 +250,9 @@ Some countries had more influenza cases realtive to their population during the 
 
 ```{r}
 relative_influenza_2009 <- joined_gapfluden %>% 
-  filter(continent == "Europe", year == "2009") %>% 
-  select(country, population, influenza_activity) %>% 
-  mutate(relative_influenza_cases = (influenza_activity / population)*100)
+  dplyr::filter(continent == "Europe", year == "2009") %>% 
+  dplyr::select(country, population, influenza_activity) %>% 
+  dplyr::mutate(relative_influenza_cases = (influenza_activity / population)*100)
 
 regions <- relative_influenza_2009$country
 #remove Russia because it takes up too much space in the map
