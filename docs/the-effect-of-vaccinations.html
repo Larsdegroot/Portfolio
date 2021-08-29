@@ -331,7 +331,7 @@ Testing
 2020-W01
 </td>
 <td style="text-align:left;">
-2021-W30
+2021-W33
 </td>
 </tr>
 <tr>
@@ -339,10 +339,10 @@ Testing
 Hospital admissions
 </td>
 <td style="text-align:left;">
-2019-W49
+2020-W01
 </td>
 <td style="text-align:left;">
-2021-W30
+2021-W33
 </td>
 </tr>
 <tr>
@@ -353,7 +353,7 @@ Vaccinations
 2020-W52
 </td>
 <td style="text-align:left;">
-2021-W32
+2021-W34
 </td>
 </tr>
 </tbody>
@@ -393,7 +393,7 @@ The effect of vaccines can’t really be seen in this plot. That is not to say t
 <span id="cb112-4"><a href="the-effect-of-vaccinations.html#cb112-4" aria-hidden="true" tabindex="-1"></a>max_cases <span class="ot">&lt;-</span> cumsum_data_covid <span class="sc">%&gt;%</span> </span>
 <span id="cb112-5"><a href="the-effect-of-vaccinations.html#cb112-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Dose <span class="sc">==</span> <span class="st">&quot;FirstDose&quot;</span>, new_cases <span class="sc">==</span> <span class="dv">80594</span> <span class="sc">|</span> new_cases <span class="sc">==</span> <span class="dv">76154</span> <span class="sc">|</span> new_cases <span class="sc">==</span> <span class="dv">70155</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb112-6"><a href="the-effect-of-vaccinations.html#cb112-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(year_week, new_cases, hospital, ICU)</span></code></pre></div>
-<pre><code>## [1] 70169 70169 76154 76154 80594 80594</code></pre>
+<pre><code>## [1] 70132 70132 76154 76154 80594 80594</code></pre>
 <p>Table 2: Overview of the three highest case counts over the period of January 2020 untill July 2021.</p>
 <table class=" lightable-material" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -444,6 +444,7 @@ ICU
 </tbody>
 </table>
 <p>The three highest new case counts. Two from the peak during December 2020, and one from the peak during July 2021. The difference in hospital and ICU admissions is clear and could be attributed to the vaccinated population.</p>
+<p>#Refrences</p>
 
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div class="csl-entry">

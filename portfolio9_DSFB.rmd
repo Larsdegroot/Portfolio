@@ -317,5 +317,5 @@ kableExtra::kbl(max_cases) %>%
 
 The three highest new case counts. Two from the peak during December 2020, and one from the peak during July 2021. The difference in hospital and ICU admissions is clear and could be attributed to the vaccinated population.
 
-
+#Refrences
 
