@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Learning Python | Portfolio</title>
+  <meta name="description" content="6 Learning Python | Portfolio" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Learning Python | Portfolio" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Learning Python | Portfolio" />
+  
+  
+  
+
+<meta name="author" content="Lars de Groot" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="good-workflow-practices-guerrilla-analytics.html"/>
+<link rel="next" href="influenza-activity-across-europe.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
+<li class="chapter" data-level="2" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html"><i class="fa fa-check"></i><b>2</b> <em>C. elegans</em> plate experiment</a></li>
+<li class="chapter" data-level="3" data-path="an-exercise-in-open-science.html"><a href="an-exercise-in-open-science.html"><i class="fa fa-check"></i><b>3</b> An exercise in Open science</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="an-exercise-in-open-science.html"><a href="an-exercise-in-open-science.html#score"><i class="fa fa-check"></i><b>3.1</b> Score:</a></li>
+<li class="chapter" data-level="3.2" data-path="an-exercise-in-open-science.html"><a href="an-exercise-in-open-science.html#explanation"><i class="fa fa-check"></i><b>3.2</b> Explanation:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="an-exercise-in-reproducibility.html"><a href="an-exercise-in-reproducibility.html"><i class="fa fa-check"></i><b>4</b> An exercise in reproducibility</a></li>
+<li class="chapter" data-level="5" data-path="good-workflow-practices-guerrilla-analytics.html"><a href="good-workflow-practices-guerrilla-analytics.html"><i class="fa fa-check"></i><b>5</b> Good Workflow practices: Guerrilla analytics</a></li>
+<li class="chapter" data-level="6" data-path="learning-python.html"><a href="learning-python.html"><i class="fa fa-check"></i><b>6</b> Learning Python</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="learning-python.html"><a href="learning-python.html#rosalind-exercises"><i class="fa fa-check"></i><b>6.1</b> Rosalind exercises:</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="learning-python.html"><a href="learning-python.html#q1-counting-dna-nucleotides"><i class="fa fa-check"></i><b>6.1.1</b> Q1 Counting DNA nucleotides</a></li>
+<li class="chapter" data-level="6.1.2" data-path="learning-python.html"><a href="learning-python.html#q2-transcribing-dna-into-rna"><i class="fa fa-check"></i><b>6.1.2</b> Q2 Transcribing DNA into RNA</a></li>
+<li class="chapter" data-level="6.1.3" data-path="learning-python.html"><a href="learning-python.html#q3-complementing-a-strand-of-dna"><i class="fa fa-check"></i><b>6.1.3</b> Q3 Complementing a Strand of DNA</a></li>
+<li class="chapter" data-level="6.1.4" data-path="learning-python.html"><a href="learning-python.html#q4-rabbits-and-recurrence-relations"><i class="fa fa-check"></i><b>6.1.4</b> Q4 : Rabbits and Recurrence Relations</a></li>
+<li class="chapter" data-level="6.1.5" data-path="learning-python.html"><a href="learning-python.html#q5-computing-gc-content"><i class="fa fa-check"></i><b>6.1.5</b> Q5: Computing GC Content</a></li>
+<li class="chapter" data-level="6.1.6" data-path="learning-python.html"><a href="learning-python.html#q6-counting-point-mutations"><i class="fa fa-check"></i><b>6.1.6</b> Q6: Counting point mutations</a></li>
+<li class="chapter" data-level="6.1.7" data-path="learning-python.html"><a href="learning-python.html#q7-mendels-first-law"><i class="fa fa-check"></i><b>6.1.7</b> Q7 Mendels first law</a></li>
+<li class="chapter" data-level="6.1.8" data-path="learning-python.html"><a href="learning-python.html#q8-translating-rna-into-protein"><i class="fa fa-check"></i><b>6.1.8</b> Q8: Translating RNA into Protein</a></li>
+<li class="chapter" data-level="6.1.9" data-path="learning-python.html"><a href="learning-python.html#q9-finding-a-motif-in-dna"><i class="fa fa-check"></i><b>6.1.9</b> Q9: Finding a Motif in DNA</a></li>
+<li class="chapter" data-level="6.1.10" data-path="learning-python.html"><a href="learning-python.html#q10-consensus-and-profile"><i class="fa fa-check"></i><b>6.1.10</b> Q10: Consensus and Profile</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html"><i class="fa fa-check"></i><b>7</b> Influenza activity across europe</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#loading-and-colapsing-data"><i class="fa fa-check"></i><b>7.1</b> Loading and colapsing data</a></li>
+<li class="chapter" data-level="7.2" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#storing-new-dataframes"><i class="fa fa-check"></i><b>7.2</b> Storing new dataframes</a></li>
+<li class="chapter" data-level="7.3" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#joining-dataset"><i class="fa fa-check"></i><b>7.3</b> Joining dataset</a></li>
+<li class="chapter" data-level="7.4" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#visualizing-data"><i class="fa fa-check"></i><b>7.4</b> Visualizing data</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="influenzadata-package.html"><a href="influenzadata-package.html"><i class="fa fa-check"></i><b>8</b> InfluenzaData package</a></li>
+<li class="chapter" data-level="9" data-path="the-effect-of-vaccinations.html"><a href="the-effect-of-vaccinations.html"><i class="fa fa-check"></i><b>9</b> The effect of vaccinations</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="the-effect-of-vaccinations.html"><a href="the-effect-of-vaccinations.html#trimming-joining-dataframes"><i class="fa fa-check"></i><b>9.1</b> Trimming &amp; Joining dataframes</a></li>
+<li class="chapter" data-level="9.2" data-path="the-effect-of-vaccinations.html"><a href="the-effect-of-vaccinations.html#visualization"><i class="fa fa-check"></i><b>9.2</b> Visualization</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="learning-python" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Learning Python</h1>
+<p>I’m aspiring to become an bioinformatician. This is because i’ve found the act of coding, and thinking how a program should fit together scratches an itch to create and design for me. Which is a need that i can’t fulfill when doing wet lab work or writing lab journal reports.</p>
+<p>Bioinformatics as a field is quite diverse in a way that what one bioinformatician does, could be different from what an other bioinformatician does. There are lots of different software tools you need to learn depending on which subject within biology you are working with. However i have found that most bioinformaticians use a combination of R and Python for most of their work.</p>
+<div style="float:right;position:">
+<p><img src="https://images-na.ssl-images-amazon.com/images/I/51yWKSfOcfS._SX379_BO1,204,203,200_.jpg" width="150px" /></p>
+</div>
+<p>I’ve made a good start on R during my minor, but i dont have any experience with Python.
+To start to learn Python i’m planning on going through the book <a href="https://greenteapress.com/wp/think-python/">Think Python</a> by Allen B. Downey. I’ts very important to gain experience when learning a new programming language, and Think Python has exercises to play with. However these are not focused on bioinformatics. To gain experience with python for bioinformatics i want to go over <a href="http://rosalind.info/about/">Rosalind</a> exercises. Rosalind is a website that has various problems that you could encounter as an bioinformatician. So i’m planning to go through these exercises as well to apply python on bioinformatic problems.</p>
+<p>A Internship that i’ve applied for also recommended me three <a href="https://www.coursera.org/">Coursera</a> courses that i am planning to delve into:</p>
+<ul>
+<li><a href="https://www.coursera.org/specializations/python">Python for Everybody Specialization</a></li>
+<li><a href="https://www.coursera.org/learn/interactive-python-1">An Introduction to Interactive Programming in Python (Part 1)</a></li>
+<li><a href="https://www.coursera.org/learn/interactive-python-2">An Introduction to Interactive Programming in Python (Part 2)</a></li>
+</ul>
+<div id="rosalind-exercises" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Rosalind exercises:</h2>
+<hr />
+<div id="q1-counting-dna-nucleotides" class="section level3" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Q1 Counting DNA nucleotides</h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="learning-python.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> count(s, c):</span>
+<span id="cb27-2"><a href="learning-python.html#cb27-2" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb27-3"><a href="learning-python.html#cb27-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb27-4"><a href="learning-python.html#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> s:</span>
+<span id="cb27-5"><a href="learning-python.html#cb27-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> c <span class="op">==</span> i:</span>
+<span id="cb27-6"><a href="learning-python.html#cb27-6" aria-hidden="true" tabindex="-1"></a>            count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb27-7"><a href="learning-python.html#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> count</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="learning-python.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;data/rosalind_dna.txt&quot;</span>, <span class="st">&#39;r&#39;</span>)<span class="im">as</span> seq:</span>
+<span id="cb28-2"><a href="learning-python.html#cb28-2" aria-hidden="true" tabindex="-1"></a>    seq_1 <span class="op">=</span> seq.readline()</span>
+<span id="cb28-3"><a href="learning-python.html#cb28-3" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> []</span>
+<span id="cb28-4"><a href="learning-python.html#cb28-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-5"><a href="learning-python.html#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> [<span class="st">&#39;A&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;G&#39;</span>, <span class="st">&#39;T&#39;</span>]:</span>
+<span id="cb28-6"><a href="learning-python.html#cb28-6" aria-hidden="true" tabindex="-1"></a>        out.append(count(seq_1, i))</span>
+<span id="cb28-7"><a href="learning-python.html#cb28-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-8"><a href="learning-python.html#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(out)</span></code></pre></div>
+<pre><code>## [213, 241, 215, 243]</code></pre>
+<hr />
+</div>
+<div id="q2-transcribing-dna-into-rna" class="section level3" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Q2 Transcribing DNA into RNA</h3>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="learning-python.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;data/rosalind_rna.txt&#39;</span>, <span class="st">&#39;r&#39;</span>)<span class="im">as</span> rna:</span>
+<span id="cb30-2"><a href="learning-python.html#cb30-2" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> rna.readline().rstrip()</span>
+<span id="cb30-3"><a href="learning-python.html#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="learning-python.html#cb30-4" aria-hidden="true" tabindex="-1"></a>u <span class="op">=</span> []</span>
+<span id="cb30-5"><a href="learning-python.html#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="learning-python.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">list</span>(s):</span>
+<span id="cb30-7"><a href="learning-python.html#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">==</span> <span class="st">&#39;T&#39;</span>:</span>
+<span id="cb30-8"><a href="learning-python.html#cb30-8" aria-hidden="true" tabindex="-1"></a>        u.append(<span class="st">&#39;U&#39;</span>)</span>
+<span id="cb30-9"><a href="learning-python.html#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb30-10"><a href="learning-python.html#cb30-10" aria-hidden="true" tabindex="-1"></a>        u.append(i)</span>
+<span id="cb30-11"><a href="learning-python.html#cb30-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-12"><a href="learning-python.html#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">&#39;&#39;</span>.join(u)</span></code></pre></div>
+<pre><code>## &#39;GCUGUGACCUCUCGCACGAUCUGUGAGCGUGGCUUGGGAAUCACGCGCUGUCUCUUCACUCCGAUCGCCUGACAGCUGAAGGGUGCUGAAGCUGGUUAACCAGACGAGGUGACCUGGAGAAUACUAUUUUGAGAAGUGGAUAGCAGAUGAGAAGUAGCUAGGACCUAAUUACGGUUCACCAUCGAGCCGCUAGGAAAUAGAUAAGAGCCUUGCCACAAGUGGGUGACGAUAAUACCCAGUGCCCCCCACAUGAGUAGUCGAUCGAGGGCUCGAUCCACUCCUGGACCCGGGGCCAAAUGGGCAGUAUACCACGACAAGCUGUGAUCCGCCACUCUGGAGGUUCUCACAUAACCUUUAGGUGUCGCCCUAUCUGAACAAGGUACUAGCGCUGCCUGGUACCGCCCGUUGCGGAGGUUAGGGCUUAUGCCACAUCAUACUUAGUGCGUUUCGUAAAAAGUGAAUAUGCGGCGCGCCAUAAUGUUGUAUUCGCUGCCUGUGUUCGGAGCGCGCCAACAGCACCUCAGCCUCCACAGCCAUAAGACAGGUACUCGAGGUUGAAACUAGUAGGGAAGAAGGCGCCUCAUUUUCAUAUCCUGCCCUCCAGUCAACAUGGGACAGCGACCAAGAAGAACACGUAUGGUGCCUAUGCCAGCCUCAUAGACCAAAGGGUGCAGAUAUGGUUACAACGCGGCGUCCGCGAACGACACCCGUUAAUCUUCCAUCGACAAUACUUUCUUCUGGCCGCGCAGGGGUGAUGGCAAAUCUGUAUUGGUCCUGAGGGAACGUUAACCAUCUCCGUACGACUGGCCAUCGUCCACUAUAGGGCCCCCGUCAGAGCUCAGGAAACUAAGGUCUCGCACUAAUCAGUGCUUCAUAGAGGCCGCCUUUGAUGUCUGCCGUUUUGUCCAGGGGGAGUCCCUGGUCAGUUCUUAUCGUCUACAGGUCAAACA&#39;</code></pre>
+<hr />
+</div>
+<div id="q3-complementing-a-strand-of-dna" class="section level3" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Q3 Complementing a Strand of DNA</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="learning-python.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&quot;data/rosalind_revc.txt&quot;</span>, <span class="st">&#39;r&#39;</span>) <span class="im">as</span> dna:</span>
+<span id="cb32-2"><a href="learning-python.html#cb32-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb32-3"><a href="learning-python.html#cb32-3" aria-hidden="true" tabindex="-1"></a>    seq <span class="op">=</span> dna.readline().rstrip()</span>
+<span id="cb32-4"><a href="learning-python.html#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="learning-python.html#cb32-5" aria-hidden="true" tabindex="-1"></a>com <span class="op">=</span> seq.translate(<span class="st">&#39;&#39;</span>.maketrans(<span class="st">&#39;ATCG&#39;</span>, <span class="st">&#39;TAGC&#39;</span>))</span>
+<span id="cb32-6"><a href="learning-python.html#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co">#reverse string</span></span>
+<span id="cb32-7"><a href="learning-python.html#cb32-7" aria-hidden="true" tabindex="-1"></a>com[::<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## &#39;ATCAGTAGTAATTTAAAGATTGTGCTGTCCTAGCGTAGAGTATAGCGTGATATTGGATTATATTCCCTGATGCTCACGTCAGCGCCGGATAGTCGCTAACAGCACTCTAACATTGAAATCACTTGCCGCCCCAAGTAAACTCAGACATAACTACCCAGAGAAGCCCATATCTGAATCGTGACGTTAAACGCGCATTTCCCTGGATAGGTTGGAAAAAGTCCCCGTCGTGTCAGTCCTCATAGCTACGGCGTGCCAATACGTTATGCTTGAACGGGAACTTCTACTGTATTGGGGAACCTTCGGCGTACATCCAGAGAGCATGGCCGCCCGCTATAATGTACTTCCACGTGCAGCACCTATGGATTGGAACTCCTAGATACGTTATCCGGCCTGCTATGCACCATGCTGCCGTCTGCTCATGTAGTAACTTAACGAAACCGTATTCGAAGGGTATACACGTAAATTAAAGGGGCGGTCAAGTAGCGGAGCCACGTGCCGTCCACAAAACCATAATGGACGTTAGACTACTATGTGCGGTACGATCCACGCGTAGCGATTGCGGACCCGGTGTGGATTAGAACTGATAAATCGGAAGAAACTCTTCGTTATCCTCCAAGGATGTCAAGTAGGTGTCGTCACGGTAGACAACGTACCTTTTCGTGTCGATGACTTAATCAGAGCGTTAGCAACTTTTCTAAGGTTCCCGTTATATACTTGTCTTTGGGGTATTCTTAGCTCGCGATCATATCAGATGAATAGCCCGCGTCGACGGGGCTCTGTTCATACGGACTACTGCAGTCCATAGGCGCCACCCTTTCGCATGATCTTTCACTCTTAGATAGCTATACAGGATATCCTACCGAAATCTCCACGTAAGTCAATAAGCACTTTGAGACTATTTAGCTGTACACTGGGATTGTGGTACACAATGCATAGGTAATAAACCGAATAGCTCTTAGGAGCCCTGGTATATGTCTAATG&#39;</code></pre>
+<hr />
+</div>
+<div id="q4-rabbits-and-recurrence-relations" class="section level3" number="6.1.4">
+<h3><span class="header-section-number">6.1.4</span> Q4 : Rabbits and Recurrence Relations</h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="learning-python.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fibonacci(n, k):</span>
+<span id="cb34-2"><a href="learning-python.html#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb34-3"><a href="learning-python.html#cb34-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb34-4"><a href="learning-python.html#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> n <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb34-5"><a href="learning-python.html#cb34-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb34-6"><a href="learning-python.html#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb34-7"><a href="learning-python.html#cb34-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> fibonacci(n<span class="op">-</span><span class="dv">1</span>, k) <span class="op">+</span> fibonacci(n<span class="op">-</span><span class="dv">2</span>, k)<span class="op">*</span>k </span>
+<span id="cb34-8"><a href="learning-python.html#cb34-8" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="learning-python.html#cb35-1" aria-hidden="true" tabindex="-1"></a>fibonacci(<span class="dv">31</span>,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## 47079164257</code></pre>
+<hr />
+</div>
+<div id="q5-computing-gc-content" class="section level3" number="6.1.5">
+<h3><span class="header-section-number">6.1.5</span> Q5: Computing GC Content</h3>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="learning-python.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co">#convert multi to single line</span></span>
+<span id="cb37-2"><a href="learning-python.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> to_sigle_fastq(in_file, out_file, header):</span>
+<span id="cb37-3"><a href="learning-python.html#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;&quot;&quot;&quot;</span></span>
+<span id="cb37-4"><a href="learning-python.html#cb37-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb37-5"><a href="learning-python.html#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(in_file, <span class="st">&#39;r&#39;</span>)<span class="im">as</span> fastq_multi, <span class="bu">open</span>(out_file, <span class="st">&#39;w&#39;</span>) <span class="im">as</span> fastq_single:</span>
+<span id="cb37-6"><a href="learning-python.html#cb37-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb37-7"><a href="learning-python.html#cb37-7" aria-hidden="true" tabindex="-1"></a>        block <span class="op">=</span> []</span>
+<span id="cb37-8"><a href="learning-python.html#cb37-8" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb37-9"><a href="learning-python.html#cb37-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> line <span class="kw">in</span> fastq_multi:</span>
+<span id="cb37-10"><a href="learning-python.html#cb37-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> line.startswith(header):</span>
+<span id="cb37-11"><a href="learning-python.html#cb37-11" aria-hidden="true" tabindex="-1"></a>                <span class="co">#if block contains anything, write block to file</span></span>
+<span id="cb37-12"><a href="learning-python.html#cb37-12" aria-hidden="true" tabindex="-1"></a>                <span class="co">#this only writes the seq after a seq has been collected in block</span></span>
+<span id="cb37-13"><a href="learning-python.html#cb37-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> block:</span>
+<span id="cb37-14"><a href="learning-python.html#cb37-14" aria-hidden="true" tabindex="-1"></a>                    fastq_single.write(<span class="st">&#39;&#39;</span>.join(block) <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</span>
+<span id="cb37-15"><a href="learning-python.html#cb37-15" aria-hidden="true" tabindex="-1"></a>                    block <span class="op">=</span> []</span>
+<span id="cb37-16"><a href="learning-python.html#cb37-16" aria-hidden="true" tabindex="-1"></a>                <span class="co">#always write header line to file</span></span>
+<span id="cb37-17"><a href="learning-python.html#cb37-17" aria-hidden="true" tabindex="-1"></a>                fastq_single.write(line)</span>
+<span id="cb37-18"><a href="learning-python.html#cb37-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb37-19"><a href="learning-python.html#cb37-19" aria-hidden="true" tabindex="-1"></a>                <span class="co">#add seq on other line to block</span></span>
+<span id="cb37-20"><a href="learning-python.html#cb37-20" aria-hidden="true" tabindex="-1"></a>                block.append(line[:<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb37-21"><a href="learning-python.html#cb37-21" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb37-22"><a href="learning-python.html#cb37-22" aria-hidden="true" tabindex="-1"></a>        fastq_single.write(<span class="st">&#39;&#39;</span>.join(block))</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="learning-python.html#cb38-1" aria-hidden="true" tabindex="-1"></a>to_sigle_fastq(<span class="st">&#39;data/rosalind_gc.txt&#39;</span>, <span class="st">&#39;data/single.txt&#39;</span>, <span class="st">&#39;&gt;Rosalind&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="learning-python.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#put header and seq in seprate lists with equal length</span></span>
+<span id="cb39-2"><a href="learning-python.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;data/single.txt&#39;</span>, <span class="st">&#39;r&#39;</span>)<span class="im">as</span> fastq:</span>
+<span id="cb39-3"><a href="learning-python.html#cb39-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb39-4"><a href="learning-python.html#cb39-4" aria-hidden="true" tabindex="-1"></a>    id_seq <span class="op">=</span> []</span>
+<span id="cb39-5"><a href="learning-python.html#cb39-5" aria-hidden="true" tabindex="-1"></a>    seq <span class="op">=</span> []</span>
+<span id="cb39-6"><a href="learning-python.html#cb39-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb39-7"><a href="learning-python.html#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> fastq:</span>
+<span id="cb39-8"><a href="learning-python.html#cb39-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="st">&#39;&gt;Rosalind&#39;</span> <span class="kw">in</span> line:</span>
+<span id="cb39-9"><a href="learning-python.html#cb39-9" aria-hidden="true" tabindex="-1"></a>            id_seq.append(line[:<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb39-10"><a href="learning-python.html#cb39-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb39-11"><a href="learning-python.html#cb39-11" aria-hidden="true" tabindex="-1"></a>            seq.append(line[:<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb39-12"><a href="learning-python.html#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="learning-python.html#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(id_seq, seq)</span>
+<span id="cb39-14"><a href="learning-python.html#cb39-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-15"><a href="learning-python.html#cb39-15" aria-hidden="true" tabindex="-1"></a><span class="co">#calculating cg content</span></span></code></pre></div>
+<pre><code>## [&#39;&gt;Rosalind_6404&#39;, &#39;&gt;Rosalind_1930&#39;, &#39;&gt;Rosalind_8097&#39;, &#39;&gt;Rosalind_4648&#39;, &#39;&gt;Rosalind_0242&#39;, &#39;&gt;Rosalind_8179&#39;] [&#39;AATAATGGTGTAATCCCCTTACCTTATACGGGTGTCTAACCTCGATCCGAGGAGAAAGCAAAGAGGCTAGGACCAATGGCTCGCTAATGCTTAGGCTTGATCCGGAGGTCTGAACGGACGTGCTACGCGTGCCAGCGTGAGAACACCCTTCTTAATGCTATCACCGATTCGACCTAGATATGGGTCTGATCATTTGTCAGCACAGTCGGCAAGAATAATGCTTAGGGCCAGTTTTTTGGTTCAGCAGGCTAGAGGTTGCTACCCCAGTATACCCGCATATACTGGGATTTCCAAATAACAGTGCACGATTTGCGATCGAGAAGGTCCCAGGCTAGCAATTGGTTGTGGGTTCATCAGTGACCACGGCTTCGCTGGGAACTATTCGCAAAGAACAAGCCTAACACCAGCAAGGCCTTGAGACTGAAAGAATTCAGGGCTAGTAGCAGGGGCGACGGTGACTTTCCATTCGTTGAAAACTCCTCTCGTAGATCAGTACTGGCTGTGGCCTGTGCGGAAAACATGACGTCTTGTCGCACGCTTCAATCTGTGACGGTATCTGTACAGAGGCCCTAGTGTAGACCTAACGGGAACATCCTCGGACACCACCATCTTCAGAGGCTGAATCGTGCTTCAGTTAGCGTTTATGCTCCTTTGTGTTTGGAAATTATGAAAGTTCGTTATCGCCTTACATAATCCCTTTTTTGAGGGAGTGTTTAAAATGCAGCACGCGTCTTGATCGAGACCGAGTCATCCACGAAGAAGGTGAATAACTCCGTAGATTCTCGTGTGATACAACCTCCAGTGTCCCGCCTCCGCTGTGGGAGAGGAGAAAAATGCGCCTTGCGGCGCAGTGGGCCAGTGATCA&#39;, &#39;ATGGGAATCAATTATCTTTGATTTCGGTCCACCAAGGCCGATCGGGCCATGTTCATACCATATGACCCATTTATCTGGAACATGAAAACTTCGCTACTTTTCTCAAAATTTACCGGAAACCAGGGCGCCCCCGTTGCGGTCATGAGATCACTGGGATGAATGGAGTTCCAATTACGCTTACTGAAGCCTCATGGGGTAGACTAATGGTCTGGCGTACGAAGACATTATAAACGTTTCTCGTTCCGTTCTTAACTCCCTGAGGTGACGCCCCCACCCGAATGGGCGACTCAATATCCTATGCATGGGGCTCTTTCGCTCGTTACGAGTGTAATCAGCCAACTATGTTAATTTTAGAGGGGCCGACCTTCGTCCCTTCAAAAAGGAGTGTACACACATAAGATGGCATAGCCGTCTCAAGGTAATCACTGAAGCCCGCCGGATCGAACTAGCCGAAACCAGTGAAGGTCCTTGCGTCGTCCGTGTTGATCCCATCGAGCCCCGGATACTGTCAATAAATCCAATGCCGAAACTTATCAATAGTTCTCCGACTCTATGGATACAGGCAGTCTGAAGACAACGTCCAAGCGTCTATCTGCAAGAGATTAATCATGGTTACGTGGTGTTATATTAGGAGTGTCAAGGCTATTAATGGTGGTTGAACATAATTGCCCGGCTGGATACGTGAGTGGGGGGGCTCCTATCGTCTCGGGTATATAACCAGCGTTCAGGACCTCGTGATTTTTGGTGACGCCATTTCTGATATATCCTGAAGCTTCTGAGAATCCGCCAGATAGGATAATGGTGCCGGGACCGGCTCGCCGGGATGAGGTTCAGTCCTGCTATCTTTATAGCGATTTGTATTTAGTCTACTACTATAACATTACTTAAGGGTCGCTGCAGCACGGAACTGCACCCGCAGCCATCCACAGGAACTTAAGGGCGGTAATTGCCTTAATCTGGCCAAAAACGAGCCGACAGCTAGCTAATCACTCGAAC&#39;, &#39;CATTCTGCCAGATAGCTTCCCGCTGTTGCCCCCCACCTGTACTCTCCTTTAAAATGGCTTTGACTCTTCGGACACCTAACTAGGAGAAGGGCCGCGTCTTATTCCATGGACTTGGTACCAGCTGGCATATGCTTAAGCGCTAGAATCTCCAGTTTGCACGCCCCGGCGATACTGGAAGACGTGCTTCACGTTAGCATCTTCCGGCATTGTTGCTATTAAATAGACCAGCCGACAGTTGGATGTTTCGCCGTCGCTTCGCCCCGGCTTGAACTGAACGATTTGCCCTCGCCGCAGTTATCCGTACCTTACGACGAACTCCCTTAAAGTCATTCACTGTGGTCTGGCAGCCAAGTGCCGAATTAAGTACGGCCAGTTGACAGCTACAAGGTAAGGGCTGATCCTCTCTTATCTGCCCGTTCAGGTCATACAACCGAAGCTTGACTCATTGTGCTACGGGACCTTCGCGTCGTGCAACGTGACGGGAGGTCCTCCGGGTTAATGAGGCCCCGATTATCCAATCCAAGGGCAATGGATTCCTAAATTCCGGGGATAGAGCAGTATATACGTCTTCCAGTTCTTTTTTATCTACACGAGCAACGGACCAACACCTACTTGGTAACGCTTGGACTAAAGGGGCTGCCCTGATGTTTCGCAGAGTTACCGGGACGGCTTCGATAACTATAACTCGGTGATTTTCCTAGGACGAGTTTTGGAGTGTTACCTTATTATACCCGATGCAGCATGTTTCCCGTACTCTGGTCGGCAACTACAATCCCTAAAGGACGCGGACTTGTGTGTTGTCTAATTCGTGAATGCGACTGATCCGC&#39;, &#39;CGGCAGGAACTACGCCACGACGCGTATATAATAAAGCTTGCACTATGCAACGGTAGAATTGTATAGGCGGCCATTCCTTTCAGACTAGCCGTGTGTGCTGAAACACCTAGCTCAAGAGTTGCAAGCAGCTGCAAGGGCTAGGGATGATATGCTTAGGAGAAGTTGCGATGAACAGACATGGCGCGCAGCAGCCTATCTCACTAGTTCTGTCCGACCACTATTGTCTACATTAGGATCCAATGCGCTCACTATGGTCACCCTGGGGGCATCACCGAGCTCGATCTGATCCATGTATTAAGATCAAGAGGAACCTGAGTGGCCGCAAGCTGCATATAATATGTATGGCTAAGAATGGTGGAACTTAACTCTCAGTCTCGGACAGCCTACTGTGTATGAGAGCGTCCACAATCGTCGGGCCGCTTAAGGGCCTTTCACCATACGGGCATATCACAAATATCGACATGGACGTTATTAATCCATATCAACGACCAGAAATGATTGGGGTAATTACGGAACTATGCTCCGGTGAATTGCAAGTTGTCCCAAAATATCCTAGTCGTGGCAAGTACTAGGCGCATTTCAAAATCGGGTGAGTGGCTTGACCCGGGCTGCTTACTCAGCACTTTGGGCACGGTAAGATCCGTCATCAGCCAGTACTACCTAAGCGACGCTTGGCCGATTGCTCAGAAACCTCATGAGTATAGCACCCGGTCGAAGTTGCCTCGCGCAGACGGTCAGTCCGGACGGTTCGTGCTTCAGCGTTCACACTAACCGAGCTCCCGGTCACGACGCCTGGGCGAGAGCTCGCATGATGAGCTAACCGGCGTCCTAGCAAAAGGCACTTGAGCTAGTTCGTGGGGAAGGCGTGCGTAGTGTTCCCTCTTCACTTGCAACTTGCTCATACGAGATTAGAGTGACCATAATA&#39;, &#39;GTAGTAAACAAAAATACCTACGCATTTATTCCGAGCACACCTCGGGGGTCGATGGCGGACCCTACACCCGCTCCGTGCGTCATAGCTCTTAAATCGTATGTAGGGTCAGTTAGTGGCGCCTACTCTCTGATATGTCTTTTGTCGGTATGCACCTTTAGCCACCTTAGGAGTACGCGTCGGTTTTATACACGTGGGGAGACTAACTGCATTTTTTGCCGCCGAGGTTAAATACATAGGGAGTTCGCCGTAAGATCCCACTAATGACAAAAGGATCTAGCGTCCACTTGGGGAACTCTAGTCGATAGGCGGTTTCCGACTGTCGATCCTCCTTGGGAGAACACTAAGGCGACTTCAGACCCATTCTGAGAGGCGGGAAATCTGGAGGAAGGACATCTAGGTGTCAATGAGTGAGCTCTCCCCCTCCCCTTCCTTCGCGACTTCTTATTTAGTGCCTATGCCCTAACATTGCACCAGTTCCGTTTCAAGTTTAGCTCAGCAAAGTGTGGCATGATGTCACACCGGACAGTGAGCCGAGAACTGGGAAGCAGTTTGTGGGCAGTCGAACACCGGGACAAGGGCTTAATGAGCCGAAAACGACATGGTTCGGTCGATCCTAACATACGTATCACGGCCCCCGGCCATTTGATCTCCGTCCTGTCGACGTAGAACTCCGCTTTGTTAAAGTGTATGTCGCGTCCCGCCGTGGGGGTAGGAGTCGACCACAGTGTGAGGTCATGTACGCGTTAGGAGGTACTAGTAGTTTTCCTGTGGATGGCCTGCCTGATCCATTAAAGGAGTCTAACCTCTCATAGCCCCGTGTGGTGCAGATCGTCGAACTGCCGTGACAATCGTACGACCTCTCTGGTTAAGCGTCCCAGAAAGGGGGTATAAGGCGCATCTAAACACT&#39;, &#39;CTTTGTAGCGGCTCGTTCATCGTATGGAGTATGTACCAGAAAACCGAAGGACCCGTGGGGTGTACACGTACGGCTAACGACCCCGCGATTACTATCATCAATTAGAAGTAAGCTTCAGTTTAACAAGCTAGGTCGCAGTCTCTGTTTGAGTCTACCCAACAACCACATTTTCGATGCTTAGTTGTTTATAGGCCAGACGGTGTGCCACGGTAGAAGCAGGTTCTGCGGTTTAGACTCCATTGCAGACTCTGCTGTAGCCGACGCAGCTGTCCTCAACCGATTCCGCCCGTCTTTCGAAGATCTAAACACAGACACGCTTATAACGGAGTTCAGGATAACTGTCAAGAGTCGACCACTTTAGTTCCTCGATCTCGACCCATGGGCCTCACCGACTAGGCGATCGCAAATTGTGAGTTGGTTGTGGACCAGGAGAGTCGCTGGTTTCATCGAGCCCTCCCGTTTTCTTTACGAGTGTCGAGTAGAAAAGTCGCTATGCATTGCGTCTAACGCCTTCTGGGTAACACGAGCAACATTCCCTGCATAATTTGAGTGCGTTTTGTAAACTGACACATAGCTTAACCAATAGAGGCGTCAAACTTTTGAACTTTTCCTCGGTGGCCGGTGAGGTTCCCCGACCACTGCCTTCCGAGGAACACGAAAGGGAACTCCCGCGACTCCACGCAGGGCCAGGCTCCTTTAAGGCGGACTTCGGCTGTACCAGAGAATGTAGAATTGGACGCAGGAATTCCGCGGCCAATGATCAGTATGTCGGATCTGCACTCCGACCCCGACAACATATCCCTCTATACAAATGGATCTGCCGCAACTATGGTCATCTACTACTGTCAGTTGTGGCCTCATTCTTAAAGGACTTTGAAATGCATGGCGAGGAGAAAACATACTAGGAACTGATCG&#39;]</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="learning-python.html#cb41-1" aria-hidden="true" tabindex="-1"></a>cg <span class="op">=</span> []</span>
+<span id="cb41-2"><a href="learning-python.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> seq:</span>
+<span id="cb41-3"><a href="learning-python.html#cb41-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb41-4"><a href="learning-python.html#cb41-4" aria-hidden="true" tabindex="-1"></a>    cg.append((i.count(<span class="st">&#39;C&#39;</span>) <span class="op">+</span> i.count(<span class="st">&#39;G&#39;</span>)) <span class="op">/</span> <span class="bu">len</span>(i) <span class="op">*</span> <span class="dv">100</span>)</span>
+<span id="cb41-5"><a href="learning-python.html#cb41-5" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="learning-python.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cg.index(<span class="bu">max</span>(cg)))</span></code></pre></div>
+<pre><code>## 4</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="learning-python.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(id_seq[<span class="dv">4</span>])</span></code></pre></div>
+<pre><code>## &gt;Rosalind_0242</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="learning-python.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cg[<span class="dv">4</span>])</span></code></pre></div>
+<pre><code>## 51.70893054024256</code></pre>
+<hr />
+</div>
+<div id="q6-counting-point-mutations" class="section level3" number="6.1.6">
+<h3><span class="header-section-number">6.1.6</span> Q6: Counting point mutations</h3>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="learning-python.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ham_distance(string1, string2):</span>
+<span id="cb48-2"><a href="learning-python.html#cb48-2" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb48-3"><a href="learning-python.html#cb48-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> c1, c2 <span class="kw">in</span> <span class="bu">zip</span>(string1, string2):</span>
+<span id="cb48-4"><a href="learning-python.html#cb48-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> c1 <span class="op">!=</span> c2:</span>
+<span id="cb48-5"><a href="learning-python.html#cb48-5" aria-hidden="true" tabindex="-1"></a>            count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb48-6"><a href="learning-python.html#cb48-6" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb48-7"><a href="learning-python.html#cb48-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> count</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="learning-python.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;data/rosalind_hamm.txt&#39;</span>, <span class="st">&#39;r&#39;</span>)<span class="im">as</span> f:</span>
+<span id="cb49-2"><a href="learning-python.html#cb49-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb49-3"><a href="learning-python.html#cb49-3" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> []</span>
+<span id="cb49-4"><a href="learning-python.html#cb49-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb49-5"><a href="learning-python.html#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb49-6"><a href="learning-python.html#cb49-6" aria-hidden="true" tabindex="-1"></a>        t.append(line[:<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb49-7"><a href="learning-python.html#cb49-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-8"><a href="learning-python.html#cb49-8" aria-hidden="true" tabindex="-1"></a>ham_distance(t[<span class="dv">0</span>], t[<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>## 504</code></pre>
+<hr />
+</div>
+<div id="q7-mendels-first-law" class="section level3" number="6.1.7">
+<h3><span class="header-section-number">6.1.7</span> Q7 Mendels first law</h3>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="learning-python.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> kmn(k, m, n):</span>
+<span id="cb51-2"><a href="learning-python.html#cb51-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-3"><a href="learning-python.html#cb51-3" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> k<span class="op">+</span>m<span class="op">+</span>n</span>
+<span id="cb51-4"><a href="learning-python.html#cb51-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-5"><a href="learning-python.html#cb51-5" aria-hidden="true" tabindex="-1"></a>    prob <span class="op">=</span> []</span>
+<span id="cb51-6"><a href="learning-python.html#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-7"><a href="learning-python.html#cb51-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">#possible events for k</span></span>
+<span id="cb51-8"><a href="learning-python.html#cb51-8" aria-hidden="true" tabindex="-1"></a>    prob.append(k<span class="op">/</span>total <span class="op">*</span> ((k<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span>(total<span class="op">-</span><span class="dv">1</span>))) </span>
+<span id="cb51-9"><a href="learning-python.html#cb51-9" aria-hidden="true" tabindex="-1"></a>    prob.append(k<span class="op">/</span>total <span class="op">*</span> ((m)<span class="op">/</span>(total<span class="op">-</span><span class="dv">1</span>)))</span>
+<span id="cb51-10"><a href="learning-python.html#cb51-10" aria-hidden="true" tabindex="-1"></a>    prob.append(k<span class="op">/</span>total <span class="op">*</span> ((n)<span class="op">/</span>(total<span class="op">-</span><span class="dv">1</span>)))</span>
+<span id="cb51-11"><a href="learning-python.html#cb51-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-12"><a href="learning-python.html#cb51-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">#possible events for m</span></span>
+<span id="cb51-13"><a href="learning-python.html#cb51-13" aria-hidden="true" tabindex="-1"></a>    prob.append(m<span class="op">/</span>total <span class="op">*</span> ((k)<span class="op">/</span>(total<span class="op">-</span><span class="dv">1</span>))) </span>
+<span id="cb51-14"><a href="learning-python.html#cb51-14" aria-hidden="true" tabindex="-1"></a>    prob.append(m<span class="op">/</span>total <span class="op">*</span> ((m<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span>(total<span class="op">-</span><span class="dv">1</span>)))</span>
+<span id="cb51-15"><a href="learning-python.html#cb51-15" aria-hidden="true" tabindex="-1"></a>    prob.append(m<span class="op">/</span>total <span class="op">*</span> ((n)<span class="op">/</span>(total<span class="op">-</span><span class="dv">1</span>)))</span>
+<span id="cb51-16"><a href="learning-python.html#cb51-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-17"><a href="learning-python.html#cb51-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">#possible events for n</span></span>
+<span id="cb51-18"><a href="learning-python.html#cb51-18" aria-hidden="true" tabindex="-1"></a>    prob.append(n<span class="op">/</span>total <span class="op">*</span> ((k)<span class="op">/</span>(total<span class="op">-</span><span class="dv">1</span>))) </span>
+<span id="cb51-19"><a href="learning-python.html#cb51-19" aria-hidden="true" tabindex="-1"></a>    prob.append(n<span class="op">/</span>total <span class="op">*</span> ((m)<span class="op">/</span>(total<span class="op">-</span><span class="dv">1</span>)))</span>
+<span id="cb51-20"><a href="learning-python.html#cb51-20" aria-hidden="true" tabindex="-1"></a>    prob.append(n<span class="op">/</span>total <span class="op">*</span> ((n<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span>(total<span class="op">-</span><span class="dv">1</span>)))</span>
+<span id="cb51-21"><a href="learning-python.html#cb51-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-22"><a href="learning-python.html#cb51-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb51-23"><a href="learning-python.html#cb51-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">#m * m</span></span>
+<span id="cb51-24"><a href="learning-python.html#cb51-24" aria-hidden="true" tabindex="-1"></a>    prob[<span class="dv">4</span>] <span class="op">=</span> prob[<span class="dv">4</span>]<span class="op">*</span>(<span class="dv">3</span><span class="op">/</span><span class="dv">4</span>)</span>
+<span id="cb51-25"><a href="learning-python.html#cb51-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">#m * n </span></span>
+<span id="cb51-26"><a href="learning-python.html#cb51-26" aria-hidden="true" tabindex="-1"></a>    prob[<span class="dv">5</span>] <span class="op">=</span> prob[<span class="dv">5</span>]<span class="op">*</span>(<span class="dv">2</span><span class="op">/</span><span class="dv">4</span>)</span>
+<span id="cb51-27"><a href="learning-python.html#cb51-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">#n * m</span></span>
+<span id="cb51-28"><a href="learning-python.html#cb51-28" aria-hidden="true" tabindex="-1"></a>    prob[<span class="dv">7</span>] <span class="op">=</span> prob[<span class="dv">7</span>]<span class="op">*</span>(<span class="dv">2</span><span class="op">/</span><span class="dv">4</span>)</span>
+<span id="cb51-29"><a href="learning-python.html#cb51-29" aria-hidden="true" tabindex="-1"></a>    <span class="co">#n * n</span></span>
+<span id="cb51-30"><a href="learning-python.html#cb51-30" aria-hidden="true" tabindex="-1"></a>    prob[<span class="dv">8</span>] <span class="op">=</span> prob[<span class="dv">8</span>]<span class="op">*</span><span class="dv">0</span></span>
+<span id="cb51-31"><a href="learning-python.html#cb51-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-32"><a href="learning-python.html#cb51-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(prob)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="learning-python.html#cb52-1" aria-hidden="true" tabindex="-1"></a>kmn(<span class="dv">28</span>, <span class="dv">20</span>, <span class="dv">24</span>)</span></code></pre></div>
+<pre><code>## 0.7795383411580594</code></pre>
+<hr />
+</div>
+<div id="q8-translating-rna-into-protein" class="section level3" number="6.1.8">
+<h3><span class="header-section-number">6.1.8</span> Q8: Translating RNA into Protein</h3>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="learning-python.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> trans_protein(string):</span>
+<span id="cb54-2"><a href="learning-python.html#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="learning-python.html#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#make translate table</span></span>
+<span id="cb54-4"><a href="learning-python.html#cb54-4" aria-hidden="true" tabindex="-1"></a>    table <span class="op">=</span> {<span class="st">&quot;UUU&quot;</span>:<span class="st">&quot;F&quot;</span>, <span class="st">&quot;UUC&quot;</span>:<span class="st">&quot;F&quot;</span>, <span class="st">&quot;UUA&quot;</span>:<span class="st">&quot;L&quot;</span>, <span class="st">&quot;UUG&quot;</span>:<span class="st">&quot;L&quot;</span>,</span>
+<span id="cb54-5"><a href="learning-python.html#cb54-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;UCU&quot;</span>:<span class="st">&quot;S&quot;</span>, <span class="st">&quot;UCC&quot;</span>:<span class="st">&quot;S&quot;</span>, <span class="st">&quot;UCA&quot;</span>:<span class="st">&quot;S&quot;</span>, <span class="st">&quot;UCG&quot;</span>:<span class="st">&quot;S&quot;</span>,</span>
+<span id="cb54-6"><a href="learning-python.html#cb54-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;UAU&quot;</span>:<span class="st">&quot;Y&quot;</span>, <span class="st">&quot;UAC&quot;</span>:<span class="st">&quot;Y&quot;</span>, <span class="st">&quot;UGU&quot;</span>:<span class="st">&quot;C&quot;</span>, <span class="st">&quot;UGC&quot;</span>:<span class="st">&quot;C&quot;</span>, <span class="st">&quot;UGG&quot;</span>:<span class="st">&quot;W&quot;</span>,</span>
+<span id="cb54-7"><a href="learning-python.html#cb54-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;CUU&quot;</span>:<span class="st">&quot;L&quot;</span>, <span class="st">&quot;CUC&quot;</span>:<span class="st">&quot;L&quot;</span>, <span class="st">&quot;CUA&quot;</span>:<span class="st">&quot;L&quot;</span>, <span class="st">&quot;CUG&quot;</span>:<span class="st">&quot;L&quot;</span>,</span>
+<span id="cb54-8"><a href="learning-python.html#cb54-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;CCU&quot;</span>:<span class="st">&quot;P&quot;</span>, <span class="st">&quot;CCC&quot;</span>:<span class="st">&quot;P&quot;</span>, <span class="st">&quot;CCA&quot;</span>:<span class="st">&quot;P&quot;</span>, <span class="st">&quot;CCG&quot;</span>:<span class="st">&quot;P&quot;</span>,</span>
+<span id="cb54-9"><a href="learning-python.html#cb54-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;CAU&quot;</span>:<span class="st">&quot;H&quot;</span>, <span class="st">&quot;CAC&quot;</span>:<span class="st">&quot;H&quot;</span>, <span class="st">&quot;CAA&quot;</span>:<span class="st">&quot;Q&quot;</span>, <span class="st">&quot;CAG&quot;</span>:<span class="st">&quot;Q&quot;</span>,</span>
+<span id="cb54-10"><a href="learning-python.html#cb54-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;CGU&quot;</span>:<span class="st">&quot;R&quot;</span>, <span class="st">&quot;CGC&quot;</span>:<span class="st">&quot;R&quot;</span>, <span class="st">&quot;CGA&quot;</span>:<span class="st">&quot;R&quot;</span>, <span class="st">&quot;CGG&quot;</span>:<span class="st">&quot;R&quot;</span>,</span>
+<span id="cb54-11"><a href="learning-python.html#cb54-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AUU&quot;</span>:<span class="st">&quot;I&quot;</span>, <span class="st">&quot;AUC&quot;</span>:<span class="st">&quot;I&quot;</span>, <span class="st">&quot;AUA&quot;</span>:<span class="st">&quot;I&quot;</span>, <span class="st">&quot;AUG&quot;</span>:<span class="st">&quot;M&quot;</span>,</span>
+<span id="cb54-12"><a href="learning-python.html#cb54-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ACU&quot;</span>:<span class="st">&quot;T&quot;</span>, <span class="st">&quot;ACC&quot;</span>:<span class="st">&quot;T&quot;</span>, <span class="st">&quot;ACA&quot;</span>:<span class="st">&quot;T&quot;</span>, <span class="st">&quot;ACG&quot;</span>:<span class="st">&quot;T&quot;</span>,</span>
+<span id="cb54-13"><a href="learning-python.html#cb54-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AAU&quot;</span>:<span class="st">&quot;N&quot;</span>, <span class="st">&quot;AAC&quot;</span>:<span class="st">&quot;N&quot;</span>, <span class="st">&quot;AAA&quot;</span>:<span class="st">&quot;K&quot;</span>, <span class="st">&quot;AAG&quot;</span>:<span class="st">&quot;K&quot;</span>,</span>
+<span id="cb54-14"><a href="learning-python.html#cb54-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AGU&quot;</span>:<span class="st">&quot;S&quot;</span>, <span class="st">&quot;AGC&quot;</span>:<span class="st">&quot;S&quot;</span>, <span class="st">&quot;AGA&quot;</span>:<span class="st">&quot;R&quot;</span>, <span class="st">&quot;AGG&quot;</span>:<span class="st">&quot;R&quot;</span>,</span>
+<span id="cb54-15"><a href="learning-python.html#cb54-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;GUU&quot;</span>:<span class="st">&quot;V&quot;</span>, <span class="st">&quot;GUC&quot;</span>:<span class="st">&quot;V&quot;</span>, <span class="st">&quot;GUA&quot;</span>:<span class="st">&quot;V&quot;</span>, <span class="st">&quot;GUG&quot;</span>:<span class="st">&quot;V&quot;</span>,</span>
+<span id="cb54-16"><a href="learning-python.html#cb54-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;GCU&quot;</span>:<span class="st">&quot;A&quot;</span>, <span class="st">&quot;GCC&quot;</span>:<span class="st">&quot;A&quot;</span>, <span class="st">&quot;GCA&quot;</span>:<span class="st">&quot;A&quot;</span>, <span class="st">&quot;GCG&quot;</span>:<span class="st">&quot;A&quot;</span>,</span>
+<span id="cb54-17"><a href="learning-python.html#cb54-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;GAU&quot;</span>:<span class="st">&quot;D&quot;</span>, <span class="st">&quot;GAC&quot;</span>:<span class="st">&quot;D&quot;</span>, <span class="st">&quot;GAA&quot;</span>:<span class="st">&quot;E&quot;</span>, <span class="st">&quot;GAG&quot;</span>:<span class="st">&quot;E&quot;</span>,</span>
+<span id="cb54-18"><a href="learning-python.html#cb54-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;GGU&quot;</span>:<span class="st">&quot;G&quot;</span>, <span class="st">&quot;GGC&quot;</span>:<span class="st">&quot;G&quot;</span>, <span class="st">&quot;GGA&quot;</span>:<span class="st">&quot;G&quot;</span>, <span class="st">&quot;GGG&quot;</span>:<span class="st">&quot;G&quot;</span>,}</span>
+<span id="cb54-19"><a href="learning-python.html#cb54-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-20"><a href="learning-python.html#cb54-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find first instance of AUG (start codon)</span></span>
+<span id="cb54-21"><a href="learning-python.html#cb54-21" aria-hidden="true" tabindex="-1"></a>    start <span class="op">=</span> string.find(<span class="st">&#39;AUG&#39;</span>)</span>
+<span id="cb54-22"><a href="learning-python.html#cb54-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-23"><a href="learning-python.html#cb54-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">#split string into a list</span></span>
+<span id="cb54-24"><a href="learning-python.html#cb54-24" aria-hidden="true" tabindex="-1"></a>    string_lst <span class="op">=</span> [string[i:i<span class="op">+</span><span class="dv">3</span>] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(string), <span class="dv">3</span>)]</span>
+<span id="cb54-25"><a href="learning-python.html#cb54-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-26"><a href="learning-python.html#cb54-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">#find the first instance of stop codon</span></span>
+<span id="cb54-27"><a href="learning-python.html#cb54-27" aria-hidden="true" tabindex="-1"></a>    end <span class="op">=</span> []</span>
+<span id="cb54-28"><a href="learning-python.html#cb54-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> [<span class="st">&#39;UAG&#39;</span>, <span class="st">&#39;UAA&#39;</span>, <span class="st">&#39;UGA&#39;</span>]:</span>
+<span id="cb54-29"><a href="learning-python.html#cb54-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="kw">in</span> string_lst:</span>
+<span id="cb54-30"><a href="learning-python.html#cb54-30" aria-hidden="true" tabindex="-1"></a>            end.append(string_lst.index(i))</span>
+<span id="cb54-31"><a href="learning-python.html#cb54-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb54-32"><a href="learning-python.html#cb54-32" aria-hidden="true" tabindex="-1"></a>            end.append(<span class="dv">0</span>)</span>
+<span id="cb54-33"><a href="learning-python.html#cb54-33" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb54-34"><a href="learning-python.html#cb54-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">#translate strings to aminoacids</span></span>
+<span id="cb54-35"><a href="learning-python.html#cb54-35" aria-hidden="true" tabindex="-1"></a>    string_lst <span class="op">=</span> string_lst[<span class="dv">0</span>:(<span class="bu">max</span>(end))]</span>
+<span id="cb54-36"><a href="learning-python.html#cb54-36" aria-hidden="true" tabindex="-1"></a>    amino_seq <span class="op">=</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb54-37"><a href="learning-python.html#cb54-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> string_lst:</span>
+<span id="cb54-38"><a href="learning-python.html#cb54-38" aria-hidden="true" tabindex="-1"></a>        amino_seq <span class="op">=</span> amino_seq <span class="op">+</span> table[i] </span>
+<span id="cb54-39"><a href="learning-python.html#cb54-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb54-40"><a href="learning-python.html#cb54-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> amino_seq</span>
+<span id="cb54-41"><a href="learning-python.html#cb54-41" aria-hidden="true" tabindex="-1"></a>     </span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="learning-python.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;data/rosalind_prot.txt&#39;</span>, <span class="st">&#39;r&#39;</span>)<span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb55-2"><a href="learning-python.html#cb55-2" aria-hidden="true" tabindex="-1"></a>    line <span class="op">=</span> <span class="bu">file</span>.readline()</span>
+<span id="cb55-3"><a href="learning-python.html#cb55-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(trans_protein(line))</span></code></pre></div>
+<pre><code>## MAEFLSWMSSQLVTVCTRGGHRYWWGHGENPGRSRLAAHLYTLHSSYPFDRIARKQLAVLNSRAAQPRLLYRFAPINVRHLNLLNRPTLYGVDSWMRSAFSGSACSFMWTSTGGIVTIASSATACMPQANKRLQWFITYAASALIGIVSCTAPTARELFSTSLVPHRTISEYWRSRTGFLLFVVYMPLRGSTEGCGTSTTCSWKYKNLWMRDDDQQEVGCFSNPFSDTNFHVRRCAQHFLDGDPFLNYSTLPGSLLLKDKTLTVQHRRRLRLDIRGNRQQVGRLACSSKLRPLSPPPPILANCRMVWNVNIHPCNRKLDPRVMTSVNNLDPWPDFSDLRFSCPPSRSDEGENLQHKGGIYASLNQAVVGNTLDPGPNAIRIWSTACGIIRLKPYLLGQLLGTRRKTQSRGNQGRRCAQYQQAISVLIPIGTDPVGRAPSAMIRDRCKNRRPAEVVQVNRANHDRCDYLNIYILAHRLLLTARAEVMADCCTELRATFPSGAHCQPGNLPCRVKVVRSILSSKLSVLVPRNSATRELTEKRCIGEFHGRHRYPKPSRGYHHLGHSLRFLCGLAGIAQRFLYRARKFEYAYVRLRGLLTGIYRETLNDLLATICYVSRAYILCPTTCVERLCQRTGVTHQYSSGNSQVRHPSKRFPQNERLSNCFESSNYPFEQYGPLRPIATISGRTLVKENMRCPQVVGAVCFTEMIMLEHKCEGLSQPRLPLLIRGLLPTVIHLTQQDSRAGMVWVEIRWRGWRLNGRWVREPRVYRRAYDARAPVSRTVVSAWSTHSIAPRSALDARIGANCFGHLDGFHNQCILSSSKFLAQITRQRKASRGSWHPSTTAPIAYTSKPVIIRPCGRCSRQWGAVLAFAQVEAGLIPISCLFIRVTLTSAGRSRLKLCRSANRSPRERTSAESKARTYHTPRILFRPRSARRAYNCKFYVVHSELMCGHRGIIPSNSLGYKWRTYQTGIEYDHGLVRTSALDFYPCFLNDCTPLTGVGEDMKASGTDQRGIHRSVFAEFNRSAYYGYHDPGVCPFATIVPTGLVDTMANYTRCAQETGDGYLGTSANSNGKYYYQACFPFDFTTRREGRASSLAVSDNFGRLCSPIPTPIVILFPASRLGDCEACILKRLVHERCCNPDVSSLFQHNLCSTHRQVAREATAYGGASRTTTEEAWACRRRGDIFQWLLRDSFLRLHCSYLLPIKDMLYKEYRLTLLGISFFNYSPGLINHHSGSRTCGRHRDTHSSYRAEYVRLNYRPTFLTNRELRAWFTFAVCRITASAGIHHIGEAQSAGGYHRANSKQCYIALGRVEGRFCDPGECPIPDRGRTIKGLSTCVILSLLVLRRAGHVMRHPRPIGVEPYSADLAPIRADITYSLHFMTVISNIDQCPDLCFMRIRSLRKGPRPQLKTGYLYESLNQLSVHCSSSATDVPVTFTITRETVACTLLRPTAETTRCGASGPLRRESRRSSGSWKQAYQTNILPEASLTLIPQADPISNKRRSVRLFCLVRKPQQEYLSVLLFISHLTLSKLRRMKWELLSEKYMSSKGPFIVLDSGCMRPPSVIQPSNSLSIVILQATTSCWRSNSEGRGLGLIEYDTSCDLHTLTARSQGRLPPLRRAPCYNIVIGELNEIWLALQFTCILSAIVPDQGYSKKSYRLVRCYDYLEHDVRRCHMTCEHSSLSERRIPRNLQGSPDHYMPGRNLSNCRSHILLLNIGDRVTGLQLTHYMVTNQFTRSETYFSGASDRPCNVAISGLFSHVPSSCLTWPLPLPAVDRRLLRSTFGMLLVLLGLWVYPSVVVVRYFPGRLCSAWYSRRAVSNGIWGKFLEGHRTGVITGSLKLLFQQQPVYARGFFTSTYSSPMVAPAYYAIVGCASMSEPLRIALHAISMNGLQRWGHEAELGTAHFCSTRSPPVCLPRTAVGGEENVRHSMDQFWLHLRVGPGPGMGWCALDRLHLFHKSTTGRLITRAWEYLSVSVLRFRCHRPGPTGPPPQEQSAVLITSRKRTMTAETLISINHASAVEARLLTCLATNRQYVLLNFGNVVIMDVKNWSLMATHIEHLRYVSEDRATLPRDRQIPGRFTLPWKHSHPGKAVIVLDLYLRMHLSAVIEQFAIQLCGSGPTCKMDSQVAALYAQTTFTRPWNTSADGTSYVLCRLNQQLRVRNSIKLGCSAMVGSTPLTLRGVNFVLTIPFAKGSTRPRAHHRSPHQVGSGSPMRCRPSEGRVRVALPEAFAFVYSMLVYQRATELSDSSQDNEVSQMRYAKVARYKLRRALHLRSVFIRETRLIPIAKYDDSPLAEAGDCPYGDNLHFAIGTLGPAPRRVDGNGGIDIQVRLRNAKSVDLPGLSVVLKACQGGLAISDGYFFLSITGTPTPDDWARRVAARYTTAPEAAFCKNRVLFDLQSTNGDRVDSSRYTFHISEAERKSQDTISFSVSPLEASGRNQRASFLEWPDSFPHLVEPTNVYLGDSSATLLHIPRRRSRLSPRHYIGAKILTRQVVPEMSLVGSRRELPVTQNLGNRSDNETLSGVHALHDPAFALRLGQLVSTQQRRGRLFTECSACICADRWGLTQVGPITTLDYTEWRGRPYIRKITNSSGGMVLDDGRGRRGVSRAEHETRILRDFLDVSRINTMWNYKVMLLNSSYQQGSKGDCCHAPAVWLVLVPLPSKSVNHYKAQSTLQAARTPLAFPGSGPRLDTHVVIILTNHLPAFSRLNSRSQCAGSKDHVLFTPTLFRQLRPNISVLSLGQQSMQGYGLNSVWQFDPNRSLSMHLYELPGCHVTESENGGQDRVPTHSALCQVQRIANVLTIMTRTALMVIDFSRVECQPQGRRNQVNFSKGRLMHRNTCSIAFTLLLTFRDGEDQRARVGTKNRSRVTTMSDWIKNRSHSDYLV</code></pre>
+<hr />
+</div>
+<div id="q9-finding-a-motif-in-dna" class="section level3" number="6.1.9">
+<h3><span class="header-section-number">6.1.9</span> Q9: Finding a Motif in DNA</h3>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="learning-python.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;data/rosalind_subs.txt&#39;</span>, <span class="st">&#39;r&#39;</span>) <span class="im">as</span> dna:</span>
+<span id="cb57-2"><a href="learning-python.html#cb57-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb57-3"><a href="learning-python.html#cb57-3" aria-hidden="true" tabindex="-1"></a>    string <span class="op">=</span> dna.readline().rstrip()</span>
+<span id="cb57-4"><a href="learning-python.html#cb57-4" aria-hidden="true" tabindex="-1"></a>    motif <span class="op">=</span> dna.readline().rstrip()</span>
+<span id="cb57-5"><a href="learning-python.html#cb57-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb57-6"><a href="learning-python.html#cb57-6" aria-hidden="true" tabindex="-1"></a>index_start <span class="op">=</span> []</span>
+<span id="cb57-7"><a href="learning-python.html#cb57-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb57-8"><a href="learning-python.html#cb57-8" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb57-9"><a href="learning-python.html#cb57-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-10"><a href="learning-python.html#cb57-10" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> x <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb57-11"><a href="learning-python.html#cb57-11" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> string.find(motif, y)</span>
+<span id="cb57-12"><a href="learning-python.html#cb57-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">!=</span> <span class="op">-</span><span class="dv">1</span>:</span>
+<span id="cb57-13"><a href="learning-python.html#cb57-13" aria-hidden="true" tabindex="-1"></a>        index_start.append(string.find(motif, y))</span>
+<span id="cb57-14"><a href="learning-python.html#cb57-14" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> string.find(motif, y) <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb57-15"><a href="learning-python.html#cb57-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-16"><a href="learning-python.html#cb57-16" aria-hidden="true" tabindex="-1"></a><span class="co">#adding 1 to all list elements</span></span>
+<span id="cb57-17"><a href="learning-python.html#cb57-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(index_start)):</span>
+<span id="cb57-18"><a href="learning-python.html#cb57-18" aria-hidden="true" tabindex="-1"></a>    index_start[i] <span class="op">=</span> index_start[i] <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb57-19"><a href="learning-python.html#cb57-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-20"><a href="learning-python.html#cb57-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="op">*</span>index_start, sep <span class="op">=</span> <span class="st">&#39; &#39;</span>)</span></code></pre></div>
+<pre><code>## 15 84 93 100 107 114 122 146 193 218 234 267 343 411 433 477 507 583 609 619 653 715 722 763 771 833 866</code></pre>
+<hr />
+</div>
+<div id="q10-consensus-and-profile" class="section level3" number="6.1.10">
+<h3><span class="header-section-number">6.1.10</span> Q10: Consensus and Profile</h3>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="learning-python.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> consensus(seq):</span>
+<span id="cb59-2"><a href="learning-python.html#cb59-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Creates a consensus sequence out of a list of sequences.</span></span>
+<span id="cb59-3"><a href="learning-python.html#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb59-4"><a href="learning-python.html#cb59-4" aria-hidden="true" tabindex="-1"></a><span class="co">    input = List of strings</span></span>
+<span id="cb59-5"><a href="learning-python.html#cb59-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb59-6"><a href="learning-python.html#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="co">    output = consensus sequence and nucleotide count of input sequences</span></span>
+<span id="cb59-7"><a href="learning-python.html#cb59-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb59-8"><a href="learning-python.html#cb59-8" aria-hidden="true" tabindex="-1"></a><span class="co">    example:</span></span>
+<span id="cb59-9"><a href="learning-python.html#cb59-9" aria-hidden="true" tabindex="-1"></a><span class="co">    ------------------</span></span>
+<span id="cb59-10"><a href="learning-python.html#cb59-10" aria-hidden="true" tabindex="-1"></a><span class="co">    ATGCAACT</span></span>
+<span id="cb59-11"><a href="learning-python.html#cb59-11" aria-hidden="true" tabindex="-1"></a><span class="co">    A: 5 1 0 0 5 5 0 0 </span></span>
+<span id="cb59-12"><a href="learning-python.html#cb59-12" aria-hidden="true" tabindex="-1"></a><span class="co">    C: 0 0 1 4 2 0 6 1 </span></span>
+<span id="cb59-13"><a href="learning-python.html#cb59-13" aria-hidden="true" tabindex="-1"></a><span class="co">    G: 1 1 6 3 0 1 0 0 </span></span>
+<span id="cb59-14"><a href="learning-python.html#cb59-14" aria-hidden="true" tabindex="-1"></a><span class="co">    T: 1 5 0 0 0 1 1 6&quot;&quot;&quot;</span></span>
+<span id="cb59-15"><a href="learning-python.html#cb59-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb59-16"><a href="learning-python.html#cb59-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#make a nested list of seq</span></span>
+<span id="cb59-17"><a href="learning-python.html#cb59-17" aria-hidden="true" tabindex="-1"></a>    seq_list <span class="op">=</span> seq</span>
+<span id="cb59-18"><a href="learning-python.html#cb59-18" aria-hidden="true" tabindex="-1"></a><span class="co">#     print(seq_list)</span></span>
+<span id="cb59-19"><a href="learning-python.html#cb59-19" aria-hidden="true" tabindex="-1"></a>    array <span class="op">=</span> []</span>
+<span id="cb59-20"><a href="learning-python.html#cb59-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(seq_list)):</span>
+<span id="cb59-21"><a href="learning-python.html#cb59-21" aria-hidden="true" tabindex="-1"></a>        array.append(<span class="bu">list</span>(seq_list[i]))</span>
+<span id="cb59-22"><a href="learning-python.html#cb59-22" aria-hidden="true" tabindex="-1"></a><span class="co">#     print(array)</span></span>
+<span id="cb59-23"><a href="learning-python.html#cb59-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-24"><a href="learning-python.html#cb59-24" aria-hidden="true" tabindex="-1"></a>    profile <span class="op">=</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb59-25"><a href="learning-python.html#cb59-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span> , <span class="bu">len</span>(array[<span class="dv">1</span>])):</span>
+<span id="cb59-26"><a href="learning-python.html#cb59-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> a <span class="kw">in</span> array:</span>
+<span id="cb59-27"><a href="learning-python.html#cb59-27" aria-hidden="true" tabindex="-1"></a>            <span class="co">#collect all nucleotides of the diffrent sequences, store in string</span></span>
+<span id="cb59-28"><a href="learning-python.html#cb59-28" aria-hidden="true" tabindex="-1"></a>            profile <span class="op">=</span> profile <span class="op">+</span> a[i]</span>
+<span id="cb59-29"><a href="learning-python.html#cb59-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-30"><a href="learning-python.html#cb59-30" aria-hidden="true" tabindex="-1"></a>    profile_lst <span class="op">=</span> [profile[i:i<span class="op">+</span><span class="bu">len</span>(array)] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(profile), <span class="bu">len</span>(array))]</span>
+<span id="cb59-31"><a href="learning-python.html#cb59-31" aria-hidden="true" tabindex="-1"></a>         </span>
+<span id="cb59-32"><a href="learning-python.html#cb59-32" aria-hidden="true" tabindex="-1"></a><span class="co">#     print(profile)</span></span>
+<span id="cb59-33"><a href="learning-python.html#cb59-33" aria-hidden="true" tabindex="-1"></a><span class="co">#     print(profile_lst)</span></span>
+<span id="cb59-34"><a href="learning-python.html#cb59-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb59-35"><a href="learning-python.html#cb59-35" aria-hidden="true" tabindex="-1"></a>    <span class="co">#count A T C G, store counts in lists</span></span>
+<span id="cb59-36"><a href="learning-python.html#cb59-36" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> []</span>
+<span id="cb59-37"><a href="learning-python.html#cb59-37" aria-hidden="true" tabindex="-1"></a>    C <span class="op">=</span> []</span>
+<span id="cb59-38"><a href="learning-python.html#cb59-38" aria-hidden="true" tabindex="-1"></a>    G <span class="op">=</span> []</span>
+<span id="cb59-39"><a href="learning-python.html#cb59-39" aria-hidden="true" tabindex="-1"></a>    T <span class="op">=</span> []</span>
+<span id="cb59-40"><a href="learning-python.html#cb59-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> profile_lst:</span>
+<span id="cb59-41"><a href="learning-python.html#cb59-41" aria-hidden="true" tabindex="-1"></a>        A.append(i.count(<span class="st">&#39;A&#39;</span>))</span>
+<span id="cb59-42"><a href="learning-python.html#cb59-42" aria-hidden="true" tabindex="-1"></a>        C.append(i.count(<span class="st">&#39;C&#39;</span>))</span>
+<span id="cb59-43"><a href="learning-python.html#cb59-43" aria-hidden="true" tabindex="-1"></a>        G.append(i.count(<span class="st">&#39;G&#39;</span>))</span>
+<span id="cb59-44"><a href="learning-python.html#cb59-44" aria-hidden="true" tabindex="-1"></a>        T.append(i.count(<span class="st">&#39;T&#39;</span>))</span>
+<span id="cb59-45"><a href="learning-python.html#cb59-45" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb59-46"><a href="learning-python.html#cb59-46" aria-hidden="true" tabindex="-1"></a>    <span class="co">#create consessus</span></span>
+<span id="cb59-47"><a href="learning-python.html#cb59-47" aria-hidden="true" tabindex="-1"></a>    profile <span class="op">=</span> [A, C, G , T]</span>
+<span id="cb59-48"><a href="learning-python.html#cb59-48" aria-hidden="true" tabindex="-1"></a>    chunk <span class="op">=</span> []</span>
+<span id="cb59-49"><a href="learning-python.html#cb59-49" aria-hidden="true" tabindex="-1"></a>    consens <span class="op">=</span> <span class="st">&#39;&#39;</span></span>
+<span id="cb59-50"><a href="learning-python.html#cb59-50" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb59-51"><a href="learning-python.html#cb59-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(A)):</span>
+<span id="cb59-52"><a href="learning-python.html#cb59-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb59-53"><a href="learning-python.html#cb59-53" aria-hidden="true" tabindex="-1"></a>            chunk.append(profile[n][i])</span>
+<span id="cb59-54"><a href="learning-python.html#cb59-54" aria-hidden="true" tabindex="-1"></a>        consens <span class="op">=</span> consens <span class="op">+</span> <span class="bu">str</span>(chunk.index(<span class="bu">max</span>(chunk)))</span>
+<span id="cb59-55"><a href="learning-python.html#cb59-55" aria-hidden="true" tabindex="-1"></a>        chunk <span class="op">=</span> []</span>
+<span id="cb59-56"><a href="learning-python.html#cb59-56" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb59-57"><a href="learning-python.html#cb59-57" aria-hidden="true" tabindex="-1"></a>    <span class="co">#translate interger into dna string:</span></span>
+<span id="cb59-58"><a href="learning-python.html#cb59-58" aria-hidden="true" tabindex="-1"></a>    table <span class="op">=</span> {<span class="bu">ord</span>(<span class="st">&#39;0&#39;</span>):<span class="st">&#39;A&#39;</span>, <span class="bu">ord</span>(<span class="st">&#39;1&#39;</span>):<span class="st">&#39;C&#39;</span>, <span class="bu">ord</span>(<span class="st">&#39;2&#39;</span>):<span class="st">&#39;G&#39;</span>, <span class="bu">ord</span>(<span class="st">&#39;3&#39;</span>):<span class="st">&#39;T&#39;</span>}</span>
+<span id="cb59-59"><a href="learning-python.html#cb59-59" aria-hidden="true" tabindex="-1"></a>    consens <span class="op">=</span> consens.translate(table)</span>
+<span id="cb59-60"><a href="learning-python.html#cb59-60" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb59-61"><a href="learning-python.html#cb59-61" aria-hidden="true" tabindex="-1"></a>    <span class="co">#format output</span></span>
+<span id="cb59-62"><a href="learning-python.html#cb59-62" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(consens)</span>
+<span id="cb59-63"><a href="learning-python.html#cb59-63" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&#39;A:&#39;</span>, <span class="st">&#39; &#39;</span>.join(<span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> A), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span> <span class="op">+</span></span>
+<span id="cb59-64"><a href="learning-python.html#cb59-64" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;C:&#39;</span>, <span class="st">&#39; &#39;</span>.join(<span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> C), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span> <span class="op">+</span></span>
+<span id="cb59-65"><a href="learning-python.html#cb59-65" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;G:&#39;</span>, <span class="st">&#39; &#39;</span>.join(<span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> G), <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span> <span class="op">+</span></span>
+<span id="cb59-66"><a href="learning-python.html#cb59-66" aria-hidden="true" tabindex="-1"></a>          <span class="st">&#39;T:&#39;</span>, <span class="st">&#39; &#39;</span>.join(<span class="bu">str</span>(i) <span class="cf">for</span> i <span class="kw">in</span> T))</span>
+<span id="cb59-67"><a href="learning-python.html#cb59-67" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<p>A test with an example dataset:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="learning-python.html#cb60-1" aria-hidden="true" tabindex="-1"></a>consensus([<span class="st">&#39;ATCCAGCT&#39;</span>, <span class="st">&#39;GGGCAACT&#39;</span>, <span class="st">&#39;ATGGATCT&#39;</span>, <span class="st">&#39;AAGCAACC&#39;</span>, <span class="st">&#39;TTGGAACT&#39;</span>, <span class="st">&#39;ATGCCATT&#39;</span>, <span class="st">&#39;ATGGCACT&#39;</span>])</span></code></pre></div>
+<pre><code>## ATGCAACT
+## A: 5 1 0 0 5 5 0 0 
+## C: 0 0 1 4 2 0 6 1 
+## G: 1 1 6 3 0 1 0 0 
+## T: 1 5 0 0 0 1 1 6</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="learning-python.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> to_sigle_fastq(in_file, out_file, header):</span>
+<span id="cb62-2"><a href="learning-python.html#cb62-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;&quot;&quot;&quot;</span></span>
+<span id="cb62-3"><a href="learning-python.html#cb62-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb62-4"><a href="learning-python.html#cb62-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(in_file, <span class="st">&#39;r&#39;</span>)<span class="im">as</span> fastq_multi, <span class="bu">open</span>(out_file, <span class="st">&#39;w&#39;</span>) <span class="im">as</span> fastq_single:</span>
+<span id="cb62-5"><a href="learning-python.html#cb62-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb62-6"><a href="learning-python.html#cb62-6" aria-hidden="true" tabindex="-1"></a>        block <span class="op">=</span> []</span>
+<span id="cb62-7"><a href="learning-python.html#cb62-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb62-8"><a href="learning-python.html#cb62-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> line <span class="kw">in</span> fastq_multi:</span>
+<span id="cb62-9"><a href="learning-python.html#cb62-9" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> line.startswith(header):</span>
+<span id="cb62-10"><a href="learning-python.html#cb62-10" aria-hidden="true" tabindex="-1"></a>                <span class="co">#if block contains anything, write block to file</span></span>
+<span id="cb62-11"><a href="learning-python.html#cb62-11" aria-hidden="true" tabindex="-1"></a>                <span class="co">#this only writes the seq after a seq has been collected in block</span></span>
+<span id="cb62-12"><a href="learning-python.html#cb62-12" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> block:</span>
+<span id="cb62-13"><a href="learning-python.html#cb62-13" aria-hidden="true" tabindex="-1"></a>                    fastq_single.write(<span class="st">&#39;&#39;</span>.join(block) <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</span>
+<span id="cb62-14"><a href="learning-python.html#cb62-14" aria-hidden="true" tabindex="-1"></a>                    block <span class="op">=</span> []</span>
+<span id="cb62-15"><a href="learning-python.html#cb62-15" aria-hidden="true" tabindex="-1"></a>                <span class="co">#always write header line to file</span></span>
+<span id="cb62-16"><a href="learning-python.html#cb62-16" aria-hidden="true" tabindex="-1"></a>                fastq_single.write(line)</span>
+<span id="cb62-17"><a href="learning-python.html#cb62-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb62-18"><a href="learning-python.html#cb62-18" aria-hidden="true" tabindex="-1"></a>                <span class="co">#add seq on other line to block</span></span>
+<span id="cb62-19"><a href="learning-python.html#cb62-19" aria-hidden="true" tabindex="-1"></a>                block.append(line[:<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb62-20"><a href="learning-python.html#cb62-20" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb62-21"><a href="learning-python.html#cb62-21" aria-hidden="true" tabindex="-1"></a>        fastq_single.write(<span class="st">&#39;&#39;</span>.join(block)<span class="op">+</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="learning-python.html#cb63-1" aria-hidden="true" tabindex="-1"></a>to_sigle_fastq(<span class="st">&#39;data/rosalind_cons.txt&#39;</span>, <span class="st">&#39;data/rosalind_cons_single.txt&#39;</span>, <span class="st">&#39;&gt;Rosalind&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="learning-python.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;data/rosalind_cons_single.txt&#39;</span>, <span class="st">&#39;r&#39;</span>)<span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb64-2"><a href="learning-python.html#cb64-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb64-3"><a href="learning-python.html#cb64-3" aria-hidden="true" tabindex="-1"></a>    string <span class="op">=</span> []</span>
+<span id="cb64-4"><a href="learning-python.html#cb64-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb64-5"><a href="learning-python.html#cb64-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> <span class="bu">file</span>:</span>
+<span id="cb64-6"><a href="learning-python.html#cb64-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> line[<span class="dv">0</span>].startswith(<span class="st">&#39;&gt;&#39;</span>):</span>
+<span id="cb64-7"><a href="learning-python.html#cb64-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">pass</span></span>
+<span id="cb64-8"><a href="learning-python.html#cb64-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb64-9"><a href="learning-python.html#cb64-9" aria-hidden="true" tabindex="-1"></a>            string.append(line[:<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb64-10"><a href="learning-python.html#cb64-10" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb64-11"><a href="learning-python.html#cb64-11" aria-hidden="true" tabindex="-1"></a>    consensus(string)</span></code></pre></div>
+<pre><code>## ACACACAGGCATATTTGACGAGCACGCGCGCACATGAAGAAGTACTGGGCTATCCGGAACCAACCACACTGCACACCGTAGACGTTAAAGTGAGCTTCAGACAACTCGCTCCACAGTAGTTAGGCAGCACATCAGCAACAGCAAACAACCAGCACATCGCTTTACACAGCCCATGCGCAACCGCCTTAAACAAACAGACGCCACCCAAAGAGCCACTGAAAAACGTCACTCGCAGGAAATAAACTTTGCGCGGAACCAGGATAATCACTAAATGAGCTCGATGACCAAATCACCCCACCACATAGAGCCCGCACGACAAAGATCAGGCACCTAAGCGGAGATTTCAACAGAGCCCCATGAACAGTCCGCACTCTGCGATACCGATCTACGAGACCGCCCAAAAAACAATACCTTCAACGCATTATGAATGGACCGCAGAATGAATCTGCAACCCAGATGCGATCACGCATAAGCCACGACAGTGGAACAAGCGGTTGGCTCAAGATCGAAACTCGTAACAGGTACGTTGTTCGAACTAAATTTAAGATCACAGAGTTCGTGACCGACTATCTAAAAAAATCTGGTAGGGACCCCGAAGAATTAATAACAACAATAAATAACCAATCTGGAATCCGCCAGGCCCATGCGATTACTCGACAATCGCCACTTTAAAATTAAGGCGTCCAACCAGGATGGGTCTTGCCGGATGTTCGACAGACGTGAACACCGTTCTACGGCTCACACTCGTGGTCGATTAAAGACGGTCGGCGCTGTTAACGACACCTGTGCCTACGTGAAGTAGTGTCTTGGTCCGCAATTACTTTTAGACTCCATATTCTCCATTGCGCGAACCGACCTGAAGCCCCACTGCAACTACAGGATTGAACGGTCGCCCAATTAAATTTCTAAAAACA
+## A: 4 3 3 3 4 2 6 2 3 1 3 3 3 3 2 3 1 3 1 2 4 2 2 4 3 2 1 2 2 2 2 3 2 4 3 1 5 5 2 3 3 2 2 4 3 2 2 2 2 2 2 5 1 2 1 1 2 4 4 2 1 3 3 2 2 4 1 5 3 0 1 2 5 2 3 3 3 3 1 3 3 3 1 3 3 0 4 3 5 1 1 4 4 2 2 1 2 1 6 1 4 3 3 5 2 3 0 2 2 2 1 3 4 2 3 1 1 4 1 2 3 6 1 2 3 5 2 0 4 3 6 0 2 3 3 1 5 3 2 4 2 2 4 4 3 1 5 3 2 3 4 3 3 5 0 3 3 1 2 1 3 2 3 3 2 4 1 3 2 0 2 2 4 0 2 0 1 1 3 5 3 2 1 2 1 2 2 3 4 4 0 4 3 4 2 5 2 3 1 1 2 1 3 0 2 1 3 4 4 3 4 1 2 3 4 1 0 3 3 4 3 4 3 2 2 3 1 4 2 1 2 2 0 5 3 1 5 3 4 1 4 3 4 3 2 3 1 3 1 1 1 2 2 6 3 2 1 3 2 1 3 3 5 4 2 1 5 3 2 3 4 6 2 2 4 1 1 1 3 3 6 1 1 3 3 2 4 3 3 2 1 4 3 2 2 2 3 2 3 4 3 3 1 3 1 5 2 1 2 2 2 2 3 1 0 3 2 5 5 4 1 5 0 3 3 3 2 2 3 2 0 3 5 3 2 2 0 2 3 1 4 2 2 3 2 4 4 3 3 2 5 2 2 3 0 0 3 2 2 5 5 3 3 2 1 0 3 2 2 3 2 3 1 2 2 0 2 4 1 4 1 2 1 4 3 2 2 4 0 1 4 1 5 2 3 1 2 2 3 5 4 3 3 5 3 1 3 4 3 3 3 2 3 1 3 3 5 2 2 0 3 2 3 3 2 2 4 4 1 3 2 4 3 1 2 2 4 1 4 4 2 3 3 5 2 1 3 2 2 3 3 3 1 1 5 2 4 0 1 3 2 4 2 0 4 2 3 2 3 2 5 4 1 1 3 3 1 0 5 3 3 1 2 3 2 5 4 1 5 4 2 3 1 0 2 3 1 2 3 1 1 4 4 1 4 2 3 3 3 4 4 1 3 2 1 1 4 3 1 4 3 0 2 3 2 2 3 3 0 2 2 1 3 4 4 1 3 3 5 3 2 0 3 3 5 1 3 3 2 3 2 6 3 3 2 0 0 2 1 2 1 3 2 2 2 4 2 3 3 3 2 1 3 4 3 3 3 3 4 3 1 3 2 2 1 3 3 2 1 4 2 2 2 1 3 4 4 1 5 5 3 2 3 5 0 4 3 3 3 3 1 5 5 3 5 3 3 1 4 3 2 0 4 5 2 3 3 1 0 4 4 3 2 1 3 2 1 3 0 2 2 2 2 5 2 2 3 3 4 2 1 3 1 0 2 0 6 0 3 4 1 1 2 2 1 5 3 3 3 1 3 6 3 5 3 3 3 4 4 1 2 3 3 0 1 4 3 0 1 4 3 2 3 2 2 2 2 2 2 2 1 2 1 2 2 4 3 2 1 3 2 2 1 4 1 4 1 4 2 0 2 1 4 4 1 4 2 2 1 2 0 1 1 4 1 3 1 2 1 2 4 3 5 1 2 2 2 1 0 2 1 2 4 3 1 2 4 4 3 2 4 2 3 2 2 2 1 1 2 2 0 2 2 1 1 4 4 0 0 3 0 5 1 2 1 1 3 2 3 2 1 4 3 2 3 1 3 5 3 1 3 2 2 2 1 1 2 0 2 2 2 2 2 1 2 4 5 2 1 4 2 2 1 1 2 4 2 5 1 2 2 2 4 1 4 2 3 1 3 1 2 3 1 2 2 2 3 1 3 3 4 3 1 2 3 1 1 3 2 5 4 3 2 2 0 1 3 1 4 1 3 3 4 3 0 5 2 4 3 2 5 2 3 1 4 5 0 3 3 1 2 1 1 3 2 4 3 0 1 4 3 4 0 1 0 1 1 4 6 4 3 3 2 4 
+## C: 4 5 3 5 3 3 0 1 2 4 3 2 2 2 1 1 4 2 5 2 1 0 3 3 4 1 4 1 3 3 4 3 4 2 1 2 3 1 2 3 2 3 0 2 4 2 2 2 2 5 3 2 2 4 4 2 2 1 1 6 3 3 3 5 3 3 5 0 5 3 1 4 1 4 2 4 5 2 3 2 2 2 5 3 0 2 0 3 3 3 2 0 2 2 4 2 2 4 0 1 1 4 2 0 5 2 4 2 3 0 3 4 1 4 2 3 3 4 1 3 1 2 3 3 5 4 0 5 1 6 1 2 4 1 0 4 1 2 4 3 0 4 1 3 3 4 0 3 4 4 3 2 4 2 4 1 2 4 3 4 2 3 0 1 3 1 5 3 1 5 5 5 0 3 2 4 3 5 3 4 4 5 2 4 6 1 2 1 3 3 4 2 2 2 4 2 1 2 4 2 6 5 2 7 4 3 1 4 3 2 2 1 4 4 2 5 3 2 2 2 1 2 1 3 2 2 4 3 5 3 3 2 4 3 1 2 0 2 3 2 2 3 1 4 0 0 2 1 4 2 3 2 2 0 2 3 4 2 3 3 3 1 3 2 2 5 2 4 1 3 3 3 1 2 2 3 4 2 4 2 2 3 2 1 4 3 3 1 3 1 3 1 4 4 3 4 2 4 4 2 4 3 2 2 1 3 3 3 4 4 1 4 3 4 3 2 4 4 2 1 1 2 0 5 3 1 2 5 2 5 4 0 1 3 2 5 2 2 3 2 2 1 2 1 3 4 1 5 3 2 3 2 5 6 5 5 3 3 2 3 0 4 2 2 4 4 5 0 5 1 3 2 3 1 2 5 2 1 3 3 4 5 2 2 2 5 0 3 5 2 1 3 1 3 5 2 4 4 5 1 4 3 3 2 3 4 2 2 2 1 4 5 2 2 5 2 3 3 2 6 3 1 1 1 1 2 4 2 2 1 2 1 4 5 1 4 3 2 1 2 1 2 2 1 1 3 3 2 5 1 2 4 5 3 1 2 1 3 3 4 1 2 3 4 3 5 2 4 1 2 1 4 2 4 6 3 4 3 2 5 3 2 0 1 2 0 2 4 3 4 2 4 1 1 3 0 1 3 4 1 4 2 3 1 1 2 5 2 2 2 1 4 3 4 2 1 3 2 3 4 2 2 3 1 3 2 2 3 3 1 3 4 0 3 1 4 2 2 2 2 2 4 1 3 2 3 2 2 3 2 6 1 2 2 3 3 3 5 2 3 1 2 5 3 2 2 4 1 2 1 4 2 1 0 2 3 1 3 1 1 4 2 1 3 2 2 1 2 2 2 3 4 5 5 1 3 3 2 0 3 1 1 2 3 3 3 3 5 2 3 3 2 1 1 2 2 2 2 1 3 4 4 2 1 1 5 2 1 3 2 1 1 3 6 0 3 6 3 3 1 5 3 5 2 1 2 4 3 2 2 3 3 4 3 4 2 1 5 2 0 2 3 2 5 6 2 4 2 2 2 3 0 2 0 1 0 3 2 0 3 5 2 1 6 4 1 1 5 4 1 1 2 1 3 1 2 1 1 3 3 2 2 4 3 2 1 2 2 2 0 1 3 1 2 6 4 2 3 4 2 1 2 4 4 5 1 4 3 2 2 3 3 3 2 4 0 3 3 3 5 2 4 1 5 1 3 2 2 2 2 1 5 1 3 2 2 2 1 2 2 2 4 1 2 2 3 2 1 3 1 5 2 2 3 1 2 2 5 1 1 4 3 4 3 3 3 2 3 4 4 3 2 4 2 2 2 3 1 0 2 3 0 0 2 3 6 1 1 0 1 2 5 4 2 4 3 2 1 3 3 4 1 0 2 2 2 2 1 3 2 5 4 2 2 3 2 1 3 1 4 5 3 1 2 1 6 1 4 1 3 2 4 6 2 2 3 4 0 2 2 3 2 3 4 4 4 2 3 0 3 4 3 3 4 2 0 3 2 1 3 0 1 0 2 2 3 6 0 1 3 3 3 4 5 4 4 3 3 3 1 3 2 3 3 1 4 1 1 2 1 1 3 3 1 
+## G: 2 1 2 0 2 3 2 4 4 2 2 1 3 0 3 2 5 3 3 3 2 4 2 2 2 4 4 4 3 5 2 2 3 4 2 6 1 3 5 1 3 4 2 3 1 2 4 3 4 1 1 1 0 2 4 5 4 1 2 2 3 1 1 2 2 2 2 3 2 3 6 1 2 2 2 3 0 4 2 2 4 3 2 4 3 3 4 2 0 5 3 5 0 3 0 3 1 2 3 5 1 1 3 2 3 0 3 4 2 3 3 2 2 3 2 4 1 1 4 1 2 1 4 5 1 0 4 3 2 0 1 2 1 3 4 3 3 3 1 3 4 4 3 1 3 3 4 3 2 0 2 4 2 2 3 3 1 2 4 3 1 1 3 3 2 3 4 2 4 4 2 1 3 3 5 3 5 2 1 1 2 1 4 3 3 3 2 3 0 1 3 3 2 3 4 1 5 3 4 6 1 2 2 1 1 3 3 1 3 4 1 5 1 3 2 2 3 4 2 2 3 4 3 3 4 1 2 3 1 1 3 3 3 0 4 5 0 3 2 3 4 1 4 2 3 1 1 4 2 6 3 4 4 2 3 3 3 3 4 4 2 1 0 0 2 1 2 1 3 2 2 1 3 4 2 4 1 3 1 4 1 1 4 3 1 2 0 3 2 1 3 4 0 1 3 0 3 2 0 2 2 2 2 3 4 1 4 3 2 3 4 2 1 3 4 2 1 1 1 3 4 3 4 2 1 4 3 1 3 2 2 3 2 3 5 1 5 3 1 5 2 2 0 2 2 2 3 1 3 4 2 3 2 0 1 3 1 1 5 2 4 2 3 5 0 2 2 7 3 3 2 0 3 3 4 3 3 2 2 1 3 1 4 1 1 0 3 1 3 5 3 4 3 3 0 5 3 3 1 2 1 3 1 0 3 3 3 3 1 3 1 2 1 3 1 3 2 2 3 2 1 2 2 3 2 3 1 4 3 4 3 2 0 1 5 1 1 5 1 3 3 4 2 3 2 3 0 4 2 3 3 1 3 3 4 4 3 2 5 2 4 2 1 3 1 2 5 2 3 2 2 0 4 3 1 3 2 4 2 1 2 4 2 4 3 5 3 3 1 2 3 0 4 5 1 3 6 4 1 3 3 2 3 6 3 2 1 4 2 2 3 3 0 1 4 3 3 2 3 0 4 7 0 3 3 4 0 0 4 3 1 2 4 3 3 3 1 2 2 2 1 1 2 3 1 4 2 1 3 3 2 0 5 3 4 2 3 0 5 1 6 2 1 3 5 1 1 2 2 1 2 3 3 2 3 1 3 2 2 2 3 0 4 4 3 3 4 4 6 2 2 2 1 4 6 2 2 4 2 2 1 2 2 2 3 3 2 1 3 3 3 1 4 2 1 2 2 3 3 3 1 2 3 2 2 0 1 4 4 2 2 1 3 1 4 3 1 1 5 5 2 3 1 2 3 4 2 4 1 1 1 1 3 3 1 4 2 2 2 2 3 3 4 1 2 1 2 1 1 3 3 4 3 3 2 2 2 2 5 4 0 4 1 3 4 4 3 3 2 4 4 3 3 1 4 3 4 2 2 1 3 3 2 3 3 5 2 2 5 3 3 3 8 3 2 1 6 1 4 5 2 6 1 1 1 2 3 2 4 2 1 3 2 1 1 6 6 2 2 2 2 2 1 4 3 2 3 2 5 3 3 0 5 3 2 2 2 2 3 3 1 3 5 3 2 2 5 4 3 5 5 2 5 2 2 2 2 3 5 3 2 0 2 2 1 4 1 4 2 1 2 2 1 4 1 5 2 3 5 3 2 5 2 4 2 2 3 3 5 4 2 1 1 5 1 2 1 2 1 1 1 2 4 3 2 2 4 1 3 2 2 3 4 2 1 2 2 3 1 2 1 1 2 2 4 2 4 2 4 2 2 2 0 3 3 3 3 3 4 2 2 4 3 2 4 2 3 3 0 4 2 3 3 0 3 4 2 2 4 4 4 0 1 4 3 0 3 6 5 2 3 5 1 2 3 2 1 3 1 3 2 2 3 0 3 2 2 3 0 2 3 1 3 2 
+## T: 0 1 2 2 1 2 2 3 1 3 2 4 2 5 4 4 0 2 1 3 3 4 3 1 1 3 1 3 2 0 2 2 1 0 4 1 1 1 1 3 2 1 6 1 2 4 2 3 2 2 4 2 7 2 1 2 2 4 3 0 3 3 3 1 3 1 2 2 0 4 2 3 2 2 3 0 2 1 4 3 1 2 2 0 4 5 2 2 2 1 4 1 4 3 4 4 5 3 1 3 4 2 2 3 0 5 3 2 3 5 3 1 3 1 3 2 5 1 4 4 4 1 2 0 1 1 4 2 3 1 2 6 3 3 3 2 1 2 3 0 4 0 2 2 1 2 1 1 2 3 1 1 1 1 3 3 4 3 1 2 4 4 4 3 3 2 0 2 3 1 1 2 3 4 1 3 1 2 3 0 1 2 3 1 0 4 4 3 3 2 3 1 3 1 0 2 2 2 1 1 1 2 3 2 3 3 3 1 0 1 3 3 3 0 2 2 4 1 3 2 3 0 3 2 2 4 3 0 2 5 2 3 3 2 2 2 5 2 1 4 0 3 1 1 5 6 6 2 3 1 3 2 2 2 2 2 2 2 1 2 2 5 2 4 4 3 1 2 4 2 1 0 4 2 2 2 4 4 2 1 1 5 3 3 2 3 3 3 2 6 3 1 3 3 2 4 2 2 3 2 1 2 5 2 4 1 1 3 2 1 3 2 3 2 3 3 3 0 2 2 4 0 6 0 3 2 3 2 2 1 4 4 2 1 1 2 3 3 3 2 2 5 6 4 3 0 2 1 1 2 0 3 1 1 4 2 3 4 1 0 1 1 2 1 5 4 0 1 0 3 3 5 3 4 2 2 3 3 4 2 2 2 3 3 4 3 5 2 2 2 2 2 1 2 2 2 1 1 1 2 1 1 3 3 1 2 2 1 4 3 2 1 4 4 1 2 0 3 3 2 3 5 4 3 5 3 1 0 4 2 3 3 3 3 2 3 2 2 4 1 4 1 3 1 5 3 4 2 1 3 2 2 1 3 0 2 2 5 1 1 3 2 4 3 2 1 0 2 3 4 2 2 3 2 0 1 3 3 1 1 2 3 6 2 3 0 1 2 1 0 3 3 4 4 4 4 2 1 2 5 2 2 0 2 2 4 1 1 3 2 2 2 4 3 3 5 0 3 3 2 1 1 5 3 2 2 5 4 3 4 4 3 3 0 2 2 4 3 1 3 5 5 4 1 2 2 3 4 2 2 0 3 0 2 1 5 4 3 2 4 2 3 2 2 1 3 3 4 3 5 2 4 3 4 2 3 3 2 3 4 2 5 3 1 4 2 2 2 1 2 3 2 2 0 0 1 1 3 3 0 5 5 3 0 4 0 2 1 2 1 3 2 0 4 2 3 3 4 2 1 3 4 1 2 5 2 4 4 3 2 3 5 2 2 3 2 2 3 2 2 1 2 2 1 4 2 1 0 3 5 5 3 2 4 3 4 1 3 3 4 4 3 2 2 1 2 1 4 4 4 1 0 2 2 4 5 2 2 1 2 3 1 5 1 1 1 3 2 3 1 2 3 3 4 3 3 3 5 3 4 4 3 3 2 3 0 3 4 2 4 4 2 0 1 1 1 1 2 0 3 5 1 1 1 3 3 1 3 3 4 6 3 4 3 4 1 0 3 4 1 2 1 3 0 4 3 3 5 3 3 5 3 0 1 5 4 2 3 2 3 3 1 1 3 4 3 2 4 2 2 0 4 1 4 6 2 2 2 4 3 4 2 3 3 5 2 4 1 1 3 4 2 2 2 4 2 2 1 2 4 2 3 6 2 4 1 4 6 3 3 4 2 3 2 3 1 2 5 5 2 3 5 5 4 4 2 2 3 3 4 1 1 0 5 2 4 4 3 5 3 2 3 6 4 3 0 2 3 2 2 2 1 3 3 2 3 2 4 2 1 1 1 2 2 2 3 2 3 6 2 1 1 0 3 5 1 3 2 2 1 1 7 6 3 1 2 1 1 1 4 2 1 4 0 1 0 3 4 5 2 2 2 4 6 6 3 6 2 2 3 3 3 2 3</code></pre>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="good-workflow-practices-guerrilla-analytics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="influenza-activity-across-europe.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

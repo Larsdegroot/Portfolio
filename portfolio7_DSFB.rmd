@@ -1,39 +1,77 @@
-# Portfolio assignment 7
+# Influenza activity across europe
 
-```{r}
+Influenza, commonly called the flu, is an infectious disease caused by The influenza virus. Symptoms can be quite mild; fever, runny nose, sore throat, cough, headache, muscle pain and fatigue. Or severe pneumonia, which can sometimes be attributed to a second respiratory infection by a bacteria. Influenza has a history of epidemic/pandemic outbreaks. There are seasonal epidemic outbreaks of influenza during the winter months when the humidity and temperatures are low, which favors transmission. There have also been four pandemics outbreaks of influenza since 1918. These pandemics happen when a Influenza strain from either an avian or swine population spreads to humans. The resulting strain is antigenically different from existing from previous circulating strains. Thus resulting in a fast transmission through a population which has yet to build up immunity. [@Krammer2018]
+
+Dengue fever, commonly called "break bone fever" is a disease caused by the dengue virus. It is transmitted by mosquitoes in tropical environments around the equator. Symptoms can be fever, headache and vomiting or in sever cases dengue hemorrhagic fever can occur, which is when the vascular permeability is increased causing a decrease in blood pressure. [@dengue]
+
+```{r, results = FALSE}
+library(tidyverse) #1.3.1
+library(readxl) #1.3.1
+library(here) #1.0.1
+library(knitr) #1.33
+library(captioner) #2.2.3.900
+library(dslabs) #0.7.4
+library(DBI) #1.1.1
+library(RPostgreSQL) #0.6-2
+library(remotes) #2.3.0
+library(RPostgres) #1.3.2
+library(hrbrthemes) #0.8.0
+library(viridis) #0.6.1
+library(kableExtra) #1.3.4
+```
+
+```{r, results=FALSE}
 source(here("src/port_src7.R"))
 ```
 
-**1. Load the flu (“./data/flu_data.csv), the dengue (.”/data/dengue_data.csv) and the gapminder ({dslabs} package) into three separate dataframes in R.**
+```{r, include=FALSE}
+fig_port7 <- captioner::captioner()
+table_port7 <- captioner::captioner(prefix = "Table")
+
+fig_port7("dbeaver", "The three dataset stored in a dbeaver database")
+fig_port7("flu_per_country", "influenza cases per country. The total influenza cases per year are shown for the european countries that exeeded a year total of 10000 cases.")
+fig_port7("life_exp", "The total influanza cases per year of Austria (red). And the life expectancy in Austria (black). The spike in influenza cases during 2009 has no or neglible effect on the life expenctancy in Austria.")
+
+table_port7("flu_raw", "The influenza activity per country per week, for the time period of 2003 untill 2015")
+table_port7("flu_collapse", "The first ten rows of the resulting dataframe after collapsing all datapoint of each week into a total per year, and making the data into a tidy format.")
+table_port7("joined_table", "The joinend table containing the gapminder dataset with influenza activity and dengue activity for the countries available. Where data for influenza or dengue activity was not available `NA` is introduced.")
+fig_port7("map", "Relative influenza activity in europe during 2009. Influenza activity is relative to the countries population. The swine flu was active during 2009. It's visable in the map that Austria and Bulgaria had a high influenza activity during that time.")
+
+```
+
+
+## Loading and colapsing data
+
+The files "dengue_data.txt" and "flu_data.txt" are orginate from goolgle. Data Source: [Google Flu Trends](http://www.google.org/flutrends). 
+the gapminder data comes from the package [{dslabs}](https://cran.r-project.org/web/packages/dslabs/index.html) 
 
 ```{r}
 dengue <- read.csv(here::here("data/dengue_data.txt"), skip = 11) 
-head(dengue)
-
 flu <- read.csv(here::here("data/flu_data.txt"), skip = 11)
-head(flu)
-
-head(gapminder)
+data("gapminder")
 ```
 
-**2. Check if they are in the right shape. Is the data in the ‘tidy’ format? If not change the format to ‘tidy’**
+
+
+```{r, echo=FALSE, include=FALSE}
+kableExtra::kbl(head(flu, n = 10)) %>%
+  kableExtra::kable_material() %>%
+  kableExtra::scroll_box(width = "100%", box_css = "border: 0px;")
+```
+
+***
+
+The data for influenza and dengue activity is not in a tidy format. Also the data in the gapminder dataset is per year, while the data for influenza and dengue activity is per week. By collapsing the data for flu and dengue activity the joining of these three datasets will be possible.
 
 ```{r 7.2}
 dengue <- dengue %>% pivot_longer(Argentina:Venezuela, names_to = "country", values_to = "value")
-head(dengue)
-
 flu <- flu %>% pivot_longer(Argentina:Uruguay, names_to = "country", values_to = "value")
-head(flu)
-
 ```
-
-
-**3. Change the country and date variables of the three tables so that they coincide in terms of data type, class and values**
 
 ```{r 7.3}
 dengue <- dengue %>% separate("Date", into = c("year", "month", "day"), sep = "-") 
 
-dengue <- dengue[-c(2,3)] 
+dengue <- dengue[-c(2,3)] #removing month and day
 dengue$year <- as.integer(dengue$year)
 dengue$country <- as.factor(dengue$country)
 
@@ -42,12 +80,10 @@ dengue <- dengue %>%
             summarise("country" = country, "dengue_activity" = sum(value, na.rm = T)) %>%
             unique()
 
-head(dengue)
-
 
 flu <- flu %>% separate("Date", into = c("year", "month", "day"), sep = "-") 
 
-flu <- flu[-c(2,3)] 
+flu <- flu[-c(2,3)] #removing month and day
 flu$year <- as.integer(flu$year)
 flu$country <- as.factor(flu$country)
 
@@ -56,30 +92,24 @@ flu <- flu %>%
         summarise("country" = country, "influenza_activity" = sum(value, na.rm = T)) %>%
         unique()
 
-head(flu)
 ```
+`r table_port7("flu_collapse")`
 
-**4. Store the three tables as separate (so six in total) .csv and .rds files.**
+```{r, echo = FALSE}
+kableExtra::kbl(head(flu, n = 10)) %>%
+  kable_material(full_width = FALSE)
+```
+## Storing new dataframes 
 
 ```{r, eval=F}
+#storing dataset locally
 for (x in c("flu", "dengue", "gapminder")) {
-  export(get(x), path = paste0(here("data//"), x))
+  export(get(x), path = paste0(here("output//"), x))
 }
 
 ```
 
-
-**5. In Dbeaver create a new PostgreSQL database “workflowsdb”**
-
-```{r, fig.cap = "The workflows database in Dbeaver."}
-knitr::include_graphics(here("images/workflowsdb_in_Dbeaver.JPG"))
-```
-
-![Workflows database in DBeaver](/)
-
-**6. Using RPostgreSQL, insert the tables into the database.**
-
-```{r}
+```{r, include=FALSE}
 psswd <- .rs.askForPassword("Database Password:")
 
 con <- dbConnect(RPostgres::Postgres(), 
@@ -91,27 +121,52 @@ con <- dbConnect(RPostgres::Postgres(),
 ```
 
 ```{r, eval=FALSE}
+#storing datasets on Dbeaver
 dbWriteTable(con, "dengueDB", dengue, overwrite = T)
 dbWriteTable(con, "fluDB", flu, overwrite = T)
 dbWriteTable(con, "gapminderDB", gapminder, overwrite = T)
 ````
 
+`r fig_port7("dbeaver")`
 
-**7. Inspect the contents of the tables with SQL (in DBeaver) and save the SQL script.**
+```{r, echo=FALSE}
+knitr::include_graphics(here("images/workflowsdb_in_Dbeaver.JPG"))
+```
+
+Checking if the datasets are accessible: 
 
 ```{sql connection= con}
-SELECT *  FROM "dengueDB";
+SELECT 
+  *
+FROM 
+  "dengueDB" 
+WHERE 
+  country = 'Argentina';
 ```
 
 ```{sql connection= con}
-SELECT *  FROM "fluDB";
+SELECT 
+  *  
+FROM 
+  "fluDB" 
+WHERE
+  country = 'Netherlands';
 ```
 
 ```{sql connection= con}
-SELECT *  FROM "gapminderDB";
+SELECT 
+  year,
+  population,
+  life_expectancy
+FROM 
+  "gapminderDB"
+WHERE
+  country = 'Netherlands' AND
+  year >= 2002;
+
 ```
 
-**8. Inspect the contents of the tables with dplyr (in R) and save a RMarkdown showing what you are doing.**
+
 
 ```{r}
 db_names <- c("fluDB", "dengueDB", "gapminderDB")
@@ -122,79 +177,56 @@ for (i in db_names){
 }
 ```
 
-```{r 7.8 inspection}
-general_inspection(tables$fluDB, tables$fluDB$year, tables$fluDB$influenza_activity)
-general_inspection(tables$dengueDB, tables$dengueDB$year, tables$dengueDB$dengue_activity)
-general_inspection(tables$gapminderDB)
-```
+***
 
+## Joining dataset
 
-**9. Load the gapminder data in R and change the dataframe in such as way that you could join it to dengue and flue.**
+To join the Influenza and dengue dataset with the gapminder dataset there is one problem: 
 
-```{r}
+```{r, results='hold'}
 tables$fluDB$year %>% unique()
 tables$dengueDB$year %>% unique()
 ```
-The data of `flu` and `dengue` are from the year 2002 untill 2015. while the data of gapminder is from:
 
-```{r}
-tables$gapminderDB$year %>% unique()
+The data of `flu` and `dengue` are from the year 2002 until 2015. while the data of gapminder is from:
+
+```{r, results='hold'}
+tables$gapminderDB$year %>% min()
+tables$gapminderDB$year %>% max()
 ```
-1960 till 2015. we've also seen in 7.8 that the flu data has 406 rows while the dengue data has 140 rows. 
+1960 till 2016. Also the datasets contain data about different countries:
 
-```{r}
-# db_names <- c("tables$fluDB$country", "tables$dengueDB$country", "tables$gapminderDB$country")
-# for (i in db_names){
-#   amount_factor(get(i)) 
-# } 
-
+```{r, results='hold'}
 amount_factor(tables$fluDB$country)
 amount_factor(tables$dengueDB$country)
 amount_factor(tables$gapminderDB$country)
-
 ```
 ```{r}
 levelF <- tables$fluDB$country %>% as.factor %>% levels()
 levelD <- tables$dengueDB$country %>% as.factor %>% levels()
 levelG <- tables$gapminderDB$country %>% as.factor %>% levels()
 
-common(levelD, levelG)
+common(levelD, levelG) %>% length() == length(levelD) #common countries with gapminder equal to total countries of dengue
 ```
-All the countries in the dengue data set are all also in the gapminder dataset.
+
+All the countries in the dengue data set are all also in the gapminder dataset. However the influenza dataset contains countries that the gapminder dataset does not.
 
 ```{r}
-common(levelD, levelF)
-common(levelF, levelG) %>% length()
+common(levelF, levelG) %>% length() == length(levelF) #common countries with gapminder equal to total countries of influenza
+levelF[!levelF %in% common(levelF, levelG)] # the countries not in gapminder
 ```
-but the flu data set only has `r common(levelD, levelF)` in common with the dengue data set.
 
-
-
-If the tables are to be joined they need to have data about only the countries and years equal to the counties and years that the tables have in common. Or the tables need to be joined in a way that `NA` is introduced where necessary.
+If the tables are to be joined they need to have data about only the countries and years equal to the countries and years that the tables have in common. Or the tables need to be joined in a way that `NA` is introduced where necessary.
 
 ```{r}
+#trimming the gapminder dataset so it contains the data of the same dates as the influenza and dengue dataset
 gapminder_02_15 <- tables$gapminderDB %>% filter(between(year, 2002, 2015))
 ```
 
-**10. Save this clean gapminder data in the “workflowsdb” database**
 
 ```{r, eval=FALSE}
 dbWriteTable(con, "gapminder_02_15DB", gapminder_02_15, overwrite = T)
 ```
-
-
-**11. Perform some joins (your choice) with SQL (can be done in DBeaver or with dplyr).**
-
-```{sql connection = con}
-SELECT "gapminder_02_15DB".*, "fluDB".influenza_activity, "dengueDB".dengue_activity 
-FROM "gapminder_02_15DB"
-LEFT JOIN "fluDB" ON public."fluDB".year = public."gapminder_02_15DB".year 
-AND public."fluDB".country = public."gapminder_02_15DB".country
-LEFT JOIN "dengueDB" ON public."dengueDB".year = public."gapminder_02_15DB".year
-AND public."dengueDB".country = public."gapminder_02_15DB".country
-```
-
-**12. Generate a joined table, and export this from the database to R.**
 
 ```{sql connection = con, eval = F}
 CREATE TABLE joined_gapfluden 
@@ -215,9 +247,7 @@ joined_gapfluden <- dbReadTable(conn = con, "joined_gapfluden")
 dbDisconnect(con)
 ```
 
-**13. Show some descriptive statistics with this table, and at least 3 visualizations using ggplot2.**
-
-The joined dataset contains data about `R joined_gapfluden["country"] %>% unique() %>% count() %>% pull()` different countries, during the time period from `R joined_gapfluden["year"] %>% min` until `R joined_gapfluden["year"] %>% max`. And also the influenza cases per country during this time.
+The joined dataset contains data about `r joined_gapfluden["country"] %>% unique() %>% count() %>% pull()` different countries, during the time period from `r joined_gapfluden["year"] %>% min` until `r joined_gapfluden["year"] %>% max`. And also the influenza cases per country during this time.
 
 ```{r}
 joined_gapfluden$country <- joined_gapfluden$country %>% as.factor()
@@ -226,29 +256,50 @@ joined_gapfluden$continent <- joined_gapfluden$continent %>% as.factor()
 joined_gapfluden$region <- joined_gapfluden$region %>% as.factor()
 ```
 
-```{r}
-kableExtra::kable(head(joined_gapfluden))
+`r table_port7("joined_table")`
+
+```{r, echo=FALSE}
+kableExtra::kbl(head(joined_gapfluden)) %>%
+  kableExtra::kable_classic() %>%
+  kableExtra::scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
-Influenza, commonly called the flu, is an infectious disease caused by The influenza virus. Symptoms can be quite mild; fever, runny nose, sore throat. Or severe pneumonia.
+***
 
-in 2009 a strain of influenza, the H1N1 influenza strain caused a pandemic known as the swine flu.
+## Visualizing data
 
-```{r, fig.width=8}
+in 2009 a strain of influenza, the H1N1 influenza strain caused a pandemic known as the swine flu. The European countries who had the most influenza cases are:
+
+```{r}
+EU_flu <- joined_gapfluden %>% 
+            dplyr::filter(continent == "Europe", influenza_activity >= 10000) %>%
+            dplyr::select(country) %>% 
+            unique() %>%
+            dplyr::pull() %>%
+            as.vector() %>%
+            print()
+```
+
+`r fig_port7("flu_per_country")`
+
+```{r, fig.width=8, echo=FALSE}
 joined_gapfluden %>% 
-  ggplot(aes(x= year, y = influenza_activity, group = country, fill = country)) +
-  geom_area(alpha = 0.7, size = 0.4, colour = "white") +
-  theme_ipsum() + #or theme_ft_rc()
-  scale_fill_viridis(discrete = T) + 
+  filter(country %in%  EU_flu) %>%
+  ggplot(aes(x= year, y = influenza_activity, group = country, color = country)) +
+  geom_line(alpha = 0.7, size = 1) +
+  theme_ipsum() +
+  scale_color_ipsum() +
   scale_x_discrete(guide = guide_axis(n.dodge=2))+
-  labs(title = "influenza cases per country", y = "influenza cases")
+  labs(y = "influenza cases") 
 ```
 
 Global cases peaked in 2009 at `r joined_gapfluden %>% group_by(year) %>% summarise(global_influenza_cases = sum(influenza_activity, na.rm = T)) %>% pull() %>% max() `.
 
-Some countries had more influenza cases realtive to their population during the peak than others.
+Some countries had more influenza cases relative to their population during the peak than others.
 
-```{r}
+`r fig_port7("map")`
+
+```{r, echo=FALSE}
 relative_influenza_2009 <- joined_gapfluden %>% 
   dplyr::filter(continent == "Europe", year == "2009") %>% 
   dplyr::select(country, population, influenza_activity) %>% 
@@ -267,16 +318,19 @@ map_data_eu <- left_join(relative_influenza_2009, map_data_eu, by = "region")
 
 ggplot(map_data_eu, aes(x = long, y = lat)) +
   geom_polygon(aes(group = group, fill = relative_influenza_cases), colour = "white", size = 0.1) +
-  theme_void() + #maybe a dark theme?
+  theme_void(base_family = font_an) + #maybe a dark theme?
   scale_fill_viridis(option = "E") + 
-  labs(title = "Influenza Activity in europe",
-       fill = "relative influenza activity")
+  labs(title = "Influenza activity in Europe",
+       fill = "relative influenza activity",
+       caption = "grey means no data")
   
 ```
 
 It is visible that Austria was had a relatively high influenza activity. Could this have effected life expectancy in Austria?
 
-```{r, fig.width=8}
+`r fig_port7("life_exp")`
+
+```{r, fig.width=8, echo=FALSE}
 joined_gapfluden %>%
   filter(country == "Austria") %>%
   ggplot() +

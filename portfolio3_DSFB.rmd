@@ -1,3 +1,0 @@
-# Rmarkdown CV
-
-My RMD CV can be found [here](https://larsdegroot.github.io/CV/)

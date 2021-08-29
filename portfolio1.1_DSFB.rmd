@@ -1,12 +1,16 @@
+# _C. elegans_ plate experiment
+
+The data used in this report comes from a experiment where _C. elegans_ was exposed to varying concentrations of three different compounds: 2,6-diisopropylnaphthalene, decane and naphthalene. After an incubation period the number of offspring where counted.
 
 ```{r, results='hide', message=FALSE, warning=FALSE}
-require(tidyverse)
-require(readxl)
-require(here)
-require(drc)
-require(knitr)
-require(ggpubr)
-require(captioner)
+library(tidyverse) # 1.3.1
+library(readxl) #1.3.1
+library(here) #1.0.1
+library(drc) #3.0-1
+library(knitr) #1.33
+library(ggpubr) # 0.4.0
+library(captioner) #2.2.3.900
+library(kableExtra) #1.3.4
 ```
 
 ```{r, include = FALSE}
@@ -33,10 +37,6 @@ fig_port1("decane_drc", "The dose response curve of decane on the number of offs
 fig_port1("naph_drc", "The dose response curve of naphthalene on the number of offspring of C. elegans. Decane has a negative effect on the number of offspring of C. elegans which seems to start around a naphthalene concentration of 4.99e-01. The curve is also very steep.")
 ```
 
-# _C. elegans_ plate experiment
-
-The data used in this report comes from a experiment where _C. elegans_ was exposed to varying concentrations of three different compounds: 2,6-diisopropylnaphthalene, decane and naphthalene. After an incubation period the number of offspring where counted.  
-
 ```{r}
 #first excel sheet is read
 ce_data <- readxl::read_xlsx(here("data/CE.LIQ.FLOW.062_Tidydata.xlsx"))
@@ -44,20 +44,26 @@ names(ce_data)
 ```
 
 
-The Excel file contains a lot of data not necessary for this report. The variable used in this report are:
-* expType:               Experiment type
-* RawData:               Number of offspring
-* compName:              Compound name
-* compConcentration:     Compound concentration
-* compUnit:              Unit of measurement  
+The Excel file contains a lot of data not necessary for this report. The variable used in this report are:  
+  
+* expType:   Experiment type
+* RawData:   Number of offspring
+* compName:  Compound name
+* compConcentration:  Compound concentration
+* compUnit:  Unit of measurement  
 
 
-```{r)}
+```{r}
 #getting rid of unnecessary columns
 ce_data <- dplyr::select(ce_data, c("expType", "RawData", "compName", "compConcentration", "compUnit"))
-knitr::kable(head(ce_data, n = 10))
 ```
+
 `r table_port1("ce_head")`
+
+```{r, echo=FALSE}
+kableExtra::kbl(head(ce_data, n = 10)) %>%
+        kableExtra::kable_classic(full_width = FALSE, position = "left")
+```
 
 
 ```{r, warning=FALSE}
@@ -154,15 +160,13 @@ naph + ggplot2::scale_x_log10()
 `r fig_port1("iso_log", display = "c")`, `r fig_port1("decane_log", display = "c")` and `r fig_port1("naph_log", display = "c")` are supposed to resemble dose response curves, however geom_smooth method of applying a curve to the data points isn't meant for creating a dose response curve. A package which is meant for this is [{drc}](https://cran.r-project.org/web/packages/drc/index.html).
 
 The model to be fitted to the response data will be a four parameter log-logistic function, abbreviated to LL.4 in {drc}. this means that 1 out of the five parameters are pre-set, which are f = 1. 
-Normally LL.3 would be used where c is set to 0, because the response data is discrete (number of offspring). However this doesn't produce a good fit, because there no datapoints where the number of offspring is actually zero.
+Normally LL.3 would be used where c is set to 0, because the response data is discrete (number of offspring). However this doesn't produce a good fit, because there are no datapoints where the number of offspring is actually zero.
 
 ```{r}
 knitr::include_graphics(here::here("images/LL4.jpg"))
 ```
 
 `r fig_port1("formula1")` [@Ritz2015, p. 4] 
-(refrence: : https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0146021, 
-an example of LL.3 being used for C.elegans: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5734697/)
 
 ```{r}
 #fitting a dose response model on the data
@@ -203,7 +207,7 @@ plot(drc_naph, type = "all",
 
 `r fig_port1("naph_drc")`
 
-# References
+
 
 
 

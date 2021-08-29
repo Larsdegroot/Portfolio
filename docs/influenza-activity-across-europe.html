@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Influenza activity across europe | Portfolio</title>
+  <meta name="description" content="7 Influenza activity across europe | Portfolio" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Influenza activity across europe | Portfolio" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Influenza activity across europe | Portfolio" />
+  
+  
+  
+
+<meta name="author" content="Lars de Groot" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="learning-python.html"/>
+<link rel="next" href="influenzadata-package.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
+<li class="chapter" data-level="2" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html"><i class="fa fa-check"></i><b>2</b> <em>C. elegans</em> plate experiment</a></li>
+<li class="chapter" data-level="3" data-path="an-exercise-in-open-science.html"><a href="an-exercise-in-open-science.html"><i class="fa fa-check"></i><b>3</b> An exercise in Open science</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="an-exercise-in-open-science.html"><a href="an-exercise-in-open-science.html#score"><i class="fa fa-check"></i><b>3.1</b> Score:</a></li>
+<li class="chapter" data-level="3.2" data-path="an-exercise-in-open-science.html"><a href="an-exercise-in-open-science.html#explanation"><i class="fa fa-check"></i><b>3.2</b> Explanation:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="an-exercise-in-reproducibility.html"><a href="an-exercise-in-reproducibility.html"><i class="fa fa-check"></i><b>4</b> An exercise in reproducibility</a></li>
+<li class="chapter" data-level="5" data-path="good-workflow-practices-guerrilla-analytics.html"><a href="good-workflow-practices-guerrilla-analytics.html"><i class="fa fa-check"></i><b>5</b> Good Workflow practices: Guerrilla analytics</a></li>
+<li class="chapter" data-level="6" data-path="learning-python.html"><a href="learning-python.html"><i class="fa fa-check"></i><b>6</b> Learning Python</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="learning-python.html"><a href="learning-python.html#rosalind-exercises"><i class="fa fa-check"></i><b>6.1</b> Rosalind exercises:</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="learning-python.html"><a href="learning-python.html#q1-counting-dna-nucleotides"><i class="fa fa-check"></i><b>6.1.1</b> Q1 Counting DNA nucleotides</a></li>
+<li class="chapter" data-level="6.1.2" data-path="learning-python.html"><a href="learning-python.html#q2-transcribing-dna-into-rna"><i class="fa fa-check"></i><b>6.1.2</b> Q2 Transcribing DNA into RNA</a></li>
+<li class="chapter" data-level="6.1.3" data-path="learning-python.html"><a href="learning-python.html#q3-complementing-a-strand-of-dna"><i class="fa fa-check"></i><b>6.1.3</b> Q3 Complementing a Strand of DNA</a></li>
+<li class="chapter" data-level="6.1.4" data-path="learning-python.html"><a href="learning-python.html#q4-rabbits-and-recurrence-relations"><i class="fa fa-check"></i><b>6.1.4</b> Q4 : Rabbits and Recurrence Relations</a></li>
+<li class="chapter" data-level="6.1.5" data-path="learning-python.html"><a href="learning-python.html#q5-computing-gc-content"><i class="fa fa-check"></i><b>6.1.5</b> Q5: Computing GC Content</a></li>
+<li class="chapter" data-level="6.1.6" data-path="learning-python.html"><a href="learning-python.html#q6-counting-point-mutations"><i class="fa fa-check"></i><b>6.1.6</b> Q6: Counting point mutations</a></li>
+<li class="chapter" data-level="6.1.7" data-path="learning-python.html"><a href="learning-python.html#q7-mendels-first-law"><i class="fa fa-check"></i><b>6.1.7</b> Q7 Mendels first law</a></li>
+<li class="chapter" data-level="6.1.8" data-path="learning-python.html"><a href="learning-python.html#q8-translating-rna-into-protein"><i class="fa fa-check"></i><b>6.1.8</b> Q8: Translating RNA into Protein</a></li>
+<li class="chapter" data-level="6.1.9" data-path="learning-python.html"><a href="learning-python.html#q9-finding-a-motif-in-dna"><i class="fa fa-check"></i><b>6.1.9</b> Q9: Finding a Motif in DNA</a></li>
+<li class="chapter" data-level="6.1.10" data-path="learning-python.html"><a href="learning-python.html#q10-consensus-and-profile"><i class="fa fa-check"></i><b>6.1.10</b> Q10: Consensus and Profile</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html"><i class="fa fa-check"></i><b>7</b> Influenza activity across europe</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#loading-and-colapsing-data"><i class="fa fa-check"></i><b>7.1</b> Loading and colapsing data</a></li>
+<li class="chapter" data-level="7.2" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#storing-new-dataframes"><i class="fa fa-check"></i><b>7.2</b> Storing new dataframes</a></li>
+<li class="chapter" data-level="7.3" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#joining-dataset"><i class="fa fa-check"></i><b>7.3</b> Joining dataset</a></li>
+<li class="chapter" data-level="7.4" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#visualizing-data"><i class="fa fa-check"></i><b>7.4</b> Visualizing data</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="influenzadata-package.html"><a href="influenzadata-package.html"><i class="fa fa-check"></i><b>8</b> InfluenzaData package</a></li>
+<li class="chapter" data-level="9" data-path="the-effect-of-vaccinations.html"><a href="the-effect-of-vaccinations.html"><i class="fa fa-check"></i><b>9</b> The effect of vaccinations</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="the-effect-of-vaccinations.html"><a href="the-effect-of-vaccinations.html#trimming-joining-dataframes"><i class="fa fa-check"></i><b>9.1</b> Trimming &amp; Joining dataframes</a></li>
+<li class="chapter" data-level="9.2" data-path="the-effect-of-vaccinations.html"><a href="the-effect-of-vaccinations.html#visualization"><i class="fa fa-check"></i><b>9.2</b> Visualization</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="influenza-activity-across-europe" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Influenza activity across europe</h1>
+<p>Influenza, commonly called the flu, is an infectious disease caused by The influenza virus. Symptoms can be quite mild; fever, runny nose, sore throat, cough, headache, muscle pain and fatigue. Or severe pneumonia, which can sometimes be attributed to a second respiratory infection by a bacteria. Influenza has a history of epidemic/pandemic outbreaks. There are seasonal epidemic outbreaks of influenza during the winter months when the humidity and temperatures are low, which favors transmission. There have also been four pandemics outbreaks of influenza since 1918. These pandemics happen when a Influenza strain from either an avian or swine population spreads to humans. The resulting strain is antigenically different from existing from previous circulating strains. Thus resulting in a fast transmission through a population which has yet to build up immunity. <span class="citation">(<a href="#ref-Krammer2018" role="doc-biblioref">Krammer et al. 2018</a>)</span></p>
+<p>Dengue fever, commonly called “break bone fever” is a disease caused by the dengue virus. It is transmitted by mosquitoes in tropical environments around the equator. Symptoms can be fever, headache and vomiting or in sever cases dengue hemorrhagic fever can occur, which is when the vascular permeability is increased causing a decrease in blood pressure. <span class="citation">(<a href="#ref-dengue" role="doc-biblioref">Fever, n.d.</a>)</span></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="influenza-activity-across-europe.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(tidyverse) <span class="co">#1.3.1</span></span>
+<span id="cb66-2"><a href="influenza-activity-across-europe.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(readxl) <span class="co">#1.3.1</span></span>
+<span id="cb66-3"><a href="influenza-activity-across-europe.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(here) <span class="co">#1.0.1</span></span>
+<span id="cb66-4"><a href="influenza-activity-across-europe.html#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(knitr) <span class="co">#1.33</span></span>
+<span id="cb66-5"><a href="influenza-activity-across-europe.html#cb66-5" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(captioner) <span class="co">#2.2.3.900</span></span>
+<span id="cb66-6"><a href="influenza-activity-across-europe.html#cb66-6" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(dslabs) <span class="co">#0.7.4</span></span>
+<span id="cb66-7"><a href="influenza-activity-across-europe.html#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(DBI) <span class="co">#1.1.1</span></span>
+<span id="cb66-8"><a href="influenza-activity-across-europe.html#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(RPostgreSQL) <span class="co">#0.6-2</span></span>
+<span id="cb66-9"><a href="influenza-activity-across-europe.html#cb66-9" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(remotes) <span class="co">#2.3.0</span></span>
+<span id="cb66-10"><a href="influenza-activity-across-europe.html#cb66-10" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(RPostgres) <span class="co">#1.3.2</span></span>
+<span id="cb66-11"><a href="influenza-activity-across-europe.html#cb66-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(hrbrthemes) <span class="co">#0.8.0</span></span>
+<span id="cb66-12"><a href="influenza-activity-across-europe.html#cb66-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis) <span class="co">#0.6.1</span></span>
+<span id="cb66-13"><a href="influenza-activity-across-europe.html#cb66-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra) <span class="co">#1.3.4</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="influenza-activity-across-europe.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;src/port_src7.R&quot;</span>))</span></code></pre></div>
+<div id="loading-and-colapsing-data" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Loading and colapsing data</h2>
+<p>The files “dengue_data.txt” and “flu_data.txt” are orginate from goolgle. Data Source: <a href="http://www.google.org/flutrends">Google Flu Trends</a>.
+the gapminder data comes from the package <a href="https://cran.r-project.org/web/packages/dslabs/index.html">{dslabs}</a></p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="influenza-activity-across-europe.html#cb68-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data/dengue_data.txt&quot;</span>), <span class="at">skip =</span> <span class="dv">11</span>) </span>
+<span id="cb68-2"><a href="influenza-activity-across-europe.html#cb68-2" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;data/flu_data.txt&quot;</span>), <span class="at">skip =</span> <span class="dv">11</span>)</span>
+<span id="cb68-3"><a href="influenza-activity-across-europe.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;gapminder&quot;</span>)</span></code></pre></div>
+<p>Table 1: The influenza activity per country per week, for the time period of 2003 untill 2015</p>
+<div style="border: 0px;overflow-x: scroll; width:100%; ">
+<table class=" lightable-material" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Date
+</th>
+<th style="text-align:right;">
+Argentina
+</th>
+<th style="text-align:right;">
+Australia
+</th>
+<th style="text-align:right;">
+Austria
+</th>
+<th style="text-align:right;">
+Belgium
+</th>
+<th style="text-align:right;">
+Bolivia
+</th>
+<th style="text-align:right;">
+Brazil
+</th>
+<th style="text-align:right;">
+Bulgaria
+</th>
+<th style="text-align:right;">
+Canada
+</th>
+<th style="text-align:right;">
+Chile
+</th>
+<th style="text-align:right;">
+France
+</th>
+<th style="text-align:right;">
+Germany
+</th>
+<th style="text-align:right;">
+Hungary
+</th>
+<th style="text-align:right;">
+Japan
+</th>
+<th style="text-align:right;">
+Mexico
+</th>
+<th style="text-align:right;">
+Netherlands
+</th>
+<th style="text-align:right;">
+New.Zealand
+</th>
+<th style="text-align:right;">
+Norway
+</th>
+<th style="text-align:right;">
+Paraguay
+</th>
+<th style="text-align:right;">
+Peru
+</th>
+<th style="text-align:right;">
+Poland
+</th>
+<th style="text-align:right;">
+Romania
+</th>
+<th style="text-align:right;">
+Russia
+</th>
+<th style="text-align:right;">
+South.Africa
+</th>
+<th style="text-align:right;">
+Spain
+</th>
+<th style="text-align:right;">
+Sweden
+</th>
+<th style="text-align:right;">
+Switzerland
+</th>
+<th style="text-align:right;">
+Ukraine
+</th>
+<th style="text-align:right;">
+United.States
+</th>
+<th style="text-align:right;">
+Uruguay
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2002-12-29
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+174
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+329
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003-01-05
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+162
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+315
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003-01-12
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+174
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+314
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003-01-19
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+162
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+267
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003-01-26
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+131
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+241
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003-02-02
+</td>
+<td style="text-align:right;">
+136
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+151
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+227
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003-02-09
+</td>
+<td style="text-align:right;">
+145
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+184
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+250
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+664
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003-02-16
+</td>
+<td style="text-align:right;">
+141
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+162
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+236
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+736
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003-02-23
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+426
+</td>
+<td style="text-align:right;">
+194
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+274
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+740
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003-03-02
+</td>
+<td style="text-align:right;">
+134
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+427
+</td>
+<td style="text-align:right;">
+177
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+270
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+864
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<p>The data for influenza and dengue activity is not in a tidy format. Also the data in the gapminder dataset is per year, while the data for influenza and dengue activity is per week. By collapsing the data for flu and dengue activity the joining of these three datasets will be possible.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="influenza-activity-across-europe.html#cb69-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(Argentina<span class="sc">:</span>Venezuela, <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb69-2"><a href="influenza-activity-across-europe.html#cb69-2" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(Argentina<span class="sc">:</span>Uruguay, <span class="at">names_to =</span> <span class="st">&quot;country&quot;</span>, <span class="at">values_to =</span> <span class="st">&quot;value&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="influenza-activity-across-europe.html#cb70-1" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="st">&quot;Date&quot;</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) </span>
+<span id="cb70-2"><a href="influenza-activity-across-europe.html#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-3"><a href="influenza-activity-across-europe.html#cb70-3" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] <span class="co">#removing month and day</span></span>
+<span id="cb70-4"><a href="influenza-activity-across-europe.html#cb70-4" aria-hidden="true" tabindex="-1"></a>dengue<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(dengue<span class="sc">$</span>year)</span>
+<span id="cb70-5"><a href="influenza-activity-across-europe.html#cb70-5" aria-hidden="true" tabindex="-1"></a>dengue<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(dengue<span class="sc">$</span>country)</span>
+<span id="cb70-6"><a href="influenza-activity-across-europe.html#cb70-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-7"><a href="influenza-activity-across-europe.html#cb70-7" aria-hidden="true" tabindex="-1"></a>dengue <span class="ot">&lt;-</span> dengue <span class="sc">%&gt;%</span> </span>
+<span id="cb70-8"><a href="influenza-activity-across-europe.html#cb70-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">group_by</span>(year, country) <span class="sc">%&gt;%</span> </span>
+<span id="cb70-9"><a href="influenza-activity-across-europe.html#cb70-9" aria-hidden="true" tabindex="-1"></a>            <span class="fu">summarise</span>(<span class="st">&quot;country&quot;</span> <span class="ot">=</span> country, <span class="st">&quot;dengue_activity&quot;</span> <span class="ot">=</span> <span class="fu">sum</span>(value, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span></span>
+<span id="cb70-10"><a href="influenza-activity-across-europe.html#cb70-10" aria-hidden="true" tabindex="-1"></a>            <span class="fu">unique</span>()</span>
+<span id="cb70-11"><a href="influenza-activity-across-europe.html#cb70-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-12"><a href="influenza-activity-across-europe.html#cb70-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-13"><a href="influenza-activity-across-europe.html#cb70-13" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> <span class="fu">separate</span>(<span class="st">&quot;Date&quot;</span>, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;month&quot;</span>, <span class="st">&quot;day&quot;</span>), <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>) </span>
+<span id="cb70-14"><a href="influenza-activity-across-europe.html#cb70-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-15"><a href="influenza-activity-across-europe.html#cb70-15" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)] <span class="co">#removing month and day</span></span>
+<span id="cb70-16"><a href="influenza-activity-across-europe.html#cb70-16" aria-hidden="true" tabindex="-1"></a>flu<span class="sc">$</span>year <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(flu<span class="sc">$</span>year)</span>
+<span id="cb70-17"><a href="influenza-activity-across-europe.html#cb70-17" aria-hidden="true" tabindex="-1"></a>flu<span class="sc">$</span>country <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(flu<span class="sc">$</span>country)</span>
+<span id="cb70-18"><a href="influenza-activity-across-europe.html#cb70-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-19"><a href="influenza-activity-across-europe.html#cb70-19" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> flu <span class="sc">%&gt;%</span> </span>
+<span id="cb70-20"><a href="influenza-activity-across-europe.html#cb70-20" aria-hidden="true" tabindex="-1"></a>        <span class="fu">group_by</span>(year, country) <span class="sc">%&gt;%</span> </span>
+<span id="cb70-21"><a href="influenza-activity-across-europe.html#cb70-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">summarise</span>(<span class="st">&quot;country&quot;</span> <span class="ot">=</span> country, <span class="st">&quot;influenza_activity&quot;</span> <span class="ot">=</span> <span class="fu">sum</span>(value, <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span></span>
+<span id="cb70-22"><a href="influenza-activity-across-europe.html#cb70-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">unique</span>()</span></code></pre></div>
+<p>Table 2: The first ten rows of the resulting dataframe after collapsing all datapoint of each week into a total per year.</p>
+<table class=" lightable-material" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:right;">
+influenza_activity
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Austria
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Belgium
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Bolivia
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Brazil
+</td>
+<td style="text-align:right;">
+174
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Bulgaria
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Canada
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+Chile
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2002
+</td>
+<td style="text-align:left;">
+France
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="storing-new-dataframes" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Storing new dataframes</h2>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="influenza-activity-across-europe.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co">#storing dataset locally</span></span>
+<span id="cb71-2"><a href="influenza-activity-across-europe.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x <span class="cf">in</span> <span class="fu">c</span>(<span class="st">&quot;flu&quot;</span>, <span class="st">&quot;dengue&quot;</span>, <span class="st">&quot;gapminder&quot;</span>)) {</span>
+<span id="cb71-3"><a href="influenza-activity-across-europe.html#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">export</span>(<span class="fu">get</span>(x), <span class="at">path =</span> <span class="fu">paste0</span>(<span class="fu">here</span>(<span class="st">&quot;output//&quot;</span>), x))</span>
+<span id="cb71-4"><a href="influenza-activity-across-europe.html#cb71-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="influenza-activity-across-europe.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co">#storing datasets on Dbeaver</span></span>
+<span id="cb72-2"><a href="influenza-activity-across-europe.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;dengueDB&quot;</span>, dengue, <span class="at">overwrite =</span> T)</span>
+<span id="cb72-3"><a href="influenza-activity-across-europe.html#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;fluDB&quot;</span>, flu, <span class="at">overwrite =</span> T)</span>
+<span id="cb72-4"><a href="influenza-activity-across-europe.html#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;gapminderDB&quot;</span>, gapminder, <span class="at">overwrite =</span> T)</span></code></pre></div>
+<p>Figure 1: The three dataset stored in a dbeaver database</p>
+<p><img src="images/workflowsdb_in_Dbeaver.JPG" /><!-- --></p>
+<p>Checking if the datasets are accessible:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb73-1"><a href="influenza-activity-across-europe.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb73-2"><a href="influenza-activity-across-europe.html#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">*</span></span>
+<span id="cb73-3"><a href="influenza-activity-across-europe.html#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> </span>
+<span id="cb73-4"><a href="influenza-activity-across-europe.html#cb73-4" aria-hidden="true" tabindex="-1"></a>  <span class="ot">&quot;dengueDB&quot;</span> </span>
+<span id="cb73-5"><a href="influenza-activity-across-europe.html#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> </span>
+<span id="cb73-6"><a href="influenza-activity-across-europe.html#cb73-6" aria-hidden="true" tabindex="-1"></a>  country <span class="op">=</span> <span class="st">&#39;Argentina&#39;</span>;</span></code></pre></div>
+<div class="knitsql-table">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-69">Table 7.1: </span>Displaying records 1 - 10
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+year
+</th>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:right;">
+dengue_activity
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2002
+</td>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003
+</td>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+1.397
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2004
+</td>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+1.533
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2005
+</td>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+1.035
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2006
+</td>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+1.007
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2007
+</td>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+5.569
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+1.462
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2009
+</td>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+16.739
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2010
+</td>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+6.621
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:right;">
+3.186
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb74-1"><a href="influenza-activity-across-europe.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb74-2"><a href="influenza-activity-across-europe.html#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="op">*</span>  </span>
+<span id="cb74-3"><a href="influenza-activity-across-europe.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> </span>
+<span id="cb74-4"><a href="influenza-activity-across-europe.html#cb74-4" aria-hidden="true" tabindex="-1"></a>  <span class="ot">&quot;fluDB&quot;</span> </span>
+<span id="cb74-5"><a href="influenza-activity-across-europe.html#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb74-6"><a href="influenza-activity-across-europe.html#cb74-6" aria-hidden="true" tabindex="-1"></a>  country <span class="op">=</span> <span class="st">&#39;Netherlands&#39;</span>;</span></code></pre></div>
+<div class="knitsql-table">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-70">Table 7.2: </span>Displaying records 1 - 10
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+year
+</th>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:right;">
+influenza_activity
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2002
+</td>
+<td style="text-align:left;">
+Netherlands
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003
+</td>
+<td style="text-align:left;">
+Netherlands
+</td>
+<td style="text-align:right;">
+786
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2004
+</td>
+<td style="text-align:left;">
+Netherlands
+</td>
+<td style="text-align:right;">
+1014
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2005
+</td>
+<td style="text-align:left;">
+Netherlands
+</td>
+<td style="text-align:right;">
+1779
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2006
+</td>
+<td style="text-align:left;">
+Netherlands
+</td>
+<td style="text-align:right;">
+1497
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2007
+</td>
+<td style="text-align:left;">
+Netherlands
+</td>
+<td style="text-align:right;">
+1607
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:left;">
+Netherlands
+</td>
+<td style="text-align:right;">
+1801
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2009
+</td>
+<td style="text-align:left;">
+Netherlands
+</td>
+<td style="text-align:right;">
+3062
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2010
+</td>
+<td style="text-align:left;">
+Netherlands
+</td>
+<td style="text-align:right;">
+1145
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:left;">
+Netherlands
+</td>
+<td style="text-align:right;">
+1627
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb75-1"><a href="influenza-activity-across-europe.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
+<span id="cb75-2"><a href="influenza-activity-across-europe.html#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>,</span>
+<span id="cb75-3"><a href="influenza-activity-across-europe.html#cb75-3" aria-hidden="true" tabindex="-1"></a>  population,</span>
+<span id="cb75-4"><a href="influenza-activity-across-europe.html#cb75-4" aria-hidden="true" tabindex="-1"></a>  life_expectancy</span>
+<span id="cb75-5"><a href="influenza-activity-across-europe.html#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> </span>
+<span id="cb75-6"><a href="influenza-activity-across-europe.html#cb75-6" aria-hidden="true" tabindex="-1"></a>  <span class="ot">&quot;gapminderDB&quot;</span></span>
+<span id="cb75-7"><a href="influenza-activity-across-europe.html#cb75-7" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb75-8"><a href="influenza-activity-across-europe.html#cb75-8" aria-hidden="true" tabindex="-1"></a>  country <span class="op">=</span> <span class="st">&#39;Netherlands&#39;</span> <span class="kw">AND</span></span>
+<span id="cb75-9"><a href="influenza-activity-across-europe.html#cb75-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span> <span class="op">&gt;=</span> <span class="dv">2002</span>;</span></code></pre></div>
+<div class="knitsql-table">
+<table>
+<caption>
+<span id="tab:unnamed-chunk-71">Table 7.3: </span>Displaying records 1 - 10
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+year
+</th>
+<th style="text-align:right;">
+population
+</th>
+<th style="text-align:right;">
+life_expectancy
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2002
+</td>
+<td style="text-align:right;">
+16076427
+</td>
+<td style="text-align:right;">
+78.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2003
+</td>
+<td style="text-align:right;">
+16167421
+</td>
+<td style="text-align:right;">
+78.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2004
+</td>
+<td style="text-align:right;">
+16253397
+</td>
+<td style="text-align:right;">
+79.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2005
+</td>
+<td style="text-align:right;">
+16331646
+</td>
+<td style="text-align:right;">
+79.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2006
+</td>
+<td style="text-align:right;">
+16401105
+</td>
+<td style="text-align:right;">
+79.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2007
+</td>
+<td style="text-align:right;">
+16463031
+</td>
+<td style="text-align:right;">
+80.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2008
+</td>
+<td style="text-align:right;">
+16519862
+</td>
+<td style="text-align:right;">
+80.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2009
+</td>
+<td style="text-align:right;">
+16575173
+</td>
+<td style="text-align:right;">
+80.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2010
+</td>
+<td style="text-align:right;">
+16631571
+</td>
+<td style="text-align:right;">
+80.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2011
+</td>
+<td style="text-align:right;">
+16689863
+</td>
+<td style="text-align:right;">
+80.9
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="influenza-activity-across-europe.html#cb76-1" aria-hidden="true" tabindex="-1"></a>db_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;fluDB&quot;</span>, <span class="st">&quot;dengueDB&quot;</span>, <span class="st">&quot;gapminderDB&quot;</span>)</span>
+<span id="cb76-2"><a href="influenza-activity-across-europe.html#cb76-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-3"><a href="influenza-activity-across-europe.html#cb76-3" aria-hidden="true" tabindex="-1"></a>tables <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb76-4"><a href="influenza-activity-across-europe.html#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> db_names){</span>
+<span id="cb76-5"><a href="influenza-activity-across-europe.html#cb76-5" aria-hidden="true" tabindex="-1"></a>   tables[[<span class="fu">paste</span>(i)]] <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(con, i)</span>
+<span id="cb76-6"><a href="influenza-activity-across-europe.html#cb76-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<hr />
+</div>
+<div id="joining-dataset" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Joining dataset</h2>
+<p>To join the Influenza and dengue dataset with the gapminder dataset there is one problem:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="influenza-activity-across-europe.html#cb77-1" aria-hidden="true" tabindex="-1"></a>tables<span class="sc">$</span>fluDB<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span>
+<span id="cb77-2"><a href="influenza-activity-across-europe.html#cb77-2" aria-hidden="true" tabindex="-1"></a>tables<span class="sc">$</span>dengueDB<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">unique</span>()</span></code></pre></div>
+<pre><code>##  [1] 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015
+##  [1] 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015</code></pre>
+<p>The data of <code>flu</code> and <code>dengue</code> are from the year 2002 until 2015. while the data of gapminder is from:</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="influenza-activity-across-europe.html#cb79-1" aria-hidden="true" tabindex="-1"></a>tables<span class="sc">$</span>gapminderDB<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">min</span>()</span>
+<span id="cb79-2"><a href="influenza-activity-across-europe.html#cb79-2" aria-hidden="true" tabindex="-1"></a>tables<span class="sc">$</span>gapminderDB<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">max</span>()</span></code></pre></div>
+<pre><code>## [1] 1960
+## [1] 2016</code></pre>
+<p>1960 till 2016. Also the datasets contain data about different countries:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="influenza-activity-across-europe.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">amount_factor</span>(tables<span class="sc">$</span>fluDB<span class="sc">$</span>country)</span>
+<span id="cb81-2"><a href="influenza-activity-across-europe.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">amount_factor</span>(tables<span class="sc">$</span>dengueDB<span class="sc">$</span>country)</span>
+<span id="cb81-3"><a href="influenza-activity-across-europe.html#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="fu">amount_factor</span>(tables<span class="sc">$</span>gapminderDB<span class="sc">$</span>country)</span></code></pre></div>
+<pre><code>## [1] &quot;tables$fluDB$country has 29 levels.&quot;
+## [1] &quot;tables$dengueDB$country has 10 levels.&quot;
+## [1] &quot;tables$gapminderDB$country has 185 levels.&quot;</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="influenza-activity-across-europe.html#cb83-1" aria-hidden="true" tabindex="-1"></a>levelF <span class="ot">&lt;-</span> tables<span class="sc">$</span>fluDB<span class="sc">$</span>country <span class="sc">%&gt;%</span> as.factor <span class="sc">%&gt;%</span> <span class="fu">levels</span>()</span>
+<span id="cb83-2"><a href="influenza-activity-across-europe.html#cb83-2" aria-hidden="true" tabindex="-1"></a>levelD <span class="ot">&lt;-</span> tables<span class="sc">$</span>dengueDB<span class="sc">$</span>country <span class="sc">%&gt;%</span> as.factor <span class="sc">%&gt;%</span> <span class="fu">levels</span>()</span>
+<span id="cb83-3"><a href="influenza-activity-across-europe.html#cb83-3" aria-hidden="true" tabindex="-1"></a>levelG <span class="ot">&lt;-</span> tables<span class="sc">$</span>gapminderDB<span class="sc">$</span>country <span class="sc">%&gt;%</span> as.factor <span class="sc">%&gt;%</span> <span class="fu">levels</span>()</span>
+<span id="cb83-4"><a href="influenza-activity-across-europe.html#cb83-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-5"><a href="influenza-activity-across-europe.html#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="fu">common</span>(levelD, levelG) <span class="sc">%&gt;%</span> <span class="fu">length</span>() <span class="sc">==</span> <span class="fu">length</span>(levelD) <span class="co">#common countries with gapminder equal to total countries of dengue</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>All the countries in the dengue data set are all also in the gapminder dataset. However the influenza dataset contains countries that the gapminder dataset does not.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="influenza-activity-across-europe.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">common</span>(levelF, levelG) <span class="sc">%&gt;%</span> <span class="fu">length</span>() <span class="sc">==</span> <span class="fu">length</span>(levelF) <span class="co">#common countries with gapminder equal to total countries of influenza</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="influenza-activity-across-europe.html#cb87-1" aria-hidden="true" tabindex="-1"></a>levelF[<span class="sc">!</span>levelF <span class="sc">%in%</span> <span class="fu">common</span>(levelF, levelG)] <span class="co"># the countries not in gapminder</span></span></code></pre></div>
+<pre><code>## [1] &quot;New.Zealand&quot;   &quot;South.Africa&quot;  &quot;United.States&quot;</code></pre>
+<p>If the tables are to be joined they need to have data about only the countries and years equal to the counties and years that the tables have in common. Or the tables need to be joined in a way that <code>NA</code> is introduced where necessary.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="influenza-activity-across-europe.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co">#trimming the gapminder dataset so it contains the data of the same dates as the influenza and dengue dataset</span></span>
+<span id="cb89-2"><a href="influenza-activity-across-europe.html#cb89-2" aria-hidden="true" tabindex="-1"></a>gapminder_02_15 <span class="ot">&lt;-</span> tables<span class="sc">$</span>gapminderDB <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">between</span>(year, <span class="dv">2002</span>, <span class="dv">2015</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="influenza-activity-across-europe.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbWriteTable</span>(con, <span class="st">&quot;gapminder_02_15DB&quot;</span>, gapminder_02_15, <span class="at">overwrite =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb91-1"><a href="influenza-activity-across-europe.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> joined_gapfluden </span>
+<span id="cb91-2"><a href="influenza-activity-across-europe.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="kw">AS</span> <span class="kw">SELECT</span> <span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="op">*</span>, <span class="ot">&quot;fluDB&quot;</span>.influenza_activity, <span class="ot">&quot;dengueDB&quot;</span>.dengue_activity </span>
+<span id="cb91-3"><a href="influenza-activity-across-europe.html#cb91-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="ot">&quot;gapminder_02_15DB&quot;</span></span>
+<span id="cb91-4"><a href="influenza-activity-across-europe.html#cb91-4" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="ot">&quot;fluDB&quot;</span> <span class="kw">ON</span> <span class="kw">public</span>.<span class="ot">&quot;fluDB&quot;</span>.<span class="dt">year</span> <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="dt">year</span> </span>
+<span id="cb91-5"><a href="influenza-activity-across-europe.html#cb91-5" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span> <span class="kw">public</span>.<span class="ot">&quot;fluDB&quot;</span>.country <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.country</span>
+<span id="cb91-6"><a href="influenza-activity-across-europe.html#cb91-6" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> <span class="ot">&quot;dengueDB&quot;</span> <span class="kw">ON</span> <span class="kw">public</span>.<span class="ot">&quot;dengueDB&quot;</span>.<span class="dt">year</span> <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.<span class="dt">year</span></span>
+<span id="cb91-7"><a href="influenza-activity-across-europe.html#cb91-7" aria-hidden="true" tabindex="-1"></a><span class="kw">AND</span> <span class="kw">public</span>.<span class="ot">&quot;dengueDB&quot;</span>.country <span class="op">=</span> <span class="kw">public</span>.<span class="ot">&quot;gapminder_02_15DB&quot;</span>.country</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="influenza-activity-across-europe.html#cb92-1" aria-hidden="true" tabindex="-1"></a>joined_gapfluden <span class="ot">&lt;-</span> <span class="fu">dbReadTable</span>(<span class="at">conn =</span> con, <span class="st">&quot;joined_gapfluden&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="influenza-activity-across-europe.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbDisconnect</span>(con)</span></code></pre></div>
+<p>The joined dataset contains data about 185 different countries, during the time period from 2002 until 2015. And also the influenza cases per country during this time.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="influenza-activity-across-europe.html#cb94-1" aria-hidden="true" tabindex="-1"></a>joined_gapfluden<span class="sc">$</span>country <span class="ot">&lt;-</span> joined_gapfluden<span class="sc">$</span>country <span class="sc">%&gt;%</span> <span class="fu">as.factor</span>()</span>
+<span id="cb94-2"><a href="influenza-activity-across-europe.html#cb94-2" aria-hidden="true" tabindex="-1"></a>joined_gapfluden<span class="sc">$</span>year <span class="ot">&lt;-</span> joined_gapfluden<span class="sc">$</span>year <span class="sc">%&gt;%</span> <span class="fu">as.factor</span>()</span>
+<span id="cb94-3"><a href="influenza-activity-across-europe.html#cb94-3" aria-hidden="true" tabindex="-1"></a>joined_gapfluden<span class="sc">$</span>continent <span class="ot">&lt;-</span> joined_gapfluden<span class="sc">$</span>continent <span class="sc">%&gt;%</span> <span class="fu">as.factor</span>()</span>
+<span id="cb94-4"><a href="influenza-activity-across-europe.html#cb94-4" aria-hidden="true" tabindex="-1"></a>joined_gapfluden<span class="sc">$</span>region <span class="ot">&lt;-</span> joined_gapfluden<span class="sc">$</span>region <span class="sc">%&gt;%</span> <span class="fu">as.factor</span>()</span></code></pre></div>
+<p>Table 3: The joinend table containing the gapminder dataset with influenza activity and dengue activity for the countries available. Where data for influenza or dengue activity was not available <code>NA</code> is introduced.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="influenza-activity-across-europe.html#cb95-1" aria-hidden="true" tabindex="-1"></a>kableExtra<span class="sc">::</span><span class="fu">kbl</span>(<span class="fu">head</span>(joined_gapfluden)) <span class="sc">%&gt;%</span></span>
+<span id="cb95-2"><a href="influenza-activity-across-europe.html#cb95-2" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">kable_classic</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb95-3"><a href="influenza-activity-across-europe.html#cb95-3" aria-hidden="true" tabindex="-1"></a>  kableExtra<span class="sc">::</span><span class="fu">scroll_box</span>(<span class="at">width =</span> <span class="st">&quot;100%&quot;</span>, <span class="at">box_css =</span> <span class="st">&quot;border: 0px;&quot;</span>)</span></code></pre></div>
+<div style="border: 0px;overflow-x: scroll; width:100%; ">
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+country
+</th>
+<th style="text-align:left;">
+year
+</th>
+<th style="text-align:right;">
+infant_mortality
+</th>
+<th style="text-align:right;">
+life_expectancy
+</th>
+<th style="text-align:right;">
+fertility
+</th>
+<th style="text-align:right;">
+population
+</th>
+<th style="text-align:right;">
+gdp
+</th>
+<th style="text-align:left;">
+continent
+</th>
+<th style="text-align:left;">
+region
+</th>
+<th style="text-align:right;">
+influenza_activity
+</th>
+<th style="text-align:right;">
+dengue_activity
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Argentina
+</td>
+<td style="text-align:left;">
+2002
+</td>
+<td style="text-align:right;">
+17.1
+</td>
+<td style="text-align:right;">
+74.3
+</td>
+<td style="text-align:right;">
+2.38
+</td>
+<td style="text-align:right;">
+37889443
+</td>
+<td style="text-align:right;">
+242076212334
+</td>
+<td style="text-align:left;">
+Americas
+</td>
+<td style="text-align:left;">
+South America
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australia
+</td>
+<td style="text-align:left;">
+2002
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+80.3
+</td>
+<td style="text-align:right;">
+1.76
+</td>
+<td style="text-align:right;">
+19514385
+</td>
+<td style="text-align:right;">
+442135393399
+</td>
+<td style="text-align:left;">
+Oceania
+</td>
+<td style="text-align:left;">
+Australia and New Zealand
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Austria
+</td>
+<td style="text-align:left;">
+2002
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+78.8
+</td>
+<td style="text-align:right;">
+1.39
+</td>
+<td style="text-align:right;">
+8114698
+</td>
+<td style="text-align:right;">
+196998621885
+</td>
+<td style="text-align:left;">
+Europe
+</td>
+<td style="text-align:left;">
+Western Europe
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Belgium
+</td>
+<td style="text-align:left;">
+2002
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+78.2
+</td>
+<td style="text-align:right;">
+1.68
+</td>
+<td style="text-align:right;">
+10364613
+</td>
+<td style="text-align:right;">
+237741668285
+</td>
+<td style="text-align:left;">
+Europe
+</td>
+<td style="text-align:left;">
+Western Europe
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bolivia
+</td>
+<td style="text-align:left;">
+2002
+</td>
+<td style="text-align:right;">
+53.7
+</td>
+<td style="text-align:right;">
+68.7
+</td>
+<td style="text-align:right;">
+3.98
+</td>
+<td style="text-align:right;">
+8653343
+</td>
+<td style="text-align:right;">
+8751510220
+</td>
+<td style="text-align:left;">
+Americas
+</td>
+<td style="text-align:left;">
+South America
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0.101
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Brazil
+</td>
+<td style="text-align:left;">
+2002
+</td>
+<td style="text-align:right;">
+24.3
+</td>
+<td style="text-align:right;">
+71.4
+</td>
+<td style="text-align:right;">
+2.26
+</td>
+<td style="text-align:right;">
+181045592
+</td>
+<td style="text-align:right;">
+670512665737
+</td>
+<td style="text-align:left;">
+Americas
+</td>
+<td style="text-align:left;">
+South America
+</td>
+<td style="text-align:right;">
+174
+</td>
+<td style="text-align:right;">
+0.073
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+</div>
+<div id="visualizing-data" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Visualizing data</h2>
+<p>in 2009 a strain of influenza, the H1N1 influenza strain caused a pandemic known as the swine flu. The European countries who had the most influenza cases are:</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="influenza-activity-across-europe.html#cb96-1" aria-hidden="true" tabindex="-1"></a>EU_flu <span class="ot">&lt;-</span> joined_gapfluden <span class="sc">%&gt;%</span> </span>
+<span id="cb96-2"><a href="influenza-activity-across-europe.html#cb96-2" aria-hidden="true" tabindex="-1"></a>            dplyr<span class="sc">::</span><span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&quot;Europe&quot;</span>, influenza_activity <span class="sc">&gt;=</span> <span class="dv">10000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb96-3"><a href="influenza-activity-across-europe.html#cb96-3" aria-hidden="true" tabindex="-1"></a>            dplyr<span class="sc">::</span><span class="fu">select</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb96-4"><a href="influenza-activity-across-europe.html#cb96-4" aria-hidden="true" tabindex="-1"></a>            <span class="fu">unique</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb96-5"><a href="influenza-activity-across-europe.html#cb96-5" aria-hidden="true" tabindex="-1"></a>            dplyr<span class="sc">::</span><span class="fu">pull</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb96-6"><a href="influenza-activity-across-europe.html#cb96-6" aria-hidden="true" tabindex="-1"></a>            <span class="fu">as.vector</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb96-7"><a href="influenza-activity-across-europe.html#cb96-7" aria-hidden="true" tabindex="-1"></a>            <span class="fu">print</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Austria&quot;  &quot;Germany&quot;  &quot;Romania&quot;  &quot;Bulgaria&quot; &quot;Russia&quot;   &quot;Ukraine&quot;  &quot;Belgium&quot;  &quot;France&quot;</code></pre>
+<p>Figure 2: influenza cases per country. The total influenza cases per year are shown for the european countries that exeeded a year total of 10000 cases.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-86-1.png" width="768" /></p>
+<p>Global cases peaked in 2009 at 586671.</p>
+<p>Some countries had more influenza cases relative to their population during the peak than others.</p>
+<p>Figure 4: Relative influenza activity in europe during 2009. Influenza activity is relative to the countries population. The swine flu was active during 2009. It’s visable in the map that Austria and Bulgaria had a high influenza activity during that time.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<p>It is visible that Austria was had a relatively high influenza activity. Could this have effected life expectancy in Austria?</p>
+<p>Figure 3: The total influanza cases per year of Austria (red). And the life expectancy in Austria (black). The spike in influenza cases during 2009 has no or neglible effect on the life expenctancy in Austria.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-88-1.png" width="768" /></p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-dengue" class="csl-entry">
+Fever, Dengue Hemorrhagic. n.d. <span>“Dengue and Dengue Hemorrhagic Fever | 1.”</span> <a href="https://www.cdc.gov/dengue/resources/denguedhf-information-for-health-care-practitioners_2009.pdf">https://www.cdc.gov/dengue/resources/denguedhf-information-for-health-care-practitioners_2009.pdf</a>.
+</div>
+<div id="ref-Krammer2018" class="csl-entry">
+Krammer, Florian, Gavin J. D. Smith, Ron A. M. Fouchier, Malik Peiris, Katherine Kedzierska, Peter C. Doherty, Peter Palese, et al. 2018. <span>“Influenza.”</span> <em>Nature Reviews Disease Primers</em>. Nature Publishing Group. <a href="https://doi.org/10.1038/s41572-018-0002-y">https://doi.org/10.1038/s41572-018-0002-y</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="learning-python.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="influenzadata-package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

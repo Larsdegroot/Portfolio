@@ -1,9 +1,3 @@
-```{r, include=FALSE}
-fig_port1_2 <- captioner::captioner()
-
-fig_port1_2("reproduced_graph", "This graph shows the increase of news about bats on american television.")
-```
-
 # An exercise in reproducibility 
 
 Project selected: [Bats and COVID-19](https://osf.io/wxh6a/)  
@@ -15,6 +9,17 @@ the code in this project downloads gtrends data for the query "bats" and the wor
 The readability of the code of this project is well done. Chunks of code have comments explaining the general function of the chunk. This makes it easy to understand the general make up of the script. i would only have to try to understand the packages that im not familiar with to fully understand what the purpose is of the code.
  
 To test the reproducibility of the script i will try to reproduce one of the figures from the project. 
+
+```{r}
+require(tidyverse)
+require(readxl)
+```
+
+```{r, include=FALSE}
+fig_port1_2 <- captioner::captioner()
+
+fig_port1_2("reproduced_graph", "This graph shows the increase of news about bats on american television.")
+```
 
 ```{r, eval=F }
 tv.dat <- 

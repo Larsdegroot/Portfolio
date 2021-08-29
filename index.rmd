@@ -1,11 +1,13 @@
 ---
-title: "Portfolio of DSFB"
+title: "Portfolio"
 author: "Lars de Groot"
 site: bookdown::bookdown_site
 documentclass: book
 output_dir: "docs"
 output:
   bookdown::gitbook: 
+    split_by: chapter
+    split_bib: yes
     config:
       toc:
         collapse: section
@@ -15,36 +17,28 @@ output:
 new_session: yes
 number_sections: FALSE
 bibliography: ext/export.bib 
+link-citations: true
 params:
   country: "Netherlands"
   year: "2021"
   month: "01"
 ---
+
 ```{r}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 
-```{r}
-#1
-require(tidyverse)
-require(readxl)
-require(here)
-require(drc)
-require(knitr)
-require(ggpubr)
-require(captioner)
-#2
-require(fs)
-#7
-require(dslabs)
-require(DBI)
-require(RPostgreSQL)
-require(remotes)
-require(RPostgres)
-library(hrbrthemes)
-library(viridis)
-#9
-library(ISOweek)
+# Welcome
+
+
+
+```{r, echo=FALSE, out.width="180px", out.extra='style="float:right; padding:10px"'}
+knitr::include_graphics(path = "images/hike_italy.jpg")
 ```
 
+Hey I'm Lars! I Enjoy hiking in the Apls, collecting and growing rare plants and whenever i get the chance i like to build something may it be wooden furniture, a greenhouse cabinet or a program.
+I am currently a student studying life sciences at the Hogenschool Utrecht, and as of late i'm trying to steer my education to become an bioinformatician. i've started with learning and using R, and i'm planning to get into Python. This bookdown serves as an portfolio, displaying everything i've learned so far.
 
+For any future employer or internship coördinator my CV can be found [here.](https://larsdegroot.github.io/CV/)
+
+***

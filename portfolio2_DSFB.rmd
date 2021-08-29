@@ -40,16 +40,23 @@ if (go == "y"){
     stop()}
 ```
  
- this script creates a standard file structure:
+***
+
+This script creates a standard file structure. The .txt files are there to explain the general purpose of the directory. 
+ 
+```{r}
+require(fs)
+```
+ 
 
 ```{r}
 dir_tree("/Users/larsd/Documents/R/Project/", recurse = TRUE)
 ```
  
- This structure will also be applied to the project folder that contains the files for this bookdown portfolio
+ This structure will also be applied to the project folder that contains the files for this bookdown portfolio. The directory tree seen below is simplified so that it's understandable. The true directory tree is much to crowded.
 
 ```{r}
-dir_tree(recurse = TRUE)
+dir_tree(recurse = 1)
 ```
 
 

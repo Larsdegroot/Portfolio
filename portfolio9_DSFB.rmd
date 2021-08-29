@@ -1,39 +1,321 @@
-# Parametered RMD
+# The effect of vaccinations
+
+in January of 2020 the first covid-19 cases where confirmed in Wuhan, Hubei, China. The SARS-COV-19 virus then continued to spread across the world. By now we have all lived through the effects of the SARS-COV-19. However with vaccinations programs now gaining speed in America, European countries, most of Asia-Pacific and starting in Africa, the SARS-COV-19 Pandemic seems to be coming to an end. In this report i want to show the effect of vaccination programs, and highlight certain events and their effect on the spread of SARS-COV-19. 
+
+```{r, results= FALSE}
+require(tidyverse)
+require(readxl)
+library(utils)
+library(kableExtra)
+library(captioner)
+library(zoo)
+```
+
+```{r, include = FALSE}
+fig_9 <- captioner::captioner()
+table_9 <- captioner::captioner(prefix = "Table")
+
+fig_9("cov_case", 'Positive COVID-19 test (left Y-axis) and the cumaltive vaccine doses given (right Y-axis). In this plot it can be seen that during the "ramp up" of vaccine shots given (starting in march), positive COVID-19 cases went down. However it can also be seen that startig June the positive COVID-19 cases shot up, while the vaccinated population during this time was almost half the population.')
+
+fig_9("cov_icu", "The effect of a vaccinated population on hospital and ICU admissions.it can be seen the the weekly hospital (x) and ICU addmissions (x) decrease while the vaccinated population increases.")
+
+table_9("date_view", "The earliest and latest dates of each dataset. The hospital admissions dataset contains the longest date range. However it just doesn't contain the 2 latest weeks that the Vaccinations dataset does contain.")
+
+table_9("max_case", "Overview of the three highest case counts over the period of January 2020 untill July 2021.")
+```
+
+
+The European Centre for Disease Prevention and Control (ECDC) provides dataset for vaccination rates and covid-19 cases and associated deaths. 
+
+```{r downloading data from ECDC, cache=TRUE}
+# data_daily_cases <- read.csv("https://opendata.ecdc.europa.eu/covid19/nationalcasedeath_eueea_daily_ei/csv", na.strings = "", fileEncoding = "UTF-8-BOM") # date of access: 
+
+data_weekly_testing <- utils::read.csv("https://opendata.ecdc.europa.eu/covid19/testing/csv", na.strings = "", fileEncoding = "UTF-8-BOM") # date of access: 
+
+data_hospital <- utils::read.csv("https://opendata.ecdc.europa.eu/covid19/hospitalicuadmissionrates/csv", na.strings = "", fileEncoding = "UTF-8-BOM") # date of access: 
+
+data_vaccine <- utils::read.csv("https://opendata.ecdc.europa.eu/covid19/vaccine_tracker/csv", na.strings = "", fileEncoding = "UTF-8-BOM") # date of access:
+```
+
+```{r saving data for later exess}
+write.csv(data_weekly_testing, "data/ECDC_testing.csv")
+write.csv(data_hospital, "data/ECDC_hospital.csv")
+write.csv(data_vaccine, "data/EVDV_vaccine.csv")
+```
+
+```{r, eval=FALSE, include=FALSE}
+data_weekly_testing <- read.csv("data/ECDC_testing.csv")
+data_hospital <- read.csv("data/ECDC_hospital.csv")
+data_vaccine <- read.csv("data/EVDV_vaccine.csv")
+```
+
+
+
+## Trimming & Joining dataframes
+
+For the visualization it's necessary to have a single dataframe containing all the variables needed for the plot. I'm planning to join the needed columns of the dataframes by their matching _date_ and _country_ rows.   
+All the dataframes have the date in a year week format (YYYY-Www). But the column names for date and country columns vary, and the hospital dataset only has country column values as whole names, while vaccine only has it as country codes. Luckily the testing dataset has both. Also the Hospital admission dataset has daily covid related occupancy and weekly new COVID-19 related patients admissioned per 100k population. Only the weekly hospitol and ICU admissions are needed for this report.  
+
+The variables needed for the visualization are:  
+
+* year_week - the date in YYYY-Www format  
+* country - name of country  
+* region - country code  
+* new_cases - Number of new confirmed COVID-19 cases  
+* population - population of country  
+* value - Number of patients or new admissions per 100 000 population  
+* Indicator - If hospital occupancy is either:  
+    + Daily hospital occupancy (number of COVID-19 patients in hospital on a given day)  
+    + Daily ICU occupancy (number of COVID-19 patients in ICU on a given day)  
+    + Weekly new hospital admissions per 100k (weekly rate of new admissions of COVID-19 patients per 100 000 population)  
+    + Weekly new ICU new admissions of COVID-19 patients per 100k.  
+* FirstDose - Number of first dose vaccine administered to individuals during the reporting week.  
+* SecondDose - Number of second dose vaccine administered to individuals during the reporting week.  
+* Vaccine - Name of vaccine  
+    + COM = Comirnaty – Pfizer/BioNTech  
+    + MOD = mRNA-1273 – Moderna  
+    + CN = BBIBV-CorV – CNBG  
+    + SIN = Coronavac – Sinovac  
+    + SPU = Sputnik V - Gamaleya Research Institute   
+    + AZ = AZD1222 – AstraZeneca  
+    + UNK = UNKNOWN  
+* TargetGroup - Target group for vaccination.  
+ 
+
+```{r, include=FALSE}
+data_weekly_testing %>% names() #date in "year_week"
+data_hospital %>% names() #date in "year_week"
+data_vaccine %>% names() #date in "YearWeekISO"
+```
+
+```{r trimming}
+data_weekly_testing <- data_weekly_testing %>% dplyr::filter(level == "national")
+
+data_weekly_testing <- data_weekly_testing %>% dplyr::select(country, 
+                                                             country_code, 
+                                                             year_week, 
+                                                             new_cases, 
+                                                             population)
+
+data_hospital <- data_hospital %>% dplyr::select(country,
+                                                 year_week,
+                                                 value,
+                                                 indicator)
+
+data_hospital <- data_hospital %>% 
+  dplyr::filter(indicator == "Weekly new ICU admissions per 100k" | indicator == "Weekly new hospital admissions per 100k")
+
+data_vaccine <- data_vaccine %>% dplyr::select(YearWeekISO,
+                                               Region,
+                                               FirstDose,
+                                               SecondDose,
+                                               Vaccine,
+                                               TargetGroup)
+```
+
+```{r renaming}
+data_vaccine <- data_vaccine %>% dplyr::rename(year_week = YearWeekISO, country_code = Region)
+```
+
+The three datasets contain different ranges of dates. If the datasets are to be joined the dataset with the largest date range needs te be selected. In this case that's the Hospital admissions dataset. by joining the other datasets to the hospital admissions dataset `NA` values will be implemented for variables where no data is available for that date. 
+
+`r table_9("date_view")`
+
+```{r, echo=FALSE}
+date_overview <- data.frame(dataset = c("Testing", "Hospital admissions", "Vaccinations"), 
+                            "Earliest date" = c(data_weekly_testing$year_week %>% min(), 
+                                                data_hospital$year_week %>% min(), 
+                                                data_vaccine$year_week %>% min()), 
+                            "Latest date" = c(data_weekly_testing$year_week %>% max(), 
+                                              data_hospital$year_week %>% max(), 
+                                              data_vaccine$year_week %>% max()))
+
+kableExtra::kbl(date_overview) %>% 
+  kableExtra::kable_material(full_width = FALSE)
+```
+
+The vaccine dataset has its data for `FirstDose` and `SecondDose` split between different vaccines and targetgroups. This will cause duplicate datapoints in the `new_cases` and `value` rows if the dataset are joined. So the vaccine dataset is collapsed so that `FirstDose` and `SecondDose` represent the total vaccinations given that week, no matter which vaccination or in which targetgroup. 
 
 ```{r}
-data <- read.csv("data/data.csv")
-data <- rename(data, country = ï..country)
+sum_firstdose_before <- data_vaccine$FirstDose %>% sum()
 ```
 
 ```{r}
-#convert year-week format to a date fomat
-# using this: https://stackoverflow.com/questions/45549449/transform-year-week-to-date-object
-#each year-week date needs to be associated with a month, this is done most accuratly if thursday is taken as day of the week.
-isoweek_thursday <- paste0(str_sub(data$year_week, start = 0, end = 5), "W", str_sub(data$year_week, start = 6, end = 7), "-4")
-data$date <- ISOweek2date(isoweek_thursday)
+data_vaccine <- data_vaccine %>%
+  dplyr::group_by(year_week, country_code) %>%
+    dplyr::transmute("year_week" = year_week,
+                     "country_code" = country_code,
+                     "FirstDose" = sum(FirstDose, na.rm = T),
+                     "SecondDose" = sum(SecondDose, na.rm = T)) %>% unique()
+```
 
-#reordering columns so that date is next to year_week
-data <- data[,c(1, 2, 3, 4, 5, 6, 7, 11, 8, 9, 10)]
+There is no change in the sum of `FirstDose`, so the collapsing of the data went correctly.
+
+```{r}
+data_vaccine$FirstDose %>% sum() == sum_firstdose_before
+```
+
+There seem to be duplicate rows in the testing dataset, when the datasets get joined this could cause duplicate datapoints.
+
+```{r}
+data_weekly_testing %>% unique() %>% nrow() == data_weekly_testing %>% nrow()
+```
+```{r}
+data_weekly_testing <- data_weekly_testing %>% unique()
+```
+
+```{r joining}
+data_covid <- dplyr::left_join(data_hospital, data_weekly_testing, by = c("country", "year_week") )
+data_covid <- dplyr::left_join(data_covid, data_vaccine, by = c("year_week", "country_code"))
 ```
 
 
-```{r covid cases}
-#selecting rows based on regex: https://stackoverflow.com/questions/9520840/using-regexp-to-select-rows-in-r-dataframe
-data %>% 
-  filter(country == params$country, indicator == "cases") %>%
-  subset(grepl(paste(params$year, params$month, ".*", sep = "-"), date)) %>%
-  ggplot() +
-  geom_line(aes(x = date, y = cumulative_count), group = 1, size = 1, color = "red") +
-  theme_ipsum()
+There is no diffrence between the sum of new_cases between the orginal dataset and the joined dataset so the join is succesful.
 
+```{r check}
+data_weekly_testing %>% dplyr::filter(country == "Netherlands") %>% pull(new_cases) %>% sum(na.rm = T) - data_covid %>% dplyr::filter(country == "Netherlands", indicator == "Weekly new hospital admissions per 100k") %>% pull(new_cases) %>% sum(na.rm = T)
 ```
 
-```{r covid deaths}
-data %>% 
-  filter(country == params$country, indicator == "deaths") %>%
-  subset(grepl(paste(params$year, params$month, ".*", sep = "-"), date)) %>%
-  ggplot() +
-  geom_line(aes(x = date, y = cumulative_count), group = 1, size = 1, color = "red") +
-  theme_ipsum()
 
+## Visualization
+
+
+```{r, fig.width=8, include=FALSE, eval=FALSE}
+data_covid %>% 
+  dplyr::filter(country == params$country) %>%
+  tidyr::pivot_longer(cols = c("FirstDose", "SecondDose"),
+                      names_to = "Dose",
+                      values_to = "Amount_of_dose") %>%
+    ggplot2::ggplot() +
+    ggplot2::geom_line(aes(x = year_week, y = new_cases, group=1)) + #new_cases
+    ggplot2::geom_line(aes(x = year_week, y = Amount_of_dose/20, group = Dose, color = Dose)) + #vaccinations (dose)
+      ggplot2::scale_y_continuous(
+        name = "Positive COVID-19 tests",
+        sec.axis = ggplot2::sec_axis(~.*20 , name = "Vaccine shots given")) +
+      ggplot2::scale_x_discrete(breaks = c("2020-W10", "2020-W14", "2020-W18","2020-W23","2020-W27","2020-W31","2020-W36","2020-W40","2020-W44","2020-W49","2020-W53","2021-W05","2021-W09","2021-W13","2021-W17","2021-W22", "2021-W26"), labels = c("Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"), name = "Month of the year") +
+    hrbrthemes::theme_ipsum() +
+    theme(axis.text.x = element_text(angle = 45)) 
 ```
+
+
+`r fig_9("cov_case")`
+
+```{r, echo = FALSE}
+cumsum_data_covid <- data_covid %>% 
+  dplyr::filter(country == params$country, indicator == 	"Weekly new ICU admissions per 100k")
+
+#calculate cumalitve sum of First and second dose
+cumsum_data_covid$FirstDose <- cumsum_data_covid$FirstDose %>% zoo::na.fill(0) %>% cumsum()
+cumsum_data_covid$SecondDose <- cumsum_data_covid$SecondDose %>% zoo::na.fill(0) %>% cumsum()
+
+#change 0 to NA (looks prettier on plot)
+cumsum_data_covid$FirstDose[cumsum_data_covid$FirstDose == 0] <- NA
+cumsum_data_covid$SecondDose[cumsum_data_covid$SecondDose == 0] <- NA
+
+#plotting
+size = 0.8
+
+cumsum_data_covid %>%
+  tidyr::pivot_longer(cols = c("FirstDose", "SecondDose"),
+                        names_to = "Dose",
+                        values_to = "Amount_of_dose") %>%
+      ggplot2::ggplot() +
+      ggplot2::geom_line(aes(x = year_week, y = Amount_of_dose/200, group = Dose, color = Dose),
+                         size = size) + 
+      ggplot2::geom_line(aes(x = year_week, y = new_cases, group=1, color = "New cases"),
+                         size = size) + #new_cases
+      ggplot2::scale_color_manual(name= "Legend:", values = c("FirstDose"= "#7ad151",
+                                                              "SecondDose"= "#414487",
+                                                              "New Cases" = "black")) +
+        ggplot2::scale_y_continuous(
+          name = "Positive COVID-19 tests",
+          sec.axis = ggplot2::sec_axis(~.*200 , name = "Vaccine shots given")) +
+        ggplot2::scale_x_discrete(breaks = c("2020-W10", "2020-W14", "2020-W18","2020-W23","2020-W27","2020-W31","2020-W36","2020-W40","2020-W44","2020-W49","2020-W53","2021-W05","2021-W09","2021-W13","2021-W17","2021-W22", "2021-W26"), labels = c("Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"), name = "Month of the year") +
+      hrbrthemes::theme_ipsum() +
+      theme(axis.text.x = element_text(angle = 45)) 
+ 
+```
+The effect of vaccines can't really be seen in this plot. That is not to say that there is no effect, the true effect of vaccination could only really be shown in a graph like this once group immunity start having effect. Which is why proper precautions are important before group immunity starts having effect. However the effect of vaccination _is_ visible in the occupancy of hospitals and ICU.
+
+`r fig_9("cov_icu")`
+
+```{r, echo = FALSE}
+#calculating hospital population
+cumsum_data_covid <- data_covid %>% 
+  dplyr::filter(country == params$country) %>% 
+    dplyr::mutate("hospital_population" = value*(population/100000))
+
+#remove value column
+cumsum_data_covid$value <- NULL
+
+cumsum_data_covid <- cumsum_data_covid %>% tidyr::pivot_wider(names_from = indicator,
+                                                              values_from = hospital_population)
+
+cumsum_data_covid <- rename(cumsum_data_covid, "hospital" = "Weekly new hospital admissions per 100k", 
+                                               "ICU" = "Weekly new ICU admissions per 100k")
+
+#calculate cumalitve sum of First and second dose
+cumsum_data_covid$FirstDose <- cumsum_data_covid$FirstDose %>% na.fill(0) %>% cumsum()
+cumsum_data_covid$SecondDose <- cumsum_data_covid$SecondDose %>% na.fill(0) %>% cumsum()
+
+#change 0 to NA (looks prettier on plot)
+cumsum_data_covid$FirstDose[cumsum_data_covid$FirstDose == 0] <- NA
+cumsum_data_covid$SecondDose[cumsum_data_covid$SecondDose == 0] <- NA
+
+
+#making data tidy
+cumsum_data_covid <- cumsum_data_covid %>%
+    tidyr::pivot_longer(cols = c("FirstDose", "SecondDose"),
+                        names_to = "Dose",
+                        values_to = "Amount_of_dose")
+
+#plotting
+size = 0.8
+
+cumsum_data_covid %>% 
+      ggplot2::ggplot() +
+      ggplot2::geom_line(aes(x = year_week, y = Amount_of_dose/3000, group = Dose, color = Dose),
+                         size = size) +
+      ggplot2::geom_line(aes(x = year_week, y = ICU, group=1, color = "ICU admissions"),
+                         show.legend = TRUE,
+                         size = size) +
+      ggplot2::geom_line(aes(x = year_week, y = hospital, group=1, color = "Hospital admissions"),
+                         show.legend = TRUE,
+                         size = size) +
+      ggplot2::scale_color_manual(name= "Legend:", values = c("ICU admissions" = "Black",
+                                  "Hospital admissions"= "#7a7a7a",
+                                  "FirstDose"= "#7ad151",
+                                  "SecondDose"= "#414487"))+
+      ggplot2::scale_y_continuous(
+          name = "Positive COVID-19 tests",
+          sec.axis = ggplot2::sec_axis(~.*3000 , name = "Vaccine shots given")) +
+        ggplot2::scale_x_discrete(breaks = c("2020-W10", "2020-W14", "2020-W18","2020-W23","2020-W27","2020-W31","2020-W36","2020-W40","2020-W44","2020-W49","2020-W53","2021-W05","2021-W09","2021-W13","2021-W17","2021-W22", "2021-W26"), labels = c("Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"), name = "Month of the year") +
+      hrbrthemes::theme_ipsum() +
+      theme(axis.text.x = element_text(angle = 45)) 
+      
+        
+```
+
+In this plot it is seen that the weekly admission rate of the hospitals and ICU goes down as vaccinations start. And during the third wave (July 2021) the COVID-19 related hospital and ICU admissions is less compared to the occupancy before vaccination started. 
+
+```{r, results='hold'}
+#Show the three highest new case amounts. (new cases has duplicate value's because of dose column)
+cumsum_data_covid$new_cases %>% sort() %>% tail(n=6) 
+
+max_cases <- cumsum_data_covid %>% 
+  filter(Dose == "FirstDose", new_cases == 80594 | new_cases == 76154 | new_cases == 70155) %>%
+  dplyr::select(year_week, new_cases, hospital, ICU)
+```
+
+`r table_9("max_case")`
+
+```{r, echo=FALSE}
+kableExtra::kbl(max_cases) %>% 
+  kableExtra::kable_material(full_width = FALSE)
+```
+
+
+The three highest new case counts. Two from the peak during December 2020, and one from the peak during July 2021. The difference in hospital and ICU admissions is clear and could be attributed to the vaccinated population.
+
+
+

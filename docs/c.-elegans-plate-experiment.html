@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 C. elegans plate experiment | Portfolio</title>
+  <meta name="description" content="2 C. elegans plate experiment | Portfolio" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 C. elegans plate experiment | Portfolio" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 C. elegans plate experiment | Portfolio" />
+  
+  
+  
+
+<meta name="author" content="Lars de Groot" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="an-exercise-in-open-science.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Welcome</a></li>
+<li class="chapter" data-level="2" data-path="c.-elegans-plate-experiment.html"><a href="c.-elegans-plate-experiment.html"><i class="fa fa-check"></i><b>2</b> <em>C. elegans</em> plate experiment</a></li>
+<li class="chapter" data-level="3" data-path="an-exercise-in-open-science.html"><a href="an-exercise-in-open-science.html"><i class="fa fa-check"></i><b>3</b> An exercise in Open science</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="an-exercise-in-open-science.html"><a href="an-exercise-in-open-science.html#score"><i class="fa fa-check"></i><b>3.1</b> Score:</a></li>
+<li class="chapter" data-level="3.2" data-path="an-exercise-in-open-science.html"><a href="an-exercise-in-open-science.html#explanation"><i class="fa fa-check"></i><b>3.2</b> Explanation:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="an-exercise-in-reproducibility.html"><a href="an-exercise-in-reproducibility.html"><i class="fa fa-check"></i><b>4</b> An exercise in reproducibility</a></li>
+<li class="chapter" data-level="5" data-path="good-workflow-practices-guerrilla-analytics.html"><a href="good-workflow-practices-guerrilla-analytics.html"><i class="fa fa-check"></i><b>5</b> Good Workflow practices: Guerrilla analytics</a></li>
+<li class="chapter" data-level="6" data-path="learning-python.html"><a href="learning-python.html"><i class="fa fa-check"></i><b>6</b> Learning Python</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="learning-python.html"><a href="learning-python.html#rosalind-exercises"><i class="fa fa-check"></i><b>6.1</b> Rosalind exercises:</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="learning-python.html"><a href="learning-python.html#q1-counting-dna-nucleotides"><i class="fa fa-check"></i><b>6.1.1</b> Q1 Counting DNA nucleotides</a></li>
+<li class="chapter" data-level="6.1.2" data-path="learning-python.html"><a href="learning-python.html#q2-transcribing-dna-into-rna"><i class="fa fa-check"></i><b>6.1.2</b> Q2 Transcribing DNA into RNA</a></li>
+<li class="chapter" data-level="6.1.3" data-path="learning-python.html"><a href="learning-python.html#q3-complementing-a-strand-of-dna"><i class="fa fa-check"></i><b>6.1.3</b> Q3 Complementing a Strand of DNA</a></li>
+<li class="chapter" data-level="6.1.4" data-path="learning-python.html"><a href="learning-python.html#q4-rabbits-and-recurrence-relations"><i class="fa fa-check"></i><b>6.1.4</b> Q4 : Rabbits and Recurrence Relations</a></li>
+<li class="chapter" data-level="6.1.5" data-path="learning-python.html"><a href="learning-python.html#q5-computing-gc-content"><i class="fa fa-check"></i><b>6.1.5</b> Q5: Computing GC Content</a></li>
+<li class="chapter" data-level="6.1.6" data-path="learning-python.html"><a href="learning-python.html#q6-counting-point-mutations"><i class="fa fa-check"></i><b>6.1.6</b> Q6: Counting point mutations</a></li>
+<li class="chapter" data-level="6.1.7" data-path="learning-python.html"><a href="learning-python.html#q7-mendels-first-law"><i class="fa fa-check"></i><b>6.1.7</b> Q7 Mendels first law</a></li>
+<li class="chapter" data-level="6.1.8" data-path="learning-python.html"><a href="learning-python.html#q8-translating-rna-into-protein"><i class="fa fa-check"></i><b>6.1.8</b> Q8: Translating RNA into Protein</a></li>
+<li class="chapter" data-level="6.1.9" data-path="learning-python.html"><a href="learning-python.html#q9-finding-a-motif-in-dna"><i class="fa fa-check"></i><b>6.1.9</b> Q9: Finding a Motif in DNA</a></li>
+<li class="chapter" data-level="6.1.10" data-path="learning-python.html"><a href="learning-python.html#q10-consensus-and-profile"><i class="fa fa-check"></i><b>6.1.10</b> Q10: Consensus and Profile</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html"><i class="fa fa-check"></i><b>7</b> Influenza activity across europe</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#loading-and-colapsing-data"><i class="fa fa-check"></i><b>7.1</b> Loading and colapsing data</a></li>
+<li class="chapter" data-level="7.2" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#storing-new-dataframes"><i class="fa fa-check"></i><b>7.2</b> Storing new dataframes</a></li>
+<li class="chapter" data-level="7.3" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#joining-dataset"><i class="fa fa-check"></i><b>7.3</b> Joining dataset</a></li>
+<li class="chapter" data-level="7.4" data-path="influenza-activity-across-europe.html"><a href="influenza-activity-across-europe.html#visualizing-data"><i class="fa fa-check"></i><b>7.4</b> Visualizing data</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="influenzadata-package.html"><a href="influenzadata-package.html"><i class="fa fa-check"></i><b>8</b> InfluenzaData package</a></li>
+<li class="chapter" data-level="9" data-path="the-effect-of-vaccinations.html"><a href="the-effect-of-vaccinations.html"><i class="fa fa-check"></i><b>9</b> The effect of vaccinations</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="the-effect-of-vaccinations.html"><a href="the-effect-of-vaccinations.html#trimming-joining-dataframes"><i class="fa fa-check"></i><b>9.1</b> Trimming &amp; Joining dataframes</a></li>
+<li class="chapter" data-level="9.2" data-path="the-effect-of-vaccinations.html"><a href="the-effect-of-vaccinations.html#visualization"><i class="fa fa-check"></i><b>9.2</b> Visualization</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Portfolio</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="c.-elegans-plate-experiment" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> <em>C. elegans</em> plate experiment</h1>
+<p>The data used in this report comes from a experiment where <em>C. elegans</em> was exposed to varying concentrations of three different compounds: 2,6-diisopropylnaphthalene, decane and naphthalene. After an incubation period the number of offspring where counted.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="c.-elegans-plate-experiment.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># 1.3.1</span></span>
+<span id="cb2-2"><a href="c.-elegans-plate-experiment.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl) <span class="co">#1.3.1</span></span>
+<span id="cb2-3"><a href="c.-elegans-plate-experiment.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here) <span class="co">#1.0.1</span></span>
+<span id="cb2-4"><a href="c.-elegans-plate-experiment.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(drc) <span class="co">#3.0-1</span></span>
+<span id="cb2-5"><a href="c.-elegans-plate-experiment.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr) <span class="co">#1.33</span></span>
+<span id="cb2-6"><a href="c.-elegans-plate-experiment.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr) <span class="co"># 0.4.0</span></span>
+<span id="cb2-7"><a href="c.-elegans-plate-experiment.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(captioner) <span class="co">#2.2.3.900</span></span>
+<span id="cb2-8"><a href="c.-elegans-plate-experiment.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra) <span class="co">#1.3.4</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="c.-elegans-plate-experiment.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#first excel sheet is read</span></span>
+<span id="cb3-2"><a href="c.-elegans-plate-experiment.html#cb3-2" aria-hidden="true" tabindex="-1"></a>ce_data <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="fu">here</span>(<span class="st">&quot;data/CE.LIQ.FLOW.062_Tidydata.xlsx&quot;</span>))</span>
+<span id="cb3-3"><a href="c.-elegans-plate-experiment.html#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(ce_data)</span></code></pre></div>
+<pre><code>##  [1] &quot;plateRow&quot;            &quot;plateColumn&quot;         &quot;vialNr&quot;              &quot;dropCode&quot;           
+##  [5] &quot;expType&quot;             &quot;expReplicate&quot;        &quot;expName&quot;             &quot;expDate&quot;            
+##  [9] &quot;expResearcher&quot;       &quot;expTime&quot;             &quot;expUnit&quot;             &quot;expVolumeCounted&quot;   
+## [13] &quot;RawData&quot;             &quot;compCASRN&quot;           &quot;compName&quot;            &quot;compConcentration&quot;  
+## [17] &quot;compUnit&quot;            &quot;compDelivery&quot;        &quot;compVehicle&quot;         &quot;elegansStrain&quot;      
+## [21] &quot;elegansInput&quot;        &quot;bacterialStrain&quot;     &quot;bacterialTreatment&quot;  &quot;bacterialOD600&quot;     
+## [25] &quot;bacterialConcX&quot;      &quot;bacterialVolume&quot;     &quot;bacterialVolUnit&quot;    &quot;incubationVial&quot;     
+## [29] &quot;incubationVolume&quot;    &quot;incubationUnit&quot;      &quot;incubationMethod&quot;    &quot;incubationRPM&quot;      
+## [33] &quot;bubble&quot;              &quot;incubateTemperature&quot;</code></pre>
+<p>The Excel file contains a lot of data not necessary for this report. The variable used in this report are:</p>
+<ul>
+<li>expType: Experiment type</li>
+<li>RawData: Number of offspring</li>
+<li>compName: Compound name</li>
+<li>compConcentration: Compound concentration</li>
+<li>compUnit: Unit of measurement</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="c.-elegans-plate-experiment.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#getting rid of unnecessary columns</span></span>
+<span id="cb5-2"><a href="c.-elegans-plate-experiment.html#cb5-2" aria-hidden="true" tabindex="-1"></a>ce_data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(ce_data, <span class="fu">c</span>(<span class="st">&quot;expType&quot;</span>, <span class="st">&quot;RawData&quot;</span>, <span class="st">&quot;compName&quot;</span>, <span class="st">&quot;compConcentration&quot;</span>, <span class="st">&quot;compUnit&quot;</span>))</span></code></pre></div>
+<p>Table 1: the first 10 rows of the trimmed <em>C. elegans</em> data</p>
+<table class=" lightable-classic" style="font-family: &quot;Arial Narrow&quot;, &quot;Source Sans Pro&quot;, sans-serif; width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+expType
+</th>
+<th style="text-align:right;">
+RawData
+</th>
+<th style="text-align:left;">
+compName
+</th>
+<th style="text-align:left;">
+compConcentration
+</th>
+<th style="text-align:left;">
+compUnit
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+experiment
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:left;">
+2,6-diisopropylnaphthalene
+</td>
+<td style="text-align:left;">
+4.99
+</td>
+<td style="text-align:left;">
+nM
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+experiment
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:left;">
+2,6-diisopropylnaphthalene
+</td>
+<td style="text-align:left;">
+4.99
+</td>
+<td style="text-align:left;">
+nM
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+experiment
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:left;">
+2,6-diisopropylnaphthalene
+</td>
+<td style="text-align:left;">
+4.99
+</td>
+<td style="text-align:left;">
+nM
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+experiment
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:left;">
+2,6-diisopropylnaphthalene
+</td>
+<td style="text-align:left;">
+4.99
+</td>
+<td style="text-align:left;">
+nM
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+experiment
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+2,6-diisopropylnaphthalene
+</td>
+<td style="text-align:left;">
+4.99
+</td>
+<td style="text-align:left;">
+nM
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+experiment
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:left;">
+2,6-diisopropylnaphthalene
+</td>
+<td style="text-align:left;">
+4.99
+</td>
+<td style="text-align:left;">
+nM
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+experiment
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:left;">
+2,6-diisopropylnaphthalene
+</td>
+<td style="text-align:left;">
+4.99
+</td>
+<td style="text-align:left;">
+nM
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+experiment
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:left;">
+2,6-diisopropylnaphthalene
+</td>
+<td style="text-align:left;">
+4.99
+</td>
+<td style="text-align:left;">
+nM
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+experiment
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:left;">
+2,6-diisopropylnaphthalene
+</td>
+<td style="text-align:left;">
+4.99
+</td>
+<td style="text-align:left;">
+nM
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+experiment
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:left;">
+2,6-diisopropylnaphthalene
+</td>
+<td style="text-align:left;">
+4.99
+</td>
+<td style="text-align:left;">
+nM
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="c.-elegans-plate-experiment.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Certain columns where missclassed by read_xlsx(), correcting:</span></span>
+<span id="cb6-2"><a href="c.-elegans-plate-experiment.html#cb6-2" aria-hidden="true" tabindex="-1"></a>ce_data<span class="sc">$</span>compConcentration <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(ce_data<span class="sc">$</span>compConcentration)</span>
+<span id="cb6-3"><a href="c.-elegans-plate-experiment.html#cb6-3" aria-hidden="true" tabindex="-1"></a>ce_data<span class="sc">$</span>compName <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(ce_data<span class="sc">$</span>compName)</span></code></pre></div>
+<p>The compound were tested at different concentration gradients per compound. A decrease in offspring count can be seen with the increase of each compounds concentration</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="c.-elegans-plate-experiment.html#cb7-1" aria-hidden="true" tabindex="-1"></a>iso <span class="ot">&lt;-</span> ce_data <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="c.-elegans-plate-experiment.html#cb7-2" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">filter</span>(compName <span class="sc">==</span> <span class="st">&quot;2,6-diisopropylnaphthalene&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="c.-elegans-plate-experiment.html#cb7-3" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="c.-elegans-plate-experiment.html#cb7-4" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-5"><a href="c.-elegans-plate-experiment.html#cb7-5" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-6"><a href="c.-elegans-plate-experiment.html#cb7-6" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Compand concentration in nM&quot;</span>,</span>
+<span id="cb7-7"><a href="c.-elegans-plate-experiment.html#cb7-7" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="st">&quot;Number of offspring&quot;</span>,</span>
+<span id="cb7-8"><a href="c.-elegans-plate-experiment.html#cb7-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">title =</span> <span class="st">&quot;2,6-diisopropylnaphthalene&quot;</span>)</span>
+<span id="cb7-9"><a href="c.-elegans-plate-experiment.html#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="c.-elegans-plate-experiment.html#cb7-10" aria-hidden="true" tabindex="-1"></a>decane <span class="ot">&lt;-</span> ce_data <span class="sc">%&gt;%</span> </span>
+<span id="cb7-11"><a href="c.-elegans-plate-experiment.html#cb7-11" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">filter</span>(compName <span class="sc">==</span> <span class="st">&quot;decane&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-12"><a href="c.-elegans-plate-experiment.html#cb7-12" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData)) <span class="sc">+</span></span>
+<span id="cb7-13"><a href="c.-elegans-plate-experiment.html#cb7-13" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-14"><a href="c.-elegans-plate-experiment.html#cb7-14" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-15"><a href="c.-elegans-plate-experiment.html#cb7-15" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Compand concentration in nM&quot;</span>,</span>
+<span id="cb7-16"><a href="c.-elegans-plate-experiment.html#cb7-16" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="st">&quot;Number of offspring&quot;</span>,</span>
+<span id="cb7-17"><a href="c.-elegans-plate-experiment.html#cb7-17" aria-hidden="true" tabindex="-1"></a>                      <span class="at">title =</span> <span class="st">&quot;Decane&quot;</span>)</span>
+<span id="cb7-18"><a href="c.-elegans-plate-experiment.html#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="c.-elegans-plate-experiment.html#cb7-19" aria-hidden="true" tabindex="-1"></a>naph <span class="ot">&lt;-</span> ce_data <span class="sc">%&gt;%</span> </span>
+<span id="cb7-20"><a href="c.-elegans-plate-experiment.html#cb7-20" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">filter</span>(compName <span class="sc">==</span> <span class="st">&quot;naphthalene&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-21"><a href="c.-elegans-plate-experiment.html#cb7-21" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData)) <span class="sc">+</span></span>
+<span id="cb7-22"><a href="c.-elegans-plate-experiment.html#cb7-22" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-23"><a href="c.-elegans-plate-experiment.html#cb7-23" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>) <span class="sc">+</span></span>
+<span id="cb7-24"><a href="c.-elegans-plate-experiment.html#cb7-24" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Compand concentration in nM&quot;</span>,</span>
+<span id="cb7-25"><a href="c.-elegans-plate-experiment.html#cb7-25" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="st">&quot;Number of offspring&quot;</span>,</span>
+<span id="cb7-26"><a href="c.-elegans-plate-experiment.html#cb7-26" aria-hidden="true" tabindex="-1"></a>                      <span class="at">title =</span> <span class="st">&quot;Naphthalene&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="c.-elegans-plate-experiment.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(iso, decane, naph)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Figure 1: The effect of the compounds on the number of <em>C. elegans</em> offspring.</p>
+<p>However the experiment was designed with the creation of a dose-response curve in mind. So the compound concentration is on a logarithmic scale.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="c.-elegans-plate-experiment.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#removed geom_smooth linear method</span></span>
+<span id="cb9-2"><a href="c.-elegans-plate-experiment.html#cb9-2" aria-hidden="true" tabindex="-1"></a>iso <span class="ot">&lt;-</span> ce_data <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="c.-elegans-plate-experiment.html#cb9-3" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">filter</span>(compName <span class="sc">==</span> <span class="st">&quot;2,6-diisopropylnaphthalene&quot;</span> <span class="sc">|</span> compName <span class="sc">==</span> <span class="st">&quot;S-medium&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="c.-elegans-plate-experiment.html#cb9-4" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData)) <span class="sc">+</span></span>
+<span id="cb9-5"><a href="c.-elegans-plate-experiment.html#cb9-5" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="c.-elegans-plate-experiment.html#cb9-6" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb9-7"><a href="c.-elegans-plate-experiment.html#cb9-7" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Compand concentration in nM&quot;</span>,</span>
+<span id="cb9-8"><a href="c.-elegans-plate-experiment.html#cb9-8" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="st">&quot;Number of offspring&quot;</span>,</span>
+<span id="cb9-9"><a href="c.-elegans-plate-experiment.html#cb9-9" aria-hidden="true" tabindex="-1"></a>                      <span class="at">title =</span> <span class="st">&quot;2,6-diisopropylnaphthalene&quot;</span>)</span>
+<span id="cb9-10"><a href="c.-elegans-plate-experiment.html#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="c.-elegans-plate-experiment.html#cb9-11" aria-hidden="true" tabindex="-1"></a>decane <span class="ot">&lt;-</span> ce_data <span class="sc">%&gt;%</span> </span>
+<span id="cb9-12"><a href="c.-elegans-plate-experiment.html#cb9-12" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">filter</span>(compName <span class="sc">==</span> <span class="st">&quot;decane&quot;</span> <span class="sc">|</span> compName <span class="sc">==</span> <span class="st">&quot;S-medium&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a href="c.-elegans-plate-experiment.html#cb9-13" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData)) <span class="sc">+</span></span>
+<span id="cb9-14"><a href="c.-elegans-plate-experiment.html#cb9-14" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb9-15"><a href="c.-elegans-plate-experiment.html#cb9-15" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb9-16"><a href="c.-elegans-plate-experiment.html#cb9-16" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Compand concentration in nM&quot;</span>,</span>
+<span id="cb9-17"><a href="c.-elegans-plate-experiment.html#cb9-17" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="st">&quot;Number of offspring&quot;</span>,</span>
+<span id="cb9-18"><a href="c.-elegans-plate-experiment.html#cb9-18" aria-hidden="true" tabindex="-1"></a>                      <span class="at">title =</span> <span class="st">&quot;Decane&quot;</span>)</span>
+<span id="cb9-19"><a href="c.-elegans-plate-experiment.html#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="c.-elegans-plate-experiment.html#cb9-20" aria-hidden="true" tabindex="-1"></a>naph <span class="ot">&lt;-</span> ce_data <span class="sc">%&gt;%</span> </span>
+<span id="cb9-21"><a href="c.-elegans-plate-experiment.html#cb9-21" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">filter</span>(compName <span class="sc">==</span> <span class="st">&quot;naphthalene&quot;</span> <span class="sc">|</span> compName <span class="sc">==</span> <span class="st">&quot;S-medium&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-22"><a href="c.-elegans-plate-experiment.html#cb9-22" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> compConcentration, <span class="at">y =</span> RawData)) <span class="sc">+</span></span>
+<span id="cb9-23"><a href="c.-elegans-plate-experiment.html#cb9-23" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb9-24"><a href="c.-elegans-plate-experiment.html#cb9-24" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb9-25"><a href="c.-elegans-plate-experiment.html#cb9-25" aria-hidden="true" tabindex="-1"></a>        ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Compand concentration in nM&quot;</span>,</span>
+<span id="cb9-26"><a href="c.-elegans-plate-experiment.html#cb9-26" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="st">&quot;Number of offspring&quot;</span>,</span>
+<span id="cb9-27"><a href="c.-elegans-plate-experiment.html#cb9-27" aria-hidden="true" tabindex="-1"></a>                      <span class="at">title =</span> <span class="st">&quot;Naphthalene&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="c.-elegans-plate-experiment.html#cb10-1" aria-hidden="true" tabindex="-1"></a>iso <span class="sc">+</span> ggplot2<span class="sc">::</span><span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+Figure 2: The effect of 2,6-diisopropylnaphthalene on the number of offspring of <em>C. elegans</em>. The X-axis is logmarithmicly scaled</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="c.-elegans-plate-experiment.html#cb11-1" aria-hidden="true" tabindex="-1"></a>decane <span class="sc">+</span> ggplot2<span class="sc">::</span><span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+Figure 3: The effect of decane on the number of offspring of <em>C. elegans</em>. The X-axis is logmarithmicly scaled</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="c.-elegans-plate-experiment.html#cb12-1" aria-hidden="true" tabindex="-1"></a>naph <span class="sc">+</span> ggplot2<span class="sc">::</span><span class="fu">scale_x_log10</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+Figure 4: The effect of naphthalene on the number of offspring of <em>C. elegans</em>. The X-axis is logmarithmicly scaled</p>
+<p>Figure 2, Figure 3 and Figure 4 are supposed to resemble dose response curves, however geom_smooth method of applying a curve to the data points isn’t meant for creating a dose response curve. A package which is meant for this is <a href="https://cran.r-project.org/web/packages/drc/index.html">{drc}</a>.</p>
+<p>The model to be fitted to the response data will be a four parameter log-logistic function, abbreviated to LL.4 in {drc}. this means that 1 out of the five parameters are pre-set, which are f = 1.
+Normally LL.3 would be used where c is set to 0, because the response data is discrete (number of offspring). However this doesn’t produce a good fit, because there are no datapoints where the number of offspring is actually zero.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="c.-elegans-plate-experiment.html#cb13-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">&quot;images/LL4.jpg&quot;</span>))</span></code></pre></div>
+<p><img src="images/LL4.jpg" /><!-- --></p>
+<p>Figure 5: Formula for LL.4. f = model function, b = steepness of curve, c = lower limit of the response, d = upper limit of the response and e = ED50. <span class="citation">(<a href="#ref-Ritz2015" role="doc-biblioref">Ritz et al. 2015, 4</a>)</span></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="c.-elegans-plate-experiment.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fitting a dose response model on the data</span></span>
+<span id="cb14-2"><a href="c.-elegans-plate-experiment.html#cb14-2" aria-hidden="true" tabindex="-1"></a>drc_iso <span class="ot">&lt;-</span> drc<span class="sc">::</span><span class="fu">drm</span>(RawData <span class="sc">~</span> compConcentration,</span>
+<span id="cb14-3"><a href="c.-elegans-plate-experiment.html#cb14-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(ce_data, compName <span class="sc">==</span> <span class="st">&quot;2,6-diisopropylnaphthalene&quot;</span> <span class="sc">|</span> compName <span class="sc">==</span> <span class="st">&quot;S-medium&quot;</span>),</span>
+<span id="cb14-4"><a href="c.-elegans-plate-experiment.html#cb14-4" aria-hidden="true" tabindex="-1"></a>                    <span class="at">fct =</span> <span class="fu">LL.4</span>())</span>
+<span id="cb14-5"><a href="c.-elegans-plate-experiment.html#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="c.-elegans-plate-experiment.html#cb14-6" aria-hidden="true" tabindex="-1"></a>drc_decane <span class="ot">&lt;-</span> drc<span class="sc">::</span><span class="fu">drm</span>(RawData <span class="sc">~</span> compConcentration,</span>
+<span id="cb14-7"><a href="c.-elegans-plate-experiment.html#cb14-7" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(ce_data, compName <span class="sc">==</span> <span class="st">&quot;decane&quot;</span><span class="sc">|</span> compName <span class="sc">==</span> <span class="st">&quot;S-medium&quot;</span>),</span>
+<span id="cb14-8"><a href="c.-elegans-plate-experiment.html#cb14-8" aria-hidden="true" tabindex="-1"></a>                    <span class="at">fct =</span> <span class="fu">LL.4</span>()) </span>
+<span id="cb14-9"><a href="c.-elegans-plate-experiment.html#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="c.-elegans-plate-experiment.html#cb14-10" aria-hidden="true" tabindex="-1"></a>drc_naph <span class="ot">&lt;-</span> drc<span class="sc">::</span><span class="fu">drm</span>(RawData <span class="sc">~</span> compConcentration,</span>
+<span id="cb14-11"><a href="c.-elegans-plate-experiment.html#cb14-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(ce_data, compName <span class="sc">==</span> <span class="st">&quot;naphthalene&quot;</span><span class="sc">|</span> compName <span class="sc">==</span> <span class="st">&quot;S-medium&quot;</span>),</span>
+<span id="cb14-12"><a href="c.-elegans-plate-experiment.html#cb14-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">fct =</span> <span class="fu">LL.4</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="c.-elegans-plate-experiment.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(drc_iso, <span class="at">type =</span> <span class="st">&quot;all&quot;</span>, </span>
+<span id="cb15-2"><a href="c.-elegans-plate-experiment.html#cb15-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;2,6-diisopropylnaphthalene concentration in nM&quot;</span>,</span>
+<span id="cb15-3"><a href="c.-elegans-plate-experiment.html#cb15-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;number of offspring&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/show%20DR%20curves-1.png" width="672" /></p>
+<p>Figure 6: The dose response curve of 2,6-diisopropylnaphthalene on the number of offspring of C. elegans. A decrease in number of offspring in <strong>C. elegans</strong> after incubation with 2,6-diisopropylnaphthalene is seen. However the curve is not steep.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="c.-elegans-plate-experiment.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(drc_decane, <span class="at">type =</span> <span class="st">&quot;all&quot;</span>,</span>
+<span id="cb16-2"><a href="c.-elegans-plate-experiment.html#cb16-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;decane concentration in nM&quot;</span>,</span>
+<span id="cb16-3"><a href="c.-elegans-plate-experiment.html#cb16-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;number of offspring&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>Figure 7: The dose response curve of decane on the number of offspring of C. elegans. Decane has a negative effect on the number of offspring of C. elegans which seems to start around a decane concentration of 4.99e-02. The curve is also very steep.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="c.-elegans-plate-experiment.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(drc_naph, <span class="at">type =</span> <span class="st">&quot;all&quot;</span>, </span>
+<span id="cb17-2"><a href="c.-elegans-plate-experiment.html#cb17-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;naphthalene concentration in nM&quot;</span>,</span>
+<span id="cb17-3"><a href="c.-elegans-plate-experiment.html#cb17-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;number of offspring&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p>Figure 8: The dose response curve of naphthalene on the number of offspring of C. elegans. Decane has a negative effect on the number of offspring of C. elegans which seems to start around a naphthalene concentration of 4.99e-01. The curve is also very steep.</p>
+
+</div>
+<h3>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Ritz2015" class="csl-entry">
+Ritz, Christian, Florent Baty, Jens C Streibig, and Daniel Gerhard. 2015. <span>“Dose-Response Analysis Using r.”</span> <a href="https://doi.org/10.1371/journal.pone.0146021">https://doi.org/10.1371/journal.pone.0146021</a>.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="an-exercise-in-open-science.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
