@@ -38,13 +38,13 @@ amount_factor <- function(x){
 }
 
 #looks which element of a vector 2 vectors have in common
-common <- function(x, pattern1, pattern2){
+common <- function(x, pattern){
   #takes first element of x
   itterations <- seq(from = 1, to =  length(x))
   commons <- c()
 
   for (i in itterations){
-    y <- str_detect(x[i], pattern1)
+    y <- str_detect(x[i], pattern)
     if (TRUE == (TRUE %in% y)){
       commons <- append(commons, x[i])
     }
@@ -100,10 +100,6 @@ format_version <- function(packages){
 
 }
 
-pack <- c("tidyverse", "dplyr", "here")
-version(packages = pack)
-
-
 capture_package_name <- function(string){
   str <- strsplit(string, "library")
 
@@ -129,21 +125,4 @@ capture_package_name <- function(string){
   return(package_names)
 }
 
-capture_package_name("library(tidyverse) # 1.3.1
-library(readxl) #1.3.1
-library(here) #1.0.1
-library(drc) #3.0-1
-library(knitr) #1.33
-library(ggpubr) # 0.4.0
-library(captioner) #2.2.3.900
-library(kableExtra) #1.3.4")
 
-
-format_version(capture_package_name("library(tidyverse) # 1.3.1
-library(readxl) #1.3.1
-library(here) #1.0.1
-library(drc) #3.0-1
-library(knitr) #1.33
-library(ggpubr) # 0.4.0
-library(captioner) #2.2.3.900
-library(kableExtra) #1.3.4"))

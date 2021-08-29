@@ -3,8 +3,8 @@
 in January of 2020 the first covid-19 cases where confirmed in Wuhan, Hubei, China. The SARS-COV-19 virus then continued to spread across the world. By now we have all lived through the effects of the SARS-COV-19. However with vaccinations programs now gaining speed in America, European countries, most of Asia-Pacific and starting in Africa, the SARS-COV-19 Pandemic seems to be coming to an end. In this report i want to show the effect of vaccination programs, and highlight certain events and their effect on the spread of SARS-COV-19. 
 
 ```{r, results= FALSE}
-require(tidyverse)
-require(readxl)
+library(tidyverse)
+library(readxl)
 library(utils)
 library(kableExtra)
 library(captioner)

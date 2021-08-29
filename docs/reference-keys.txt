@@ -26,7 +26,7 @@ loading-and-colapsing-data
 storing-new-dataframes
 joining-dataset
 visualizing-data
-influenzadata-package
+rmdutil-package
 the-effect-of-vaccinations
 trimming-joining-dataframes
 visualization

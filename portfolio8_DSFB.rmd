@@ -1,4 +1,3 @@
-# InfluenzaData package
-
-I've used the RMD for portfolio exercise 7 to create a package. 
-the github can be found [here](https://github.com/Larsdegroot/influenzaData)
+# RMDutil package
+ 
+i have made an R package called RMDutil. it's nothing much accept a few custom functions that i often use. Two of which i feel can be useful to almost anyone writing RMD documents. The functions `capture_package_name()` and `format_version()`, which enable the user to format a typical code chunk that load package with their respective version numbers. The github can be found [here](https://github.com/Larsdegroot/influenzaData)
