@@ -4,11 +4,7 @@ I'm aspiring to become an bioinformatician. This is because i've found the act o
 
 Bioinformatics as a field is quite diverse in a way that what one bioinformatician does, could be different from what an other bioinformatician does. There are lots of different software tools you need to learn depending on which subject within biology you are working with. However i have found that most bioinformaticians use a combination of R and Python for most of their work. 
 
-<div style= "float:right;position:">
-```{r, echo=FALSE, out.width= "150px"}
-knitr::include_graphics(path = "https://images-na.ssl-images-amazon.com/images/I/51yWKSfOcfS._SX379_BO1,204,203,200_.jpg")
-```
-</div>
+
 
 I've made a good start on R during my minor, but i dont have any experience with Python.
 To start to learn Python i'm planning on going through the book [Think Python](https://greenteapress.com/wp/think-python/) by Allen B. Downey. I'ts very important to gain experience when learning a new programming language, and Think Python has exercises to play with. However these are not focused on bioinformatics. To gain experience with python for bioinformatics i want to go over [Rosalind](http://rosalind.info/about/) exercises. Rosalind is a website that has various coding problems that you could encounter as an bioinformatician, so it's a great way to apply what i've learned in python to bioinformatic problems.  

@@ -468,7 +468,7 @@ nM
 <span id="cb7-25"><a href="c.-elegans-plate-experiment.html#cb7-25" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="st">&quot;Number of offspring&quot;</span>,</span>
 <span id="cb7-26"><a href="c.-elegans-plate-experiment.html#cb7-26" aria-hidden="true" tabindex="-1"></a>                      <span class="at">title =</span> <span class="st">&quot;Naphthalene&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="c.-elegans-plate-experiment.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(iso, decane, naph)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Figure 1: The effect of the compounds on the number of <em>C. elegans</em> offspring.</p>
 <p>However the experiment was designed with the creation of a dose-response curve in mind. So the compound concentration is on a logarithmic scale.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="c.-elegans-plate-experiment.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#removed geom_smooth linear method</span></span>
@@ -499,13 +499,13 @@ nM
 <span id="cb9-26"><a href="c.-elegans-plate-experiment.html#cb9-26" aria-hidden="true" tabindex="-1"></a>                      <span class="at">y =</span> <span class="st">&quot;Number of offspring&quot;</span>,</span>
 <span id="cb9-27"><a href="c.-elegans-plate-experiment.html#cb9-27" aria-hidden="true" tabindex="-1"></a>                      <span class="at">title =</span> <span class="st">&quot;Naphthalene&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="c.-elegans-plate-experiment.html#cb10-1" aria-hidden="true" tabindex="-1"></a>iso <span class="sc">+</span> ggplot2<span class="sc">::</span><span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<p><img src="_main_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 Figure 2: The effect of 2,6-diisopropylnaphthalene on the number of offspring of <em>C. elegans</em>. The X-axis is logmarithmicly scaled</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="c.-elegans-plate-experiment.html#cb11-1" aria-hidden="true" tabindex="-1"></a>decane <span class="sc">+</span> ggplot2<span class="sc">::</span><span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 Figure 3: The effect of decane on the number of offspring of <em>C. elegans</em>. The X-axis is logmarithmicly scaled</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="c.-elegans-plate-experiment.html#cb12-1" aria-hidden="true" tabindex="-1"></a>naph <span class="sc">+</span> ggplot2<span class="sc">::</span><span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 Figure 4: The effect of naphthalene on the number of offspring of <em>C. elegans</em>. The X-axis is logmarithmicly scaled</p>
 <p>Figure 2, Figure 3 and Figure 4 are supposed to resemble dose response curves, however geom_smooth method of applying a curve to the data points isn’t meant for creating a dose response curve. A package which is meant for this is <a href="https://cran.r-project.org/web/packages/drc/index.html">{drc}</a>.</p>
 <p>The model to be fitted to the response data will be a four parameter log-logistic function, abbreviated to LL.4 in {drc}. this means that 1 out of the five parameters are pre-set, which are f = 1.
@@ -533,12 +533,12 @@ Normally LL.3 would be used where c is set to 0, because the response data is di
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="c.-elegans-plate-experiment.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(drc_decane, <span class="at">type =</span> <span class="st">&quot;all&quot;</span>,</span>
 <span id="cb16-2"><a href="c.-elegans-plate-experiment.html#cb16-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;decane concentration in nM&quot;</span>,</span>
 <span id="cb16-3"><a href="c.-elegans-plate-experiment.html#cb16-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;number of offspring&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>Figure 7: The dose response curve of decane on the number of offspring of C. elegans. Decane has a negative effect on the number of offspring of C. elegans which seems to start around a decane concentration of 4.99e-02. The curve is also very steep.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="c.-elegans-plate-experiment.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(drc_naph, <span class="at">type =</span> <span class="st">&quot;all&quot;</span>, </span>
 <span id="cb17-2"><a href="c.-elegans-plate-experiment.html#cb17-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;naphthalene concentration in nM&quot;</span>,</span>
 <span id="cb17-3"><a href="c.-elegans-plate-experiment.html#cb17-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;number of offspring&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p>Figure 8: The dose response curve of naphthalene on the number of offspring of C. elegans. Decane has a negative effect on the number of offspring of C. elegans which seems to start around a naphthalene concentration of 4.99e-01. The curve is also very steep.</p>
 
 </div>

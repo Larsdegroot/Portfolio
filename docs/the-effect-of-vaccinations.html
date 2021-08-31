@@ -383,10 +383,10 @@ Vaccinations
 <div id="visualization" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Visualization</h2>
 <p>Figure 1: Positive COVID-19 test (left Y-axis) and the cumaltive vaccine doses given (right Y-axis). In this plot it can be seen that during the “ramp up” of vaccine shots given (starting in march), positive COVID-19 cases went down. However it can also be seen that startig June the positive COVID-19 cases shot up, while the vaccinated population during this time was almost half the population.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-100-1.png" width="672" />
+<p><img src="_main_files/figure-html/unnamed-chunk-98-1.png" width="672" />
 The effect of vaccines can’t really be seen in this plot. That is not to say that there is no effect, the true effect of vaccination could only really be shown in a graph like this once group immunity start having effect. Which is why proper precautions are important before group immunity starts having effect. However the effect of vaccination <em>is</em> visible in the occupancy of hospitals and ICU.</p>
 <p>Figure 2: The effect of a vaccinated population on hospital and ICU admissions.it can be seen the the weekly hospital (x) and ICU addmissions (x) decrease while the vaccinated population increases.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
 <p>In this plot it is seen that the weekly admission rate of the hospitals and ICU goes down as vaccinations start. And during the third wave (July 2021) the COVID-19 related hospital and ICU admissions is less compared to the occupancy before vaccination started.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="the-effect-of-vaccinations.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Show the three highest new case amounts. (new cases has duplicate value&#39;s because of dose column)</span></span>
 <span id="cb112-2"><a href="the-effect-of-vaccinations.html#cb112-2" aria-hidden="true" tabindex="-1"></a>cumsum_data_covid<span class="sc">$</span>new_cases <span class="sc">%&gt;%</span> <span class="fu">sort</span>() <span class="sc">%&gt;%</span> <span class="fu">tail</span>(<span class="at">n=</span><span class="dv">6</span>) </span>
